@@ -21,8 +21,8 @@ class SbtLibraryJobBuilderSpec extends Specification {
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             builders.'hudson.tasks.Shell'.command.text().contains('sbt clean test publishSigned')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'
-            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportDir[0].text() == 'target/test-reports/html-report'
-            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportName[0].text() == 'HTML Report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportDir [0].text() == 'target/test-reports/html-report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportName [0].text() == 'HTML Report'
         }
     }
 }

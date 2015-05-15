@@ -15,20 +15,20 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     private final String name
     private final String repository
-    private boolean withoutJUnitReports = true
+    private boolean withJUnitReports = true
 
-    SbtLibraryJobBuilder(String name, String repository = 'hmrc/${name}') {
+    SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}") {
         this.name = name
         this.repository = repository
     }
 
     SbtLibraryJobBuilder withoutJUnitReports() {
-        this.withoutJUnitReports = false
+        this.withJUnitReports = false
         this
     }
 
     Job build(DslFactory dslFactory) {
-        List<Publisher> publishers = withoutJUnitReports ? asList(defaultHtmlReportsPublisher()) : asList(defaultHtmlReportsPublisher(), defaultJUnitReportsPublisher())
+        List<Publisher> publishers = withJUnitReports ? asList(defaultHtmlReportsPublisher(), defaultJUnitReportsPublisher()) : asList(defaultHtmlReportsPublisher())
 
         jobBuilders(name, repository).
                     withScmTriggers(gitHubScmTrigger()).
