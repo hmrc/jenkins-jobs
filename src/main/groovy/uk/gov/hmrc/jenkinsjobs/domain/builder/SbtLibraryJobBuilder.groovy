@@ -4,14 +4,13 @@ import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
-import uk.gov.hmrc.jenkinsjobbuilders.domain.step.Step
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubScmTrigger.gitHubScmTrigger
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilders
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
+import static uk.gov.hmrc.jenkinsjobs.domain.step.SbtShellSteps.sbtLibraryShellStep
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
 
@@ -36,9 +35,5 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
                     withScmTriggers(gitHubScmTrigger()).
                     withPublishers(publishers).
                     withSteps(sbtLibraryShellStep()).build(dslFactory)
-    }
-
-    private static Step sbtLibraryShellStep() {
-        shellStep("sbt clean test publishSigned")
     }
 }
