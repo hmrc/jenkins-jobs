@@ -9,5 +9,8 @@ new SbtLibraryJobBuilder('sbt-git-versioning').
 new SbtLibraryJobBuilder('time').
                          build(this as DslFactory)
 
+new SbtLibraryJobBuilder('sbt-bobby').
+                         build(this as DslFactory)
+                         
 new ListViewBuilder('mdtp').
                     withJobsRegex('releaser.*').build(this as DslFactory)
