@@ -10,7 +10,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubScmTrigger.gitHubS
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilders
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.step.SbtShellSteps.sbtLibraryShellStep
+import static uk.gov.hmrc.jenkinsjobs.domain.step.SbtShellSteps.cleanTestPublish
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
 
@@ -34,6 +34,6 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
         jobBuilders(name, repository).
                     withScmTriggers(gitHubScmTrigger()).
                     withPublishers(publishers).
-                    withSteps(sbtLibraryShellStep()).build(dslFactory)
+                    withSteps(cleanTestPublish()).build(dslFactory)
     }
 }

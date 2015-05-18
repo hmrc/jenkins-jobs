@@ -10,7 +10,7 @@ class SbtShellSteps {
 
     private ShellSteps() {}
 
-    static Step sbtLibraryShellStep() {
+    static Step cleanTestPublish() {
         shellStep("sbt clean test publishSigned")
     }
 }
