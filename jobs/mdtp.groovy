@@ -11,6 +11,9 @@ new SbtLibraryJobBuilder('time').
 
 new SbtLibraryJobBuilder('sbt-bobby').
                          build(this as DslFactory)
+
+new SbtLibraryJobBuilder('jenkins-job-builders').
+                         build(this as DslFactory)
                          
 new ListViewBuilder('mdtp').
                     withJobsRegex('releaser.*').build(this as DslFactory)
