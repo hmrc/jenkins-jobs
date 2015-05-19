@@ -1,5 +1,6 @@
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.ListViewBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 new SbtLibraryJobBuilder('sbt-git-versioning').
@@ -12,8 +13,8 @@ new SbtLibraryJobBuilder('time').
 new SbtLibraryJobBuilder('sbt-bobby').
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('jenkins-job-builders').
-                         build(this as DslFactory)
+new GradleLibraryJobBuilder('jenkins-job-builders').
+                            build(this as DslFactory)
                          
 new ListViewBuilder('mdtp').
                     withJobsRegex('releaser.*').build(this as DslFactory)
