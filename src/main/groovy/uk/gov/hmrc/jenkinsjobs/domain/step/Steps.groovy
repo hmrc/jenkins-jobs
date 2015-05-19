@@ -16,4 +16,13 @@ class Steps {
     static Step sbtCleanTestPublish() {
         shellStep("sbt clean test publishSigned")
     }
+
+    static Step createARelease() {
+        shellStep('if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar" ]; then\n' +
+                  '  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION\n' +
+                  '  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar https://bintray.com/artifact/download/hmrc/releases/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar\n' +
+                  'fi\n' +
+                  '\n' +
+                  'java -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar $ARTEFACT_NAME $RELEASE_CANDIDATE_VERSION $RELEASE_TYPE')
+    }
 }
