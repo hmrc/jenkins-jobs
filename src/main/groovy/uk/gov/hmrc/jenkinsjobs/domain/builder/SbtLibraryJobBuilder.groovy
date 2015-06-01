@@ -19,7 +19,7 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}") {
         jobBuilder = jobBuilder(name, repository).
-                                withPublishers(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('.*sbt git versioned as (.*)'))).
+                                withPublishers(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'))).
                                 withSteps(sbtCleanTestPublish())
     }
 
