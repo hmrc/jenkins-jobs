@@ -3,9 +3,10 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
+import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 
 import static java.util.Arrays.asList
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
@@ -13,13 +14,13 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
 
-    private final String name
-    private final String repository
     private boolean withJUnitReports = true
+    private JobBuilder jobBuilder
 
     SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}") {
-        this.name = name
-        this.repository = repository
+        jobBuilder = jobBuilder(name, repository).
+                                withPublishers(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('\\[info\\] sbt git versioned as (.*)'))).
+                                withSteps(sbtCleanTestPublish())
     }
 
     SbtLibraryJobBuilder withoutJUnitReports() {
@@ -28,10 +29,10 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     }
 
     Job build(DslFactory dslFactory) {
-        List<Publisher> publishers = withJUnitReports ? asList(defaultHtmlReportsPublisher(), defaultJUnitReportsPublisher()) : asList(defaultHtmlReportsPublisher())
+        if (withJUnitReports) {
+            jobBuilder = jobBuilder.withPublishers(defaultJUnitReportsPublisher())
+        }
 
-        jobBuilder(name, repository).
-                    withPublishers(publishers).
-                    withSteps(sbtCleanTestPublish()).build(dslFactory)
+        jobBuilder.build(dslFactory)
     }
 }
