@@ -103,6 +103,9 @@ new SbtLibraryJobBuilder('sbt-git-stamp').
 new SbtLibraryJobBuilder('sbt-utils').
                          withoutJUnitReports().
                          build(this as DslFactory)
+                         
+new SbtLibraryJobBuilder('ReactiveMongo').
+                         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('simple-reactivemongo').
                          build(this as DslFactory)
