@@ -17,7 +17,8 @@ final class JobBuilders {
     static JobBuilder jobBuilder(String name, String repository) {
         newJobBuilder(name).
                       withScm(gitHubComScm(repository, 'ce814d36-5570-4f1f-ad70-0a8333122be6')).
-                      withScmTriggers(pollScmTrigger("H/5 * * * *"))
+                      withScmTriggers(pollScmTrigger("H/5 * * * *")).
+                      withLabel('single-executor')
     }
 
     private static JobBuilder newJobBuilder(String name) {
