@@ -130,6 +130,9 @@ new SbtLibraryJobBuilder('play-authorisation').
 
 new SbtLibraryJobBuilder('order-id-encoder').
         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('mongo-lock').
+        build(this as DslFactory)
         
 jobBuilder('create-a-release').
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
