@@ -137,8 +137,7 @@ new SbtLibraryJobBuilder('mongo-lock').
 jobBuilder('create-a-release').
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
                           stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
-                          choiceParameter('RELEASE_TYPE', asList('MINOR', 'MAJOR', 'PATCH'), 'The type of release e.g. MINOR'),
-                          stringParameter('RELEASER_VERSION', '0.4.0', 'The version of Releaser e.g. 0.1.0')).
+                          choiceParameter('RELEASE_TYPE', asList('MINOR', 'MAJOR', 'PATCH'), 'The type of release e.g. MINOR').
            withSteps(createARelease()).
            withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
            build(this as DslFactory)
