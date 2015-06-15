@@ -18,7 +18,7 @@ class Steps {
     }
 
     static Step createARelease() {
-        shellStep('export RELEASER_VERSION=0.4.0' +
+        shellStep('export RELEASER_VERSION=0.4.0\n' +
                   'if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar" ]; then\n' +
                   '  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION\n' +
                   '  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar https://bintray.com/artifact/download/hmrc/releases/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar\n' +
