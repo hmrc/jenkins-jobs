@@ -3,18 +3,19 @@ package uk.gov.hmrc.jenkinsjobs.domain.step
 import uk.gov.hmrc.jenkinsjobbuilders.domain.step.Step
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.GradleStep.gradleStep
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.SbtStep.sbtStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 
 class Steps {
 
-    private ShellSteps() {}
+    private Steps() {}
 
     static Step gradleCleanTestPublish() {
         gradleStep('clean test bintrayUpload --info')
     }
 
     static Step sbtCleanTestPublish() {
-        shellStep("sbt clean test publishSigned")
+        sbtStep("sbt clean test publishSigned")
     }
 
     static Step createARelease() {
