@@ -4,6 +4,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
@@ -19,7 +20,6 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}") {
         jobBuilder = jobBuilder(name, repository).
-                                withPublishers(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'))).
                                 withSteps(sbtCleanTestPublish())
     }
 
@@ -29,10 +29,15 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     }
 
     Job build(DslFactory dslFactory) {
-        if (withJUnitReports) {
-            jobBuilder = jobBuilder.withPublishers(defaultJUnitReportsPublisher())
-        }
+        jobBuilder.withPublishers(publishers()).
+                   build(dslFactory)
+    }
 
-        jobBuilder.build(dslFactory)
+    private ArrayList<Publisher> publishers() {
+        List<Publisher> publishers = new ArrayList<>(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')))
+        if (withJUnitReports) {
+            publishers.add(defaultJUnitReportsPublisher())
+        }
+        publishers
     }
 }
