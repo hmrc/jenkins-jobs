@@ -15,7 +15,7 @@ class Steps {
     }
 
     static Step sbtCleanTestPublish() {
-        sbtStep("sbt clean test publishSigned")
+        sbtStep("clean test publishSigned")
     }
 
     static Step createARelease() {
