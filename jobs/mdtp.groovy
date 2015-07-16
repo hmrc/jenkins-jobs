@@ -129,6 +129,12 @@ new SbtLibraryJobBuilder('reference-checker').
 new SbtLibraryJobBuilder('accessibility-driver').
                          build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-events').
+                         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('attachments-client').
+                         build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
 
