@@ -88,6 +88,10 @@ new SbtLibraryJobBuilder('reactivemongo-json').
                          withoutJUnitReports().
                          build(this as DslFactory)
 
+new SbtLibraryJobBuilder('reactivemongo-test').
+                         withoutJUnitReports().
+                         build(this as DslFactory)                         
+
 new SbtLibraryJobBuilder('sbt-bintray-publish').
                          withoutJUnitReports().
                          build(this as DslFactory)
