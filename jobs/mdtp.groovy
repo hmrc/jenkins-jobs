@@ -115,6 +115,9 @@ new SbtLibraryJobBuilder('sbt-distributables').
 new SbtLibraryJobBuilder('secure').
                          build(this as DslFactory)
 
+new SbtLibraryJobBuilder('crypto').
+                         build(this as DslFactory)
+
 new SbtLibraryJobBuilder('ReactiveMongo').
                          build(this as DslFactory)
 
