@@ -84,6 +84,9 @@ new SbtLibraryJobBuilder('Play-Reactivemongo').
 new SbtLibraryJobBuilder('play-ui').
                          build(this as DslFactory)
 
+new SbtLibraryJobBuilder('govuk-template').
+                         build(this as DslFactory)
+
 new SbtLibraryJobBuilder('frontend-bootstrap').
                          build(this as DslFactory)
 
