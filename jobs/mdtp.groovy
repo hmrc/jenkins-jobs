@@ -166,6 +166,9 @@ new SbtLibraryJobBuilder('play-scheduling').
         
 new SbtLibraryJobBuilder('microservice-bootstrap').
         build(this as DslFactory)
+        
+new SbtLibraryJobBuilder('batch-updater').
+        build(this as DslFactory)
 
 jobBuilder('create-a-release').
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
