@@ -85,6 +85,7 @@ new SbtLibraryJobBuilder('play-ui').
                          build(this as DslFactory)
 
 new SbtLibraryJobBuilder('govuk-template').
+                         withoutJUnitReports().
                          build(this as DslFactory)
 
 new SbtLibraryJobBuilder('frontend-bootstrap').
