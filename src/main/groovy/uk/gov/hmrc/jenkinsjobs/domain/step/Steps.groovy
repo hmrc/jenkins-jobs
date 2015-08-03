@@ -18,6 +18,10 @@ class Steps {
         sbtStep("clean test publishSigned")
     }
 
+    static Step sbtCleanTestItTestPublish() {
+        sbtStep("clean test it:test publishSigned")
+    }
+
     static Step createARelease() {
         shellStep('export RELEASER_VERSION=0.4.0\n' +
                   'if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar" ]; then\n' +
