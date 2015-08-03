@@ -18,8 +18,8 @@ class Steps {
         sbtStep("clean test publishSigned")
     }
 
-    static Step sbtCleanTestItTestPublish() {
-        sbtStep("clean test it:test publishSigned")
+    static Step sbtCleanTestItTestDistPublish() {
+        sbtStep("clean test it:test dist-tgz publishSigned")
     }
 
     static Step createARelease() {

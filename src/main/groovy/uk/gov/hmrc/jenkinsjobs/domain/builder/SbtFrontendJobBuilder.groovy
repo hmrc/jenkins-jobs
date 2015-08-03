@@ -11,7 +11,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPu
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestPublish
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistPublish
 
 final class SbtFrontendJobBuilder implements Builder<Job> {
 
@@ -19,7 +19,7 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     SbtFrontendJobBuilder(String name, String repository = "hmrc/${name}") {
         jobBuilder = jobBuilder(name, repository).
-                                withSteps(sbtCleanTestItTestPublish())
+                                withSteps(sbtCleanTestItTestDistPublish())
     }
 
     Job build(DslFactory dslFactory) {
