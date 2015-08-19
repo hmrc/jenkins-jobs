@@ -173,7 +173,7 @@ new SbtLibraryJobBuilder('batch-updater').
         build(this as DslFactory)
 
 jobBuilder('create-a-release').
-        withWrappers(environmentVariablesWrapper([RELEASER_VERSION : '0.4.0'])).
+           withWrappers(environmentVariablesWrapper([RELEASER_VERSION : '0.4.0'])).
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
                           stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
                           choiceParameter('RELEASE_TYPE', asList('MINOR', 'MAJOR', 'PATCH'), 'The type of release e.g. MINOR')).
