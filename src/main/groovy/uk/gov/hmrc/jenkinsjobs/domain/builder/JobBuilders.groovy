@@ -28,8 +28,10 @@ final class JobBuilders {
     }
 
     private static jobEnvironmentVariables(Map<String, String> environmentVariables) {
-        [CLASSPATH: '${CLASSPATH}:/opt/sbt/bin',
-         JAVA_HOME: '/usr/lib/jvm/jdk1.8.0_40',
-         PATH: '$PATH:/usr/lib/jvm/jdk1.8.0_40/bin:/opt/sbt/bin'].putAll(environmentVariables)
+        Map<String, String> jobEnvironmentVariables = [CLASSPATH: '${CLASSPATH}:/opt/sbt/bin',
+                                                       JAVA_HOME: '/usr/lib/jvm/jdk1.8.0_40',
+                                                       PATH: '$PATH:/usr/lib/jvm/jdk1.8.0_40/bin:/opt/sbt/bin']
+        jobEnvironmentVariables.putAll(environmentVariables)
+        jobEnvironmentVariables
     }
 }

@@ -19,15 +19,15 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     SbtFrontendJobBuilder(String name, String repository = "hmrc/${name}") {
         jobBuilder = jobBuilder(name, repository).
-                                withSteps(sbtCleanTestItTestDistPublish())
+                                withSteps(sbtCleanTestItTestDistPublish()).
+                                withPublishers(publishers())
     }
 
     Job build(DslFactory dslFactory) {
-        jobBuilder.withPublishers(publishers()).
-                   build(dslFactory)
+        jobBuilder.build(dslFactory)
     }
 
-    private ArrayList<Publisher> publishers() {
+    private static ArrayList<Publisher> publishers() {
         List<Publisher> publishers = new ArrayList<>(asList(
             defaultHtmlReportsPublisher(), 
             buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'),
