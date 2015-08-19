@@ -23,12 +23,11 @@ class Steps {
     }
 
     static Step createARelease() {
-        shellStep('export RELEASER_VERSION=0.6.0\n' +
-                  'if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar" ]; then\n' +
-                  '  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION\n' +
-                  '  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar https://bintray.com/artifact/download/hmrc/releases/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar\n' +
-                  'fi\n' +
-                  '\n' +
-                  'java -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/$RELEASER_VERSION/releaser_2.11-$RELEASER_VERSION-assembly.jar $ARTEFACT_NAME $RELEASE_CANDIDATE_VERSION $RELEASE_TYPE')
+        shellStep("""|if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar" ]; then
+                     |  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION
+                     |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar
+                     |fi
+                     |java -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE
+                  """)
     }
 }
