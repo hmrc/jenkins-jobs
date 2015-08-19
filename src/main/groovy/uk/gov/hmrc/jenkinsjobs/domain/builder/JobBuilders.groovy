@@ -1,17 +1,18 @@
 package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.scm.Scm
 
+import static java.util.Collections.emptyMap
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubComScm.gitHubComScm
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.EnvironmentVariablesWrapper.environmentVariablesWrapper
 
 final class JobBuilders {
 
     private JobBuilders() {}
 
-    static JobBuilder jobBuilder(String name) {
-        newJobBuilder(name)
+    static JobBuilder jobBuilder(String name, Map<String, String> environmentVariables = emptyMap()) {
+        newJobBuilder(name, environmentVariables)
     }
 
     static JobBuilder jobBuilder(String name, String repository) {
@@ -21,7 +22,14 @@ final class JobBuilders {
                       withLabel('single-executor')
     }
 
-    private static JobBuilder newJobBuilder(String name) {
-        new JobBuilder(name, "${name} auto-configured job", 14, 10)
+    private static JobBuilder newJobBuilder(String name, Map<String, String> environmentVariables = emptyMap()) {
+        new JobBuilder(name, "${name} auto-configured job", 14, 10).
+                       withWrappers(environmentVariablesWrapper(jobEnvironmentVariables(environmentVariables)))
+    }
+
+    private static jobEnvironmentVariables(Map<String, String> environmentVariables) {
+        [CLASSPATH: '${CLASSPATH}:/opt/sbt/bin',
+         JAVA_HOME: '/usr/lib/jvm/jdk1.8.0_40',
+         PATH: '$PATH:/usr/lib/jvm/jdk1.8.0_40/bin:/opt/sbt/bin'].putAll(environmentVariables)
     }
 }
