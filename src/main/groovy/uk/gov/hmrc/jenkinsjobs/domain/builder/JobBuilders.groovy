@@ -1,15 +1,14 @@
 package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.EnvironmentVariable
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubComScm.gitHubComScm
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.PathEnvironmentVariable.pathEnvironmentVariable
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 
 final class JobBuilders {
 
@@ -17,7 +16,7 @@ final class JobBuilders {
 
     static JobBuilder jobBuilder(String name, JdkEnvironmentVariable jdkEnvironmentVariable = jdk8EnvironmentVariable()) {
         new JobBuilder(name, "${name} auto-configured job", 14, 10).
-                       withEnvironmentVariables(jobEnvironmentVariables(jdkEnvironmentVariable))
+                       withEnvironmentVariables(environmentVariables(jdkEnvironmentVariable))
     }
 
     static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdkEnvironmentVariable = jdk8EnvironmentVariable()) {
@@ -27,9 +26,7 @@ final class JobBuilders {
                    withLabel('single-executor')
     }
 
-    private static jobEnvironmentVariables(EnvironmentVariable ... environmentVariables) {
-        List<EnvironmentVariable> jobEnvironmentVariables = new ArrayList(asList(classpathEnvironmentVariable(), pathEnvironmentVariable()))
-        jobEnvironmentVariables.addAll(environmentVariables)
-        jobEnvironmentVariables
+    private static environmentVariables(JdkEnvironmentVariable jdkEnvironmentVariable) {
+        asList(jdkEnvironmentVariable, classpathEnvironmentVariable(), pathEnvironmentVariable())
     }
 }
