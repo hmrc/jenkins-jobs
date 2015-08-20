@@ -1,37 +1,35 @@
 package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.EnvironmentVariable
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
-import static java.util.Collections.emptyMap
+import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubComScm.gitHubComScm
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.EnvironmentVariablesWrapper.environmentVariablesWrapper
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.PathEnvironmentVariable.pathEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 
 final class JobBuilders {
 
     private JobBuilders() {}
 
-    static JobBuilder jobBuilder(String name, Map<String, String> environmentVariables = emptyMap()) {
-        newJobBuilder(name, environmentVariables)
-    }
-
-    static JobBuilder jobBuilder(String name, String repository) {
-        newJobBuilder(name).
-                      withScm(gitHubComScm(repository, 'ce814d36-5570-4f1f-ad70-0a8333122be6')).
-                      withScmTriggers(pollScmTrigger("H/5 * * * *")).
-                      withLabel('single-executor')
-    }
-
-    private static JobBuilder newJobBuilder(String name, Map<String, String> environmentVariables = emptyMap()) {
+    static JobBuilder jobBuilder(String name, JdkEnvironmentVariable jdkEnvironmentVariable = jdk8EnvironmentVariable()) {
         new JobBuilder(name, "${name} auto-configured job", 14, 10).
-                       withWrappers(environmentVariablesWrapper(jobEnvironmentVariables(environmentVariables)))
+                       withEnvironmentVariables(jobEnvironmentVariables(jdkEnvironmentVariable))
     }
 
-    private static jobEnvironmentVariables(Map<String, String> environmentVariables) {
-        Map<String, String> jobEnvironmentVariables = [CLASSPATH: '${CLASSPATH}:/opt/sbt/bin',
-                                                       JAVA_HOME: '/usr/lib/jvm/jdk1.7.0_51',
-                                                       PATH: '$JAVA_HOME/bin:/opt/sbt/bin:$PATH']
-        jobEnvironmentVariables.putAll(environmentVariables)
+    static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdkEnvironmentVariable = jdk8EnvironmentVariable()) {
+        jobBuilder(name, jdkEnvironmentVariable).
+                   withScm(gitHubComScm(repository, 'ce814d36-5570-4f1f-ad70-0a8333122be6')).
+                   withScmTriggers(pollScmTrigger("H/5 * * * *")).
+                   withLabel('single-executor')
+    }
+
+    private static jobEnvironmentVariables(EnvironmentVariable ... environmentVariables) {
+        List<EnvironmentVariable> jobEnvironmentVariables = new ArrayList(asList(classpathEnvironmentVariable(), pathEnvironmentVariable()))
+        jobEnvironmentVariables.addAll(environmentVariables)
         jobEnvironmentVariables
     }
 }

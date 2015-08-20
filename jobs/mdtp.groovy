@@ -1,5 +1,4 @@
 import javaposse.jobdsl.dsl.DslFactory
-import uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.EnvironmentVariablesWrapper
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
@@ -7,7 +6,7 @@ import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.EnvironmentVariablesWrapper.environmentVariablesWrapper
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 
@@ -172,7 +171,8 @@ new SbtLibraryJobBuilder('microservice-bootstrap').
 new SbtLibraryJobBuilder('batch-updater').
         build(this as DslFactory)
 
-jobBuilder('create-a-release', [RELEASER_VERSION : '0.4.0']).
+jobBuilder('create-a-release').
+           withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.4.0')).
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
                           stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
                           choiceParameter('RELEASE_TYPE', asList('MINOR', 'MAJOR', 'PATCH'), 'The type of release e.g. MINOR')).

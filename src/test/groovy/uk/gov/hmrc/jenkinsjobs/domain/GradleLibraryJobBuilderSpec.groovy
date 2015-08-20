@@ -18,6 +18,9 @@ class GradleLibraryJobBuilderSpec extends Specification {
         then:
         with(job.node) {
             scm.userRemoteConfigs.'hudson.plugins.git.UserRemoteConfig'.url.text() == 'git@github.com:hmrc/test-job.git'
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH') == true
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('JAVA_HOME') == true
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH') == true
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             builders.'hudson.plugins.gradle.Gradle'.tasks.text().contains('clean test bintrayUpload --info')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'build/test-results/**/*.xml'
