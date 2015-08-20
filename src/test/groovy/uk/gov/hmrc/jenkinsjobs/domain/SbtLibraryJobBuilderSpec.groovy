@@ -2,20 +2,24 @@ package uk.gov.hmrc.jenkinsjobs.domain
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
+
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
 
 @Mixin(JobParents)
 class SbtLibraryJobBuilderSpec extends Specification {
 
     void 'test XML output'() {
         given:
-        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job')
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job', jdk8EnvironmentVariable())
 
         when:
         Job job = jobBuilder.build(jobParent())
 
         then:
+        println job.node
         with(job.node) {
             scm.userRemoteConfigs.'hudson.plugins.git.UserRemoteConfig'.url.text() == 'git@github.com:hmrc/test-job.git'
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH') == true

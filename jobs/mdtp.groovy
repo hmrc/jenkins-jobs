@@ -1,4 +1,5 @@
 import javaposse.jobdsl.dsl.DslFactory
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
@@ -6,172 +7,173 @@ import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk7EnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 
-new SbtLibraryJobBuilder('sbt-git-versioning').
+new SbtLibraryJobBuilder('sbt-git-versioning', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('time').
+new SbtLibraryJobBuilder('time', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-bobby').
+new SbtLibraryJobBuilder('sbt-bobby', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
 new GradleLibraryJobBuilder('jenkins-job-builders').
                             build(this as DslFactory)
 
-new SbtLibraryJobBuilder('a-b-test').
+new SbtLibraryJobBuilder('a-b-test', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('car-tax-calculator').
+new SbtLibraryJobBuilder('car-tax-calculator', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('domain').
+new SbtLibraryJobBuilder('domain', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('emailaddress').
+new SbtLibraryJobBuilder('emailaddress', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('git-stamp').
+new SbtLibraryJobBuilder('git-stamp', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('hmrctest').
+new SbtLibraryJobBuilder('hmrctest', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-exceptions').
+new SbtLibraryJobBuilder('http-exceptions', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-verbs').
+new SbtLibraryJobBuilder('http-verbs', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-caching').
+new SbtLibraryJobBuilder('mongo-caching', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-breadcrumb').
+new SbtLibraryJobBuilder('play-breadcrumb', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-config').
+new SbtLibraryJobBuilder('play-config', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-filters').
+new SbtLibraryJobBuilder('play-filters', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-graphite').
+new SbtLibraryJobBuilder('play-graphite', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('releaser').
+new SbtLibraryJobBuilder('releaser', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-health').
+new SbtLibraryJobBuilder('play-health', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-json-logger').
+new SbtLibraryJobBuilder('play-json-logger', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-partials').
+new SbtLibraryJobBuilder('play-partials', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('Play-Reactivemongo').
+new SbtLibraryJobBuilder('Play-Reactivemongo', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-ui').
+new SbtLibraryJobBuilder('play-ui', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('govuk-template').
+new SbtLibraryJobBuilder('govuk-template', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('frontend-bootstrap').
+new SbtLibraryJobBuilder('frontend-bootstrap', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-json').
+new SbtLibraryJobBuilder('reactivemongo-json', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-test').
+new SbtLibraryJobBuilder('reactivemongo-test', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)                         
 
-new SbtLibraryJobBuilder('sbt-bintray-publish').
+new SbtLibraryJobBuilder('sbt-bintray-publish', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-auto-build').
+new SbtLibraryJobBuilder('sbt-auto-build', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-git-stamp').
+new SbtLibraryJobBuilder('sbt-git-stamp', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-utils').
+new SbtLibraryJobBuilder('sbt-utils', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-distributables').
+new SbtLibraryJobBuilder('sbt-distributables', jdk7EnvironmentVariable()).
                          withoutJUnitReports().
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('secure').
+new SbtLibraryJobBuilder('secure', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('crypto').
+new SbtLibraryJobBuilder('crypto', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('ReactiveMongo').
+new SbtLibraryJobBuilder('ReactiveMongo', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('simple-reactivemongo').
+new SbtLibraryJobBuilder('simple-reactivemongo', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('tabular-data-validator').
+new SbtLibraryJobBuilder('tabular-data-validator', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('url-builder').
+new SbtLibraryJobBuilder('url-builder', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('worldpay-report-generator').
+new SbtLibraryJobBuilder('worldpay-report-generator', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reference-checker').
+new SbtLibraryJobBuilder('reference-checker', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('accessibility-driver').
+new SbtLibraryJobBuilder('accessibility-driver', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-events').
+new SbtLibraryJobBuilder('play-events', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('attachments-client').
+new SbtLibraryJobBuilder('attachments-client', jdk7EnvironmentVariable()).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-authorisation').
+new SbtLibraryJobBuilder('play-authorisation', jdk7EnvironmentVariable()).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('order-id-encoder').
+new SbtLibraryJobBuilder('order-id-encoder', jdk7EnvironmentVariable()).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-lock').
+new SbtLibraryJobBuilder('mongo-lock', jdk7EnvironmentVariable()).
         build(this as DslFactory)
         
-new SbtLibraryJobBuilder('play-scheduling').
+new SbtLibraryJobBuilder('play-scheduling', jdk7EnvironmentVariable()).
         build(this as DslFactory)
         
-new SbtLibraryJobBuilder('microservice-bootstrap').
+new SbtLibraryJobBuilder('microservice-bootstrap', jdk7EnvironmentVariable()).
         build(this as DslFactory)
         
-new SbtLibraryJobBuilder('batch-updater').
+new SbtLibraryJobBuilder('batch-updater', jdk7EnvironmentVariable()).
         build(this as DslFactory)
 
-jobBuilder('create-a-release').
+jobBuilder('create-a-release', jdk7EnvironmentVariable()).
            withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.4.0')).
            withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
                           stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),

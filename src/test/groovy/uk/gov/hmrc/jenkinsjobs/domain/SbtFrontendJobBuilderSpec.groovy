@@ -2,15 +2,18 @@ package uk.gov.hmrc.jenkinsjobs.domain
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
+
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk7EnvironmentVariable
 
 @Mixin(JobParents)
 class SbtFrontendJobBuilderSpec extends Specification {
 
     void 'test XML output'() {
         given:
-        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job')
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job', jdk7EnvironmentVariable())
 
         when:
         Job job = jobBuilder.build(jobParent())

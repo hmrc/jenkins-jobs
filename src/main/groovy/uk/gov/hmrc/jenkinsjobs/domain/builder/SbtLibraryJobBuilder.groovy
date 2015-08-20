@@ -5,9 +5,11 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
@@ -18,8 +20,8 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     private boolean withJUnitReports = true
     private JobBuilder jobBuilder
 
-    SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}") {
-        jobBuilder = jobBuilder(name, repository).
+    SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}", JdkEnvironmentVariable jdkEnvironmentVariable) {
+        jobBuilder = jobBuilder(name, repository, jdkEnvironmentVariable).
                                 withSteps(sbtCleanTestPublish())
     }
 
