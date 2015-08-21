@@ -2,25 +2,25 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk7EnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
-new SbtFrontendJobBuilder('help-frontend', jdk7EnvironmentVariable()).
+new SbtFrontendJobBuilder('help-frontend', JDK7).
                          build(this as DslFactory)
 
-new SbtLibraryJobBuilder('worldpay-report-generator', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('worldpay-report-generator', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reference-checker', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('reference-checker', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-lock', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('mongo-lock', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('frontend-bootstrap', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('frontend-bootstrap', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-ui', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-ui', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-partials', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-partials', JDK7).
         build(this as DslFactory)

@@ -1,65 +1,65 @@
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk7EnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
 
-new SbtLibraryJobBuilder('secure', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('secure', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('crypto', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('crypto', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('ReactiveMongo', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('ReactiveMongo', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('simple-reactivemongo', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('simple-reactivemongo', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-json', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('reactivemongo-json', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-test', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('reactivemongo-test', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-health', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-health', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-json-logger', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-json-logger', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('Play-Reactivemongo', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('Play-Reactivemongo', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-caching', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('mongo-caching', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-breadcrumb', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-breadcrumb', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-config', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-config', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-filters', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-filters', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('domain', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('domain', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('emailaddress', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('emailaddress', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('hmrctest', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('hmrctest', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-exceptions', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('http-exceptions', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-graphite', jdk7EnvironmentVariable()).
+new SbtLibraryJobBuilder('play-graphite', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)

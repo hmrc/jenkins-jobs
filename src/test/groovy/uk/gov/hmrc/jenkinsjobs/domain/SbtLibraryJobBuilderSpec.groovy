@@ -6,14 +6,14 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 
 @Mixin(JobParents)
 class SbtLibraryJobBuilderSpec extends Specification {
 
     void 'test XML output'() {
         given:
-        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job', jdk8EnvironmentVariable())
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job', JDK8)
 
         when:
         Job job = jobBuilder.build(jobParent())

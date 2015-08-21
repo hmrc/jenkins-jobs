@@ -9,7 +9,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.jdk8EnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
