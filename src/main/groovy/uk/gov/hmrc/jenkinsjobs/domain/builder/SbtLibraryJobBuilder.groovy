@@ -20,8 +20,8 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     private boolean withJUnitReports = true
     private JobBuilder jobBuilder
 
-    SbtLibraryJobBuilder(String name, String repository = "hmrc/${name}", JdkEnvironmentVariable jdkEnvironmentVariable) {
-        jobBuilder = jobBuilder(name, repository, jdkEnvironmentVariable).
+    SbtLibraryJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
+        jobBuilder = jobBuilder(name, "hmrc/${name}", jdk).
                                 withSteps(sbtCleanTestPublish())
     }
 

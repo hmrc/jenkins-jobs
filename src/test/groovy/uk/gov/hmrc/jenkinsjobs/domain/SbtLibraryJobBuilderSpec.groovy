@@ -22,9 +22,9 @@ class SbtLibraryJobBuilderSpec extends Specification {
         println job.node
         with(job.node) {
             scm.userRemoteConfigs.'hudson.plugins.git.UserRemoteConfig'.url.text() == 'git@github.com:hmrc/test-job.git'
-            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH') == true
-            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('JAVA_HOME') == true
-            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH') == true
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH')
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('JAVA_HOME')
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             builders.'hudson.tasks.Shell'.command.text().contains('sbt clean test publishSigned')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'

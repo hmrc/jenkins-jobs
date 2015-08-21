@@ -7,18 +7,20 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistPublish
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistTgzPublish
 
 final class SbtFrontendJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
 
-    SbtFrontendJobBuilder(String name, String repository = "hmrc/${name}", JdkEnvironmentVariable jdkEnvironmentVariable) {
-        jobBuilder = jobBuilder(name, repository, jdkEnvironmentVariable).
-                                withSteps(sbtCleanTestItTestDistPublish()).
+    SbtFrontendJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
+        jobBuilder = jobBuilder(name, "hmrc/${name}", jdk).
+                                withSteps(jdk.isJdk8() ? sbtCleanTestItTestDistTgzPublish() : sbtCleanTestItTestDistPublish()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'),
                                                defaultJUnitReportsPublisher())

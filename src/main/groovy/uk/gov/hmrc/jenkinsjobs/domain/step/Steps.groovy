@@ -19,6 +19,10 @@ class Steps {
     }
 
     static Step sbtCleanTestItTestDistPublish() {
+        sbtStep("clean test it:test dist publishSigned")
+    }
+
+    static Step sbtCleanTestItTestDistTgzPublish() {
         sbtStep("clean test it:test dist-tgz publishSigned")
     }
 

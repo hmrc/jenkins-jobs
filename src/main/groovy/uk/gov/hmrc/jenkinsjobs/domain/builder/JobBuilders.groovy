@@ -14,19 +14,19 @@ final class JobBuilders {
 
     private JobBuilders() {}
 
-    static JobBuilder jobBuilder(String name, JdkEnvironmentVariable jdkEnvironmentVariable = JDK8) {
+    static JobBuilder jobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
         new JobBuilder(name, "${name} auto-configured job", 14, 10).
-                       withEnvironmentVariables(environmentVariables(jdkEnvironmentVariable))
+                       withEnvironmentVariables(environmentVariables(jdk))
     }
 
-    static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdkEnvironmentVariable = JDK8) {
-        jobBuilder(name, jdkEnvironmentVariable).
+    static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdk = JDK8) {
+        jobBuilder(name, jdk).
                    withScm(gitHubComScm(repository, 'ce814d36-5570-4f1f-ad70-0a8333122be6')).
                    withScmTriggers(pollScmTrigger("H/5 * * * *")).
                    withLabel('single-executor')
     }
 
-    private static environmentVariables(JdkEnvironmentVariable jdkEnvironmentVariable) {
-        asList(jdkEnvironmentVariable, classpathEnvironmentVariable(), pathEnvironmentVariable())
+    private static environmentVariables(JdkEnvironmentVariable jdk) {
+        asList(jdk, classpathEnvironmentVariable(), pathEnvironmentVariable())
     }
 }
