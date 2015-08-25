@@ -10,9 +10,6 @@ new SbtLibraryJobBuilder('secure', JDK7).
 new SbtLibraryJobBuilder('crypto', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('ReactiveMongo', JDK7).
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('simple-reactivemongo', JDK7).
         build(this as DslFactory)
 
