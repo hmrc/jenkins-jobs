@@ -1,6 +1,6 @@
 # jenkins-jobs
 
-Automated Jenkins jobs and views, derived from [jenkins-job-builders](https://github.com/hmrc/jenkins-job-builders)
+Automated Jenkins jobs and views, based upon [jenkins-job-builders](https://github.com/hmrc/jenkins-job-builders)
 
 ## Building
 
