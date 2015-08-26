@@ -24,3 +24,6 @@ new SbtLibraryJobBuilder('play-ui', JDK7).
 
 new SbtLibraryJobBuilder('play-partials', JDK7).
         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('play-url-binders', JDK7).
+        build(this as DslFactory)

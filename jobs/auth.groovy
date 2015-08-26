@@ -3,14 +3,13 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
+new SbtLibraryJobBuilder('json-encryption', JDK7).
+        build(this as DslFactory)
 
 new SbtLibraryJobBuilder('secure', JDK7).
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('crypto', JDK7).
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('ReactiveMongo', JDK7).
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('simple-reactivemongo', JDK7).
@@ -24,7 +23,7 @@ new SbtLibraryJobBuilder('reactivemongo-test', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-health', JDK7).
+new SbtLibraryJobBuilder('play-health').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-json-logger', JDK7).
