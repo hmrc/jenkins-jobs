@@ -10,7 +10,7 @@ class HmrcGitHubComScm implements Scm {
     private final Scm scm
 
     private HmrcGitHubComScm(String name) {
-        scm = gitHubComScm(name, JENKINS_UUID)
+        scm = gitHubComScm("hmrc/$name", JENKINS_UUID)
     }
 
     static Scm hmrcGitHubComScm(String name) {
