@@ -1,4 +1,4 @@
-package uk.gov.hmrc.jenkinsjobs.domain
+package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification

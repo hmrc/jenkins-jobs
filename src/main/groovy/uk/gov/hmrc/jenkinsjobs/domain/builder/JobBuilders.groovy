@@ -4,11 +4,11 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static java.util.Arrays.asList
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.GitHubComScm.gitHubComScm
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.PathEnvironmentVariable.pathEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobs.domain.scm.HmrcGitHubComScm.hmrcGitHubComScm
 
 final class JobBuilders {
 
@@ -21,7 +21,7 @@ final class JobBuilders {
 
     static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdk = JDK8) {
         jobBuilder(name, jdk).
-                   withScm(gitHubComScm(repository, 'ce814d36-5570-4f1f-ad70-0a8333122be6')).
+                   withScm(hmrcGitHubComScm(repository)).
                    withScmTriggers(pollScmTrigger("H/5 * * * *")).
                    withLabel('single-executor')
     }

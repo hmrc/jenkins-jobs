@@ -35,4 +35,10 @@ class Steps {
                   |java -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE
                   """.stripMargin())
     }
+
+    static Step initARepository() {
+        shellStep("""
+                  |python init-repository.py \$REPOSITORY_NAME
+                  """.stripMargin())
+    }
 }
