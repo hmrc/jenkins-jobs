@@ -21,7 +21,7 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     private JobBuilder jobBuilder
 
     SbtLibraryJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
-        jobBuilder = jobBuilder(name, "hmrc/${name}", jdk).
+        jobBuilder = jobBuilder(name, name, jdk).
                                 withSteps(sbtCleanTestPublish())
     }
 

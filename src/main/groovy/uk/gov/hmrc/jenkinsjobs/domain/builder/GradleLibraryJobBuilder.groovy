@@ -15,7 +15,7 @@ final class GradleLibraryJobBuilder implements Builder {
 
     private final JobBuilder jobBuilder
 
-    GradleLibraryJobBuilder(String name, String repository = "hmrc/$name") {
+    GradleLibraryJobBuilder(String name, String repository = name) {
         this.jobBuilder = jobBuilder(name, repository, JDK7).
                                      withSteps(gradleCleanTestPublish()).
                                      withPublishers(htmlReportsPublisher(['build/reports/tests': 'HTML Report']), jUnitReportsPublisher('build/test-results/**/*.xml'))

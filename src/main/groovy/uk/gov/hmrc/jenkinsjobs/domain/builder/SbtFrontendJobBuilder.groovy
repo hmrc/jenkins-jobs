@@ -19,7 +19,7 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     private JobBuilder jobBuilder
 
     SbtFrontendJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
-        jobBuilder = jobBuilder(name, "hmrc/${name}", jdk).
+        jobBuilder = jobBuilder(name, name, jdk).
                                 withSteps(jdk.isJdk8() ? sbtCleanTestItTestDistTgzPublish() : sbtCleanTestItTestDistPublish()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'),
