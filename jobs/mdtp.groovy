@@ -75,7 +75,7 @@ new SbtLibraryJobBuilder('batch-updater', JDK7).
 jobBuilder("init-repository").
            withParameters(stringParameter('REPOSITORY_NAME', '', 'The GitHub repository name')).
            withScm(hmrcGitHubComScm('init-repository')).
-           withSteps(initARepository()).
+           withSteps(initARepository('$REPOSITORY_NAME')).
            withPublishers(buildDescriptionByRegexPublisher('Created (.*) in releases')).
            build(this)
 

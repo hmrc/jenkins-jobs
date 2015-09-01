@@ -36,9 +36,9 @@ class Steps {
                   """.stripMargin())
     }
 
-    static Step initARepository() {
+    static Step initARepository(String name) {
         shellStep("""
-                  |python init-repository.py \$REPOSITORY_NAME
+                  |python init-repository.py $name
                   """.stripMargin())
     }
 }
