@@ -15,7 +15,8 @@ final class JobBuilders {
     private JobBuilders() {}
 
     static JobBuilder jobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
-        new JobBuilder(name, "${name} auto-configured job", 14, 10).
+        new JobBuilder(name, "${name} auto-configured job").
+                       withLogRotator(14, 10).
                        withEnvironmentVariables(environmentVariables(jdk))
     }
 
