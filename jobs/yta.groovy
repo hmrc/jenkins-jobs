@@ -4,7 +4,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
-new SbtFrontendJobBuilder('help-frontend', JDK7).
+new SbtFrontendJobBuilder('help-frontend').
                          build(this as DslFactory)
 
 new SbtLibraryJobBuilder('worldpay-report-generator', JDK7).
