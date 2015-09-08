@@ -6,6 +6,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
 @Mixin(JobParents)
@@ -58,6 +59,24 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
         then:
         with(job.node) {
             builders.'hudson.tasks.Shell'.command.text().contains('sbt clean test it:test fun:test dist-tgz publishSigned')
+        }
+    }
+
+    void 'test XML output with additional publisher'() {
+        given:
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withAdditionalPublisher(htmlReportsPublisher('target/fun-test-reports/html-report': 'FUN HTML Report'))
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportDir [0].text() == 'target/test-reports/html-report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportName [0].text() == 'HTML Report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportDir [0].text() == 'target/int-test-reports/html-report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportName [0].text() == 'IT HTML Report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[2].reportDir [0].text() == 'target/fun-test-reports/html-report'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[2].reportName [0].text() == 'FUN HTML Report'
         }
     }
 }

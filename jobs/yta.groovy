@@ -3,6 +3,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
 new SbtFrontendJobBuilder('help-frontend').
@@ -10,6 +11,7 @@ new SbtFrontendJobBuilder('help-frontend').
 
 new SbtMicroserviceJobBuilder('worldpay-downloader').
 						 withTests("test it:test fun:test").	
+						 withAdditionalPublisher(htmlReportsPublisher('target/fun-test-reports/cucumber': 'Functional tests HTML Report')).
                          build(this as DslFactory)
 
 new SbtLibraryJobBuilder('worldpay-report-generator', JDK7).
