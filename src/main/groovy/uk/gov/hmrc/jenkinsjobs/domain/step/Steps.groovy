@@ -26,6 +26,15 @@ class Steps {
         sbtStep("clean test it:test dist-tgz publishSigned")
     }
 
+
+    static Step sbtCleanDistPublish(String tests) {
+        sbtStep("clean $tests dist publishSigned")
+    }
+
+    static Step sbtCleanDistTgzPublish(String tests) {
+        sbtStep("clean $tests dist-tgz publishSigned")
+    }
+
     static Step createARelease() {
         shellStep("""
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar" ]; then
