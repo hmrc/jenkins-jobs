@@ -65,10 +65,7 @@ new SbtLibraryJobBuilder('order-id-encoder', JDK7).
         
 new SbtLibraryJobBuilder('play-scheduling', JDK7).
         build(this)
-        
-new SbtLibraryJobBuilder('microservice-bootstrap', JDK7).
-        build(this)
-        
+                
 new SbtLibraryJobBuilder('batch-updater', JDK7).
         build(this)
 
