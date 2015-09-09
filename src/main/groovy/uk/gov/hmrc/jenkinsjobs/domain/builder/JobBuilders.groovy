@@ -28,6 +28,6 @@ final class JobBuilders {
     }
 
     private static environmentVariables(JdkEnvironmentVariable jdk) {
-        asList(jdk, classpathEnvironmentVariable(), pathEnvironmentVariable())
+        asList(jdk, classpathEnvironmentVariable(), pathEnvironmentVariable(jdk))
     }
 }
