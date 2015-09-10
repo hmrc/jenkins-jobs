@@ -48,7 +48,7 @@ new SbtLibraryJobBuilder('sbt-git-stamp', JDK7).
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('sbt-utils', JDK7).
+new SbtLibraryJobBuilder('sbt-settings').
                          withoutJUnitReports().
                          build(this)
 
