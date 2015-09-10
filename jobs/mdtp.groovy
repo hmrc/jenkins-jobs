@@ -40,7 +40,7 @@ new SbtLibraryJobBuilder('sbt-bintray-publish', JDK7).
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('sbt-auto-build', JDK7).
+new SbtLibraryJobBuilder('sbt-auto-build').
                          withoutJUnitReports().
                          build(this)
 
