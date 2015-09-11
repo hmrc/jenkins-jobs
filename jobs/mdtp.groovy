@@ -69,6 +69,9 @@ new SbtLibraryJobBuilder('play-scheduling', JDK7).
 new SbtLibraryJobBuilder('batch-updater', JDK7).
         build(this)
 
+new SbtLibraryJobBuilder('bulk-entity-streaming', JDK7).
+        build(this)
+
 jobBuilder("init-repository").
            withParameters(stringParameter('REPOSITORY_NAME', '', 'The GitHub repository name')).
            withScm(hmrcGitHubComScm('init-repository')).
