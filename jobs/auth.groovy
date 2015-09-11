@@ -51,9 +51,6 @@ new SbtLibraryJobBuilder('play-filters', JDK7).
 new SbtLibraryJobBuilder('domain', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('emailaddress', JDK7).
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('hmrctest', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
