@@ -18,7 +18,7 @@ new SbtLibraryJobBuilder('crypto', JDK7).
 new SbtLibraryJobBuilder('simple-reactivemongo').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-json', JDK7).
+new SbtLibraryJobBuilder('reactivemongo-json').
         withoutJUnitReports().
         build(this as DslFactory)
 
