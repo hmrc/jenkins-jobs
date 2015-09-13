@@ -16,7 +16,7 @@ new SbtLibraryJobBuilder('sbt-git-versioning', JDK7).
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('time', JDK7).
+new SbtLibraryJobBuilder('time').
                          build(this)
 
 new SbtLibraryJobBuilder('sbt-bobby', JDK7).
