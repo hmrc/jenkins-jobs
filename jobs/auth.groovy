@@ -29,7 +29,7 @@ new SbtLibraryJobBuilder('reactivemongo-test', JDK7).
 new SbtLibraryJobBuilder('play-health').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-json-logger', JDK7).
+new SbtLibraryJobBuilder('play-json-logger').
         withoutJUnitReports().
         build(this as DslFactory)
 
