@@ -22,7 +22,7 @@ new SbtLibraryJobBuilder('reactivemongo-json', JDK7).
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-test', JDK7).
+new SbtLibraryJobBuilder('reactivemongo-test').
         withoutJUnitReports().
         build(this as DslFactory)
 
