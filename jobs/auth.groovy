@@ -39,7 +39,7 @@ new SbtLibraryJobBuilder('Play-Reactivemongo').
 new SbtLibraryJobBuilder('mongo-caching', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-breadcrumb', JDK7).
+new SbtLibraryJobBuilder('play-breadcrumb').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-config').
