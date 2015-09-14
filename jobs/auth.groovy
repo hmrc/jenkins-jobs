@@ -42,10 +42,10 @@ new SbtLibraryJobBuilder('mongo-caching', JDK7).
 new SbtLibraryJobBuilder('play-breadcrumb', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-config', JDK7).
+new SbtLibraryJobBuilder('play-config').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-filters', JDK7).
+new SbtLibraryJobBuilder('play-filters').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('domain').
