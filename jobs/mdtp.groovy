@@ -69,7 +69,7 @@ new SbtLibraryJobBuilder('play-scheduling', JDK7).
 new SbtLibraryJobBuilder('batch-updater', JDK7).
         build(this)
 
-new SbtLibraryJobBuilder('bulk-entity-streaming', JDK7).
+new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
 jobBuilder("init-repository").
