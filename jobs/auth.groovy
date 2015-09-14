@@ -33,7 +33,7 @@ new SbtLibraryJobBuilder('play-json-logger').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('Play-Reactivemongo', JDK7).
+new SbtLibraryJobBuilder('Play-Reactivemongo').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('mongo-caching', JDK7).
@@ -48,7 +48,7 @@ new SbtLibraryJobBuilder('play-config', JDK7).
 new SbtLibraryJobBuilder('play-filters', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('domain', JDK7).
+new SbtLibraryJobBuilder('domain').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('hmrctest').
