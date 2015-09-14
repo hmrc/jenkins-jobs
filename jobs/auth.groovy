@@ -9,7 +9,7 @@ new SbtLibraryJobBuilder('http-caching-client', JDK7).
 new SbtLibraryJobBuilder('json-encryption', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('secure', JDK7).
+new SbtLibraryJobBuilder('secure').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('crypto', JDK7).
