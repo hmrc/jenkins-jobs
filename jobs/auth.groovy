@@ -59,6 +59,6 @@ new SbtLibraryJobBuilder('http-exceptions').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-graphite', JDK7).
+new SbtLibraryJobBuilder('play-graphite').
         withoutJUnitReports().
         build(this as DslFactory)
