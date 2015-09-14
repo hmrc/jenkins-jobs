@@ -6,13 +6,13 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVari
 new SbtLibraryJobBuilder('http-caching-client', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('json-encryption', JDK7).
+new SbtLibraryJobBuilder('json-encryption').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('secure').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('crypto', JDK7).
+new SbtLibraryJobBuilder('crypto').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('simple-reactivemongo').
