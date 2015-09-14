@@ -55,7 +55,7 @@ new SbtLibraryJobBuilder('hmrctest').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-exceptions', JDK7).
+new SbtLibraryJobBuilder('http-exceptions').
         withoutJUnitReports().
         build(this as DslFactory)
 
