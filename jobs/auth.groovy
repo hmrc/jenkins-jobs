@@ -36,7 +36,7 @@ new SbtLibraryJobBuilder('play-json-logger').
 new SbtLibraryJobBuilder('Play-Reactivemongo').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-caching', JDK7).
+new SbtLibraryJobBuilder('mongo-caching').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-breadcrumb').
