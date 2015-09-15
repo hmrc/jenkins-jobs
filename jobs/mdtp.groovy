@@ -63,7 +63,7 @@ new SbtLibraryJobBuilder('order-id-encoder', JDK7).
         build(this)
 
         
-new SbtLibraryJobBuilder('play-scheduling', JDK7).
+new SbtLibraryJobBuilder('play-scheduling').
         build(this)
                 
 new SbtLibraryJobBuilder('batch-updater', JDK7).
