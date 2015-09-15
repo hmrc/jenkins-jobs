@@ -27,7 +27,7 @@ new SbtLibraryJobBuilder('mongo-lock', JDK7).
 new SbtLibraryJobBuilder('frontend-bootstrap', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('microservice-bootstrap', JDK7).
+new SbtLibraryJobBuilder('microservice-bootstrap').
         build(this)
 
 new SbtLibraryJobBuilder('play-ui', JDK7).
