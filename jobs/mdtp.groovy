@@ -32,7 +32,7 @@ new SbtLibraryJobBuilder('git-stamp', JDK7).
 new SbtLibraryJobBuilder('releaser', JDK7).
                          build(this)
 
-new SbtLibraryJobBuilder('govuk-template', JDK7).
+new SbtLibraryJobBuilder('govuk-template').
                          withoutJUnitReports().
                          build(this)
 
