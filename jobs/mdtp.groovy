@@ -16,7 +16,7 @@ new SbtLibraryJobBuilder('sbt-git-versioning', JDK7).
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('time', JDK7).
+new SbtLibraryJobBuilder('time').
                          build(this)
 
 new SbtLibraryJobBuilder('sbt-bobby', JDK7).
@@ -67,6 +67,9 @@ new SbtLibraryJobBuilder('play-scheduling', JDK7).
         build(this)
                 
 new SbtLibraryJobBuilder('batch-updater', JDK7).
+        build(this)
+
+new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
 jobBuilder("init-repository").

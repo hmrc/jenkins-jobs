@@ -3,5 +3,5 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
-new SbtLibraryJobBuilder('http-verbs', JDK7).
+new SbtLibraryJobBuilder('http-verbs').
         build(this as DslFactory)

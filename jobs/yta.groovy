@@ -30,13 +30,13 @@ new SbtLibraryJobBuilder('frontend-bootstrap', JDK7).
 new SbtLibraryJobBuilder('microservice-bootstrap').
         build(this)
 
-new SbtLibraryJobBuilder('play-ui', JDK7).
+new SbtLibraryJobBuilder('play-ui').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-partials', JDK7).
+new SbtLibraryJobBuilder('play-partials').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-url-binders', JDK7).
+new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('YTA-MONITOR')

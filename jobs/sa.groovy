@@ -8,3 +8,6 @@ new SbtLibraryJobBuilder('a-b-test', JDK7).
 
 new SbtLibraryJobBuilder('url-builder', JDK7).
         build(this as DslFactory)
+        
+new SbtLibraryJobBuilder('emailaddress').
+        build(this as DslFactory)
