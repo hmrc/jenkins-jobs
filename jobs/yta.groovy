@@ -30,7 +30,7 @@ new SbtLibraryJobBuilder('frontend-bootstrap', JDK7).
 new SbtLibraryJobBuilder('microservice-bootstrap', JDK7).
         build(this)
 
-new SbtLibraryJobBuilder('play-ui', JDK7).
+new SbtLibraryJobBuilder('play-ui').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-partials', JDK7).
