@@ -24,7 +24,7 @@ new SbtLibraryJobBuilder('reference-checker', JDK7).
 new SbtLibraryJobBuilder('mongo-lock', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('frontend-bootstrap', JDK7).
+new SbtLibraryJobBuilder('frontend-bootstrap').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('microservice-bootstrap').
