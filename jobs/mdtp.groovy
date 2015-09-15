@@ -25,7 +25,7 @@ new SbtLibraryJobBuilder('sbt-bobby', JDK7).
 new GradleLibraryJobBuilder('jenkins-job-builders').
                             build(this)
 
-new SbtLibraryJobBuilder('git-stamp', JDK7).
+new SbtLibraryJobBuilder('git-stamp').
                          withoutJUnitReports().
                          build(this)
 
