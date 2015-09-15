@@ -33,7 +33,7 @@ new SbtLibraryJobBuilder('microservice-bootstrap', JDK7).
 new SbtLibraryJobBuilder('play-ui').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-partials', JDK7).
+new SbtLibraryJobBuilder('play-partials').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-url-binders').
