@@ -25,14 +25,14 @@ new SbtLibraryJobBuilder('sbt-bobby', JDK7).
 new GradleLibraryJobBuilder('jenkins-job-builders').
                             build(this)
 
-new SbtLibraryJobBuilder('git-stamp', JDK7).
+new SbtLibraryJobBuilder('git-stamp').
                          withoutJUnitReports().
                          build(this)
 
 new SbtLibraryJobBuilder('releaser', JDK7).
                          build(this)
 
-new SbtLibraryJobBuilder('govuk-template', JDK7).
+new SbtLibraryJobBuilder('govuk-template').
                          withoutJUnitReports().
                          build(this)
 
