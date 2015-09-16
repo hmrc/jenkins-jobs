@@ -74,7 +74,7 @@ new SbtLibraryJobBuilder('bulk-entity-streaming').
 
 jobBuilder("init-repository").
            withParameters(stringParameter('REPOSITORY_NAME', '', 'The GitHub repository name')).
-           withScm(hmrcGitHubComScm('init-repository')).
+           withScm(hmrcGitHubComScm('init-repository-py')).
            withSteps(initARepository('$REPOSITORY_NAME')).
            withPublishers(buildDescriptionByRegexPublisher('Created (.*) in releases')).
            build(this)
