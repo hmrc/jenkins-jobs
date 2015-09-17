@@ -8,3 +8,6 @@ new SbtLibraryJobBuilder('play-events').
 
 new SbtLibraryJobBuilder('attachments-client', JDK7).
         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('ct-calculations', JDK7).
+        build(this as DslFactory)
