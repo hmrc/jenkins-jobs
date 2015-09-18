@@ -62,3 +62,7 @@ new SbtLibraryJobBuilder('http-exceptions').
 new SbtLibraryJobBuilder('play-graphite').
         withoutJUnitReports().
         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('play-authorised-frontend').
+        build(this as DslFactory)
+        
