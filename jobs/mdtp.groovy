@@ -29,6 +29,9 @@ new SbtLibraryJobBuilder('git-stamp').
                          withoutJUnitReports().
                          build(this)
 
+new SbtLibraryJobBuilder('init-repository', JDK7).
+                        build(this)
+
 new SbtLibraryJobBuilder('releaser', JDK7).
                          build(this)
 
