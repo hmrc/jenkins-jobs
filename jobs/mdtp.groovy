@@ -59,9 +59,6 @@ new SbtLibraryJobBuilder('sbt-distributables', JDK7).
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('play-authorisation', JDK7).
-        build(this)
-
 new SbtLibraryJobBuilder('order-id-encoder', JDK7).
         build(this)
 

@@ -65,4 +65,7 @@ new SbtLibraryJobBuilder('play-graphite').
 
 new SbtLibraryJobBuilder('play-authorised-frontend').
         build(this as DslFactory)
+
+new SbtLibraryJobBuilder('play-authorisation').
+        build(this as DslFactory)
         
