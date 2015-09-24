@@ -47,6 +47,16 @@ class Steps {
 
     static Step initARepository(String name) {
         shellStep("""
+                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar" ]; then
+                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION
+                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar
+                  |fi
+                  |java -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar $name team-ignored
+                  """.stripMargin())
+    }
+
+    static Step initARepositoryPy(String name) {
+        shellStep("""
                   |python init-repository.py $name
                   """.stripMargin())
     }

@@ -11,6 +11,7 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.scm.HmrcGitHubComScm.hmrcGitHubComScm
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.initARepository
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.initARepositoryPy
 
 new SbtLibraryJobBuilder('sbt-git-versioning', JDK7).
                          withoutJUnitReports().
@@ -75,9 +76,17 @@ new SbtLibraryJobBuilder('bulk-entity-streaming').
 jobBuilder("init-repository-py").
            withParameters(stringParameter('REPOSITORY_NAME', '', 'The GitHub repository name')).
            withScm(hmrcGitHubComScm('init-repository-py')).
-           withSteps(initARepository('$REPOSITORY_NAME')).
+           withSteps(initARepositoryPy('$REPOSITORY_NAME')).
            withPublishers(buildDescriptionByRegexPublisher('Created (.*) in releases')).
            build(this)
+           
+
+jobBuilder('create-a-repository').
+          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPOSITORY_VERSION', '0.2.0')).
+          withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
+          withSteps(initARepository('$REPOSITORY_NAME')).
+          withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
+          build(this)
 
 jobBuilder('create-a-release').
            withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.9.0')).
