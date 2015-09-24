@@ -82,7 +82,7 @@ jobBuilder("init-repository-py").
            
 
 jobBuilder('create-a-repository').
-          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPOSITORY_VERSION', '0.2.0')).
+          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.2.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withSteps(initARepository('$REPOSITORY_NAME')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
