@@ -1,5 +1,6 @@
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
@@ -68,4 +69,9 @@ new SbtLibraryJobBuilder('play-authorised-frontend').
 
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
-        
+
+new SbtLibraryJobBuilder('phone-number').
+        build(this as DslFactory)
+
+new BuildMonitorViewBuilder('GG-MONITOR')
+        .withJobs('phone-number').build(this)        
