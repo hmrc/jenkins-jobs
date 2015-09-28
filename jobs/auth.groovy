@@ -71,7 +71,7 @@ new SbtLibraryJobBuilder('play-authorised-frontend').
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('worldpay-downloader').
+new SbtMicroserviceJobBuilder('phone-number').
 	withTests("test it:test").	
         build(this as DslFactory)
 
