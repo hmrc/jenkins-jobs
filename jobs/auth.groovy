@@ -75,5 +75,5 @@ new SbtMicroserviceJobBuilder('phone-number').
 	withTests("test it:test").	
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('GG-MONITOR')
+new BuildMonitorViewBuilder('GG-IN-THE-OPEN-MONITOR')
         .withJobs('phone-number').build(this)        
