@@ -39,15 +39,22 @@ new SbtLibraryJobBuilder('play-partials').
 new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('order-id-encoder').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('YTA-MONITOR')
         .withJobs('help-frontend',
                   'frontend-bootstrap',
-                  'microservice-bootstrap'
+                  'microservice-bootstrap',
+                  'play-ui',
+                  'play-partials',
+                  'play-url-binders'
                 ).build(this)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
         .withJobs('worldpay-downloader',
                   'worldpay-report-generator',
                   'reference-checker',
+                  'order-id-encoder',
                   'mongo-lock'
                 ).build(this)        
