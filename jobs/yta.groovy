@@ -18,7 +18,7 @@ new SbtMicroserviceJobBuilder('worldpay-downloader').
 new SbtLibraryJobBuilder('worldpay-report-generator', JDK7).
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reference-checker', JDK7).
+new SbtLibraryJobBuilder('reference-checker').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('mongo-lock').
