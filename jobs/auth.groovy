@@ -80,5 +80,4 @@ new SbtMicroserviceJobBuilder('sms-gateway').
         build(this as DslFactory)        
 
 new BuildMonitorViewBuilder('GG-IN-THE-OPEN-MONITOR')
-        .withJobs('phone-number').build(this)  
-        .withJobs('sms-gateway').build(this)       
+        .withJobs('phone-number','sms-gateway').build(this)
