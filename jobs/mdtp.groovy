@@ -10,7 +10,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentV
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.scm.HmrcGitHubComScm.hmrcGitHubComScm
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.initARepository
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.initARepositoryPy
 
 new SbtLibraryJobBuilder('sbt-git-versioning', JDK7).
@@ -78,10 +78,10 @@ jobBuilder("init-repository-py").
            
 
 jobBuilder('create-a-repository').
-          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.7.0')).
+          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.8.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).          
-          withSteps(initARepository('$REPOSITORY_NAME', '$TEAM_NAME')).
+          withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
 
