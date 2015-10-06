@@ -75,5 +75,10 @@ new SbtMicroserviceJobBuilder('phone-number').
 	withTests("test it:test").	
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('sms-gateway').
+        withTests("test it:test").      
+        build(this as DslFactory)        
+
 new BuildMonitorViewBuilder('GG-IN-THE-OPEN-MONITOR')
-        .withJobs('phone-number').build(this)        
+        .withJobs('phone-number').build(this)  
+        .withJobs('sms-gateway').build(this)       
