@@ -69,14 +69,6 @@ new SbtLibraryJobBuilder('batch-updater', JDK7).
 new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
-jobBuilder("init-repository-py").
-           withParameters(stringParameter('REPOSITORY_NAME', '', 'The GitHub repository name')).
-           withScm(hmrcGitHubComScm('init-repository-py')).
-           withSteps(initARepositoryPy('$REPOSITORY_NAME')).
-           withPublishers(buildDescriptionByRegexPublisher('Created (.*) in releases')).
-           build(this)
-           
-
 jobBuilder('create-a-repository').
           withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.8.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).

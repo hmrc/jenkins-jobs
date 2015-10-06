@@ -54,10 +54,4 @@ class Steps {
                   |java -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar $repositoryName $teamName
                   """.stripMargin())
     }
-
-    static Step initARepositoryPy(String name) {
-        shellStep("""
-                  |python init-repository.py $name
-                  """.stripMargin())
-    }
 }
