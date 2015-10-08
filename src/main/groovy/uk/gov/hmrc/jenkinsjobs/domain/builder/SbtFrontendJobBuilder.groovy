@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
@@ -20,7 +21,7 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     SbtFrontendJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
         jobBuilder = jobBuilder(name, name, jdk).
-                                withSteps(jdk.isJdk8() ? sbtCleanTestItTestDistTgzPublish() : sbtCleanTestItTestDistPublish()).
+                                withSteps(jdk.isJdk8() ? sbtCleanTestItTestDistTgzPublish() : sbtCleanTestItTestDistPublish(), cleanWorkspace()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'),
                                                defaultJUnitReportsPublisher())

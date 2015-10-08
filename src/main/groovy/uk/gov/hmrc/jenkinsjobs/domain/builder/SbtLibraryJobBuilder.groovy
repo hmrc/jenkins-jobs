@@ -9,6 +9,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
@@ -22,7 +23,7 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     SbtLibraryJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
         jobBuilder = jobBuilder(name, name, jdk).
-                                withSteps(sbtCleanTestPublish())
+                                withSteps(sbtCleanTestPublish(), cleanWorkspace())
     }
 
     SbtLibraryJobBuilder withoutJUnitReports() {

@@ -4,11 +4,13 @@ import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
 
 import static java.util.Arrays.asList
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
@@ -32,7 +34,7 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
 
     Job build(DslFactory dslFactory) {
         jobBuilder.
-        withSteps(jdk.isJdk8() ? sbtCleanDistTgzPublish(sbtTests) : sbtCleanDistPublish(sbtTests)).
+        withSteps(jdk.isJdk8() ? sbtCleanDistTgzPublish(sbtTests) : sbtCleanDistPublish(sbtTests), cleanWorkspace()).
         withPublishers(publishers()).
         build(dslFactory)
     }
