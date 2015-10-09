@@ -40,7 +40,7 @@ It is the responsibility of both the Pull Requestor and Owning Team to follow th
 
 ## Repository Guidelines
 
-**Note:** Changes to job definition files do not require a Pull Request if the Pull Requestor has write access. The below checklist is for changes to job builders, which do require a Pull Request.
+**Note:** If the Pull Requestor has write access, a Pull Request is not necessary for job definition changes. The below checklist is for changes to job builders, which do require a Pull Request.
 
 1. Ensure your changes are consistent with the Jobs DSL, Job Builder, job definitions abstractions
 2. Ensure your changes do not increase complexity in job definitions - changes to job definitions should always be subtractive
