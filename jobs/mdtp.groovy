@@ -59,13 +59,7 @@ new SbtLibraryJobBuilder('sbt-settings').
 new SbtLibraryJobBuilder('sbt-distributables', JDK7).
                          withoutJUnitReports().
                          build(this)
-        
-new SbtLibraryJobBuilder('play-scheduling').
-        build(this)
                 
-new SbtLibraryJobBuilder('batch-updater', JDK7).
-        build(this)
-
 new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
