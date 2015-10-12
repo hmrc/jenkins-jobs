@@ -16,7 +16,7 @@ new SbtLibraryJobBuilder('emailaddress').
 new SbtLibraryJobBuilder('play-scheduling').
         build(this)
         
-new SbtLibraryJobBuilder('batch-updater', JDK7).
+new SbtLibraryJobBuilder('batch-updater').
         build(this)
 
 new BuildMonitorViewBuilder('DC-MONITOR')
