@@ -4,7 +4,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
-new SbtLibraryJobBuilder('a-b-test', JDK7).
+new SbtLibraryJobBuilder('a-b-test').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('url-builder').
