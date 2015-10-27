@@ -63,6 +63,9 @@ new SbtLibraryJobBuilder('sbt-distributables', JDK7).
 new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
+new SbtLibraryJobBuilder('reactive-circuit-breaker').
+        build(this)
+
 jobBuilder('create-a-repository').
           withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.12.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
