@@ -12,3 +12,6 @@ new SbtFrontendJobBuilder('tax-account-router-frontend').
 
 new BuildMonitorViewBuilder('TAR-MONITOR')
         .withJobs('tax-account-router-frontend').build(this)
+
+new SbtLibraryJobBuilder('configuration-driven-simulation')
+        .build(this as DslFactory)
