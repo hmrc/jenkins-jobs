@@ -21,10 +21,14 @@ final class JobBuilders {
     }
 
     static JobBuilder jobBuilder(String name, String repository, JdkEnvironmentVariable jdk = JDK8) {
+        jobBuilder(name, repository, 'master', jdk)
+    }
+
+    static JobBuilder jobBuilder(String name, String repository, String branch, JdkEnvironmentVariable jdk) {
         jobBuilder(name, jdk).
-                   withScm(hmrcGitHubComScm(repository)).
-                   withScmTriggers(pollScmTrigger("H/5 * * * *")).
-                   withLabel('single-executor')
+                withScm(hmrcGitHubComScm(repository, branch)).
+                withScmTriggers(pollScmTrigger("H/5 * * * *")).
+                withLabel('single-executor')
     }
 
     private static environmentVariables(JdkEnvironmentVariable jdk) {

@@ -22,7 +22,11 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     private JobBuilder jobBuilder
 
     SbtLibraryJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
-        jobBuilder = jobBuilder(name, name, jdk).
+        this(name, 'branch', jdk)
+    }
+
+    SbtLibraryJobBuilder(String name, String branch, JdkEnvironmentVariable jdk) {
+        jobBuilder = jobBuilder(name, name, branch, JDK8).
                                 withSteps(sbtCleanTestPublish(), cleanWorkspace())
     }
 

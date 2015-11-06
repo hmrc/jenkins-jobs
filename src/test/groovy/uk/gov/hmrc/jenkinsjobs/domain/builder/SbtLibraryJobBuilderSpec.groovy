@@ -2,18 +2,14 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 
 @Mixin(JobParents)
 class SbtLibraryJobBuilderSpec extends Specification {
 
     void 'test XML output'() {
         given:
-        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job', JDK8)
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job')
 
         when:
         Job job = jobBuilder.build(jobParent())
