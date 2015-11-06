@@ -72,7 +72,7 @@ new SbtLibraryJobBuilder('play-authorised-frontend').
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-authorisation', 'hotfix/httpverbs', JDK8).
+new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs', JDK8).
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('phone-number').
