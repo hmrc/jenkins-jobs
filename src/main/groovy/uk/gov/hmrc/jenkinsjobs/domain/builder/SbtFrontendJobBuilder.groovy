@@ -10,6 +10,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPu
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.bobbyArtifactsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistPublish
@@ -24,7 +25,8 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
                                 withSteps(jdk.isJdk8() ? sbtCleanTestItTestDistTgzPublish() : sbtCleanTestItTestDistPublish(), cleanWorkspace()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)'),
-                                               defaultJUnitReportsPublisher())
+                                               defaultJUnitReportsPublisher(),
+                                               bobbyArtifactsPublisher())
     }
 
     Job build(DslFactory dslFactory) {

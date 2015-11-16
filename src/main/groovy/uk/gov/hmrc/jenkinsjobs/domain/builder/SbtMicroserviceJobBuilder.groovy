@@ -13,6 +13,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPu
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.bobbyArtifactsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanDistPublish
@@ -55,7 +56,9 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
     }    
 
     private ArrayList<Publisher> publishers() {
-        List<Publisher> publishers = new ArrayList<>(asList(defaultHtmlReportsPublisher(), buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')))
+        List<Publisher> publishers = new ArrayList<>(asList(defaultHtmlReportsPublisher(),
+                                                            bobbyArtifactsPublisher(),
+                                                            buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')))
         if (withJUnitReports) {
             publishers.add(defaultJUnitReportsPublisher())
         }
