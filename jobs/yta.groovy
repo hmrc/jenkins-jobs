@@ -11,7 +11,7 @@ new SbtFrontendJobBuilder('help-frontend').
 
 new SbtMicroserviceJobBuilder('worldpay-downloader').
 						 withTests("test it:test fun:test").	
-						 withAdditionalPublisher(htmlReportsPublisher('target/fun-test-reports/cucumber': 'Functional tests HTML Report')).
+						 withHtmlReports('target/fun-test-reports/cucumber': 'Functional tests HTML Report').
                          build(this as DslFactory)
 
 new SbtLibraryJobBuilder('worldpay-report-generator').

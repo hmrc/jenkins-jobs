@@ -1,8 +1,6 @@
 import javaposse.jobdsl.dsl.DslFactory
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
+import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 new SbtLibraryJobBuilder('a-b-test').
         build(this as DslFactory)

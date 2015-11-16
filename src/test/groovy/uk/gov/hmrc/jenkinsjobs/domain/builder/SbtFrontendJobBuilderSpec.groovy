@@ -2,11 +2,7 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
 @Mixin(JobParents)
 class SbtFrontendJobBuilderSpec extends Specification {
@@ -31,20 +27,6 @@ class SbtFrontendJobBuilderSpec extends Specification {
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportName [0].text() == 'HTML Report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportDir [0].text() == 'target/int-test-reports/html-report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportName [0].text() == 'IT HTML Report'
-        }
-    }
-
-    void 'test XML output JDK7'() {
-        given:
-        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job', JDK7)
-
-        when:
-        Job job = jobBuilder.build(jobParent())
-
-        then:
-        with(job.node) {
-            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('jdk1.7.0') == true
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean test it:test dist publishSigned')
         }
     }
 }

@@ -5,16 +5,10 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.Publisher
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
-import static java.util.Arrays.asList
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.bobbyArtifactsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultJUnitReportsPublisher
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
@@ -22,12 +16,12 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     private boolean withJUnitReports = true
     private JobBuilder jobBuilder
 
-    SbtLibraryJobBuilder(String name, JdkEnvironmentVariable jdk = JDK8) {
-        this(name, name, 'master', jdk)
+    SbtLibraryJobBuilder(String name) {
+        this(name, name, 'master')
     }
 
-    SbtLibraryJobBuilder(String name, String repository, String branch, JdkEnvironmentVariable jdk) {
-        jobBuilder = jobBuilder(name, repository, branch, JDK8).
+    SbtLibraryJobBuilder(String name, String repository, String branch) {
+        jobBuilder = jobBuilder(name, repository, branch).
                                 withSteps(sbtCleanTestPublish(), cleanWorkspace())
     }
 
@@ -42,9 +36,9 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
     }
 
     private ArrayList<Publisher> publishers() {
-        List<Publisher> publishers = new ArrayList<>(asList(defaultHtmlReportsPublisher(),
-                                                            bobbyArtifactsPublisher(),
-                                                            buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')))
+        List<Publisher> publishers = [defaultHtmlReportsPublisher(),
+                                      bobbyArtifactsPublisher(),
+                                      defaultBuildDescriptionPublisher()]
         if (withJUnitReports) {
             publishers.add(defaultJUnitReportsPublisher())
         }

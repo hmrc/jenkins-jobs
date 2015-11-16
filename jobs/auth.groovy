@@ -1,10 +1,7 @@
 import javaposse.jobdsl.dsl.DslFactory
+import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
 
 new SbtLibraryJobBuilder('http-caching-client').
         build(this as DslFactory)
@@ -72,7 +69,7 @@ new SbtLibraryJobBuilder('play-authorised-frontend').
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs', JDK8).
+new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('phone-number').

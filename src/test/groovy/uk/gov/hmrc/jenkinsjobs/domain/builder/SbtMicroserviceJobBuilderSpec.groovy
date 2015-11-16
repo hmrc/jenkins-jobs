@@ -2,12 +2,7 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 import uk.gov.hmrc.jenkinsjobs.JobParents
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK7
 
 @Mixin(JobParents)
 class SbtMicroserviceJobBuilderSpec extends Specification {
@@ -35,20 +30,6 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
         }
     }
 
-    void 'test XML output JDK7'() {
-        given:
-        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job', JDK7)
-
-        when:
-        Job job = jobBuilder.build(jobParent())
-
-        then:
-        with(job.node) {
-            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('jdk1.7.0') == true
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean test it:test dist publishSigned')
-        }
-    }
-
     void 'test XML output with fun:tests'() {
         given:
         SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withTests("test it:test fun:test")
@@ -64,7 +45,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
 
     void 'test XML output with additional publisher'() {
         given:
-        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withAdditionalPublisher(htmlReportsPublisher('target/fun-test-reports/html-report': 'FUN HTML Report'))
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withHtmlReports('target/fun-test-reports/html-report': 'FUN HTML Report')
 
         when:
         Job job = jobBuilder.build(jobParent())
