@@ -22,7 +22,7 @@ final class Publishers {
     }
 
     static Publisher bobbyArtifactsPublisher() {
-        artifactsPublisher('target/dependencies/*')
+        artifactsPublisher('target/bobby-reports/*')
     }
 
     static Publisher defaultBuildDescriptionPublisher() {
