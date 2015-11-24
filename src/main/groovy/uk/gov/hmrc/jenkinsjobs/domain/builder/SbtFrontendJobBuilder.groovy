@@ -5,7 +5,7 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.CleanWorkspaceStep.cleanWorkspace
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher.cleanWorkspacePostBuildTaskPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistTgzPublish
@@ -16,11 +16,12 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     SbtFrontendJobBuilder(String name) {
         jobBuilder = jobBuilder(name, name).
-                                withSteps(sbtCleanTestItTestDistTgzPublish(), cleanWorkspace()).
+                                withSteps(sbtCleanTestItTestDistTgzPublish()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                defaultBuildDescriptionPublisher(),
                                                defaultJUnitReportsPublisher(),
-                                               bobbyArtifactsPublisher())
+                                               bobbyArtifactsPublisher(),
+                                               cleanWorkspacePostBuildTaskPublisher())
     }
 
     Job build(DslFactory dslFactory) {
