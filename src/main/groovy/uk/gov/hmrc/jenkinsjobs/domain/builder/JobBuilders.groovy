@@ -18,8 +18,7 @@ final class JobBuilders {
     static JobBuilder jobBuilder(String name) {
         new JobBuilder(name, "${name} auto-configured job").
                        withLogRotator(14, 10).
-                       withEnvironmentVariables(environmentVariables(JDK8)).
-                       withPublishers(cleanWorkspacePostBuildTaskPublisher())
+                       withEnvironmentVariables(environmentVariables(JDK8))
     }
 
     static JobBuilder jobBuilder(String name, String repository) {
@@ -30,7 +29,8 @@ final class JobBuilders {
         jobBuilder(name).
                    withScm(hmrcGitHubComScm(repository, branch)).
                    withScmTriggers(pollScmTrigger("H/5 * * * *")).
-                   withLabel('single-executor')
+                   withLabel('single-executor').
+                   withPublishers(cleanWorkspacePostBuildTaskPublisher())
     }
 
     private static environmentVariables(JdkEnvironmentVariable jdk) {
