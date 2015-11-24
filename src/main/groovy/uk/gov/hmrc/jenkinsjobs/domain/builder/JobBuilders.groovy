@@ -1,8 +1,10 @@
 package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher.cleanWorkspacePostBuildTaskPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable.JDK8
@@ -16,7 +18,8 @@ final class JobBuilders {
     static JobBuilder jobBuilder(String name) {
         new JobBuilder(name, "${name} auto-configured job").
                        withLogRotator(14, 10).
-                       withEnvironmentVariables(environmentVariables(JDK8))
+                       withEnvironmentVariables(environmentVariables(JDK8)).
+                       withPublishers(cleanWorkspacePostBuildTaskPublisher())
     }
 
     static JobBuilder jobBuilder(String name, String repository) {
