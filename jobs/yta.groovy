@@ -2,7 +2,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.BuildMonitorViewBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 

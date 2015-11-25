@@ -1,7 +1,6 @@
 package uk.gov.hmrc.jenkinsjobs.domain.builder
 
-import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.JdkEnvironmentVariable
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher.cleanWorkspacePostBuildTaskPublisher

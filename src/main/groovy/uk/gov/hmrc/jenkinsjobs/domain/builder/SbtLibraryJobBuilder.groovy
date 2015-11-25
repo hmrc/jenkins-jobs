@@ -2,8 +2,8 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 
 import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
-import uk.gov.hmrc.jenkinsjobbuilders.domain.Builder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
