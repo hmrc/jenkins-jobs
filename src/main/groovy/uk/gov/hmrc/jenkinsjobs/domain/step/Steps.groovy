@@ -15,15 +15,15 @@ class Steps {
     }
 
     static Step sbtCleanTestPublish() {
-        sbtStep("clean validate test publishSigned")
+        sbtStep("clean test publishSigned")
     }
 
     static Step sbtCleanTestItTestDistTgzPublish() {
-        sbtStep("clean validate test it:test dist-tgz publishSigned")
+        sbtStep("clean test it:test dist-tgz publishSigned")
     }
 
     static Step sbtCleanDistTgzPublish(String tests) {
-        sbtStep("clean validate $tests dist-tgz publishSigned")
+        sbtStep("clean $tests dist-tgz publishSigned")
     }
 
     static Step createARelease() {
