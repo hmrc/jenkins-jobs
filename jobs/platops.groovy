@@ -79,3 +79,29 @@ jobBuilder('create-a-release').
            withSteps(createARelease()).
            withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
            build(this)
+
+job {
+   name 'clean-slaves'
+
+   parameters {
+       nodeParam('slaves') {
+           defaultNodes(['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'])
+           allowedNodes(['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'])
+           trigger('allowMultiSelectionForConcurrentBuilds')
+           eligibility('IgnoreOfflineNodeEligibility')
+       }
+   }
+
+   concurrentBuild()
+
+    triggers {
+        cron('H 23 * * 7')
+    }
+
+    steps {
+        shell("""\
+              |rm -rf ~/.m2
+              |rm -rf ~/.ivy2
+              """.stripMargin())
+    }
+}
