@@ -98,6 +98,8 @@ job {
         cron('H 23 * * 7')
     }
 
+    label('single-executor')
+
     steps {
         shell("""\
               |rm -rf ~/.m2
