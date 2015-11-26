@@ -1,9 +1,14 @@
+import uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter
+import uk.gov.hmrc.jenkinsjobbuilders.domain.scm.CronScmTrigger
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.CronScmTrigger.cronScmTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
@@ -80,30 +85,13 @@ jobBuilder('create-a-release').
            withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
            build(this)
 
-job {
-   name 'clean-slaves'
-
-   parameters {
-       nodeParam('slaves') {
-           defaultNodes(['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'])
-           allowedNodes(['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'])
-           trigger('allowMultiSelectionForConcurrentBuilds')
-           eligibility('IgnoreOfflineNodeEligibility')
-       }
-   }
-
-   concurrentBuild()
-
-    triggers {
-        cron('H 23 * * 7')
-    }
-
-    label('single-executor')
-
-    steps {
-        shell("""\
-              |rm -rf ~/.m2
-              |rm -rf ~/.ivy2
-              """.stripMargin())
-    }
-}
+jobBuilder('clean-slaves').
+           withParameters(nodeParameter('slaves', ['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'], 'allowMultiSelectionForConcurrentBuilds')).
+           withConcurrentBuilds().
+           withLabel('master').
+           withScmTriggers(cronScmTrigger('H 23 * * 7')).
+           withSteps(shellStep("""\
+                               |rm -rf ~/.m2
+                               |rm -rf ~/.ivy2
+                               """.stripMargin())).
+           build(this)
