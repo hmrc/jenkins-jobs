@@ -1,5 +1,3 @@
-import uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter
-import uk.gov.hmrc.jenkinsjobbuilders.domain.scm.CronScmTrigger
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
@@ -86,7 +84,7 @@ jobBuilder('create-a-release').
            build(this)
 
 jobBuilder('clean-slaves').
-           withParameters(nodeParameter('slaves', [1..4].collect { "ci-open-slave-$it" }, 'allowMultiSelectionForConcurrentBuilds')).
+           withParameters(nodeParameter('slaves', (1..4).collect {"ci-open-slave-$it"}, 'allowMultiSelectionForConcurrentBuilds')).
            withConcurrentBuilds().
            withLabel('master').
            withScmTriggers(cronScmTrigger('H 23 * * 7')).
