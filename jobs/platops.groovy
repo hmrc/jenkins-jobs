@@ -86,7 +86,7 @@ jobBuilder('create-a-release').
            build(this)
 
 jobBuilder('clean-slaves').
-           withParameters(nodeParameter('slaves', ['ci-open-slave-1', 'ci-open-slave-2', 'ci-open-slave-3', 'ci-open-slave-4'], 'allowMultiSelectionForConcurrentBuilds')).
+           withParameters(nodeParameter('slaves', [1..4].collect { "ci-open-slave-$it" }, 'allowMultiSelectionForConcurrentBuilds')).
            withConcurrentBuilds().
            withLabel('master').
            withScmTriggers(cronScmTrigger('H 23 * * 7')).
