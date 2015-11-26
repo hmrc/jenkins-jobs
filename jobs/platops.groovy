@@ -91,5 +91,6 @@ jobBuilder('clean-slaves').
            withSteps(shellStep("""\
                                |rm -rf ~/.m2
                                |rm -rf ~/.ivy2
+                               |find ~/workspace -maxdepth 1 -type d -mtime +30 -print0 | xargs -0 rm -rf
                                """.stripMargin())).
            build(this)
