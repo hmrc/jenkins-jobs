@@ -9,3 +9,9 @@ new SbtLibraryJobBuilder('attachments-client').
 
 new SbtLibraryJobBuilder('ct-calculations').
         build(this as DslFactory)
+
+new BuildMonitorViewBuilder('CATO-MONITOR')
+.withJobs('ct-calculations',
+          'play-events',
+          'attachments-client'
+        ).build(this)
