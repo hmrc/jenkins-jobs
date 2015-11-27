@@ -87,7 +87,7 @@ jobBuilder('clean-slaves').
            withParameters(nodeParameter('slaves', (1..4).collect {"ci-open-slave-$it"}, 'allowMultiSelectionForConcurrentBuilds')).
            withConcurrentBuilds().
            withLabel('master').
-           withScmTriggers(cronScmTrigger('H 23 * * 7')).
+           withScmTriggers(cronScmTrigger('H 23 * * 4')).
            withSteps(shellStep("""\
                                |rm -rf ~/.m2
                                |rm -rf ~/.ivy2
