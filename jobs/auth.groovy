@@ -72,13 +72,3 @@ new SbtLibraryJobBuilder('play-authorisation').
 new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('phone-number').
-	withTests("test it:test").	
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('sms-gateway').
-        withTests("test it:test").      
-        build(this as DslFactory)        
-
-new BuildMonitorViewBuilder('GG-IN-THE-OPEN-MONITOR')
-        .withJobs('phone-number','sms-gateway').build(this)
