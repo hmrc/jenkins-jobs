@@ -3,7 +3,6 @@ package uk.gov.hmrc.jenkinsjobs.domain.builder
 import javaposse.jobdsl.dsl.Job
 import spock.lang.Specification
 import uk.gov.hmrc.jenkinsjobs.JobParents
-import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 
 @Mixin(JobParents)
 class GradleLibraryJobBuilderSpec extends Specification {
