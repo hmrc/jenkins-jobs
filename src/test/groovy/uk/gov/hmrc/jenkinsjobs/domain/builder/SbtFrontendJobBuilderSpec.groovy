@@ -29,4 +29,49 @@ class SbtFrontendJobBuilderSpec extends Specification {
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportName [0].text() == 'IT HTML Report'
         }
     }
+
+    void 'test scoverage output'() {
+        given:
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withSCoverage()
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate coverage test it:test coverageOff dist-tgz publishSigned')
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
+        }
+    }
+
+    void 'test scalastyle output'() {
+        given:
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withScalaStyle()
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate scalastyle test it:test dist-tgz publishSigned')
+            publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
+        }
+    }
+
+    void 'test scoverage and scalastyle output'() {
+        given:
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withScalaStyle().withSCoverage()
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate scalastyle coverage test it:test coverageOff dist-tgz publishSigned')
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
+            publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
+        }
+    }
 }
