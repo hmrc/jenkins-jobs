@@ -10,4 +10,4 @@ new SbtFrontendJobBuilder('nisp-frontend').
                          build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NISP-MONITOR')
-        .withJobs('nisp').build(this)
+        .withJobs('nisp','nisp-frontend').build(this)
