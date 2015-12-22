@@ -60,4 +60,49 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[2].reportName [0].text() == 'FUN HTML Report'
         }
     }
+
+    void 'test scoverage output'() {
+        given:
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withSCoverage().withTests("test")
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate coverage test coverageOff dist-tgz publishSigned')
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
+        }
+    }
+
+    void 'test scalastyle output'() {
+        given:
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withScalaStyle().withTests("test")
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate scalastyle test dist-tgz publishSigned')
+            publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
+        }
+    }
+
+    void 'test scoverage and scalastyle output'() {
+        given:
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withScalaStyle().withSCoverage().withTests("test")
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate scalastyle coverage test coverageOff dist-tgz publishSigned')
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
+            publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
+        }
+    }
 }

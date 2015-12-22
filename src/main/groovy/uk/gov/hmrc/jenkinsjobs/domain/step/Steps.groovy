@@ -18,12 +18,12 @@ class Steps {
         sbtStep("clean validate test publishSigned")
     }
 
-    static Step sbtCleanTestItTestDistTgzPublish() {
-        sbtStep("clean validate test it:test dist-tgz publishSigned")
+    static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
+        sbtStep("clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned")
     }
 
-    static Step sbtCleanDistTgzPublish(String tests) {
-        sbtStep("clean validate $tests dist-tgz publishSigned")
+    static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
+        sbtStep("clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned")
     }
 
     static Step createARelease() {
