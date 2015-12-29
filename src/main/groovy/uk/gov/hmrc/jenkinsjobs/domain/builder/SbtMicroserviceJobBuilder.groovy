@@ -5,6 +5,8 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.CheckStyleReportsPublisher.checkStyleReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPublisher.sCoverageReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
@@ -14,6 +16,8 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
     private String sbtTests = "test it:test"
+    private List<String> beforeTest = new ArrayList<String>()
+    private List<String> afterTest = new ArrayList<String>()
 
     SbtMicroserviceJobBuilder(String name) {
         jobBuilder = jobBuilder(name, name).
@@ -24,7 +28,7 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
     }
 
     Job build(DslFactory dslFactory) {
-        jobBuilder.withSteps(sbtCleanDistTgzPublish(sbtTests)).
+        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
                    build(dslFactory)
     }
 
@@ -36,5 +40,18 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
     SbtMicroserviceJobBuilder withHtmlReports(Map<String, String> htmlReportDirs) {
         this.jobBuilder = jobBuilder.withPublishers(htmlReportsPublisher(htmlReportDirs))
         this
-    }    
+    }
+
+    SbtMicroserviceJobBuilder withSCoverage() {
+        beforeTest += "coverage"
+        afterTest += "coverageOff"
+        jobBuilder = jobBuilder.withConfigures(sCoverageReportsPublisher())
+        this
+    }
+
+    SbtMicroserviceJobBuilder withScalaStyle() {
+        beforeTest += "scalastyle"
+        jobBuilder = jobBuilder.withConfigures(checkStyleReportsPublisher())
+        this
+    }
 }
