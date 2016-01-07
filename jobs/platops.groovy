@@ -7,7 +7,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.s
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.CronScmTrigger.cronScmTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository

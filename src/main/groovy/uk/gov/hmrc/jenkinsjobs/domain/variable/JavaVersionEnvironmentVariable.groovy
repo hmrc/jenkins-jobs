@@ -1,8 +1,8 @@
 package uk.gov.hmrc.jenkinsjobs.domain.variable
 
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.EnvironmentVariable
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variable.EnvironmentVariable
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
 enum JavaVersionEnvironmentVariable implements EnvironmentVariable {
     JDK8_40('1.8.0_40'),

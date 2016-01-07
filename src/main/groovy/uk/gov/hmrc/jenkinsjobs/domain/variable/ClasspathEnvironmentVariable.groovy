@@ -1,8 +1,8 @@
 package uk.gov.hmrc.jenkinsjobs.domain.variable
 
-import uk.gov.hmrc.jenkinsjobbuilders.domain.variables.EnvironmentVariable
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variable.EnvironmentVariable
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variables.StringEnvironmentVariable.stringEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
 class ClasspathEnvironmentVariable implements EnvironmentVariable {
     private final EnvironmentVariable environmentVariable = stringEnvironmentVariable('CLASSPATH', '${CLASSPATH}:/opt/sbt/bin')
