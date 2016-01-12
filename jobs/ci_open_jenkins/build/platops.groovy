@@ -1,5 +1,6 @@
 package ci_open_jenkins.build
 
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
@@ -60,12 +61,6 @@ new SbtLibraryJobBuilder('sbt-settings').
 new SbtLibraryJobBuilder('sbt-distributables').
                          withoutJUnitReports().
                          build(this)
-                
-new SbtLibraryJobBuilder('bulk-entity-streaming').
-        build(this)
-
-new SbtLibraryJobBuilder('reactive-circuit-breaker').
-        build(this)
 
 jobBuilder('create-a-repository').
           withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.12.0')).
@@ -96,3 +91,6 @@ jobBuilder('clean-slaves').
                                |find ~/workspace -maxdepth 1 -type d -mtime +30 -print0 | xargs -0 rm -rf
                                """.stripMargin())).
            build(this)
+
+new BuildMonitorViewBuilder('PLATOPS-MONITOR')
+        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables').build(this)
