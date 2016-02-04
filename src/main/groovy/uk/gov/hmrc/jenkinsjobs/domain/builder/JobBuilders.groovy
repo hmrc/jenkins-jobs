@@ -7,7 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.variable.JavaVersionEnvironmentVariable
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.ClaimBrokenBuildsPublisher.claimBrokenBuildsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher.cleanWorkspacePostBuildTaskPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.PollScmTrigger.pollScmTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrigger
 import static uk.gov.hmrc.jenkinsjobs.domain.variable.ClasspathEnvironmentVariable.classpathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.variable.PathEnvironmentVariable.pathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.ColorizeOutputWrapper.colorizeOutputWrapper
@@ -27,7 +27,7 @@ final class JobBuilders {
     static JobBuilder jobBuilder(String name, String repository, String branch) {
         jobBuilder(name).
                    withScm(hmrcGitHubComScm(repository, branch)).
-                   withScmTriggers(pollScmTrigger("H/5 * * * *")).
+                   withTriggers(pollTrigger("H/5 * * * *")).
                    withLabel('single-executor').
                    withPublishers(cleanWorkspacePostBuildTaskPublisher())
     }

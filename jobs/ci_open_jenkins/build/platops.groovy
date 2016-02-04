@@ -8,7 +8,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.c
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.scm.CronScmTrigger.cronScmTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
@@ -84,7 +84,7 @@ jobBuilder('clean-slaves').
            withParameters(nodeParameter('slaves', (1..4).collect {"ci-open-slave-$it"}, 'allowMultiSelectionForConcurrentBuilds')).
            withConcurrentBuilds().
            withLabel('master').
-           withScmTriggers(cronScmTrigger('H 23 * * 4')).
+           withTriggers(cronTrigger('H 23 * * 4')).
            withSteps(shellStep("""\
                                |rm -rf ~/.m2
                                |rm -rf ~/.ivy2
