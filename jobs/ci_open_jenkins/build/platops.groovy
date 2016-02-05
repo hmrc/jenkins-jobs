@@ -94,7 +94,7 @@ jobBuilder('clean-slaves').
                                """.stripMargin())).
            build(this)
 
-new SbtMicroserviceJobBuilder('catalogue')
+new SbtMicroserviceJobBuilder('catalogue').withTests("test")
         .build(this as DslFactory)
 
 
