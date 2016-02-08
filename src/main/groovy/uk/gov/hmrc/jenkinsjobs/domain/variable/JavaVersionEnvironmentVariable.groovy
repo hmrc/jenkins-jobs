@@ -5,7 +5,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variable.EnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
 enum JavaVersionEnvironmentVariable implements EnvironmentVariable {
-    JDK8_66('1.8.0_74')
+    JDK8_74('1.8.0_74')
 
     private final EnvironmentVariable environmentVariable
 

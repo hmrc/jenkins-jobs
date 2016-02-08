@@ -14,7 +14,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.ColorizeOutputWrappe
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.PreBuildCleanupWrapper.preBuildCleanUpWrapper
 import static uk.gov.hmrc.jenkinsjobs.domain.scm.HmrcGitHubComScm.hmrcGitHubComScm
 import static uk.gov.hmrc.jenkinsjobs.domain.variable.JavaHomeEnvironmentVariable.javaHomeEnvironmentVariable
-import static uk.gov.hmrc.jenkinsjobs.domain.variable.JavaVersionEnvironmentVariable.JDK8_66
+import static uk.gov.hmrc.jenkinsjobs.domain.variable.JavaVersionEnvironmentVariable.JDK8_74
 
 final class JobBuilders {
 
@@ -41,7 +41,7 @@ final class JobBuilders {
     }
 
     private static List<EnvironmentVariable> environmentVariables() {
-        JavaVersionEnvironmentVariable javaVersionEnvironmentVariable = JDK8_66
+        JavaVersionEnvironmentVariable javaVersionEnvironmentVariable = JDK8_74
         JavaHomeEnvironmentVariable javaHomeEnvironmentVariable = javaHomeEnvironmentVariable(javaVersionEnvironmentVariable)
         [classpathEnvironmentVariable(), javaVersionEnvironmentVariable, javaHomeEnvironmentVariable, pathEnvironmentVariable(javaHomeEnvironmentVariable)]
     }
