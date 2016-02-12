@@ -91,6 +91,7 @@ jobBuilder('clean-slaves').
                                |rm -rf ~/.m2
                                |rm -rf ~/.ivy2
                                |find ~/workspace -maxdepth 1 -type d -mtime +30 -print0 | xargs -0 rm -rf
+                               |find /var/tmp -maxdepth 1 -type d -name "*_LOCAL" -user "jenkins" -print0 | xargs -0 rm -rf
                                """.stripMargin())).
            build(this)
 
