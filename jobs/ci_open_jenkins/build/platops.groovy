@@ -110,4 +110,4 @@ new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
 
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
-        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'catalogue', 'alert-config-builder').build(this)
+        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'catalogue', 'alert-config-builder', 'init-service').build(this)
