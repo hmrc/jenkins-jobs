@@ -66,8 +66,8 @@ new SbtLibraryJobBuilder('sbt-distributables').
                          withoutJUnitReports().
                          build(this)
 
-jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
-        withSteps(sbtStep("clean 'test-only -- exclude mongo2' publishSigned")).
+jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-to-0-11-5").
+        withSteps(sbtStep("clean publishSigned")).
         withPublishers(
                 defaultBuildDescriptionPublisher()).
         build(this)
