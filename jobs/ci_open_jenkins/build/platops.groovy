@@ -77,7 +77,8 @@ jobBuilder('create-a-repository').
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).          
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
-          withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE')).
+          withParameters(stringParameter('WEBHOOK', '', 'The URL of the webhook for GitHub')).
+          withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$WEBHOOK')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
 
