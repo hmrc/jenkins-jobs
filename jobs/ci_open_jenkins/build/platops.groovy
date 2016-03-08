@@ -10,10 +10,12 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.c
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.SbtStep.sbtStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
 
@@ -64,6 +66,12 @@ new SbtLibraryJobBuilder('sbt-distributables').
                          withoutJUnitReports().
                          build(this)
 
+jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-to-0-11-5").
+        withSteps(sbtStep("clean publishSigned")).
+        withPublishers(
+                defaultBuildDescriptionPublisher()).
+        build(this)
+
 jobBuilder('create-a-repository').
           withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.15.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
@@ -95,9 +103,17 @@ jobBuilder('clean-slaves').
                                """.stripMargin())).
            build(this)
 
+
 new SbtMicroserviceJobBuilder('catalogue').withTests("test")
+       .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('catalogue-frontend').withTests("test")
         .build(this as DslFactory)
 
+new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('indicators').withTests("test")
+        .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
-        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'catalogue').build(this)
+        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'catalogue', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators').build(this)

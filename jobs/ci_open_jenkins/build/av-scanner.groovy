@@ -6,10 +6,5 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtMicroserviceJobBuilder('self-service-time-to-pay').build(this as DslFactory)
-
-new SbtFrontendJobBuilder('self-service-time-to-pay-frontend').build(this as DslFactory)
-
-new BuildMonitorViewBuilder('SSTTP-MONITOR')
-        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend').build(this)
+new SbtFrontendJobBuilder('antivirus-scanner').build(this as DslFactory)
 
