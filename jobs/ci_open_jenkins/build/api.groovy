@@ -8,10 +8,10 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtFrontendJobBuilder('api-example-scala-client').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('epaye-annual-summary').
+new SbtMicroserviceJobBuilder('api-gatekeeper-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-example-scala-client', 'epaye-annual-summary').build(this)
+        .withJobs('api-example-scala-client', 'api-gatekeeper-frontend').build(this)
