@@ -13,8 +13,12 @@ new SbtLibraryJobBuilder('attachments-client').
 new SbtLibraryJobBuilder('ct-calculations').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-time').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CATO-MONITOR')
 .withJobs('ct-calculations',
           'play-events',
+          'play-time',
           'attachments-client'
         ).build(this)
