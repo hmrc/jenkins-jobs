@@ -39,6 +39,9 @@ new SbtLibraryJobBuilder('git-stamp').
 new SbtLibraryJobBuilder('init-repository').
                         build(this)
 
+new SbtLibraryJobBuilder('init-webhook').build(this)
+
+
 new SbtLibraryJobBuilder('releaser').
                          build(this)
 
@@ -75,7 +78,7 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-
 jobBuilder('create-a-repository').
           withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.16.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
-          withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).          
+          withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
           withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
