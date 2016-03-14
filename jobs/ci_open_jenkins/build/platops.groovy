@@ -96,7 +96,7 @@ jobBuilder('clean-slaves').
            withLabel('master').
            withTriggers(cronTrigger('H 23 * * 4')).
            withSteps(shellStep("""\
-                               |rm -rf ~/.m2
+                               |rm -rf ~/.m2/repository
                                |rm -rf ~/.ivy2
                                |find ~/workspace -maxdepth 1 -type d -mtime +30 -print0 | xargs -0 rm -rf
                                |find /var/tmp -maxdepth 1 -type d -name "*_LOCAL" -user "jenkins" -print0 | xargs -0 rm -rf
