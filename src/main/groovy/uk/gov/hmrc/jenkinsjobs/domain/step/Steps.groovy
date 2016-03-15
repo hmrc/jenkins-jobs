@@ -45,4 +45,14 @@ class Steps {
                   |java -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType"
                   """.stripMargin())
     }
+
+    static Step createAWebhook(String repositoryNames, String webhookUrl, String events) {
+        shellStep("""\
+                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-repository_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar" ]; then
+                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION
+                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-repository_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar
+                  |fi
+                  |java -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-repository_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-rn $repositoryNames -wu $webhookUrl -e $events"
+                  """.stripMargin())
+    }
 }
