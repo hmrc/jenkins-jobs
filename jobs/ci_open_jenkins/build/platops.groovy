@@ -87,7 +87,7 @@ jobBuilder('create-a-repository').
 
 
 jobBuilder('create-a-webhook')
-        .withEnvironmentVariables(stringEnvironmentVariable('$INIT_WEBHOOK_VERSION', '0.3.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('$INIT_WEBHOOK_VERSION', '0.4.0'))
         .withParameters(stringParameter('REPOSITORY_NAMES', '', 'comma seperated list of repository names e.g. foo-frontend,foo-service'))
         .withParameters(stringParameter('WEBHOOK_URL', '', 'url for the notification'))
         .withParameters(stringParameter('EVENTS', 'comma seperated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
