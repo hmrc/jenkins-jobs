@@ -18,6 +18,7 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
 
 new SbtLibraryJobBuilder('sbt-git-versioning').
                          withoutJUnitReports().
@@ -83,6 +84,16 @@ jobBuilder('create-a-repository').
           withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
+
+
+jobBuilder('create-a-webhook')
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.3.0'))
+        .withParameters(stringParameter('REPOSITORY_NAMES', '', 'comma seperated list of repository names e.g. foo-frontend,foo-service'))
+        .withParameters(stringParameter('WEBHOOK_URL', '', 'url for the notification'))
+        .withParameters(stringParameter('EVENTS', 'comma seperated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
+        .withSteps(createAWebhook('$REPOSITORY_NAMES', '$WEBHOOK_URL', '$EVENTS'))
+        .build(this)
+
 
 jobBuilder('create-a-release').
            withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.11.0')).
