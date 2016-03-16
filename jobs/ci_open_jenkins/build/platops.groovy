@@ -100,7 +100,7 @@ jobBuilder('create-a-webhook')
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.5.0'))
         .withParameters(stringParameter('REPOSITORY_NAMES', '', 'comma separated list of repository names e.g. foo-frontend,foo-service'))
         .withParameters(stringParameter('WEBHOOK_URL', '', 'url for the notification'))
-        .withParameters(stringParameter('EVENTS', 'issues,issue_comment,pull_request,pull_request_review_comment,release,status','comma separated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
+        .withParameters(stringParameter('EVENTS', 'issues,issue_comment,pull_request,pull_request_review_comment','comma separated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
         .withSteps(createAWebhook('$REPOSITORY_NAMES', '$WEBHOOK_URL', '$EVENTS'))
         .build(this)
 
