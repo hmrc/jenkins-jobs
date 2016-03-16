@@ -15,10 +15,13 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrig
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.bobbyArtifactsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
 
 new SbtLibraryJobBuilder('sbt-git-versioning').
                          withoutJUnitReports().
@@ -39,6 +42,13 @@ new SbtLibraryJobBuilder('git-stamp').
 
 new SbtLibraryJobBuilder('init-repository').
                         build(this)
+
+jobBuilder('init-service', 'init-service', 'master').
+        withTriggers(cronTrigger('H H/1 * * *')).
+        withSteps(sbtCleanTestPublish()).
+        withPublishers(defaultHtmlReportsPublisher(),
+                bobbyArtifactsPublisher(),
+                defaultBuildDescriptionPublisher())
 
 new SbtLibraryJobBuilder('init-webhook').build(this)
 
