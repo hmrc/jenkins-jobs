@@ -8,5 +8,4 @@ new SbtLibraryJobBuilder('play-conditional-form-mapping').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('for-frontend')
-        .withScalaStyle()
         .build(this as DslFactory)
