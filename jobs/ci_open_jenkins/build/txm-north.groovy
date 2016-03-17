@@ -9,7 +9,12 @@ new SbtMicroserviceJobBuilder('address-lookup-ingestor').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('address-lookup-demo').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
                          
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
-        .withJobs('address-lookup-ingestor').build(this)
+        .withJobs('address-lookup-ingestor', 'address-lookup-demo').build(this)
 
