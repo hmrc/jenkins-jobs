@@ -14,7 +14,7 @@ new SbtFrontendJobBuilder('for-frontend')
 new SbtFrontendJobBuilder('cca-challenge-frontend')
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('cca-challenge').withTests("test")
+new SbtMicroserviceJobBuilder('cca-challenge')
        .build(this as DslFactory)
 
 
