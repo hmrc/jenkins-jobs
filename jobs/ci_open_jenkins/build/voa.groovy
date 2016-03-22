@@ -11,6 +11,9 @@ new SbtLibraryJobBuilder('play-conditional-form-mapping').
 new SbtFrontendJobBuilder('for-frontend')
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('cca-challenge-frontend')
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('cca-challenge').withTests("test")
        .build(this as DslFactory)
 
