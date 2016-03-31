@@ -10,8 +10,7 @@ enum SbtOptsEnvironmentVariable implements EnvironmentVariable {
     private final EnvironmentVariable environmentVariable
 
     private SbtOptsEnvironmentVariable(String value) {
-        // I've added '_XX' so we can test this is available to jobs before we apply it to all jobs
-        this.environmentVariable = stringEnvironmentVariable('SBT_OPTS_XX', value)
+        this.environmentVariable = stringEnvironmentVariable('SBT_OPTS', value)
     }
 
     @Override
