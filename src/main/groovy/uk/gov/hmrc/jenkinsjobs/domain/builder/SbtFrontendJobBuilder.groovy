@@ -5,6 +5,7 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistTgzPublish
@@ -14,6 +15,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPu
 final class SbtFrontendJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
+    private String sbtTests = "test it:test"
     private List<String> beforeTest = new ArrayList<String>()
     private List<String> afterTest = new ArrayList<String>()
 
@@ -42,4 +44,15 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
         jobBuilder = jobBuilder.withConfigures(checkStyleReportsPublisher())
         this
     }
+
+    SbtFrontendJobBuilder withTests(String tests) {
+        this.sbtTests = tests
+        this
+    }
+
+    SbtFrontendJobBuilder withHtmlReports(Map<String, String> htmlReportDirs) {
+        this.jobBuilder = jobBuilder.withPublishers(htmlReportsPublisher(htmlReportDirs))
+        this
+    }
+
 }
