@@ -77,20 +77,20 @@ class SbtFrontendJobBuilderSpec extends Specification {
 
     void 'test XML output with fun:tests'() {
         given:
-        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withTests("test it:test acceptance:test")
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withTests("test acceptance:test")
 
         when:
         Job job = jobBuilder.build(jobParent())
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate test it:test acceptance:test dist-tgz publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt clean validate test acceptance:test dist-tgz publishSigned')
         }
     }
 
     void 'test XML output with additional publisher'() {
         given:
-        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job').withHtmlReports('target/acceptance-test-reports/html-report': 'Acceptance HTML Report')
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withHtmlReports('target/acceptance-test-reports/html-report': 'Acceptance HTML Report')
 
         when:
         Job job = jobBuilder.build(jobParent())
