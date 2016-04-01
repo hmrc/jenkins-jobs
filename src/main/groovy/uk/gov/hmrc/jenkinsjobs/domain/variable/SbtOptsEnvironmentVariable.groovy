@@ -5,7 +5,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.variable.EnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
 enum SbtOptsEnvironmentVariable implements EnvironmentVariable {
-    SBT_PROXY('-Dhttps.proxyHost=999.999.999.999 -Dhttps.proxyPort=3128 -Dhttp.proxyHost=999.999.999.999 -Dhttp.proxyPort=3128')
+    SBT_PROXY('-Dhttps.proxyHost=999.999.999.999 -Dhttps.proxyPort=3128 -Dhttp.proxyHost=999.999.999.999 -Dhttp.proxyPort=3128 -Dhttp.nonProxyHosts=localhost|127.0.0.1')
 
     private final EnvironmentVariable environmentVariable
 
