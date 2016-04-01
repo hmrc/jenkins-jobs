@@ -8,6 +8,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanDistTgzPublish
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestItTestDistTgzPublish
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.CheckStyleReportsPublisher.checkStyleReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPublisher.sCoverageReportsPublisher
@@ -26,11 +27,12 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
                                                defaultJUnitReportsPublisher(),
                                                bobbyArtifactsPublisher())
     }
-
+    
     Job build(DslFactory dslFactory) {
-        jobBuilder.withSteps(sbtCleanTestItTestDistTgzPublish(beforeTest.collect {it + " "}.join(""), afterTest.collect {it + " "}.join(""))).
+        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
                 build(dslFactory)
     }
+
 
     SbtFrontendJobBuilder withSCoverage() {
         beforeTest += "coverage"
