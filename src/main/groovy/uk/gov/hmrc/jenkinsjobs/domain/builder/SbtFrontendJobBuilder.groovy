@@ -5,6 +5,7 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.XvfbBuildWrapper.xvfbBuildWrapper
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
@@ -56,5 +57,12 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
         this.jobBuilder = jobBuilder.withPublishers(htmlReportsPublisher(htmlReportDirs))
         this
     }
+
+    SbtFrontendJobBuilder withXvfb() {
+        this.jobBuilder = jobBuilder.withConfigures(xvfbBuildWrapper()).
+                withPublishers(cleanXvfbPostBuildTaskPublisher())
+        this
+    }
+
 
 }
