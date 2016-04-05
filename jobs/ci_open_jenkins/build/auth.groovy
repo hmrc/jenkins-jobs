@@ -77,3 +77,6 @@ new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisat
 new SbtLibraryJobBuilder('play-async').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('dynamic-stub').
+        build(this as DslFactory)
+
