@@ -10,8 +10,8 @@ new SbtMicroserviceJobBuilder('next-generation-consumer').build(this as DslFacto
 
 new SbtMicroserviceJobBuilder('customer-profile').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('taint').build(this as DslFactory)
+new SbtFrontendJobBuilder('personal-income').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
-        .withJobs('next-generation-consumer','taint').build(this)
+        .withJobs('next-generation-consumer','personal-income').build(this)
 
