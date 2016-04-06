@@ -15,4 +15,4 @@ new SbtFrontendJobBuilder('api-revocation-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-example-scala-client', 'api-gatekeeper-frontend').build(this)
+        .withJobs('api-example-scala-client', 'api-gatekeeper-frontend', 'api-revocation-frontend').build(this)
