@@ -14,7 +14,6 @@ new SbtFrontendJobBuilder('api-gatekeeper-frontend').
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
         withTests("test acceptance:test").
-        withHtmlReports('target/acceptance-test-reports/': 'Acceptance tests HTML Report').
         withXvfb().
         build(this as DslFactory)
 
