@@ -15,5 +15,10 @@ new SbtFrontendJobBuilder('capital-gains-calculator-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('capital-gains-calculator').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CGTS-MONITOR')
-        .withJobs('cgts-frontend','capital-gains-calculator-frontend').build(this)
+        .withJobs('cgts-frontend','capital-gains-calculator-frontend','capital-gains-calculator').build(this)
