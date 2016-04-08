@@ -7,7 +7,9 @@ new SbtFrontendJobBuilder('api-example-scala-client').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-gatekeeper-frontend').
-        withTests("test").
+        withTests("test acceptance:test").
+        withHtmlReports('target/acceptance-test-reports/': 'Acceptance tests HTML Report').
+        withXvfb().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
