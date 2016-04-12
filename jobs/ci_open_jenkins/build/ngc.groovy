@@ -12,8 +12,11 @@ new SbtFrontendJobBuilder('personal-income').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('mobile-messages').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-hmrc-api').build(this)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income', 
         	'customer-profile',
-        	'mobile-messages').build(this)
+        	'mobile-messages',
+        	'play-hmrc-api').build(this)
 
