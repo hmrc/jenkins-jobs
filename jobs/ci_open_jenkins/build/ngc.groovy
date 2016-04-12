@@ -23,5 +23,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
         	'customer-profile',
         	'mobile-messages',
         	'submission-tracker',
-        	'play-hmrc-api').build(this)
+        	'play-hmrc-api',
+        	'play-hal').build(this)
 
