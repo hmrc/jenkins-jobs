@@ -14,6 +14,8 @@ new SbtFrontendJobBuilder('mobile-messages').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('submission-tracker').build(this as DslFactory)
 
+new SbtFrontendJobBuilder('push-notification').build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-hmrc-api').build(this)
 
 new SbtLibraryJobBuilder('play-hal').build(this)
