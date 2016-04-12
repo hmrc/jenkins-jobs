@@ -22,6 +22,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income', 
         	'customer-profile',
         	'mobile-messages',
+        	'push-notification',
         	'submission-tracker',
         	'play-hmrc-api',
         	'play-hal').build(this)
