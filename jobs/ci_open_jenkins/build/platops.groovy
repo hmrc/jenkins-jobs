@@ -10,18 +10,12 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.c
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.SbtStep.sbtStep
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.bobbyArtifactsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 
 new SbtLibraryJobBuilder('sbt-git-versioning').
                          withoutJUnitReports().
@@ -81,7 +75,7 @@ new SbtLibraryJobBuilder('sbt-distributables').
                          build(this)
 
 jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-to-0-11-5").
-        withSteps(sbtStep("clean publishSigned")).
+        withSteps(cleanPublishSigned()).
         withPublishers(
                 defaultBuildDescriptionPublisher()).
         build(this)

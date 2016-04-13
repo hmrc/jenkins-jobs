@@ -15,15 +15,19 @@ class Steps {
     }
 
     static Step sbtCleanTestPublish() {
-        sbtStep("clean validate test publishSigned")
+        sbtStep(["clean validate test publishSigned"], '\${TMPDIR}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
-        sbtStep("clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned")
+        sbtStep(["clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
     }
 
     static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep("clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned")
+        sbtStep(["clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
+    }
+
+    static Step cleanPublishSigned() {
+        sbtStep(['clean publishSigned'], '\${TMPDIR}')
     }
 
     static Step createARelease() {
