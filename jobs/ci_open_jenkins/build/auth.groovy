@@ -80,3 +80,5 @@ new SbtLibraryJobBuilder('play-async').
 new SbtLibraryJobBuilder('dynamic-stub').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('tax-year').
+        build(this as DslFactory)
