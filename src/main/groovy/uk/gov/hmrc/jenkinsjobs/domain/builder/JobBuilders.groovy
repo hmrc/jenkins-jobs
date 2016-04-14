@@ -35,6 +35,7 @@ final class JobBuilders {
     static JobBuilder jobBuilder(String name) {
         new JobBuilder(name, "${name} auto-configured job").
                 withLogRotator(7, 10).
+                withEnvironmentVariablesFile('/var/lib/jenkins/internal-environment-variables.properties').
                 withEnvironmentVariables(environmentVariables()).
                 withWrappers(colorizeOutputWrapper(), preBuildCleanUpWrapper()).
                 withPublishers(claimBrokenBuildsPublisher())
