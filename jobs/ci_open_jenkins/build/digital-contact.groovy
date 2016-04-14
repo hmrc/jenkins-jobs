@@ -19,10 +19,14 @@ new SbtLibraryJobBuilder('play-scheduling').
 new SbtLibraryJobBuilder('batch-updater').
         build(this)
 
+new SbtLibraryJobBuilder('work-item-repo').
+        build(this)
+
 new BuildMonitorViewBuilder('DC-MONITOR')
         .withJobs('a-b-test',
                   'url-builder',
                   'emailaddress',
                   'play-scheduling',
-                  'batch-updater'
+                  'batch-updater',
+                  'work-item-repo'
                   ).build(this)
