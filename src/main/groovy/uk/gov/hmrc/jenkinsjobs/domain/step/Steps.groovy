@@ -11,23 +11,23 @@ class Steps {
     private Steps() {}
 
     static Step gradleCleanTestPublish() {
-        gradleStep('clean test bintrayUpload --info')
+        gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
     }
 
     static Step sbtCleanTestPublish() {
-        sbtStep(["clean validate test publishSigned"], '\${TMPDIR}')
+        sbtStep(['$SBT_OPTS clean validate test publishSigned'], '\${TMPDIR}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
-        sbtStep(["clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
     }
 
     static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep(["clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
     }
 
     static Step cleanPublishSigned() {
-        sbtStep(['clean publishSigned'], '\${TMPDIR}')
+        sbtStep(['\$SBT_OPTS clean publishSigned'], '\${TMPDIR}')
     }
 
     static Step createARelease() {
@@ -36,7 +36,7 @@ class Steps {
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar
                   |fi
-                  |java -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE
                   """.stripMargin())
     }
 
@@ -46,7 +46,7 @@ class Steps {
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar
                   |fi
-                  |java -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType"
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType"
                   """.stripMargin())
     }
 
@@ -56,7 +56,7 @@ class Steps {
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar
                   |fi
-                  |java -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events"
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events"
                   """.stripMargin())
     }
 }
