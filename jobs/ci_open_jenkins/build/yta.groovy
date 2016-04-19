@@ -59,5 +59,5 @@ new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
                   'mongo-lock'
                 ).build(this)
 
-new SbtLibraryJobBuilder('bta-persistence').
+new SbtMicroserviceJobBuilder('bta-persistence').
         build(this)
