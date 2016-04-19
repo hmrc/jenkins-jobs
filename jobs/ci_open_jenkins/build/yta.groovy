@@ -1,12 +1,10 @@
 package ci_open_jenkins.build
 
 import javaposse.jobdsl.dsl.DslFactory
+import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
-
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 
 new SbtFrontendJobBuilder('help-frontend').
                          build(this as DslFactory)
@@ -49,7 +47,8 @@ new BuildMonitorViewBuilder('YTA-MONITOR')
                   'microservice-bootstrap',
                   'play-ui',
                   'play-partials',
-                  'play-url-binders'
+                  'play-url-binders',
+                  'bta-persistence'
                 ).build(this)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
@@ -58,4 +57,7 @@ new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
                   'reference-checker',
                   'order-id-encoder',
                   'mongo-lock'
-                ).build(this)        
+                ).build(this)
+
+new SbtLibraryJobBuilder('bta-persistence').
+        build(this)
