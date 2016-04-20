@@ -22,7 +22,11 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     private List<String> afterTest = new ArrayList<String>()
 
     SbtFrontendJobBuilder(String name) {
-        jobBuilder = jobBuilder(name, name).
+        this(name, name, 'master')
+    }
+
+    SbtFrontendJobBuilder(String name, String repository, String branch) {
+        jobBuilder = jobBuilder(name, repository, branch).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                defaultBuildDescriptionPublisher(),
                                                defaultJUnitReportsPublisher(),
