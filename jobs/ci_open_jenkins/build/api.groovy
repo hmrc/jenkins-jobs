@@ -12,7 +12,7 @@ new SbtFrontendJobBuilder('api-gatekeeper-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
-        withTests("test acceptance:test").
+        withTests("test").
         withXvfb().
         build(this as DslFactory)
 
