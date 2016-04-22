@@ -17,9 +17,6 @@ new SbtMicroserviceJobBuilder('worldpay-downloader').
 new SbtLibraryJobBuilder('worldpay-report-generator').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reference-checker').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('mongo-lock').
         build(this as DslFactory)
 
@@ -54,7 +51,6 @@ new BuildMonitorViewBuilder('YTA-MONITOR')
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
         .withJobs('worldpay-downloader',
                   'worldpay-report-generator',
-                  'reference-checker',
                   'order-id-encoder',
                   'mongo-lock'
                 ).build(this)
