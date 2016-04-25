@@ -91,7 +91,7 @@ jobBuilder('create-a-repository').
 
 
 jobBuilder('create-a-webhook')
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.6.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.7.0'))
         .withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials'))
         .withParameters(stringParameter('API_BASE_URL', 'https://api.github.com', 'base url for git dev api'))
         .withParameters(stringParameter('ORG', 'hmrc', 'repository organization'))
