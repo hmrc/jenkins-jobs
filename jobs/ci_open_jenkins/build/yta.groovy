@@ -41,15 +41,18 @@ new SbtLibraryJobBuilder('play-url-binders').
 new SbtLibraryJobBuilder('order-id-encoder').
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('YTA-MONITOR')
-        .withJobs('help-frontend',
+new BuildMonitorViewBuilder('YTA-OPEN-DEV-MONITOR')
+        .withJobs('bta-persistence',
+                  'help-frontend',
                   'frontend-bootstrap',
                   'microservice-bootstrap',
+                  'play-graphite',
+                  'play-json-encoder',
                   'play-ui',
+                  'play-filters',
                   'play-partials',
-                  'play-url-binders',
-                  'bta-persistence'
-                ).build(this)
+                  'play-config',
+                  'play-url-binders').build(this)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
         .withJobs('worldpay-downloader',
