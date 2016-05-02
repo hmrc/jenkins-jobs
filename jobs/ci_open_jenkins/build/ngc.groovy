@@ -16,6 +16,8 @@ new SbtFrontendJobBuilder('submission-tracker').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('push-notification').build(this as DslFactory)
 
+new SbtFrontendJobBuilder('push-registration').build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-hmrc-api').build(this)
 
 new SbtLibraryJobBuilder('play-hal').build(this)
@@ -25,6 +27,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
         	'customer-profile',
         	'mobile-messages',
         	'push-notification',
+        	'push-registration',
         	'submission-tracker',
         	'play-hmrc-api',
         	'play-hal').build(this)
