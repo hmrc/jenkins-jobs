@@ -4,6 +4,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.variable.EnvironmentVariable
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.CheckStyleReportsPublisher.checkStyleReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPublisher.sCoverageReportsPublisher
@@ -52,6 +53,11 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
     SbtMicroserviceJobBuilder withScalaStyle() {
         beforeTest += "scalastyle"
         jobBuilder = jobBuilder.withConfigures(checkStyleReportsPublisher())
+        this
+    }
+
+    SbtMicroserviceJobBuilder withEnvironmentVariable(EnvironmentVariable  environmentVariable) {
+        jobBuilder = jobBuilder.withEnvironmentVariables(environmentVariable)
         this
     }
 }

@@ -7,20 +7,8 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
-class MtdSbtMicroserviceJobBuilder {
-    private final SbtMicroserviceJobBuilder delegateJob
-
-    public MtdSbtMicroserviceJobBuilder(SbtMicroserviceJobBuilder jobBuilder) {
-        this.delegateJob = jobBuilder
-    }
-
-    Job build(DslFactory dslFactory) {
-        delegateJob.jobBuilder.withEnvironmentVariables(stringEnvironmentVariable("USE_DISK_MONGO", "TRUE"))
-        delegateJob.build(dslFactory)
-    }
-}
-
-new MtdSbtMicroserviceJobBuilder(new SbtMicroserviceJobBuilder('self-assessment-api'))
+new SbtMicroserviceJobBuilder('self-assessment-api')
+        .withEnvironmentVariable(stringEnvironmentVariable("USE_DISK_MONGO", "TRUE"))
         .build(this as DslFactory)
 
 
