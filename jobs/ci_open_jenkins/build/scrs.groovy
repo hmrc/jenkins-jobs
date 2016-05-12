@@ -10,3 +10,6 @@ new SbtFrontendJobBuilder('business-registration-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
+
+new BuildMonitorViewBuilder('SCRS-MONITOR')
+.withJobs('business-registration-frontend').build(this)
