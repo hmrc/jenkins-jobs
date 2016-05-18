@@ -38,6 +38,10 @@ new SbtLibraryJobBuilder('play-json-logger').
         withoutJUnitReports().
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-json-logger-25').
+        withoutJUnitReports().
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('Play-Reactivemongo').
         build(this as DslFactory)
 
