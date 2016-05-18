@@ -54,6 +54,9 @@ new SbtLibraryJobBuilder('play-breadcrumb').
 new SbtLibraryJobBuilder('play-config').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-config-25').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-filters').
         build(this as DslFactory)
 
