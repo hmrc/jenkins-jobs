@@ -27,6 +27,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportName [0].text() == 'HTML Report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportDir [0].text() == 'target/int-test-reports/html-report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[1].reportName [0].text() == 'IT HTML Report'
+            buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '15'
         }
     }
 
@@ -103,6 +104,19 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
             publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
+        }
+    }
+
+    void 'test extended build timeout'() {
+        given:
+        SbtMicroserviceJobBuilder jobBuilder = new SbtMicroserviceJobBuilder('test-job')
+
+        when:
+        Job job = jobBuilder.withExtendedTimeout().build(jobParent())
+
+        then:
+        with(job.node) {
+            buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '30'
         }
     }
 }
