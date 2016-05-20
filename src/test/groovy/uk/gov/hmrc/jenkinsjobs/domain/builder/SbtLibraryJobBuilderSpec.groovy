@@ -26,6 +26,21 @@ class SbtLibraryJobBuilderSpec extends Specification {
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportDir [0].text() == 'target/test-reports/html-report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportName [0].text() == 'HTML Report'
+            buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '10'
+        }
+    }
+
+    void 'test extended build timeout'() {
+        given:
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job')
+
+        when:
+        Job job = jobBuilder.withExtendedTimeout().build(jobParent())
+
+        then:
+        println job.node
+        with(job.node) {
+            buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '20'
         }
     }
 }

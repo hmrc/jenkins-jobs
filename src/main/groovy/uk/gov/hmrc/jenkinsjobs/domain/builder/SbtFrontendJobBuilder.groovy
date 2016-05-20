@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.XvfbBuildWrapper.xvfbBuildWrapper
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapper.timeoutWrapper
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanDistTgzPublish
@@ -20,6 +21,8 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     private String sbtTests = "test it:test"
     private List<String> beforeTest = new ArrayList<String>()
     private List<String> afterTest = new ArrayList<String>()
+
+    private int timeout = 15
 
     SbtFrontendJobBuilder(String name) {
         this(name, name, 'master')
@@ -35,7 +38,8 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     
     Job build(DslFactory dslFactory) {
         jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
-                build(dslFactory)
+        withWrappers(timeoutWrapper(this.timeout)).
+        build(dslFactory)
     }
 
 
@@ -68,5 +72,8 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
         this
     }
 
-
+    SbtFrontendJobBuilder withExtendedTimeout() {
+        this.timeout = 30
+        this
+    }
 }
