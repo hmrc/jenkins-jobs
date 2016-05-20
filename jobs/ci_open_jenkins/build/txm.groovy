@@ -13,10 +13,3 @@ new SbtLibraryJobBuilder('http-verbs-test').
 		withoutJUnitReports().
         build(this as DslFactory)
 
-//play 2.5 jobs
-new SbtLibraryJobBuilder('http-verbs-25').
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('play-auditing-25').
-        build(this as DslFactory)
-

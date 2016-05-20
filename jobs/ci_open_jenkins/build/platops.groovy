@@ -74,14 +74,6 @@ new SbtLibraryJobBuilder('sbt-distributables').
                          withoutJUnitReports().
                          build(this)
 
-new SbtLibraryJobBuilder('sbt-distributables-25').
-                         withoutJUnitReports().
-                         build(this)
-
-new SbtLibraryJobBuilder('sbt-distributables-plugin-25').
-                         withoutJUnitReports().
-                         build(this)
-
 jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-to-0-11-5").
         withSteps(cleanPublishSigned()).
         withPublishers(

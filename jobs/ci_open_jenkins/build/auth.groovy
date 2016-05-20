@@ -31,14 +31,7 @@ new SbtLibraryJobBuilder('reactivemongo-test').
 new SbtLibraryJobBuilder('play-health').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-health-25').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-json-logger').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('play-json-logger-25').
         withoutJUnitReports().
         build(this as DslFactory)
 
@@ -52,9 +45,6 @@ new SbtLibraryJobBuilder('play-breadcrumb').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-config').
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('play-config-25').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-filters').
