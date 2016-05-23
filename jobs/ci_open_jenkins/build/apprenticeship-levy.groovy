@@ -5,11 +5,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 
 new SbtMicroserviceJobBuilder('apprenticeship-levy').
-	withScalaStyle().
-	withSCoverage().
         build(this as DslFactory)
 	
 new SbtMicroserviceJobBuilder('apprenticeship-levy-stub').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)	
