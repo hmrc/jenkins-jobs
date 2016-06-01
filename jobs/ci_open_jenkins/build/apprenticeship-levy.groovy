@@ -11,6 +11,16 @@ new SbtMicroserviceJobBuilder('apprenticeship-levy').
 new SbtMicroserviceJobBuilder('apprenticeship-levy-stub').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('employment-check').
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('employment-check-stub').
+        build(this as DslFactory)
+
+
 new BuildMonitorViewBuilder('APPRENTICESHIP-LEVY-MONITOR')
-        .withJobs('apprenticeship-levy',
-        'apprenticeship-levy-stub').build(this)
+        .withJobs(
+        'apprenticeship-levy',
+        'apprenticeship-levy-stub',
+        'employment-check',
+        'employment-check-stub').build(this)
