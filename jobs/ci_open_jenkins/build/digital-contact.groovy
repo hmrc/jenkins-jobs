@@ -26,6 +26,9 @@ new SbtLibraryJobBuilder('work-item-repo').
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('secure-message-renderer').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DC-MONITOR')
         .withJobs('a-b-test',
                   'url-builder',
@@ -33,5 +36,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'play-scheduling',
                   'batch-updater',
                   'work-item-repo',
-                  'updated-print-suppressions'
+                  'updated-print-suppressions',
+                  'secure-message-renderer'
                   ).build(this)
