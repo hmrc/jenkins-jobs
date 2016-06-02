@@ -14,13 +14,8 @@ new SbtMicroserviceJobBuilder('apprenticeship-levy-stub').
 new SbtMicroserviceJobBuilder('employment-check').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('employment-check-stub').
-        build(this as DslFactory)
-
-
 new BuildMonitorViewBuilder('APPRENTICESHIP-LEVY-MONITOR')
         .withJobs(
         'apprenticeship-levy',
         'apprenticeship-levy-stub',
-        'employment-check',
-        'employment-check-stub').build(this)
+        'employment-check').build(this)
