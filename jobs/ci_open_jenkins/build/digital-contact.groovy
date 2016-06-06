@@ -2,6 +2,7 @@ package ci_open_jenkins.build
 
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
@@ -27,6 +28,9 @@ new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('secure-message-renderer').
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('contact-advisors-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('DC-MONITOR')
