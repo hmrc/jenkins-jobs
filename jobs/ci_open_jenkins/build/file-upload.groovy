@@ -8,7 +8,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtMicroserviceJobBuilder('file-upload').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('file-upload-frontend').
+new SbtFrontendJobBuilder('file-upload-frontend').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('clamav-client').
