@@ -16,5 +16,5 @@ new SbtMicroserviceJobBuilder('investment-tax-relief-submission').
         build(this as DslFactory)
 
 
-new BuildMonitorViewBuilder('ITR-MONITOR')
+new BuildMonitorViewBuilder('TAVC-MONITOR')
         .withJobs('investment-tax-relief-submission-frontend','investment-tax-relief-submission').build(this)
