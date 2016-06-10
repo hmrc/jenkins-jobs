@@ -6,13 +6,9 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtFrontendJobBuilder('investment-tax-relief-submission-frontend').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('investment-tax-relief-submission').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
 
