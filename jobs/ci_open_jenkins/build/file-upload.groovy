@@ -15,5 +15,12 @@ new SbtFrontendJobBuilder('file-upload-frontend').
 new SbtLibraryJobBuilder('clamav-client').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('campaign-manager-frontend').
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('campaign-manager').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DDCW-MONITOR')
-        .withJobs('file-upload', 'file-upload-frontend', 'clamav-client').build(this)
+        .withJobs('file-upload', 'file-upload-frontend', 'clamav-client', 'campaign-manager-frontend', 'campaign-manager').build(this)
+
