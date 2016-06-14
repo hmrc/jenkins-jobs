@@ -7,18 +7,26 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtMicroserviceJobBuilder('file-upload').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('file-upload-frontend').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('clamav-client').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('campaign-manager-frontend').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('campaign-manager').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('DDCW-MONITOR')
