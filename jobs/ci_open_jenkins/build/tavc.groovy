@@ -40,5 +40,15 @@ new SbtFrontendJobBuilder('investment-tax-relief-agent-frontend').
                  withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('investment-tax-relief-agent').
+                 withScalaStyle().
+                 withSCoverage().
+        build(this as DslFactory) 
+
+new SbtMicroserviceJobBuilder('investment-tax-relief-agent-dynamic-stub').
+                 withScalaStyle().
+                 withSCoverage().
+        build(this as DslFactory)               
+
 new BuildMonitorViewBuilder('TAVC-MONITOR')
-        .withJobs('investment-tax-relief-submission-frontend','investment-tax-relief-submission','investment-tax-relief-subscription-frontend','investment-tax-relief-subscription','investment-tax-relief-submission-dynamic-stub','investment-tax-relief-subscription-dynamic-stub','investment-tax-relief-agent-frontend').build(this)
+        .withJobs('investment-tax-relief-submission-frontend','investment-tax-relief-submission','investment-tax-relief-subscription-frontend','investment-tax-relief-subscription','investment-tax-relief-agent','investment-tax-relief-submission-dynamic-stub','investment-tax-relief-subscription-dynamic-stub','investment-tax-relief-agent-dynamic-stub','investment-tax-relief-agent-frontend').build(this)
