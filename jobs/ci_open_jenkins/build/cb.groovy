@@ -10,10 +10,15 @@ new SbtMicroserviceJobBuilder('cb-submission').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('birth-registration-matching').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('cb-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CB-MONITOR')
-        .withJobs('cb-submission', 'cb-frontend').build(this)
+        .withJobs('cb-submission', 'cb-frontend', 'birth-registration-matching').build(this)
