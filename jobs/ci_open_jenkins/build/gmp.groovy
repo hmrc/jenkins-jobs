@@ -15,5 +15,15 @@ new SbtFrontendJobBuilder('gmp-frontend-hotfix', 'gmp-frontend', 'hotfix/GMP-###
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('gmp').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('gmp-bulk').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('GMP-MONITOR')
-        .withJobs('gmp-frontend').build(this)
+        .withJobs('gmp-frontend', 'gmp', 'gmp-bulk').build(this)
