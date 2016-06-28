@@ -22,6 +22,8 @@ new SbtLibraryJobBuilder('play-hmrc-api').build(this)
 
 new SbtLibraryJobBuilder('play-hal').build(this)
 
+new SbtLibraryJobBuilder('play-async').build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income', 
         	'customer-profile',
@@ -30,5 +32,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
         	'push-registration',
         	'submission-tracker',
         	'play-hmrc-api',
+        	'play-async',
         	'play-hal').build(this)
 
