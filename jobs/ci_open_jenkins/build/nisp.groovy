@@ -15,5 +15,10 @@ new SbtFrontendJobBuilder('nisp-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('state-pension').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NISP-MONITOR')
-        .withJobs('nisp','nisp-frontend').build(this)
+        .withJobs('nisp','nisp-frontend', 'state-pension').build(this)
