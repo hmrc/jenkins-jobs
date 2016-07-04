@@ -50,6 +50,7 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
     SbtMicroserviceJobBuilder withSCoverage() {
         beforeTest += "coverage"
         afterTest += "coverageOff"
+        afterTest += "coverageReport"
         jobBuilder = jobBuilder.withConfigures(sCoverageReportsPublisher())
         this
     }
