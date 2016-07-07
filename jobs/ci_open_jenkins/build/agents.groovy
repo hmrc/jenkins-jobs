@@ -9,6 +9,4 @@ new SbtMicroserviceJobBuilder('agent-access-control').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
-        withSCoverage().
-        withScalaStyle().
         build(this as DslFactory)
