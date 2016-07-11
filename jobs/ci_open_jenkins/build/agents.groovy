@@ -10,3 +10,6 @@ new SbtMicroserviceJobBuilder('agent-access-control').
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('agent-client-authorisation-frontend').
+        build(this as DslFactory)
