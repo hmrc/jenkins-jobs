@@ -40,7 +40,7 @@ class SbtFrontendJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate coverage test it:test coverageOff dist-tgz publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate coverage test it:test coverageOff coverageReport dist-tgz publishSigned')
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
         }
@@ -69,7 +69,7 @@ class SbtFrontendJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate scalastyle coverage test it:test coverageOff dist-tgz publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate scalastyle coverage test it:test coverageOff coverageReport dist-tgz publishSigned')
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
             publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
