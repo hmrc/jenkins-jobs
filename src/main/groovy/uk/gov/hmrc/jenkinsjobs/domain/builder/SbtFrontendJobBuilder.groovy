@@ -46,6 +46,7 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     SbtFrontendJobBuilder withSCoverage() {
         beforeTest += "coverage"
         afterTest += "coverageOff"
+        afterTest += "coverageReport"
         jobBuilder = jobBuilder.withConfigures(sCoverageReportsPublisher())
         this
     }
