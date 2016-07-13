@@ -11,5 +11,5 @@ Before you go any further, please read the general [MDTP Contributor Guidelines]
 This repository is shared by all service teams working on MDTP. The following rules apply to Pull Requests:
 
 1. @webops never need be involved
-1. A change in `jobs/ci_open_jenkins_build` should be merged by the Team Lead of the Requestor, or another Team Lead if the Requestor is a Team Lead.
+1. A change in `jobs/ci_open_jenkins_build` should be merged by the Team Lead of the Requesting team, or another senior team member if the person making the change is the Team Lead themselves.
 1. Any other change should be merged by @platops
