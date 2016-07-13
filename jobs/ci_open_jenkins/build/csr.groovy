@@ -6,20 +6,20 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 
-new SbtMicroserviceJobBuilder('csr-faststream').
+new SbtMicroserviceJobBuilder('fset-faststream').
     build(this as DslFactory)
     
-new SbtFrontendJobBuilder('csr-faststream-frontend').
+new SbtFrontendJobBuilder('fset-faststream-frontend').
     build(this as DslFactory)
 
 
-new SbtMicroserviceJobBuilder('csr-fasttrack').
+new SbtMicroserviceJobBuilder('fset-fasttrack').
     build(this as DslFactory)
 
-new SbtFrontendJobBuilder('csr-fasttrack-frontend').
+new SbtFrontendJobBuilder('fset-fasttrack-frontend').
     build(this as DslFactory)
 
 
-new BuildMonitorViewBuilder('CSR-MONITOR').
-    withJobs('csr-faststream', 'csr-faststream-frontend', 'csr-fasttrack', 'csr-fasttrack-frontend').
+new BuildMonitorViewBuilder('FSET-MONITOR').
+    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-fasttrack', 'fset-fasttrack-frontend').
     build(this)
