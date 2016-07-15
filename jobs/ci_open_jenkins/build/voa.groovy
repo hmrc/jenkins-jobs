@@ -17,4 +17,7 @@ new SbtFrontendJobBuilder('cca-challenge-frontend')
 new SbtMicroserviceJobBuilder('cca-challenge')
        .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('voa-property-linking-frontend')
+       .build(this as DslFactory)
+
 
