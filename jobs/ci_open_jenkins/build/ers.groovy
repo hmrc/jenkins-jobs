@@ -6,4 +6,4 @@ import uk.gov.hmrc.jenkinsconfig.jenkins.build.SbtFrontendJobBuilder
 new SbtFrontendJobBuilder('ers-checking-frontend').
 	withScalaStyle().
         withSCoverage().
-        build(this)
+        build(this as DslFactory)
