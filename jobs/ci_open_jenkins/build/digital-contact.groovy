@@ -41,5 +41,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'batch-updater',
                   'work-item-repo',
                   'updated-print-suppressions',
-                  'secure-message-renderer'
+                  'secure-message-renderer',
+                  'contact-advisors-frontend'
                   ).build(this)
