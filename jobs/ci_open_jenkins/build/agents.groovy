@@ -15,6 +15,7 @@ new SbtMicroserviceJobBuilder('agent-client-authorisation').
 
 new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
         withTests("test it:test acc:test").
+        withXvfb().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
