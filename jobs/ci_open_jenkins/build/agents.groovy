@@ -13,10 +13,13 @@ new SbtMicroserviceJobBuilder('agent-access-control').
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
+def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
         withTests("test it:test acc:test").
         withXvfb().
         build(this as DslFactory)
+frontendJob.environmentVariables {
+    env('no_proxy', 'localhost')
+}
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend').build(this)
