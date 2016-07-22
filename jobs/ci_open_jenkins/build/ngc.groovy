@@ -18,6 +18,8 @@ new SbtFrontendJobBuilder('push-notification').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('push-registration').build(this as DslFactory)
 
+new SbtFrontendJobBuilder('native-apps-api-orchestration').build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-hmrc-api').build(this)
 
 new SbtLibraryJobBuilder('play-hal').build(this)
@@ -25,16 +27,17 @@ new SbtLibraryJobBuilder('play-hal').build(this)
 new SbtLibraryJobBuilder('play-async').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('microservice-async').build(this as DslFactory)
-
 new BuildMonitorViewBuilder('NGC-MONITOR')
-        .withJobs('personal-income', 
-        	'customer-profile',
-        	'mobile-messages',
-        	'push-notification',
-        	'push-registration',
-        	'submission-tracker',
-        	'play-hmrc-api',
-        	'play-async',
-        	'microservice-async',
-        	'play-hal').build(this)
+		.withJobs('personal-income',
+		'customer-profile',
+		'mobile-messages',
+		'push-notification',
+		'push-registration',
+		'submission-tracker',
+		'native-apps-api-orchestration',
+		'play-hmrc-api',
+		'play-async',
+		'microservice-async',
+		'play-hal').build(this)
+
 
