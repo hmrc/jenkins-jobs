@@ -10,5 +10,8 @@ new SbtMicroserviceJobBuilder('back-office-adapter').
                  withSCoverage().
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('xml-parser').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('RATE-MONITOR')
-        .withJobs('back-office-adapter').build(this)
+        .withJobs('back-office-adapter', 'xml-parser').build(this)
