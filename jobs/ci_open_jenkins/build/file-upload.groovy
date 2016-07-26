@@ -29,6 +29,6 @@ new SbtMicroserviceJobBuilder('campaign-manager').
         withScalaStyle().
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('DDCW-MONITOR')
+new BuildMonitorViewBuilder('FUAAS-MONITOR')
         .withJobs('file-upload', 'file-upload-frontend', 'clamav-client', 'campaign-manager-frontend', 'campaign-manager').build(this)
 
