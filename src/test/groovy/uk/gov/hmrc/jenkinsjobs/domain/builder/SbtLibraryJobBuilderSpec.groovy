@@ -30,6 +30,21 @@ class SbtLibraryJobBuilderSpec extends Specification {
         }
     }
 
+    void 'test scoverage output'() {
+        given:
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job').withSCoverage()
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate coverage test coverageOff coverageReport publishSigned')
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
+            publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
+        }
+    }
+
     void 'test extended build timeout'() {
         given:
         SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job')

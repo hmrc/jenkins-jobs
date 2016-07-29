@@ -9,11 +9,14 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapp
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPublisher.sCoverageReportsPublisher
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
 
     private boolean withJUnitReports = true
     private JobBuilder jobBuilder
+    private List<String> beforeTest = new ArrayList<String>()
+    private List<String> afterTest = new ArrayList<String>()
 
     private int timeout = 10
 
@@ -23,7 +26,6 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     SbtLibraryJobBuilder(String name, String repository, String branch) {
         jobBuilder = jobBuilder(name, repository, branch).
-                                withSteps(sbtCleanTestPublish()).
                                 withPublishers(defaultHtmlReportsPublisher(),
                                                bobbyArtifactsPublisher(),
                                                defaultBuildDescriptionPublisher())
@@ -34,12 +36,23 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
         this
     }
 
+    SbtLibraryJobBuilder withSCoverage() {
+        beforeTest += "coverage"
+        afterTest += "coverageOff"
+        afterTest += "coverageReport"
+        jobBuilder = jobBuilder.withConfigures(sCoverageReportsPublisher())
+        this
+    }
+
     SbtLibraryJobBuilder withExtendedTimeout() {
         this.timeout = 20
         this
     }
 
     Job build(DslFactory dslFactory) {
+        jobBuilder = jobBuilder
+                .withSteps(sbtCleanTestPublish(beforeTest.collect {it + " "}.join(""), afterTest.collect {it + " "}.join("")))
+
         if (withJUnitReports) {
             jobBuilder = jobBuilder.withPublishers(defaultJUnitReportsPublisher())
         }

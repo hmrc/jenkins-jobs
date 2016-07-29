@@ -14,8 +14,8 @@ class Steps {
         gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
     }
 
-    static Step sbtCleanTestPublish() {
-        sbtStep(['$SBT_OPTS clean validate test publishSigned'], '\${TMPDIR}')
+    static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}publishSigned"], '\${TMPDIR}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
