@@ -8,6 +8,6 @@ new SbtLibraryJobBuilder('valuetype')
         .withSCoverage()
         .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('Business-Rates-MONITOR')
+new BuildMonitorViewBuilder('Business-Rates-Monitor')
         .withJobs('valuetype')
         .build(this)
