@@ -15,4 +15,4 @@ new SbtLibraryJobBuilder('xml-parser').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('RATE-MONITOR')
-        .withJobs('back-office-adapter','xml-parser').build(this)
+        .withJobs('xml-parser').build(this)
