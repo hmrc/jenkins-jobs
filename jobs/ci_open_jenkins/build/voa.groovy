@@ -14,4 +14,6 @@ new SbtFrontendJobBuilder('for-frontend')
 new SbtFrontendJobBuilder('voa-property-linking-frontend')
        .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('voa-property-linking')
+       .build(this as DslFactory)
 
