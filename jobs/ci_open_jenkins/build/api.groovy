@@ -22,3 +22,8 @@ new BuildMonitorViewBuilder('API-MONITOR')
 
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('openid-connect-userinfo')
+        .withTests("test it:test")
+        .build(this as DslFactory)
+
