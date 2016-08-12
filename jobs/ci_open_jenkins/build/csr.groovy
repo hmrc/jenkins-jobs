@@ -13,6 +13,8 @@ new SbtMicroserviceJobBuilder('fset-faststream').
 new SbtFrontendJobBuilder('fset-faststream-frontend').
     build(this as DslFactory)
 
+new SbtFrontendJobBuilder('fset-launchpad-gateway').
+    build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('fset-fasttrack').
     withExtendedTimeout().
