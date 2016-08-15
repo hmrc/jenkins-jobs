@@ -25,5 +25,5 @@ new SbtFrontendJobBuilder('fset-fasttrack-frontend').
 
 
 new BuildMonitorViewBuilder('FSET-MONITOR').
-    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-fasttrack', 'fset-fasttrack-frontend').
+    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend').
     build(this)
