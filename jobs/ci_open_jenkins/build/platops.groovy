@@ -85,7 +85,7 @@ jobBuilder('create-a-repository').
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
-          withParameters(stringParameter('BOOTSTRAP_TAG','','[Optional] Bootstrap tag version (example: 1.0.0, 0.10.1 etc). Required only for migrated repositories and should be the latest tag version in the internal repository.')).
+          withParameters(stringParameter('BOOTSTRAP_TAG','0.1.0','The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
           withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
