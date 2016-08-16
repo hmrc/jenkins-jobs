@@ -18,7 +18,7 @@ new SbtMicroserviceJobBuilder('address-lookup-demo').
         withSCoverage().
         build(this as DslFactory)
                          
-new SbtFrontendJobBuilder('address-capture-frontend').
+new SbtFrontendJobBuilder('address-lookup-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
@@ -30,6 +30,6 @@ new SbtFrontendJobBuilder('bank-account-reputation-frontend').
 
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('address-reputation-store', 'address-reputation-ingester',
-                'address-lookup-demo', 'address-capture-frontend',
+                'address-lookup-demo', 'address-lookup-frontend',
                 'bank-account-reputation-frontend').build(this)
 
