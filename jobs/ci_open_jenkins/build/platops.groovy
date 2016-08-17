@@ -126,7 +126,7 @@ jobBuilder('clean-slaves').
            build(this)
 
 
-new SbtMicroserviceJobBuilder('teams-and-services').withTests("test")
+new SbtMicroserviceJobBuilder('teams-and-repositories').withTests("test")
        .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('catalogue-frontend').withTests("test")
