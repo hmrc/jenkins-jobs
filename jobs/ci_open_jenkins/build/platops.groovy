@@ -81,7 +81,7 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-
         build(this)
 
 jobBuilder('create-a-repository').
-          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.20.0')).
+          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.21.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
