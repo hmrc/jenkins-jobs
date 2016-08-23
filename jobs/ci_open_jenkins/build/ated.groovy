@@ -10,5 +10,10 @@ new SbtMicroserviceJobBuilder('ated-subscription').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('agent-client-mandate').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('ATED-MONITOR')
-        .withJobs('ated-subscription').build(this)
+        .withJobs('ated-subscription', 'agent-client-mandate').build(this)
