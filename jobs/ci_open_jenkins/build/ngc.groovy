@@ -46,6 +46,8 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'play-hmrc-api',
 		'play-async',
 		'microservice-async',
-		'play-hal').build(this)
+		'play-hal',
+		'mobile-token-exchange',
+		'mobile-token-proxy').build(this)
 
 
