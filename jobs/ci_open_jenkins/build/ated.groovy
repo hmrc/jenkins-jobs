@@ -22,4 +22,4 @@ new SbtFrontendJobBuilder('agent-client-mandate-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('ATED-MONITOR')
-        .withJobs('ated-subscription', 'agent-client-mandate').build(this)
+        .withJobs('ated-subscription', 'agent-client-mandate', 'agent-client-mandate-frontend').build(this)
