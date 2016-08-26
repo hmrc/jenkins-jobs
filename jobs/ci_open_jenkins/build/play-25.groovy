@@ -58,3 +58,6 @@ new SbtLibraryJobBuilder('play-filters-25').
 new SbtLibraryJobBuilder('play-authorisation-25').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-partials-25').
+        build(this as DslFactory)
+
