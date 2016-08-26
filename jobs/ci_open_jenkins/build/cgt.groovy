@@ -17,3 +17,8 @@ new SbtMicroserviceJobBuilder('capital-gains-calculator').
 
 new BuildMonitorViewBuilder('CGT-MONITOR')
         .withJobs('capital-gains-calculator-frontend','capital-gains-calculator').build(this)
+
+new SbtFrontendJobBuilder('capital-gains-subscription-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
