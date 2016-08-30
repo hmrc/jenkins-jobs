@@ -64,3 +64,6 @@ new SbtLibraryJobBuilder('play-partials-25').
 new SbtLibraryJobBuilder('play-authorised-frontend-25').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-ui-25').
+        build(this as DslFactory)
+
