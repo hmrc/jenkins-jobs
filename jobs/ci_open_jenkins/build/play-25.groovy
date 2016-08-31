@@ -67,3 +67,6 @@ new SbtLibraryJobBuilder('play-authorised-frontend-25').
 new SbtLibraryJobBuilder('play-ui-25').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('govuk-template-25').
+        build(this as DslFactory)
+
