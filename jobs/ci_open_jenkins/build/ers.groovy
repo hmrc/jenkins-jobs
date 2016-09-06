@@ -8,7 +8,17 @@ new SbtFrontendJobBuilder('ers-checking-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('ers-file-validator').
+new SbtFrontendJobBuilder('ers-returns-frontend').
 	withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ers-file-validator').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ers-submissions').
+        withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
