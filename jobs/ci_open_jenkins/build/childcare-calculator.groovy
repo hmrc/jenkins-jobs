@@ -11,5 +11,10 @@ new SbtFrontendJobBuilder('cc-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('cc-frontend-qa').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CC-MONITOR')
-        .withJobs('cc-frontend').build(this)
+        .withJobs('cc-frontend','cc-frontend-qa').build(this)
