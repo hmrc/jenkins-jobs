@@ -16,5 +16,10 @@ new SbtFrontendJobBuilder('cc-calculator').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('cc-eligibility').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CC-MONITOR')
-        .withJobs('cc-frontend', 'cc-calculator').build(this)
+        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility').build(this)
