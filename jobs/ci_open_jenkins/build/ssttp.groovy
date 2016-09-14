@@ -12,6 +12,8 @@ new SbtMicroserviceJobBuilder('self-service-time-to-pay').build(this as DslFacto
 
 new SbtFrontendJobBuilder('self-service-time-to-pay-frontend').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('http-verbs-java').build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-filters-java').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('frontend-bootstrap-java').build(this as DslFactory)
