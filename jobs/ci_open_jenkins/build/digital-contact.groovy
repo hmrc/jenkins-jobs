@@ -24,6 +24,9 @@ new SbtLibraryJobBuilder('batch-updater').
 new SbtLibraryJobBuilder('work-item-repo').
         build(this)
 
+new SbtLibraryJobBuilder('metrix').
+        build(this)
+
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
