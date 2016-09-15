@@ -26,6 +26,10 @@ class Steps {
         sbtStep(["\$SBT_OPTS clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
     }
 
+    static Step gradleCleanDistTgzPublish() {
+        gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
+    }
+
     static Step cleanPublishSigned() {
         sbtStep(['\$SBT_OPTS clean publishSigned'], '\${TMPDIR}')
     }

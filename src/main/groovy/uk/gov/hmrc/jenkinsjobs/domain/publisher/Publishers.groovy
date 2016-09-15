@@ -17,8 +17,16 @@ final class Publishers {
         jUnitReportsPublisher('target/*test-reports/*.xml')
     }
 
+    static Publisher gradleJUnitReportsPublisher() {
+        jUnitReportsPublisher('build/test-results/*.xml')
+    }
+
     static Publisher defaultHtmlReportsPublisher() {
         htmlReportsPublisher(['target/test-reports/html-report': 'HTML Report', 'target/int-test-reports/html-report' : 'IT HTML Report'])
+    }
+
+    static Publisher gradleHtmlReportsPublisher() {
+        htmlReportsPublisher('build/reports/tests/*html': 'HTML Report')
     }
 
     static Publisher bobbyArtifactsPublisher() {
