@@ -19,6 +19,7 @@ new SbtMicroserviceJobBuilder('cc-calculator').
 new SbtMicroserviceJobBuilder('cc-eligibility').
         withScalaStyle().
         withSCoverage().
+        withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CC-MONITOR')
