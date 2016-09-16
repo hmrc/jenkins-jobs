@@ -11,12 +11,12 @@ new SbtFrontendJobBuilder('cc-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('cc-calculator').
+new SbtMicroserviceJobBuilder('cc-calculator').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('cc-eligibility').
+new SbtMicroserviceJobBuilder('cc-eligibility').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
