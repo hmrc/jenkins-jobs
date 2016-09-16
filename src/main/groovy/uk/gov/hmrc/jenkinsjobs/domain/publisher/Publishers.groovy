@@ -18,7 +18,7 @@ final class Publishers {
     }
 
     static Publisher gradleJUnitReportsPublisher() {
-        jUnitReportsPublisher('target/test-results/*.xml')
+        jUnitReportsPublisher('target/test-reports/*.xml')
     }
 
     static Publisher defaultHtmlReportsPublisher() {
