@@ -14,10 +14,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.gradleCleanDistTgzPublis
 class GradleMicroserviceJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
-    private String gradleTests = "test"
-    private List<String> beforeTest =  new ArrayList<String>()
-    private List<String> afterTest =  new ArrayList<String>()
-
 
     private int timeout = 15
 
