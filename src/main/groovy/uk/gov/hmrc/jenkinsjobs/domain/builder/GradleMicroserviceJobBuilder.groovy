@@ -9,6 +9,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapp
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.gradleHtmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.gradleJUnitReportsPublisher
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.gradleBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.gradleCleanDistTgzPublish
 
 class GradleMicroserviceJobBuilder implements Builder<Job> {
@@ -19,6 +20,7 @@ class GradleMicroserviceJobBuilder implements Builder<Job> {
 
     GradleMicroserviceJobBuilder(String name) {
         jobBuilder = jobBuilder(name, name).withPublishers(gradleHtmlReportsPublisher(),
+                                                            gradleBuildDescriptionPublisher(),
                                                             gradleJUnitReportsPublisher())
     }
 
