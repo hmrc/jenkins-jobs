@@ -37,6 +37,10 @@ final class Publishers {
         buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')
     }
 
+    static Publisher gradleBuildDescriptionPublisher() {
+        buildDescriptionByRegexPublisher('.*gradle git versioned as ([\\w\\d\\.\\-]+)')
+    }
+
     static Publisher cleanXvfbPostBuildTaskPublisher() {
         return postBuildTaskPublisher('Xvfb starting(.*)', """\
                                                            |#!/bin/bash
