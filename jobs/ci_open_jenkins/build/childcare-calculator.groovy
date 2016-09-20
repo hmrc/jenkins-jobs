@@ -22,5 +22,11 @@ new SbtMicroserviceJobBuilder('cc-eligibility').
         withTests("test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('cc-email-capture').
+        withScalaStyle().
+        withSCoverage().
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CC-MONITOR')
-        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility').build(this)
+        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').build(this)
