@@ -15,5 +15,5 @@ new SbtFrontendJobBuilder('tamc-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('TAMC-MONITOR')
+new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs('tamc','tamc-frontend').build(this)
