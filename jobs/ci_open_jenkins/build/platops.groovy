@@ -51,6 +51,7 @@ jobBuilder('init-service-test', 'init-service', 'master')
         .withPublishers(defaultHtmlReportsPublisher(),
         bobbyArtifactsPublisher(),
         defaultBuildDescriptionPublisher())
+        .build(this)
 
 
 new SbtLibraryJobBuilder('init-webhook').build(this)
