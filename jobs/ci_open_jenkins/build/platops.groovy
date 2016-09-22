@@ -12,6 +12,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.s
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
@@ -37,12 +38,20 @@ new SbtLibraryJobBuilder('git-stamp').
 new SbtLibraryJobBuilder('init-repository').
                         build(this)
 
-jobBuilder('init-service', 'init-service', 'master').
-        withTriggers(cronTrigger('H H/1 * * *')).
-        withSteps(sbtCleanTestPublish()).
-        withPublishers(defaultHtmlReportsPublisher(),
+jobBuilder('init-service', 'init-service', 'master')
+        .withTriggers(cronTrigger('H H/1 * * *'), )
+        .withSteps(sbtCleanTestPublish())
+        .withPublishers(defaultHtmlReportsPublisher(),
                 bobbyArtifactsPublisher(),
                 defaultBuildDescriptionPublisher())
+
+jobBuilder('init-service-test', 'init-service-test', 'master')
+        .withTriggers(cronTrigger('H H/1 * * *'), )
+        .withSteps(sbtCleanTestPublish())
+        .withPublishers(defaultHtmlReportsPublisher(),
+        bobbyArtifactsPublisher(),
+        defaultBuildDescriptionPublisher())
+
 
 new SbtLibraryJobBuilder('init-webhook').build(this)
 
