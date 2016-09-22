@@ -38,12 +38,6 @@ new SbtLibraryJobBuilder('git-stamp').
 new SbtLibraryJobBuilder('init-repository').
                         build(this)
 
-jobBuilder('init-service', 'init-service', 'master')
-        .withTriggers(cronTrigger('H H/1 * * *'), )
-        .withSteps(sbtCleanTestPublish())
-        .withPublishers(defaultHtmlReportsPublisher(),
-                bobbyArtifactsPublisher(),
-                defaultBuildDescriptionPublisher())
 
 jobBuilder('init-service', 'init-service', 'master')
         .withTriggers(cronTrigger('H 00 * * *'), pollTrigger('H/6 * * * *'))
