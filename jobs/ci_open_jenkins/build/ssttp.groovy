@@ -24,4 +24,4 @@ new SbtLibraryJobBuilder('microservice-bootstrap-java').build(this as DslFactory
 new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SSTTP-MONITOR')
-        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend').build(this)
+        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement').build(this)
