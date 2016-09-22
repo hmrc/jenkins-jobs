@@ -45,13 +45,13 @@ jobBuilder('init-service', 'init-service', 'master')
                 bobbyArtifactsPublisher(),
                 defaultBuildDescriptionPublisher())
 
-jobBuilder('init-service-test', 'init-service', 'master')
-        .withTriggers(cronTrigger('H H/1 * * *'), )
-        .withSteps(sbtCleanTestPublish())
-        .withPublishers(defaultHtmlReportsPublisher(),
-        bobbyArtifactsPublisher(),
-        defaultBuildDescriptionPublisher())
-        .build(this)
+jobBuilder('init-service', 'init-service', 'master')
+        .withTriggers(cronTrigger('H 00 * * *'), pollTrigger('H/6 * * * *'))
+        .withSteps(shellStep("""|
+                                |mkdir -p \${WORKSPACE}/tmp
+                                |python scripts/test/tests.py
+                                |python scripts/test/integration-tests.py
+                               """.stripMargin())).build(this)
 
 
 new SbtLibraryJobBuilder('init-webhook').build(this)
