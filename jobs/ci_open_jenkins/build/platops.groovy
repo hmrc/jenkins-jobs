@@ -45,7 +45,7 @@ jobBuilder('init-service', 'init-service', 'master')
                 bobbyArtifactsPublisher(),
                 defaultBuildDescriptionPublisher())
 
-jobBuilder('init-service-test', 'init-service-test', 'master')
+jobBuilder('init-service-test', 'init-service', 'master')
         .withTriggers(cronTrigger('H H/1 * * *'), )
         .withSteps(sbtCleanTestPublish())
         .withPublishers(defaultHtmlReportsPublisher(),
