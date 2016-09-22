@@ -19,5 +19,9 @@ new SbtLibraryJobBuilder('https-stream').
                  withSCoverage().
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('service-contract-cache').
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('RATE-MONITOR')
-        .withJobs('xml-parser', 'https-stream').build(this)
+        .withJobs('xml-parser', 'https-stream', 'service-contract-cache').build(this)
