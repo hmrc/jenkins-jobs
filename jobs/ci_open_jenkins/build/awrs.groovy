@@ -8,7 +8,7 @@ new SbtMicroserviceJobBuilder('api-integration-test-runner').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AWRS-MONITOR')
-        .withJobs('api-integration-test-runner').build(this)
+        .withJobs('awrs-notification','api-integration-test-runner').build(this)
 
 new SbtMicroserviceJobBuilder('awrs-notification').
         withScalaStyle().
