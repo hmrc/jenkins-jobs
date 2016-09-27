@@ -36,7 +36,7 @@ new SbtMicroserviceJobBuilder('secure-message-renderer').
 new SbtFrontendJobBuilder('contact-advisors-frontend').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('hmrc-email-renderer').
+new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('DC-MONITOR')
