@@ -13,4 +13,5 @@ new BuildMonitorViewBuilder('AWRS-MONITOR')
 new SbtMicroserviceJobBuilder('awrs-notification').
         withScalaStyle().
         withSCoverage().
+        withTests("test").
         build(this as DslFactory)
