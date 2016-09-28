@@ -24,6 +24,9 @@ new SbtLibraryJobBuilder('batch-updater').
 new SbtLibraryJobBuilder('work-item-repo').
         build(this)
 
+new SbtLibraryJobBuilder('metrix').
+        build(this)
+
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
@@ -31,6 +34,9 @@ new SbtMicroserviceJobBuilder('secure-message-renderer').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('contact-advisors-frontend').
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('DC-MONITOR')
@@ -42,5 +48,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'work-item-repo',
                   'updated-print-suppressions',
                   'secure-message-renderer',
-                  'contact-advisors-frontend'
+                  'contact-advisors-frontend',
+                  'hmrc-email-renderer'
                   ).build(this)
