@@ -6,10 +6,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
-new SbtMicroserviceJobBuilder('back-office-adapter').
-                 withScalaStyle().
-                 withSCoverage().
-        build(this as DslFactory)
 
 new SbtLibraryJobBuilder('xml-parser').
                  withSCoverage().
