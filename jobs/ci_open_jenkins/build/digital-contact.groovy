@@ -39,6 +39,9 @@ new SbtFrontendJobBuilder('contact-advisors-frontend').
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('message-renderer-template').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DC-MONITOR')
         .withJobs('a-b-test',
                   'url-builder',
@@ -49,5 +52,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'updated-print-suppressions',
                   'secure-message-renderer',
                   'contact-advisors-frontend',
-                  'hmrc-email-renderer'
-                  ).build(this)
+                  'hmrc-email-renderer',
+                  'message-renderer-template')
+        .build(this)
