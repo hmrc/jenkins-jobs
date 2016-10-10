@@ -37,7 +37,7 @@ new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFac
 
 
 jobBuilder('create-a-java-release').
-        withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.2.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.3.0')).
         withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
                 stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
                 choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR')).
