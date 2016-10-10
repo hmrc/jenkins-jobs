@@ -21,6 +21,8 @@ new SbtLibraryJobBuilder('frontend-bootstrap-java').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('microservice-bootstrap-java').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('java-releaser-poc').build(this)
+
 new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SSTTP-MONITOR')
