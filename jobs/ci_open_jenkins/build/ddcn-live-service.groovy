@@ -5,11 +5,21 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('tamc').
+new SbtMicroserviceJobBuilder('pbik').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
                          
+new SbtFrontendJobBuilder('pbik-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('tamc').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('tamc-frontend').
         withScalaStyle().
         withSCoverage().
@@ -36,4 +46,4 @@ new SbtMicroserviceJobBuilder('gmp-bulk').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk').build(this)
+        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk').build(this)
