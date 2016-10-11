@@ -6,6 +6,8 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtFrontendJobBuilder('api-example-scala-client').
+        withTests("test").
+        withXvfb().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-gatekeeper-frontend').
@@ -18,9 +20,6 @@ new SbtFrontendJobBuilder('api-revocation-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-example-scala-client', 'api-gatekeeper-frontend', 'api-revocation-frontend').build(this)
-
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
@@ -28,3 +27,5 @@ new SbtMicroserviceJobBuilder('openid-connect-userinfo')
         .withTests("test it:test")
         .build(this as DslFactory)
 
+new BuildMonitorViewBuilder('API-MONITOR')
+        .withJobs('api-example-scala-client', 'api-gatekeeper-frontend', 'api-revocation-frontend', 'play-json-union-formatter', 'openid-connect-userinfo').build(this)

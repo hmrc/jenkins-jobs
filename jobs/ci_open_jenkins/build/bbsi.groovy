@@ -5,15 +5,15 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('tamc').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-                         
-new SbtFrontendJobBuilder('tamc-frontend').
+new SbtMicroserviceJobBuilder('bbsi').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('TAMC-MONITOR')
-        .withJobs('tamc','tamc-frontend').build(this)
+new SbtFrontendJobBuilder('bbsi-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new BuildMonitorViewBuilder('BBSI-MONITOR')
+        .withJobs('bbsi','bbsi-frontend').build(this)

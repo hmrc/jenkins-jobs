@@ -18,7 +18,7 @@ final class Publishers {
     }
 
     static Publisher gradleJUnitReportsPublisher() {
-        jUnitReportsPublisher('build/test-results/*.xml')
+        jUnitReportsPublisher('target/test-reports/*.xml')
     }
 
     static Publisher defaultHtmlReportsPublisher() {
@@ -26,7 +26,7 @@ final class Publishers {
     }
 
     static Publisher gradleHtmlReportsPublisher() {
-        htmlReportsPublisher('build/reports/tests/*html': 'HTML Report')
+        htmlReportsPublisher('target/reports/tests/*html': 'HTML Report')
     }
 
     static Publisher bobbyArtifactsPublisher() {
@@ -35,6 +35,10 @@ final class Publishers {
 
     static Publisher defaultBuildDescriptionPublisher() {
         buildDescriptionByRegexPublisher('.*sbt git versioned as ([\\w\\d\\.\\-]+)')
+    }
+
+    static Publisher gradleBuildDescriptionPublisher() {
+        buildDescriptionByRegexPublisher('.*gradle git versioned as ([\\w\\d\\.\\-]+)')
     }
 
     static Publisher cleanXvfbPostBuildTaskPublisher() {

@@ -11,15 +11,22 @@ new SbtFrontendJobBuilder('cc-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('cc-calculator').
+new SbtMicroserviceJobBuilder('cc-calculator').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('cc-eligibility').
+new SbtMicroserviceJobBuilder('cc-eligibility').
         withScalaStyle().
         withSCoverage().
+        withTests("test").
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('cc-email-capture').
+        withScalaStyle().
+        withSCoverage().
+        withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CC-MONITOR')
-        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility').build(this)
+        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').build(this)

@@ -22,8 +22,8 @@ class GradleMicroserviceJobBuilderSpec extends Specification {
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             //TODO - builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate test it:test dist-tgz publishSigned')
-            publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'build/test-results/*.xml'
-            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportDir [0].text() == 'build/reports/tests/*html'
+            publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/test-reports/*.xml'
+            publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportDir [0].text() == 'target/reports/tests/*html'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportName [0].text() == 'HTML Report'
 
             buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '15'
