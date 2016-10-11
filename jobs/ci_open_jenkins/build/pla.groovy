@@ -10,6 +10,9 @@ new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend-hotfix', 'pensions-lifetime-allowance-frontend', 'hotfix/pla-frontend').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('pensions-lifetime-allowance').
         withScalaStyle().
         withSCoverage().
