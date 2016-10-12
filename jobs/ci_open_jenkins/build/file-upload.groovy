@@ -16,11 +16,6 @@ new SbtFrontendJobBuilder('file-upload-frontend').
         withScalaStyle().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('file-upload-admin').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('clamav-client').
         build(this as DslFactory)
 
