@@ -6,8 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtLibraryJobBuilder('addresses').build(this as DslFactory)
-
 new SbtLibraryJobBuilder('address-reputation-store').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('address-reputation-ingester').
@@ -31,7 +29,7 @@ new SbtFrontendJobBuilder('bank-account-reputation-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
-        .withJobs('addresses', 'address-reputation-store',
+        .withJobs('address-reputation-store',
                 'address-reputation-ingester',
                 'address-lookup-demo', 'address-lookup-frontend',
                 'bank-account-reputation-frontend').build(this)
