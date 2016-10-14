@@ -28,7 +28,6 @@ new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('logback-json-logger').
-        withoutJUnitReports().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
