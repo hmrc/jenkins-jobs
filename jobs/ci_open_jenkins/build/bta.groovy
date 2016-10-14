@@ -27,6 +27,8 @@ new SbtLibraryJobBuilder('play-partials').
 new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('logback-json-logger').
+        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('bta-persistence',
@@ -39,6 +41,5 @@ new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
                   'play-filters',
                   'play-partials',
                   'play-config',
-                  'play-url-binders').build(this)
-
-
+                  'play-url-binders',
+                  'logback-json-logger').build(this)
