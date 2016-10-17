@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.BooleanParameter.booleanParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
@@ -85,12 +86,13 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-
         build(this)
 
 jobBuilder('create-a-repository').
-          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.22.0')).
+          withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.23.0')).
           withParameters(stringParameter('REPOSITORY_NAME','','The repository name e.g. foo-frontend')).
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
           withParameters(stringParameter('BOOTSTRAP_TAG','0.1.0','The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
-          withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG')).
+          withParameters(booleanParameter('ENABLE_TRAVIS',false,'enable travis intigration')).
+          withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
 
