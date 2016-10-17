@@ -8,4 +8,5 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 new SbtFrontendJobBuilder('eeitt-frontend').
         build(this as DslFactory)
 
-
+new SbtMicroserviceJobBuilder('eeitt').
+        build(this as DslFactory)
