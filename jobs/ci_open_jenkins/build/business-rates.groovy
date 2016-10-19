@@ -13,6 +13,5 @@ new SbtLibraryJobBuilder('htmlcheck')
         .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BUSINESS-RATES-MONITOR')
-        .withJobs('valuetype')
-        .withJobs('htmlcheck')
+        .withJobs('valuetype', 'htmlcheck')
         .build(this)
