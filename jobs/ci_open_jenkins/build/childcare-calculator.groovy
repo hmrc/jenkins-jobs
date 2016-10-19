@@ -9,10 +9,12 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 new SbtFrontendJobBuilder('cc-frontend').
         withScalaStyle().
         withSCoverage().
+        withTests("test").
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('cc-calculator').
         withScalaStyle().
+        withTests("test").
         withSCoverage().
         build(this as DslFactory)
 
