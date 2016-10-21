@@ -34,6 +34,7 @@ new SbtLibraryJobBuilder('java-releaser-poc').build(this)
 
 new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('self-service-time-to-pay-des-stub').build(this as DslFactory)
 
 
 jobBuilder('create-a-java-release').
