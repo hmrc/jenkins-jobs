@@ -34,6 +34,7 @@ new SbtLibraryJobBuilder('java-releaser-poc').build(this)
 
 new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('self-service-time-to-pay-des-stub').build(this as DslFactory)
 
 
 jobBuilder('create-a-java-release').
@@ -47,4 +48,4 @@ jobBuilder('create-a-java-release').
 
 
 new BuildMonitorViewBuilder('SSTTP-MONITOR')
-        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement').build(this)
+        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement', 'self-service-time-to-pay-des-stub').build(this)
