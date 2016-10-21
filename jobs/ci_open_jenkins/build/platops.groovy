@@ -79,7 +79,7 @@ new SbtLibraryJobBuilder('sbt-distributables').
                          withoutJUnitReports().
                          build(this)
 
-jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo", "socket-timeout-backport-to-0-11-5").
+jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         withSteps(cleanPublishSigned()).
         withPublishers(
                 defaultBuildDescriptionPublisher()).
