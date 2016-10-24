@@ -24,6 +24,8 @@ new SbtMicroserviceJobBuilder('api-gateway-async-example').build(this as DslFact
 
 new SbtMicroserviceJobBuilder('your-tax-calculator').build(this as DslFactory)
 
+new SbtFrontendJobBuilder('your-tax-calculator-frontend').build(this as DslFactory)
+
 new SbtFrontendJobBuilder('mobile-token-proxy').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('mobile-token-exchange').build(this as DslFactory)
@@ -51,6 +53,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'play-hal',
 		'mobile-token-exchange',
 		'mobile-token-proxy',
-		'your-tax-calculator').build(this)
+		'your-tax-calculator',
+		'your-tax-calculator-frontend').build(this)
 
 
