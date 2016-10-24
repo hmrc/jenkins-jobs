@@ -21,6 +21,9 @@ new SbtLibraryJobBuilder('microservice-bootstrap').
 new SbtLibraryJobBuilder('play-ui').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-ui-23', 'play-ui', 'play-23').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-partials').
         build(this as DslFactory)
 
