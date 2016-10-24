@@ -17,6 +17,10 @@ class Steps {
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
         sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}publishSigned"], '\${TMPDIR}')
     }
+    
+    static Step sbtCleanTestFullOptJsPublish(String beforeTest = '', String afterTest = '') {
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}fullOptJS publishSigned"], '\${TMPDIR}')
+    }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
         sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
