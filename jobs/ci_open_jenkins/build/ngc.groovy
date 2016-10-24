@@ -38,7 +38,7 @@ new SbtLibraryJobBuilder('play-async').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('microservice-async').build(this as DslFactory)
 
-new SbtLibraryJobBuilder('paye-estimator').build(this)
+new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(this)
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
