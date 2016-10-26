@@ -66,9 +66,9 @@ class Steps {
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar
                   |fi
                   |enable_travis=""
-                  |if [ $enableTravis = true ]; then
-                  | enable_travis="--enable-travis"
-                  |fi
+                  |#if [ $enableTravis = true ]; then
+                  | #enable_travis="--enable-travis"
+                  |#fi
                   |
                   |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis
                   """.stripMargin())

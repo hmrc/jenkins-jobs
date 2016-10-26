@@ -91,7 +91,7 @@ jobBuilder('create-a-repository').
           withParameters(stringParameter('TEAM_NAME','','The exact name of the github team to which the repository will be added')).
           withParameters(choiceParameter('REPOSITORY_TYPE',['Sbt','SbtPlugin'],'The repository type e.g. SBT')).
           withParameters(stringParameter('BOOTSTRAP_TAG','0.1.0','The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
-          withParameters(booleanParameter('ENABLE_TRAVIS',false,'enable travis intigration')).
+          //withParameters(booleanParameter('ENABLE_TRAVIS',false,'enable travis intigration')).
           withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS')).
           withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
           build(this)
