@@ -19,7 +19,7 @@ class Steps {
     }
     
     static Step sbtCleanTestFullOptJsPublish(String beforeTest = '', String afterTest = '') {
-        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageXzTarball publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball publishSigned"], '\${TMPDIR}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
