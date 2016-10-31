@@ -32,7 +32,7 @@ new SbtLibraryJobBuilder('microservice-bootstrap-java').build(this as DslFactory
 
 new SbtLibraryJobBuilder('java-releaser-poc').build(this)
 
-new GradleMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('self-service-time-to-pay-des-stub').build(this as DslFactory)
 
