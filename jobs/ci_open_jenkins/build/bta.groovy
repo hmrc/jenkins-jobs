@@ -6,9 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtMicroserviceJobBuilder('bta-persistence').
-		build(this)
-
 new SbtFrontendJobBuilder('help-frontend').
                          build(this as DslFactory)
 
@@ -35,8 +32,7 @@ new SbtLibraryJobBuilder('logback-json-logger').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
-        .withJobs('bta-persistence',
-                  'help-frontend',
+        .withJobs('help-frontend',
                   'frontend-bootstrap',
                   'microservice-bootstrap',
                   'play-graphite',
