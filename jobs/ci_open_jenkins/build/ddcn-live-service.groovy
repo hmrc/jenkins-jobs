@@ -45,5 +45,25 @@ new SbtMicroserviceJobBuilder('gmp-bulk').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('ers-checking-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ers-returns-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('ers-file-validator').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('ers-submissions').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk').build(this)
+        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions').build(this)
