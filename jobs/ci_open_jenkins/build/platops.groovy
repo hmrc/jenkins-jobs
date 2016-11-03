@@ -146,6 +146,8 @@ new SbtMicroserviceJobBuilder('indicators').withTests("test")
 new SbtMicroserviceJobBuilder('service-releases').withTests("test")
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('service-dependencies').withTests("test")
+        .build(this as DslFactory)
 
 new SbtLibraryJobBuilder('github-client').build(this as DslFactory)
 
