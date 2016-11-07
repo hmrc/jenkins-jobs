@@ -52,6 +52,7 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'play-scheduling',
                   'batch-updater',
                   'work-item-repo',
+                  'metrix',
                   'updated-print-suppressions',
                   'secure-message-renderer',
                   'contact-advisors-frontend',
