@@ -11,7 +11,10 @@ new SbtLibraryJobBuilder('play-whitelist-filter').
 new SbtMicroserviceJobBuilder('amls').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('amls-notification').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('AMLS-MONITOR')
         .withJobs('play-whitelist-filter',
-        'amls'
+        'amls','amls-notification'
 ).build(this)
