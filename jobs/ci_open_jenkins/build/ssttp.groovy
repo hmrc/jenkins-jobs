@@ -38,6 +38,8 @@ new SbtMicroserviceJobBuilder('self-service-time-to-pay-des-stub').build(this as
 
 new SbtMicroserviceJobBuilder('time-to-pay-eligibility').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('time-to-pay-taxpayer').build(this as DslFactory)
+
 
 jobBuilder('create-a-java-release').
         withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.3.0')).
@@ -50,4 +52,4 @@ jobBuilder('create-a-java-release').
 
 
 new BuildMonitorViewBuilder('SSTTP-MONITOR')
-        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement', 'self-service-time-to-pay-des-stub', 'time-to-pay-eligibility').build(this)
+        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement', 'self-service-time-to-pay-des-stub', 'time-to-pay-eligibility', 'time-to-pay-taxpayer').build(this)
