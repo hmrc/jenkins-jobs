@@ -58,4 +58,18 @@ class SbtLibraryJobBuilderSpec extends Specification {
             buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '20'
         }
     }
+
+    void 'test cron trigger set'() {
+        given:
+        SbtLibraryJobBuilder jobBuilder = new SbtLibraryJobBuilder('test-job')
+                .withCronTrigger('test-cron-trigger')
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            triggers.'hudson.triggers.TimerTrigger'.spec.text() == 'test-cron-trigger'
+        }
+    }
 }

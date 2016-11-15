@@ -10,6 +10,7 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.sbtCleanTestPublish
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPublisher.sCoverageReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 
 final class SbtLibraryJobBuilder implements Builder<Job> {
 
@@ -46,6 +47,11 @@ final class SbtLibraryJobBuilder implements Builder<Job> {
 
     SbtLibraryJobBuilder withExtendedTimeout() {
         this.timeout = 20
+        this
+    }
+
+    SbtLibraryJobBuilder withCronTrigger(String cronExpression) {
+        jobBuilder = jobBuilder.withTriggers(cronTrigger(cronExpression))
         this
     }
 
