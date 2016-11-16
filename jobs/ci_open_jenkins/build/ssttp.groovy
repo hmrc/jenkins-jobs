@@ -16,30 +16,39 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAJavaRelease
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 
-new SbtMicroserviceJobBuilder('zone-health').build(this as DslFactory)
+def libraries = ["http-verbs-java",
+                 "play-filters-java", 
+                 "frontend-bootstrap-java", 
+                 "microservice-bootstrap-java",
+                 "java-releaser-poc"]
 
-new SbtMicroserviceJobBuilder('self-service-time-to-pay').build(this as DslFactory)
+def frontends = ["self-service-time-to-pay-frontend"]
 
-new SbtFrontendJobBuilder('self-service-time-to-pay-frontend').build(this as DslFactory)
+def services = ["zone-health",
+                "self-service-time-to-pay",
+                "self-service-time-to-pay-des-stub",
+                "time-to-pay-arrangement",
+                "time-to-pay-calculator",
+                "time-to-pay-eligibility",
+                "time-to-pay-taxpayer"]
 
-new SbtLibraryJobBuilder('http-verbs-java').build(this as DslFactory)
+def allServices = libraries + services + frontends
 
-new SbtLibraryJobBuilder('play-filters-java').build(this as DslFactory)
+frontends.each {
+    new SbtFrontendJobBuilder(it).build(this as DslFactory)
+}
 
-new SbtLibraryJobBuilder('frontend-bootstrap-java').build(this as DslFactory)
+services.each {
+    new SbtMicroserviceJobBuilder(it)
+            .withScalaStyle()
+            .withSCoverage()
+            .withTests("test it:test")
+            .build(this as DslFactory)
+}
 
-new SbtLibraryJobBuilder('microservice-bootstrap-java').build(this as DslFactory)
-
-new SbtLibraryJobBuilder('java-releaser-poc').build(this)
-
-new SbtMicroserviceJobBuilder('time-to-pay-arrangement').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('self-service-time-to-pay-des-stub').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('time-to-pay-eligibility').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('time-to-pay-taxpayer').build(this as DslFactory)
-
+libraries.each {
+    new SbtLibraryJobBuilder(it).build(this as DslFactory)
+}
 
 jobBuilder('create-a-java-release').
         withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.3.0')).
@@ -50,6 +59,4 @@ jobBuilder('create-a-java-release').
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Java Releaser successfully released (.*)')).
         build(this)
 
-
-new BuildMonitorViewBuilder('SSTTP-MONITOR')
-        .withJobs('self-service-time-to-pay','self-service-time-to-pay-frontend', 'time-to-pay-arrangement', 'self-service-time-to-pay-des-stub', 'time-to-pay-eligibility', 'time-to-pay-taxpayer').build(this)
+new BuildMonitorViewBuilder('SSTTP-MONITOR').withJobs(*allServices).build(this)
