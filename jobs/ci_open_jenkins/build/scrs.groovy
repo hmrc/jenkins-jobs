@@ -41,11 +41,6 @@ new SbtMicroserviceJobBuilder('income-tax-subscription').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('income-tax-subscription-dynamic-stub').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('SCRS-MONITOR').withJobs(
   'business-registration-frontend',
   'incorporation-dynamic-stub',
@@ -53,6 +48,5 @@ new BuildMonitorViewBuilder('SCRS-MONITOR').withJobs(
   'company-registration',
   'business-registration-notification',
   'business-registration-dynamic-stub',
-  'income-tax-subscription',
-  'income-tax-subscription-dynamic-stub'
+  'income-tax-subscription'
 ).build(this)
