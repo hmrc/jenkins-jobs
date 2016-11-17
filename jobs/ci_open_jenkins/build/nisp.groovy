@@ -15,6 +15,8 @@ new SbtFrontendJobBuilder('nisp-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('nisp-frontend-hotfix', 'nisp-frontend', 'iv-fix')
+
 new SbtMicroserviceJobBuilder('state-pension').
         withScalaStyle().
         withSCoverage().
