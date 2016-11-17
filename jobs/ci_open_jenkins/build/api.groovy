@@ -18,5 +18,8 @@ new SbtFrontendJobBuilder('api-revocation-frontend').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-platform-test-user').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-example-scala-client', 'api-revocation-frontend', 'play-json-union-formatter').build(this)
+        .withJobs('api-example-scala-client', 'api-revocation-frontend', 'play-json-union-formatter', 'api-platform-test-user').build(this)
