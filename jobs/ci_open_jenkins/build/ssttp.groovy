@@ -30,7 +30,8 @@ def services = ["zone-health",
                 "time-to-pay-arrangement",
                 "time-to-pay-calculator",
                 "time-to-pay-eligibility",
-                "time-to-pay-taxpayer"]
+                "time-to-pay-taxpayer",
+                "sa-stub"]
 
 def allServices = libraries + services + frontends
 
