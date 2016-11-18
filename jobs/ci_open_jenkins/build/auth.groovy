@@ -22,6 +22,9 @@ new SbtLibraryJobBuilder('crypto').
         withCronTrigger(CronExpressionForOnceEveryDay).
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('passcode-verification').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('simple-reactivemongo').
         build(this as DslFactory)
 
