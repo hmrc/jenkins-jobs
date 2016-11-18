@@ -9,11 +9,14 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtMicroserviceJobBuilder('fset-faststream').
     withExtendedTimeout().
     build(this as DslFactory)
-    
+
 new SbtFrontendJobBuilder('fset-faststream-frontend').
     build(this as DslFactory)
 
 new SbtFrontendJobBuilder('fset-launchpad-gateway').
+    build(this as DslFactory)
+
+new SbtFrontendJobBuilder('fset-parity-gateway').
     build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('fset-fasttrack').
@@ -25,5 +28,5 @@ new SbtFrontendJobBuilder('fset-fasttrack-frontend').
 
 
 new BuildMonitorViewBuilder('FSET-MONITOR').
-    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend').
+    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-parity-gateway', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend').
     build(this)
