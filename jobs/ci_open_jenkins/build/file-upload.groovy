@@ -20,8 +20,6 @@ new SbtLibraryJobBuilder('clamav-client').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('file-transfer-stub').
-    withSCoverage().
-    withScalaStyle().
     build(this as DslFactory)
 
 
