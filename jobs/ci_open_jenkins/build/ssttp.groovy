@@ -5,27 +5,23 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleMicroserviceJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAJavaRelease
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
 
-def libraries = ["http-verbs-java",
-                 "play-filters-java", 
-                 "frontend-bootstrap-java", 
-                 "microservice-bootstrap-java",
-                 "java-releaser-poc"]
+def javaLibraries = ["http-verbs-java",
+                     "play-filters-java",
+                     "frontend-bootstrap-java",
+                     "microservice-bootstrap-java",
+                     "java-releaser-poc"]
 
 def frontends = ["self-service-time-to-pay-frontend"]
 
-def services = ["zone-health",
-                "self-service-time-to-pay",
+def services = ["self-service-time-to-pay",
                 "self-service-time-to-pay-des-stub",
                 "time-to-pay-arrangement",
                 "time-to-pay-calculator",
@@ -33,7 +29,7 @@ def services = ["zone-health",
                 "time-to-pay-taxpayer",
                 "sa-stub"]
 
-def allServices = libraries + services + frontends
+def allServices = services + frontends
 
 frontends.each {
     new SbtFrontendJobBuilder(it).build(this as DslFactory)
@@ -47,13 +43,13 @@ services.each {
             .build(this as DslFactory)
 }
 
-libraries.each {
+javaLibraries.each {
     new SbtLibraryJobBuilder(it).build(this as DslFactory)
 }
 
 jobBuilder('create-a-java-release').
         withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '0.3.0')).
-        withParameters(stringParameter('ARTEFACT_NAME','','The artifact name e.g. cato-frontend'),
+        withParameters(stringParameter('ARTEFACT_NAME', '', 'The artifact name e.g. cato-frontend'),
                 stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
                 choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR')).
         withSteps(createAJavaRelease()).
