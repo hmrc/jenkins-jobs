@@ -14,6 +14,8 @@ new SbtMicroserviceJobBuilder('agent-client-relationships').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agencies-fake').
         build(this as DslFactory)
+new SbtMicroserviceJobBuilder('agent-subscription').
+        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
@@ -31,4 +33,4 @@ new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend',
-                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agencies-fake').build(this)
+                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agencies-fake', 'agent-subscription').build(this)
