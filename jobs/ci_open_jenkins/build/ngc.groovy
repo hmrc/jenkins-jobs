@@ -43,6 +43,8 @@ new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(th
 
 new SbtScalaJsLibraryJobBuilder('paye-estimator-js_sjs0.6').withoutJUnitReports().build(this)
 
+new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
 		'customer-profile',
@@ -61,6 +63,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'your-tax-calculator',
 		'your-tax-calculator-frontend',
 		'paye-estimator',
-		'paye-estimator-js_sjs0.6').build(this)
+		'paye-estimator-js_sjs0.6',
+		'authenticate-one-time-password').build(this)
 
 
