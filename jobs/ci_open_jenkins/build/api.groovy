@@ -11,12 +11,15 @@ new SbtFrontendJobBuilder('api-example-scala-client').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
-        withTests("test").
+        withTests("test acceptance:test").
         withXvfb().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-platform-test-user-frontend').
-        withTests("test").
+        withXvfb().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
