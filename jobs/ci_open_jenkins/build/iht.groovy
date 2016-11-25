@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtMicroserviceJobBuilder('iht').
         withScalaStyle().
         withSCoverage().
+	withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('IHT-MONITOR')
