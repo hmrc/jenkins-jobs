@@ -29,12 +29,24 @@ new SbtMicroserviceJobBuilder('company-registration').
 new SbtMicroserviceJobBuilder('business-registration-notification').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)   
+        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('business-registration-dynamic-stub').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)        
+        build(this as DslFactory)
 
-new BuildMonitorViewBuilder('SCRS-MONITOR')
-.withJobs('business-registration-frontend', 'incorporation-dynamic-stub', 'business-registration', 'company-registration', 'business-registration-notification', 'business-registration-dynamic-stub').build(this)
+new SbtMicroserviceJobBuilder('income-tax-subscription').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new BuildMonitorViewBuilder('SCRS-MONITOR').withJobs(
+  'business-registration-frontend',
+  'incorporation-dynamic-stub',
+  'business-registration',
+  'company-registration',
+  'business-registration-notification',
+  'business-registration-dynamic-stub',
+  'income-tax-subscription'
+).build(this)
