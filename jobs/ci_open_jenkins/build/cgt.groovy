@@ -8,6 +8,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 new SbtFrontendJobBuilder('capital-gains-calculator-frontend').
         withScalaStyle().
         withSCoverage().
+        withExtendedTimeout().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('capital-gains-calculator').
