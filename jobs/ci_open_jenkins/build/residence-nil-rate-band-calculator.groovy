@@ -6,6 +6,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtMicroserviceJobBuilder('residence-nil-rate-band-calculator').
+        withTests('test cucumber').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
