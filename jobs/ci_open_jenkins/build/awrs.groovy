@@ -23,13 +23,11 @@ new SbtMicroserviceJobBuilder('awrs').
 new SbtMicroserviceJobBuilder('awrs-lookup').
         withScalaStyle().
         withSCoverage().
-        withTests("test").
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('awrs-lookup-frontend').
         withScalaStyle().
         withSCoverage().
-        withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AWRS-MONITOR')
