@@ -10,6 +10,8 @@ new SbtLibraryJobBuilder('logging').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('address-reputation-store').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-random-json-filter').build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('address-reputation-ingester').
         withScalaStyle().
         withSCoverage().
