@@ -5,6 +5,9 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
+new SbtLibraryJobBuilder('akka-xml-parser').
+                 withSCoverage().
+        build(this as DslFactory)
 
 new SbtLibraryJobBuilder('xml-parser').
                  withSCoverage().
@@ -19,4 +22,4 @@ new SbtLibraryJobBuilder('service-contract-cache').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('RATE-MONITOR')
-        .withJobs('xml-parser', 'https-stream', 'service-contract-cache').build(this)
+        .withJobs('akka-xml-parser', 'xml-parser', 'https-stream', 'service-contract-cache').build(this)
