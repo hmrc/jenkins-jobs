@@ -28,6 +28,10 @@ frontendJob.environmentVariables {
     env('no_proxy', 'localhost')
 }
 
+def frontendJob = new SbtFrontendJobBuilder('agent-performance-test-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         build(this as DslFactory)
 
