@@ -30,4 +30,4 @@ new SbtMicroserviceJobBuilder('api-platform-test-user').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-example-scala-client', 'api-revocation-frontend', 'play-json-union-formatter', 'api-platform-test-user', 'api-platform-test-user-frontend').build(this)
+        .withJobs('api-example-scala-client', 'api-revocation-frontend', 'play-json-union-formatter', 'api-platform-test-user', 'api-platform-test-user-frontend', 'api-platform-test-login-frontend').build(this)
