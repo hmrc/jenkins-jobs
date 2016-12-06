@@ -27,10 +27,15 @@ new SbtFrontendJobBuilder('bank-account-reputation-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('maps').
+        withScalaStyle().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
                 'address-reputation-store',
                 'address-reputation-ingester',
                 'address-lookup-frontend',
-                'bank-account-reputation-frontend').build(this)
+                'bank-account-reputation-frontend',
+                'maps').build(this)
 
