@@ -22,6 +22,12 @@ new SbtMicroserviceJobBuilder('cgt-calculator-non-resident-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend').
+        withScalaStyle().
+        withSCoverage().
+        withExtendedTimeout().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('capital-gains-subscription').
         withScalaStyle().
         withSCoverage().
