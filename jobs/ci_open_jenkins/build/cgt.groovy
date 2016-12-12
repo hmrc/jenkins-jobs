@@ -22,8 +22,13 @@ new SbtMicroserviceJobBuilder('cgt-calculator-non-resident-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
-
 new SbtMicroserviceJobBuilder('cgt-calculator-resident-shares-frontend').
+        withScalaStyle().
+        withSCoverage().
+        withExtendedTimeout().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend').
         withScalaStyle().
         withSCoverage().
         withExtendedTimeout().
@@ -40,4 +45,4 @@ new SbtFrontendJobBuilder('capital-gains-subscription-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CGT-MONITOR')
-        .withJobs('capital-gains-calculator-frontend','capital-gains-calculator','capital-gains-subscription', 'capital-gains-subscription-frontend', 'cgt-calculator-non-resident-frontend', 'cgt-calculator-resident-shares-frontend').build(this)
+        .withJobs('capital-gains-calculator-frontend','capital-gains-calculator','capital-gains-subscription', 'capital-gains-subscription-frontend', 'cgt-calculator-non-resident-frontend', 'cgt-calculator-resident-shares-frontend', 'cgt-calculator-resident-properties-frontend').build(this)
