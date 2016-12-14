@@ -11,11 +11,6 @@ new SbtFrontendJobBuilder('business-registration-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('paye-registration-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('incorporation-dynamic-stub').
         withScalaStyle().
         withSCoverage().
@@ -42,4 +37,4 @@ new SbtMicroserviceJobBuilder('business-registration-dynamic-stub').
         build(this as DslFactory)        
 
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-.withJobs('business-registration-frontend', 'paye-registration-frontend', 'incorporation-dynamic-stub', 'business-registration', 'company-registration', 'business-registration-notification', 'business-registration-dynamic-stub').build(this)
+.withJobs('business-registration-frontend', 'incorporation-dynamic-stub', 'business-registration', 'company-registration', 'business-registration-notification', 'business-registration-dynamic-stub').build(this)
