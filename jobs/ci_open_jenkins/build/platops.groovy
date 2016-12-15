@@ -158,7 +158,7 @@ new SbtLibraryJobBuilder('git-client').build(this as DslFactory)
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client').build(this)
 
-jobBuilder('create-a-service', HmrcGitHubComScm('init-service'), "Creates a Scala Play service")
+jobBuilder('create-a-service', 'init-service')
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPOSITORY_VERSION', '0.23.0'))
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend. See <a href="https://confluence.tools.tax.service.gov.uk/display/AR/Microservice+Naming+Guidelines">Naming Guidelines</a>'))
         .withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the team as in: <a href="https://catalogue.tax.service.gov.uk/teams">catalogue</a>'))
@@ -175,4 +175,5 @@ jobBuilder('create-a-service', HmrcGitHubComScm('init-service'), "Creates a Scal
                                 |python scripts/bin/create.py \${REPOSITORY_NAME} \${TYPE} -exists \$withMongo
                                """.stripMargin()))
         .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created (.*)'))
+
         .build(this)
