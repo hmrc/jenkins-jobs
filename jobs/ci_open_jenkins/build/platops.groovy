@@ -164,6 +164,7 @@ jobBuilder('create-a-service', 'init-service')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend. See <a href="https://confluence.tools.tax.service.gov.uk/display/AR/Microservice+Naming+Guidelines">Naming Guidelines</a>'))
         .withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the team as in: <a href="https://catalogue.tax.service.gov.uk/teams">catalogue</a>'))
         .withParameters(choiceParameter('TYPE', ['MICROSERVICE', 'FRONTEND'], 'Type of the service'))
+        .withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* services or the most recent internal tag version for *migrated* services'))
         .withParameters(booleanParameter('WITH_MONGO', false, 'Selecting this options will include the mongo connector library and plugin as project dependencies.'))
         .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', 'Sbt', '0.1.0', ''))
         .withSteps(shellStep("""|
