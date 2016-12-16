@@ -159,12 +159,13 @@ new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client').build(this)
 
 jobBuilder('create-a-service', 'init-service')
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPOSITORY_VERSION', '0.23.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.23.0'))
+        .withLabel('master')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend. See <a href="https://confluence.tools.tax.service.gov.uk/display/AR/Microservice+Naming+Guidelines">Naming Guidelines</a>'))
         .withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the team as in: <a href="https://catalogue.tax.service.gov.uk/teams">catalogue</a>'))
         .withParameters(choiceParameter('TYPE', ['MICROSERVICE', 'FRONTEND'], 'Type of the service'))
         .withParameters(booleanParameter('WITH_MONGO', false, 'Selecting this options will include the mongo connector library and plugin as project dependencies.'))
-        .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS'))
+        .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', 'Sbt', '0.1.0', ''))
         .withSteps(shellStep("""|
                                 |withMongo=""
                                 |
@@ -174,6 +175,5 @@ jobBuilder('create-a-service', 'init-service')
                                 |
                                 |python scripts/bin/create.py \${REPOSITORY_NAME} \${TYPE} -exists \$withMongo
                                """.stripMargin()))
-        .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created (.*)'))
-
+        .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created https://github.com/hmrc/(.*)'))
         .build(this)
