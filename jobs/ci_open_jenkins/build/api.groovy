@@ -32,6 +32,11 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('api-gateway').
+        withTests("test it:test").
+        withXvfb().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs('api-example-scala-client',
         'api-revocation-frontend',
@@ -39,5 +44,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'totp-generator',
         'api-platform-test-user',
         'api-platform-test-user-frontend',
-        'api-platform-test-login-frontend'
+        'api-platform-test-login-frontend',
+        'api-gateway'
 ).build(this)
