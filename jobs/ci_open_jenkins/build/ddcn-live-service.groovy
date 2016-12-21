@@ -12,7 +12,7 @@ new SbtMicroserviceJobBuilder('pbik').
                          
 new SbtFrontendJobBuilder('pbik-frontend').
         withScalaStyle().
-        withSCoverage().
+        //withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('tamc').
