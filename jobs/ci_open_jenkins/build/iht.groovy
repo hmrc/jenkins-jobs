@@ -12,7 +12,7 @@ new SbtMicroserviceJobBuilder('iht').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('iht-frontend').
-		withExtendedTimeout.
+		withExtendedTimeout().
         withScalaStyle().
         withSCoverage().
 	withTests("test").
