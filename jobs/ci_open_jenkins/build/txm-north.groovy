@@ -12,11 +12,13 @@ new SbtLibraryJobBuilder('address-reputation-store').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-random-json-filter').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('txm-events').build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('address-reputation-ingester').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
-                         
+
 new SbtFrontendJobBuilder('address-lookup-frontend').
         withScalaStyle().
         withSCoverage().
@@ -33,9 +35,11 @@ new SbtFrontendJobBuilder('maps').
 
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
-                'address-reputation-store',
-                'address-reputation-ingester',
-                'address-lookup-frontend',
-                'bank-account-reputation-frontend',
-                'maps').build(this)
+                  'address-reputation-store',
+                  'address-reputation-ingester',
+                  'address-lookup-frontend',
+                  'bank-account-reputation-frontend',
+                  'maps',
+                  'play-random-json-filter',
+                  'txm-events').build(this)
 
