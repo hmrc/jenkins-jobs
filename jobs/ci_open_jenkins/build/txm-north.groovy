@@ -33,6 +33,11 @@ new SbtFrontendJobBuilder('maps').
         withScalaStyle().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('example-play-25-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
                   'address-reputation-store',
@@ -40,6 +45,6 @@ new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
                   'address-lookup-frontend',
                   'bank-account-reputation-frontend',
                   'maps',
+                  'example-play-25-frontend',
                   'play-random-json-filter',
                   'txm-events').build(this)
-
