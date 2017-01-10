@@ -15,19 +15,19 @@ class Steps {
     }
 
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
-        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}publishSigned"], '\${TMP}')
     }
     
     static Step sbtCleanTestFullOptJsPublish(String beforeTest = '', String afterTest = '') {
-        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball publishSigned"], '\${TMP}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
-        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
     static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep(["\$SBT_OPTS clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMPDIR}')
+        sbtStep(["\$SBT_OPTS clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
     static Step gradleCleanDistTgzPublish() {
@@ -35,7 +35,7 @@ class Steps {
     }
 
     static Step cleanPublishSigned() {
-        sbtStep(['\$SBT_OPTS clean publishSigned'], '\${TMPDIR}')
+        sbtStep(['\$SBT_OPTS clean publishSigned'], '\${TMP}')
     }
 
     static Step createARelease() {

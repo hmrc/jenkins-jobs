@@ -20,6 +20,7 @@ class GradleLibraryJobBuilderSpec extends Specification {
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('JAVA_HOME')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('TMP')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             builders.'hudson.plugins.gradle.Gradle'.tasks.text().contains('clean test bintrayUpload --info')
             buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '10'

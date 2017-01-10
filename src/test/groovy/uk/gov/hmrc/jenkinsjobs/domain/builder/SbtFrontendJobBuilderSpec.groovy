@@ -20,6 +20,7 @@ class SbtFrontendJobBuilderSpec extends Specification {
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('CLASSPATH')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('JAVA_HOME')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
+            buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('TMP')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
             builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS clean validate test it:test dist-tgz publishSigned')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'

@@ -9,6 +9,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.ClaimBrokenBuildsP
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.CleanWorkspacePostBuildTaskPublisher.cleanWorkspacePostBuildTaskPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrigger
 import static uk.gov.hmrc.jenkinsjobs.domain.variable.ClasspathEnvironmentVariable.classpathEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobs.domain.variable.TmpDirEnvironmentVariable.tmpDirEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobs.domain.variable.PathEnvironmentVariable.pathEnvironmentVariable
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.ColorizeOutputWrapper.colorizeOutputWrapper
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.PreBuildCleanupWrapper.preBuildCleanUpWrapper
@@ -44,6 +45,6 @@ final class JobBuilders {
     private static List<EnvironmentVariable> environmentVariables() {
         JavaVersionEnvironmentVariable javaVersionEnvironmentVariable = JDKLATEST
         JavaHomeEnvironmentVariable javaHomeEnvironmentVariable = javaHomeEnvironmentVariable(javaVersionEnvironmentVariable)
-        [classpathEnvironmentVariable(), javaVersionEnvironmentVariable, javaHomeEnvironmentVariable, pathEnvironmentVariable(javaHomeEnvironmentVariable)]
+        [classpathEnvironmentVariable(), tmpDirEnvironmentVariable(), javaVersionEnvironmentVariable, javaHomeEnvironmentVariable, pathEnvironmentVariable(javaHomeEnvironmentVariable)]
     }
 }
