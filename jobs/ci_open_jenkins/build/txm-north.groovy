@@ -34,8 +34,6 @@ new SbtFrontendJobBuilder('maps').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('example-play-25-frontend').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
