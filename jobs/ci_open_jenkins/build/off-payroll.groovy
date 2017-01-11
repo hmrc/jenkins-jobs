@@ -20,14 +20,14 @@ def services = ["pdf-generator-service","off-payroll-decision"]
 def allServices = services + frontends
 
 frontends.each {
-    new SbtFrontendJobBuilder(it).
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+    new SbtFrontendJobBuilder(it)
+        .withTests("test")
+        .build(this as DslFactory)
 }
 
 services.each {
     new SbtMicroserviceJobBuilder(it)
+        	.withTests("test")
             .build(this as DslFactory)
 }
 
