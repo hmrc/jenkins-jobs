@@ -32,4 +32,4 @@ services.each {
 }
 
 
-new BuildMonitorViewBuilder('OFF-PAYROLL-MONITOR').withJobs(*allServices).build(this)
+new BuildMonitorViewBuilder('OFFPAY-MONITOR').withJobs(*allServices).build(this)
