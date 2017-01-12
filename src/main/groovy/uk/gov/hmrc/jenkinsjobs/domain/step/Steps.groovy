@@ -23,11 +23,12 @@ class Steps {
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
-        sbtStep(["\$SBT_OPTS clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
+    //used by frontend
     static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep(["\$SBT_OPTS clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
     static Step gradleCleanDistTgzPublish() {
