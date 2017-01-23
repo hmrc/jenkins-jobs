@@ -19,7 +19,12 @@ new SbtMicroserviceJobBuilder('address-reputation-ingester').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('address-lookup-frontend').
+new SbtMicroserviceJobBuilder('address-reputation-ingester').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('kafka-amqp-sink').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
