@@ -19,7 +19,7 @@ new SbtMicroserviceJobBuilder('address-reputation-ingester').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('address-reputation-ingester').
+new SbtMicroserviceJobBuilder('address-lookup-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
