@@ -4,6 +4,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 new SbtMicroserviceJobBuilder('pbik').
         withScalaStyle().
@@ -63,6 +64,9 @@ new SbtMicroserviceJobBuilder('ers-file-validator').
 new SbtMicroserviceJobBuilder('ers-submissions').
         withScalaStyle().
         withSCoverage().
+        build(this as DslFactory)
+
+new SbtLibraryJobBuilder('tabular-data-validator').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
