@@ -50,4 +50,4 @@ jobBuilder('create-a-java-release').
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Java Releaser successfully released (.*)')).
         build(this)
 
-new BuildMonitorViewBuilder('EEITT-MONITOR').withJobs(*allServices).build(this)
+new BuildMonitorViewBuilder('BFORMS-MONITOR').withJobs(*allServices).build(this)
