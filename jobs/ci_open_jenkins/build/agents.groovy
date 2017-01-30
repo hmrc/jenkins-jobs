@@ -17,6 +17,8 @@ new SbtMicroserviceJobBuilder('agencies-fake').
 new SbtMicroserviceJobBuilder('agent-subscription').
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-subscription-frontend').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
