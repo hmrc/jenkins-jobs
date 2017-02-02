@@ -30,5 +30,10 @@ new SbtFrontendJobBuilder('awrs-lookup-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('awrs-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('AWRS-MONITOR')
-        .withJobs('awrs','awrs-notification','api-integration-test-runner','awrs-lookup','awrs-lookup-frontend').build(this)
+        .withJobs('awrs-frontend','awrs','awrs-notification','api-integration-test-runner','awrs-lookup','awrs-lookup-frontend').build(this)
