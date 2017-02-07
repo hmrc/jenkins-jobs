@@ -3,6 +3,7 @@ package ci_open_jenkins.build
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 final CronExpressionForOnceEveryDay = "H H(9-17) * * *"
 
@@ -96,6 +97,9 @@ new SbtLibraryJobBuilder('tax-year').
         withCronTrigger(CronExpressionForOnceEveryDay).
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('openid-connect-userinfo')
+        .withTests("test it:test")
+        .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
@@ -111,5 +115,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
             'play-authorised-frontend',
             'secure',
             'tax-year',
+            'openid-connect-userinfo'
         )
         .build(this)
