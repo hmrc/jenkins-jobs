@@ -33,7 +33,7 @@ new SbtMicroserviceJobBuilder('updated-print-suppressions').
 new SbtMicroserviceJobBuilder('secure-message-renderer').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('contact-advisors-frontend').
+new SbtFrontendJobBuilder('customer-advisors-frontend').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
@@ -55,7 +55,7 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'metrix',
                   'updated-print-suppressions',
                   'secure-message-renderer',
-                  'contact-advisors-frontend',
+                  'customer-advisors-frontend',
                   'hmrc-email-renderer',
                   'message-renderer-template',
                   'email-renderer-template')
