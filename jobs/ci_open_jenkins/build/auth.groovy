@@ -74,6 +74,10 @@ new SbtLibraryJobBuilder('http-exceptions').
         withCronTrigger(CronExpressionForOnceEveryDay).
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('openid-connect-userinfo')
+        .withTests("test it:test")
+        .build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-graphite').
         withoutJUnitReports().
         build(this as DslFactory)
@@ -97,10 +101,6 @@ new SbtLibraryJobBuilder('tax-year').
         withCronTrigger(CronExpressionForOnceEveryDay).
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('openid-connect-userinfo')
-        .withTests("test it:test")
-        .build(this as DslFactory)
-
 new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
@@ -111,10 +111,10 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
             'http-exceptions',
             'json-encryption',
             'mongo-caching',
+            'openid-connect-userinfo',
             'play-authorisation',
             'play-authorised-frontend',
             'secure',
-            'tax-year',
-            'openid-connect-userinfo'
+            'tax-year'
         )
         .build(this)
