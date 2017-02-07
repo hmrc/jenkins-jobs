@@ -11,6 +11,8 @@ new SbtMicroserviceJobBuilder('customer-profile').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('personal-income').build(this as DslFactory)
 
+new SbtFrontendJobBuilder('personal-tax-summary').build(this as DslFactory)
+
 new SbtFrontendJobBuilder('mobile-messages').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('submission-tracker').build(this as DslFactory)
@@ -45,6 +47,7 @@ new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as Ds
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
+		'personal-tax-summary',
 		'customer-profile',
 		'mobile-messages',
 		'push-notification',
