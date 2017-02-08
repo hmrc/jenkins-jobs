@@ -31,5 +31,9 @@ services.each {
             .build(this as DslFactory)
 }
 
+new SbtFrontendJobBuilder("off-payroll-frontend-integration","off-payroll-frontend","integration")
+        .withTests("test")
+        .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('OFFPAY-MONITOR').withJobs(*allServices).build(this)
+
+new BuildMonitorViewBuilder('OFF-PAYROLL-OPEN-MONITOR').withJobs(*allServices, "off-payroll-frontend-integration").build(this)
