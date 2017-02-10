@@ -9,16 +9,16 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 new SbtMicroserviceJobBuilder('cbc-backend').
         withScalaStyle().
         withSCoverage().
-	withTests("test").
+        withTests("test").
         build(this as DslFactory)
 */
 
 new SbtFrontendJobBuilder('cbc-frontend').
-		withExtendedTimeout().
+        withExtendedTimeout().
         withScalaStyle().
         withSCoverage().
-	withTests("test").
+        withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CBC-MONITOR')
-        .withJobs('cbc','cbc-frontend').build(this)
+        .withJobs('cbc-frontend').build(this)
