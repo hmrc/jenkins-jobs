@@ -69,5 +69,23 @@ new SbtMicroserviceJobBuilder('ers-submissions').
 new SbtLibraryJobBuilder('tabular-data-validator').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend-hotfix', 'pensions-lifetime-allowance-frontend', 'hotfix/pla-frontend').
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pensions-lifetime-allowance').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pla-dynamic-stub').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)        
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions').build(this)
+        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub').build(this)
