@@ -41,9 +41,9 @@ new SbtLibraryJobBuilder('microservice-async').build(this as DslFactory)
 
 new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(this)
 
-new SbtScalaJsLibraryJobBuilder('paye-estimator-js_sjs0.6').withoutJUnitReports().build(this)
-
 new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as DslFactory)
+
+new SbtFrontendJobBuilder('managing-vat-debt-frontend').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
@@ -63,7 +63,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'mobile-token-proxy',
 		'your-tax-calculator-frontend',
 		'paye-estimator',
-		'paye-estimator-js_sjs0.6',
-		'authenticate-one-time-password').build(this)
+		'authenticate-one-time-password',
+		'managing-vat-debt-frontend').build(this)
 
 
