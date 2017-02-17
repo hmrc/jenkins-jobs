@@ -9,19 +9,19 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtMicroserviceJobBuilder('customer-profile').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('personal-income').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('personal-income').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('personal-tax-summary').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('personal-tax-summary').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('mobile-messages').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('mobile-messages').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('submission-tracker').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('submission-tracker').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('push-notification').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('push-notification').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('push-registration').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('push-registration').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('native-apps-api-orchestration').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('native-apps-api-orchestration').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-gateway-async-example').build(this as DslFactory)
 
