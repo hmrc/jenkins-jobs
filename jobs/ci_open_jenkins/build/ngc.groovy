@@ -13,6 +13,8 @@ new SbtMicroserviceJobBuilder('personal-income').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('personal-tax-summary').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('push-notification-scheduler').build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('mobile-messages').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('submission-tracker').build(this as DslFactory)
