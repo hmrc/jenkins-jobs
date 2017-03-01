@@ -61,6 +61,11 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
         this
     }
 
+    SbtMicroserviceJobBuilder withLogRotator(int daysToKeep, int numToKeep) {
+        jobBuilder = jobBuilder.withLogRotator(daysToKeep, numToKeep)
+        this
+    }
+
     SbtMicroserviceJobBuilder withEnvironmentVariable(EnvironmentVariable  environmentVariable) {
         jobBuilder = jobBuilder.withEnvironmentVariables(environmentVariable)
         this

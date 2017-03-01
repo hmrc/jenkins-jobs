@@ -22,12 +22,14 @@ def allServices = services + frontends
 frontends.each {
     new SbtFrontendJobBuilder(it)
         .withTests("test")
+        .withLogRotator(7, 1000)
         .build(this as DslFactory)
 }
 
 services.each {
     new SbtMicroserviceJobBuilder(it)
         	.withTests("test")
+            .withLogRotator(7, 1000)
             .build(this as DslFactory)
 }
 
