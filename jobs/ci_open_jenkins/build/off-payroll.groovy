@@ -35,10 +35,12 @@ services.each {
 
 new SbtFrontendJobBuilder("off-payroll-frontend-integration","off-payroll-frontend","integration")
         .withTests("test")
+        .withLogRotator(7, 1000)
         .build(this as DslFactory)
 
 new SbtFrontendJobBuilder("off-payroll-decision-integration","off-payroll-decision","integration")
         .withTests("test")
+        .withLogRotator(7, 1000)
         .build(this as DslFactory)
 
 
