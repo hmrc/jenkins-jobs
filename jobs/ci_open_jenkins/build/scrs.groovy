@@ -26,6 +26,9 @@ new SbtMicroserviceJobBuilder('company-registration').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('company-registration-scrs-5444-hotfix', 'company-registration', 'SCRS-5444').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('business-registration-notification').
         withScalaStyle().
         withSCoverage().
