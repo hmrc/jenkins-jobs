@@ -62,6 +62,11 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
         this
     }
 
+    SbtFrontendJobBuilder withLogRotator(int daysToKeep, int numToKeep) {
+        jobBuilder = jobBuilder.withLogRotator(daysToKeep, numToKeep)
+        this
+    }
+
     SbtFrontendJobBuilder withHtmlReports(Map<String, String> htmlReportDirs) {
         this.jobBuilder = jobBuilder.withPublishers(htmlReportsPublisher(htmlReportDirs))
         this
