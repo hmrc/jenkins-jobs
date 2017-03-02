@@ -49,5 +49,11 @@ new SbtMicroserviceJobBuilder('capital-gains-subscription-dynamic-stub').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('cgt-agent-client-relationships-frontend').
+      withScalaStyle().
+      withSCoverage().
+      withExtendedTimeout().
+      build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CGT-MONITOR')
         .withJobs('capital-gains-calculator-frontend','capital-gains-calculator','capital-gains-subscription', 'capital-gains-subscription-frontend', 'cgt-calculator-non-resident-frontend', 'cgt-calculator-resident-shares-frontend', 'cgt-calculator-resident-properties-frontend').build(this)
