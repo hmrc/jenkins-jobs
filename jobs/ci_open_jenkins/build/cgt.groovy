@@ -56,7 +56,7 @@ new SbtFrontendJobBuilder('cgt-agent-client-relationships-frontend').
       build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('cgt-agent-client-relationships').
-      withScalaStle().
+      withScalaStyle().
       withSCoverage().
       build(this as DslFactory)
 
