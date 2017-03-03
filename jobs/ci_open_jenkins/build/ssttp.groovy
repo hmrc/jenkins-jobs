@@ -23,6 +23,7 @@ def frontends = ["self-service-time-to-pay-frontend"]
 
 def services = ["self-service-time-to-pay",
                 "self-service-time-to-pay-des-stub",
+                "self-service-time-to-pay-des-stub-scala",
                 "time-to-pay-arrangement",
                 "time-to-pay-calculator",
                 "time-to-pay-eligibility",
