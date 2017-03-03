@@ -10,5 +10,11 @@ new SbtMicroserviceJobBuilder('lisa-api').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('lisa-frontend').
+        withTests("test").
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LISA-MONITOR')
 .withJobs('lisa-api').build(this)
