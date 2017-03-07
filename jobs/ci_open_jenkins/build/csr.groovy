@@ -26,6 +26,9 @@ new SbtMicroserviceJobBuilder('fset-fasttrack').
 new SbtFrontendJobBuilder('fset-fasttrack-frontend').
     build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('fset-email-renderer').
+		build(this as DslFactory)
+
 
 new BuildMonitorViewBuilder('FSET-MONITOR').
     withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-parity-gateway', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend').
