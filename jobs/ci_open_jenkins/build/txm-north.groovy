@@ -46,6 +46,9 @@ new SbtFrontendJobBuilder('maps').
 new SbtFrontendJobBuilder('example-play-25-frontend').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('example-play-25-microservice').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
                   'address-reputation-store',
