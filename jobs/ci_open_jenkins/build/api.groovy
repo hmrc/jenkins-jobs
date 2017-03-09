@@ -3,7 +3,6 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtFrontendJobBuilder('api-example-scala-client').
         withTests("test").
@@ -21,17 +20,6 @@ new SbtLibraryJobBuilder('play-json-union-formatter').
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-platform-test-user').
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('api-platform-test-user-frontend').
-        withXvfb().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('api-platform-test-login-frontend').
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-gateway').
         withTests("test it:test").
         withXvfb().
@@ -42,8 +30,5 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-revocation-frontend',
         'play-json-union-formatter',
         'totp-generator',
-        'api-platform-test-user',
-        'api-platform-test-user-frontend',
-        'api-platform-test-login-frontend',
         'api-gateway'
 ).build(this)
