@@ -24,8 +24,7 @@ new SbtMicroserviceJobBuilder('address-lookup').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('address-lookup-frontend').
-        withScalaStyle().
+new SbtFrontendJobBuilder('address-lookup-frontend').
         withSCoverage().
         build(this as DslFactory)
 
