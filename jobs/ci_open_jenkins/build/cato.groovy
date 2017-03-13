@@ -16,7 +16,7 @@ new SbtLibraryJobBuilder('ct-calculations').
 new SbtLibraryJobBuilder('play-time').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('cato-files-proxy').
+new SbtMicroserviceJobBuilder('cato-files-proxy').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CATO-MONITOR')
