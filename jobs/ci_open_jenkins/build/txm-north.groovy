@@ -25,7 +25,6 @@ new SbtMicroserviceJobBuilder('address-lookup').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('address-lookup-frontend').
-        withSCoverage().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('kafka-amqp-sink').
