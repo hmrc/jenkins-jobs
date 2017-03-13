@@ -16,9 +16,13 @@ new SbtLibraryJobBuilder('ct-calculations').
 new SbtLibraryJobBuilder('play-time').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('cato-files-proxy').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('CATO-MONITOR')
-.withJobs('ct-calculations',
-          'play-events',
-          'play-time',
-          'attachments-client'
-        ).build(this)
+        .withJobs('ct-calculations',
+                  'cato-files-proxy',
+                  'play-events',
+                  'play-time',
+                  'attachments-client')
+        .build(this)
