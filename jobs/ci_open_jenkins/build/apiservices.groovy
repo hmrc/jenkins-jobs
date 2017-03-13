@@ -9,6 +9,11 @@ new SbtFrontendJobBuilder('api-gatekeeper-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('deployment-approval-frontend').
+        withTests("test acceptance:test").
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('api-platform-test-user').
         build(this as DslFactory)
 
@@ -22,6 +27,7 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
 
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs('api-gatekeeper-frontend',
+        'deployment-approval-frontend',
         'api-platform-test-user',
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend'
