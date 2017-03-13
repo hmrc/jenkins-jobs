@@ -51,6 +51,8 @@ new SbtFrontendJobBuilder('managing-vat-debt-frontend').build(this as DslFactory
 
 new SbtMicroserviceJobBuilder('sns-client').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('aws-sns-stub').build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
 		'personal-tax-summary',
@@ -72,6 +74,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'paye-estimator',
 		'authenticate-one-time-password',
 		'managing-vat-debt-frontend',
-		'sns-client').build(this)
+		'sns-client',
+		'aws-sns-stub').build(this)
 
 
