@@ -5,8 +5,8 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtFrontendJobBuilder('cbc-frontend').
+new SbtFrontendJobBuilder('cbcr-frontend').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('cbc').
+new SbtMicroserviceJobBuilder('cbcr').
         build(this as DslFactory)
