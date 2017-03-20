@@ -21,8 +21,6 @@ new SbtFrontendJobBuilder('agent-subscription-frontend').
         withScalaStyle().
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-mapping-frontend').
-        withSCoverage().
-        withScalaStyle().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
