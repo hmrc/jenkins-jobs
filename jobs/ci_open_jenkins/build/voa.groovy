@@ -20,3 +20,5 @@ new SbtFrontendJobBuilder('voa-property-linking')
 new SbtMicroserviceJobBuilder('business-rates-authorisation')
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('voa-traffic-router')
+        .build(this as DslFactory)
