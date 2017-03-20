@@ -78,6 +78,9 @@ new SbtLibraryJobBuilder('play-authorised-frontend').
 new SbtLibraryJobBuilder('play-authorisation').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-auth').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs').
         build(this as DslFactory)
 
@@ -97,6 +100,7 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
             'json-encryption',
             'mongo-caching',
             'openid-connect-userinfo',
+            'play-auth',
             'play-authorisation',
             'play-authorised-frontend',
             'secure',
