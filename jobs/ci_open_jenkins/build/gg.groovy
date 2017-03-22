@@ -9,3 +9,13 @@ new SbtMicroserviceJobBuilder('phone-number').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('wire-mock-stub').
+        withScalaStyle().
+        withSCoverage().
+        withTests("it:test").
+        build(this as DslFactory)
+
+new BuildMonitorViewBuilder('GG-OPEN')
+        .withJobs('wire-mock-stub')
+        .build(this)
