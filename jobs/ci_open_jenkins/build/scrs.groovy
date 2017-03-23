@@ -11,11 +11,6 @@ new SbtFrontendJobBuilder('business-registration-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('incorporation-dynamic-stub').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('business-registration').
         withScalaStyle().
         withSCoverage().
@@ -24,9 +19,6 @@ new SbtMicroserviceJobBuilder('business-registration').
 new SbtMicroserviceJobBuilder('company-registration').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('company-registration-scrs-5444-hotfix', 'company-registration', 'SCRS-5444').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('business-registration-notification').
@@ -39,6 +31,11 @@ new SbtMicroserviceJobBuilder('business-registration-dynamic-stub').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('incorporation-information').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)          
+
 new SbtMicroserviceJobBuilder('vat-registration-frontend').
         withScalaStyle().
         withSCoverage().
@@ -49,10 +46,5 @@ new SbtMicroserviceJobBuilder('vat-registration').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('incorporation-information').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)          
-
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-        .withJobs('business-registration-frontend', 'incorporation-dynamic-stub', 'business-registration', 'company-registration', 'business-registration-notification', 'business-registration-dynamic-stub', 'vat-registration-frontend', 'vat-registration', 'incorporation-information').build(this)    
+        .withJobs('business-registration-frontend', 'business-registration', 'company-registration', 'business-registration-notification', 'business-registration-dynamic-stub', 'incorporation-information', 'vat-registration-frontend', 'vat-registration').build(this)    
