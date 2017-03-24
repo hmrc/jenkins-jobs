@@ -11,8 +11,6 @@ new SbtMicroserviceJobBuilder('phone-number').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('wire-mock-stub').
-        withScalaStyle().
-        withSCoverage().
         withTests("it:test").
         build(this as DslFactory)
 
