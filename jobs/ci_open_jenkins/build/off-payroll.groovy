@@ -43,5 +43,11 @@ new SbtFrontendJobBuilder("off-payroll-decision-integration","off-payroll-decisi
         .withLogRotator(7, 1000)
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder("pdf-generator-service-develop","pdf-generator-service","develop")
+        .withTests("test")
+        .withLogRotator(7, 1000)
+        .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('OFF-PAYROLL-OPEN-MONITOR').withJobs(*allServices, "off-payroll-frontend-integration","off-payroll-decision-integration").build(this)
+
+new BuildMonitorViewBuilder('OFF-PAYROLL-OPEN-MONITOR').withJobs(*allServices, "off-payroll-frontend-integration",
+        "off-payroll-decision-integration", "pdf-generator-service-develop").build(this)
