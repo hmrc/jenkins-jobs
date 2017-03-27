@@ -36,6 +36,9 @@ new SbtMicroserviceJobBuilder('secure-message-renderer').
 new SbtFrontendJobBuilder('customer-advisors-frontend').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('preferences-admin-frontend').
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('csp-client').
         build(this as DslFactory)
 
@@ -59,6 +62,7 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'updated-print-suppressions',
                   'secure-message-renderer',
                   'customer-advisors-frontend',
+                  'preferences-admin-frontend',
                   'csp-client',
                   'hmrc-email-renderer',
                   'message-renderer-template',
