@@ -9,7 +9,7 @@ new SbtMicroserviceJobBuilder('pbik').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
-                         
+
 new SbtFrontendJobBuilder('pbik-frontend').
         withScalaStyle().
         withSCoverage().
@@ -65,5 +65,10 @@ new SbtMicroserviceJobBuilder('ers-submissions').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('apprenticeship-levy').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions').build(this)
+        .withJobs('apprenticeship-levy', 'pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions').build(this)
