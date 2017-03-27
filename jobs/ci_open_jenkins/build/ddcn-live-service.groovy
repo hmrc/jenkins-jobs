@@ -6,11 +6,18 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
+def appLevyJob = new SbtMicroserviceJobBuilder('apprenticeship-levy').
+        withTests('test it:test').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+appLevyJob
+
 new SbtMicroserviceJobBuilder('pbik').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
-                         
+
 new SbtFrontendJobBuilder('pbik-frontend').
         withScalaStyle().
         //withSCoverage().
@@ -85,7 +92,7 @@ new SbtMicroserviceJobBuilder('pensions-lifetime-allowance').
 new SbtMicroserviceJobBuilder('pla-dynamic-stub').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)        
+        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub').build(this)
+        .withJobs('apprenticeship-levy', 'pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub').build(this)
