@@ -37,6 +37,11 @@ new SbtFrontendJobBuilder('bank-account-reputation-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('aml-demo').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('maps').
         withScalaStyle().
         build(this as DslFactory)
