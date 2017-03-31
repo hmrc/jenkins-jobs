@@ -4,6 +4,11 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+new SbtFrontendJobBuilder('api-example-scala-client').
+        withTests("test").
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('api-gatekeeper-frontend').
         withTests("test acceptance:test").
         withXvfb().
@@ -26,7 +31,8 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('API-MONITOR')
-        .withJobs('api-gatekeeper-frontend',
+        .withJobs('api-example-scala-client',
+        'api-gatekeeper-frontend',
         'api-service-approval-frontend',
         'api-platform-test-user',
         'api-platform-test-user-frontend',
