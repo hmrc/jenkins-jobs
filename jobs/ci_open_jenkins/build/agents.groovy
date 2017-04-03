@@ -36,10 +36,6 @@ frontendJob.environmentVariables {
     env('no_proxy', 'localhost')
 }
 
-new SbtFrontendJobBuilder('agent-performance-test-frontend').
-        withTests("test").
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         build(this as DslFactory)
 
