@@ -14,6 +14,10 @@ new SbtMicroserviceJobBuilder('wire-mock-stub').
         withTests("it:test").
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('sbt-service-manager').
+        withoutJUnitReports().
+        build(this)
+
 new BuildMonitorViewBuilder('GG-OPEN')
-        .withJobs('wire-mock-stub')
+        .withJobs('wire-mock-stub', 'sbt-service-manager')
         .build(this)
