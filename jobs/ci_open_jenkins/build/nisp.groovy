@@ -21,4 +21,4 @@ new SbtMicroserviceJobBuilder('national-insurance-record').
 	build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NISP-MONITOR')
-        .withJobs('nisp','nisp-frontend', 'state-pension','national-insurance-record').build(this)
+        .withJobs('nisp-frontend', 'state-pension','national-insurance-record').build(this)
