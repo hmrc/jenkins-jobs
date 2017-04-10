@@ -4,11 +4,6 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
-
-new SbtMicroserviceJobBuilder('nisp').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
                          
 new SbtFrontendJobBuilder('nisp-frontend').
         withScalaStyle().
@@ -26,4 +21,4 @@ new SbtMicroserviceJobBuilder('national-insurance-record').
 	build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NISP-MONITOR')
-        .withJobs('nisp','nisp-frontend', 'state-pension','national-insurance-record').build(this)
+        .withJobs('nisp-frontend', 'state-pension','national-insurance-record').build(this)
