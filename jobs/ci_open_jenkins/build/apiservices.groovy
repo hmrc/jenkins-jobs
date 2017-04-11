@@ -39,6 +39,9 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('play-json-union-formatter').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-example-scala-client',
@@ -48,5 +51,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
-        'totp-generator'
+        'totp-generator',
+        'play-json-union-formatter'
 ).build(this)
