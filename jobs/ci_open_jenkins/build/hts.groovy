@@ -5,3 +5,14 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtFrontendJobBuilder('help-to-save-frontend').
         build(this as DslFactory)
+
+
+new SbtFrontendJobBuilder('help-to-save-eligibility-check').
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('help-to-save-nsi-stub').
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('help-to-save-stub').
+        build(this as DslFactory)
+
