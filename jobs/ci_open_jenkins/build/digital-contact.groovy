@@ -27,6 +27,9 @@ new SbtLibraryJobBuilder('work-item-repo').
 new SbtLibraryJobBuilder('metrix').
         build(this)
 
+new SbtLibraryJobBuilder('csp-client').
+        build(this)
+
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
@@ -37,9 +40,6 @@ new SbtFrontendJobBuilder('customer-advisors-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('preferences-admin-frontend').
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('csp-client').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
