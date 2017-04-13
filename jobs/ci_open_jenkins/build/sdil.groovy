@@ -18,8 +18,6 @@ frontends.each {
 
 services.each {
     new SbtMicroserviceJobBuilder(it)
-            .withScalaStyle()
-            .withSCoverage()
             .withTests("test it:test")
             .build(this as DslFactory)
 }
