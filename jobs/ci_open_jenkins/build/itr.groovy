@@ -67,5 +67,10 @@ new SbtMicroserviceJobBuilder('investment-tax-relief-attachments').
                  withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('investment-tax-relief-submission-cs-frontend').
+		withScalaStyle().
+		withSCoverage().
+		build(this as DslFactory)
+
 new BuildMonitorViewBuilder('ITR-MONITOR')
-        .withJobs('investment-tax-relief-submission-frontend','investment-tax-relief-submission','investment-tax-relief-subscription-frontend','investment-tax-relief-subscription','investment-tax-relief-agent','investment-tax-relief-submission-dynamic-stub','investment-tax-relief-subscription-dynamic-stub','investment-tax-relief-agent-dynamic-stub','investment-tax-relief-agent-frontend', 'investment-tax-relief-attachments-frontend', 'investment-tax-relief-attachments').build(this)
+        .withJobs('investment-tax-relief-submission-frontend','investment-tax-relief-submission','investment-tax-relief-subscription-frontend','investment-tax-relief-subscription','investment-tax-relief-agent','investment-tax-relief-submission-dynamic-stub','investment-tax-relief-subscription-dynamic-stub','investment-tax-relief-agent-dynamic-stub','investment-tax-relief-agent-frontend', 'investment-tax-relief-attachments-frontend', 'investment-tax-relief-attachments', 'investment-tax-relief-submission-cs-frontend').build(this)
