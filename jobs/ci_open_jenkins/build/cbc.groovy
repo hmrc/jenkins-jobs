@@ -10,3 +10,9 @@ new SbtFrontendJobBuilder('cbcr-frontend').
 
 new SbtMicroserviceJobBuilder('cbcr').
         build(this as DslFactory)
+
+new SbtFrontendJobBuilder('cbcr-frontend-develop', 'cbcr-frontend',"develop").
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('cbcr-develop', 'cbcr', "develop").
+        build(this as DslFactory)
