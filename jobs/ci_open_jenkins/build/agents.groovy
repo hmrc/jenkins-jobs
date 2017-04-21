@@ -37,6 +37,10 @@ frontendJob.environmentVariables {
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('agent-mtd-identifiers').
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend',
-                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend').build(this)
+                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
+                  'agent-mtd-identifiers').build(this)
