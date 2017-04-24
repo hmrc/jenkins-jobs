@@ -94,5 +94,10 @@ new SbtMicroserviceJobBuilder('pla-dynamic-stub').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('apprenticeship-levy', 'pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub').build(this)
+        .withJobs('apprenticeship-levy', 'pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub','vat-flat-rate-calculator-frontend').build(this)
