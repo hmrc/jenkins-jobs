@@ -12,7 +12,7 @@ new SbtMicroserviceJobBuilder('ras-api').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('RAS-MONITOR')
-        .withJobs('ras-api').build(this)
+        .withJobs('ras-api', 'ras-frontend').build(this)
 
 new SbtFrontendJobBuilder('ras-frontend').
         build(this as DslFactory)
