@@ -99,5 +99,30 @@ new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+
+new SbtFrontendJobBuilder('nisp-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('state-pension').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('national-insurance-record').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
-        .withJobs('apprenticeship-levy', 'pbik','pbik-frontend', 'tamc','tamc-frontend', 'gmp-frontend', 'gmp', 'gmp-bulk','ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions','pensions-lifetime-allowance-frontend','pensions-lifetime-allowance','pla-dynamic-stub','vat-flat-rate-calculator-frontend').build(this)
+        .withJobs(
+        'apprenticeship-levy',
+        'pbik','pbik-frontend',
+        'tamc','tamc-frontend',
+        'gmp-frontend', 'gmp', 'gmp-bulk',
+        'ers-checking-frontend','ers-returns-frontend','ers-file-validator','ers-submissions',
+        'pensions-lifetime-allowance-frontend', 'pensions-lifetime-allowance','pla-dynamic-stub',
+        'vat-flat-rate-calculator-frontend',
+        'nisp-frontend', 'state-pension','national-insurance-record'
+        ).build(this)
