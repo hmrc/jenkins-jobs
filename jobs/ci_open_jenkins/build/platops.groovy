@@ -86,7 +86,7 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         build(this)
 
 jobBuilder('create-a-repository').
-        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.23.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.28.0')).
         withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend')).
         withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the github team to which the repository will be added')).
         withParameters(choiceParameter('REPOSITORY_TYPE', ['Sbt', 'SbtPlugin'], 'The repository type e.g. SBT')).
@@ -164,7 +164,7 @@ new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client').build(this)
 
 jobBuilder('create-a-service', 'init-service')
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.23.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.28.0'))
         .withLabel('master')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend.'))
         .withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the team as in: catalogue'))
