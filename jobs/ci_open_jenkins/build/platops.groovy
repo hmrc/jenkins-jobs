@@ -91,8 +91,8 @@ jobBuilder('create-a-repository').
         withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the github team to which the repository will be added')).
         withParameters(choiceParameter('REPOSITORY_TYPE', ['Sbt', 'SbtPlugin'], 'The repository type e.g. SBT')).
         withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
-//withParameters(booleanParameter('ENABLE_TRAVIS',false,'enable travis intigration')).
-        withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS')).
+        withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)')).
+        withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS', '$DIGITAL_SERVICE_NAME')).
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
         build(this)
 
@@ -163,7 +163,7 @@ new SbtLibraryJobBuilder('init-prototype').build(this as DslFactory)
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client').build(this)
 
-jobBuilder('create-a-service', 'init-service')
+jobBuilder('create-a-service', 'init-service')                                            
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.28.0'))
         .withLabel('master')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend.'))
@@ -171,7 +171,8 @@ jobBuilder('create-a-service', 'init-service')
         .withParameters(choiceParameter('TYPE', ['MICROSERVICE', 'FRONTEND'], 'Type of the service'))
         .withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* services or the most recent internal tag version for *migrated* services'))
         .withParameters(booleanParameter('WITH_MONGO', false, 'Selecting this options will include the mongo connector library and plugin as project dependencies.'))
-        .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', 'Sbt', '0.1.0', ''))
+        .withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)'))
+        .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', 'Sbt', '0.1.0', '', '$DIGITAL_SERVICE_NAME'))
         .withSteps(shellStep("""|
                                 |withMongo=""
                                 |

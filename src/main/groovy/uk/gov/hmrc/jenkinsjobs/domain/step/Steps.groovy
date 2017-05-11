@@ -60,7 +60,7 @@ class Steps {
     }
 
 
-    static Step createARepository(String repositoryName, String teamName, String repositoryType, String bootStrapTag, String enableTravis) {
+    static Step createARepository(String repositoryName, String teamName, String repositoryType, String bootStrapTag, String enableTravis, String digitalServiceName) {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar" ]; then
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION
@@ -71,7 +71,16 @@ class Steps {
                   | #enable_travis="--enable-travis"
                   |#fi
                   |
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis
+                  |
+                  |DIGITAL_SERVICE=$digitalServiceName 
+                  |DIGITAL_SERVICE_NAME_COMMAND=""
+                  |if [ -n "\$DIGITAL_SERVICE" ]; then
+                  |  DIGITAL_SERVICE_NAME_COMMAND="-dsn $digitalServiceName";
+                  |else
+                  |   echo "digital service name is empty. Therefor the manifest file will not be created";
+                  |fi
+                  |
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis \$DIGITAL_SERVICE_NAME_COMMAND 
                   """.stripMargin())
     }
 
