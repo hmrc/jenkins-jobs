@@ -8,5 +8,6 @@ new SbtMicroserviceJobBuilder('individuals-api').
 
 new BuildMonitorViewBuilder('IVHO-MONITOR')
         .withJobs(
-        'individuals-api'
+        'individuals-api',
+        'itmp-individual-details-stub'
 ).build(this)
