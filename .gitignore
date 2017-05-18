@@ -9,3 +9,8 @@ target
 
 .DS_Store
 **/*.DS_Store
+
+# MacOS files
+.classpath
+.project
+.settings/
