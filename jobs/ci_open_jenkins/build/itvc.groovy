@@ -4,21 +4,18 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
-                         
-new SbtFrontendJobBuilder('nisp-frontend').
+
+new SbtFrontendJobBuilder('income-tax-view-change-frontend').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('state-pension').
+new SbtMicroserviceJobBuilder('income-tax-view-change').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)
+		build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('national-insurance-record').
-	withScalaStyle().
-	withSCoverage().
-	build(this as DslFactory)
-
-new BuildMonitorViewBuilder('NISP-MONITOR')
-        .withJobs('nisp-frontend', 'state-pension','national-insurance-record').build(this)
+new BuildMonitorViewBuilder('ITVC-MONITOR').withJobs(
+        'income-tax-view-change-frontend',
+        'income-tax-view-change'
+).build(this)

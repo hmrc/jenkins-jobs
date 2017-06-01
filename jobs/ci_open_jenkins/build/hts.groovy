@@ -7,7 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtFrontendJobBuilder('help-to-save-frontend')
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('help-to-save-eligibility-check')
+new SbtMicroserviceJobBuilder('help-to-save')
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('help-to-save-stub')

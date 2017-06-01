@@ -23,7 +23,7 @@ new SbtFrontendJobBuilder('investment-tax-relief-subscription-frontend').
 new SbtFrontendJobBuilder('investment-tax-relief-subscription-frontend-hotfix', 'investment-tax-relief-subscription-frontend', 'hotfix/itr-frontend').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('investment-tax-relief-submission-frontend-hotfix', 'investment-tax-relief-submission-frontend', 'hotfix/itr-frontend').
+new SbtFrontendJobBuilder('investment-tax-relief-submission-frontend-hotfix', 'investment-tax-relief-submission-frontend', 'hotfix/itr-subm-frontend').
         build(this as DslFactory)
         
 new SbtMicroserviceJobBuilder('investment-tax-relief-subscription').

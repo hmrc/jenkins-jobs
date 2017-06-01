@@ -31,6 +31,9 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-platform-test').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('api-platform-test-user').
         build(this as DslFactory)
 
@@ -55,6 +58,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-revocation-frontend',
         'api-gatekeeper-frontend',
         'api-service-approval-frontend',
+        'api-platform-test',
         'api-platform-test-user',
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
