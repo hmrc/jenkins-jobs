@@ -45,6 +45,9 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('marriage-allowance-des-stub').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('national-insurance-des-stub').
         build(this as DslFactory)
 
@@ -65,6 +68,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
+        'marriage-allowance-des-stub',
         'national-insurance-des-stub',
         'totp-generator',
         'play-json-union-formatter'
