@@ -45,10 +45,10 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('marriage-allowance-des-stub').
+new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('national-insurance-des-stub').
+new SbtMicroserviceJobBuilder('national-insurance-des-stub').
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('totp-generator').
