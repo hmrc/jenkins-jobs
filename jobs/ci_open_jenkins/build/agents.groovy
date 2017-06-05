@@ -32,6 +32,8 @@ new SbtMicroserviceJobBuilder('agents-mtdfi-relationship-stub').
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agents-mtdfi-poc-frontend').
         build(this as DslFactory)
+new SbtFrontendJobBuilder('agents-mtdfi-access-control').
+        build(this as DslFactory)
 
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
         withTests("test it:test acc:test").
