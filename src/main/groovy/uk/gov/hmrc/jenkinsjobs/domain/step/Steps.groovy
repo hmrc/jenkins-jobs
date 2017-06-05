@@ -49,6 +49,16 @@ class Steps {
                   """.stripMargin())
     }
 
+    static Step createAReleaseWithScalaVersion(String scalaVersion) {
+        shellStep("""\
+                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar" ]; then
+                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION
+                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar
+                  |fi
+                  |java \$JAVA_PROXY_OPTS -Dwsclient.timeout.connection=300 -Dwsclient.timeout.idle=300 -Dwsclient.timeout.request=300 -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE --scalaversion $scalaVersion  
+                  """.stripMargin())
+    }
+
     static Step createAJavaRelease() {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION/java-releaser-poc_2.11-\$RELEASER_VERSION-assembly.jar" ]; then

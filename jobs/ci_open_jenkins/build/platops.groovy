@@ -118,6 +118,15 @@ jobBuilder('create-a-release').
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
         build(this)
 
+jobBuilder('create-a-2.12-release').
+        withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '1.5.0')).
+        withParameters(stringParameter('ARTEFACT_NAME', '', 'The artifact name e.g. cato-frontend'),
+                stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
+                choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR')).
+        withSteps(createAReleaseWithScalaVersion("2.12")).
+        withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
+        build(this)
+
 jobBuilder('clean-slaves').
         withParameters(nodeParameter('slaves', (1..4).collect {
             "ci-open-slave-$it"
