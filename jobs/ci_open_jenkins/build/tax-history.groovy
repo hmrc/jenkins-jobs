@@ -8,6 +8,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtFrontendJobBuilder('tax-history-frontend').
         withScalaStyle().
+        withSCoverage().
         build(this as DslFactory)
 
 
