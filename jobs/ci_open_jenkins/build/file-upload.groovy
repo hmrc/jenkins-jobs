@@ -24,4 +24,4 @@ new SbtMicroserviceJobBuilder('file-transfer-stub').
 
 
 new BuildMonitorViewBuilder('FUAAS-MONITOR')
-        .withJobs('file-upload', 'file-upload-frontend', 'clamav-client').build(this)
+        .withJobs('file-upload', 'file-upload-frontend', 'clamav-client', 'paye-tax-calculator-frontend').build(this)
