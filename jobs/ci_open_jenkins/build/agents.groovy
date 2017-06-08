@@ -26,13 +26,15 @@ new SbtFrontendJobBuilder('agent-mapping-frontend').
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
         
+new SbtFrontendJobBuilder('agents-mtdfi-poc-frontend').
+        build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agents-mtdfi-poc').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agents-mtdfi-relationship-stub').
         build(this as DslFactory)
-new SbtFrontendJobBuilder('agents-mtdfi-poc-frontend').
+new SbtMicroserviceJobBuilder('agents-mtdfi-access-control').
         build(this as DslFactory)
-new SbtFrontendJobBuilder('agents-mtdfi-access-control').
+new SbtMicroserviceJobBuilder('agents-mtdfi-invitation').
         build(this as DslFactory)
 
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
