@@ -29,6 +29,9 @@ new SbtLibraryJobBuilder('time').
 new SbtLibraryJobBuilder('sbt-bobby').
         build(this)
 
+new SbtLibraryJobBuilder('zap-automation').
+        build(this)
+
 new GradleLibraryJobBuilder('jenkins-job-builders').
         build(this)
 
