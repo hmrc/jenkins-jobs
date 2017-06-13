@@ -23,6 +23,9 @@ new SbtFrontendJobBuilder('agent-subscription-frontend').
 new SbtFrontendJobBuilder('agent-mapping-frontend').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('agent-account-frontend').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
         
