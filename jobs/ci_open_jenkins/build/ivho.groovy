@@ -14,5 +14,6 @@ new SbtMicroserviceJobBuilder('individual-details-des-stub').
 new BuildMonitorViewBuilder('IVHO-MONITOR')
         .withJobs(
         'individuals-api',
-        'individual-details-des-stub'
+        'individual-details-des-stub',
+        'individual-income-des-stub'
 ).build(this)
