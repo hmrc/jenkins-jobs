@@ -11,6 +11,12 @@ new SbtFrontendJobBuilder('tax-history-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('tax-history')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TAX-HISTORY-MONITOR')
-        .withJobs('tax-history-frontend').build(this)
+        .withJobs('tax-history-frontend',
+        'tax-history')
+        .build(this)
