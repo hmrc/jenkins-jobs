@@ -14,5 +14,10 @@ new SbtMicroserviceJobBuilder('business-customer').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('business-customer-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('BUSINESS-CUSTOMER-MONITOR')
-        .withJobs('business-matching', 'business-customer').build(this)
+        .withJobs('business-matching', 'business-customer', 'business-customer-frontend').build(this)
