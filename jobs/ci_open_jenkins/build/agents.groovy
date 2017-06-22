@@ -14,6 +14,8 @@ new SbtMicroserviceJobBuilder('agent-client-relationships').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-mapping').
         build(this as DslFactory)
+new SbtMicroserviceJobBuilder('agent-invitations').
+        build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-subscription').
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-subscription-frontend').
