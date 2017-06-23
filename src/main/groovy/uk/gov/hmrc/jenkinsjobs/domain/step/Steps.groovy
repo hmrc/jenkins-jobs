@@ -15,20 +15,20 @@ class Steps {
     }
 
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
-        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}+publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}publishSigned"], '\${TMP}')
     }
     
     static Step sbtCleanTestFullOptJsPublish(String beforeTest = '', String afterTest = '') {
-        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball +publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball publishSigned"], '\${TMP}')
     }
 
     static Step sbtCleanTestItTestDistTgzPublish(String beforeTest, String afterTest) {
-        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test it:test ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test it:test ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
     //used by frontend
     static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep(["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
+        sbtStep(["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz publishSigned"], '\${TMP}')
     }
 
     static Step gradleCleanDistTgzPublish() {
@@ -36,7 +36,7 @@ class Steps {
     }
 
     static Step cleanPublishSigned() {
-        sbtStep(['\$SBT_OPTS -mem 3000 clean +publishSigned'], '\${TMP}')
+        sbtStep(['\$SBT_OPTS -mem 3000 clean publishSigned'], '\${TMP}')
     }
 
     static Step createARelease() {

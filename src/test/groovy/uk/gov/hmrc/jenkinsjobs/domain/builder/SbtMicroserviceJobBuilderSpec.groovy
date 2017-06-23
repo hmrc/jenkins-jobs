@@ -22,7 +22,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('TMP')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate test it:test dist-tgz +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate test it:test dist-tgz publishSigned')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportDir [0].text() == 'target/test-reports/html-report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'[0].reportName [0].text() == 'HTML Report'
@@ -41,7 +41,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate test it:test fun:test dist-tgz +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate test it:test fun:test dist-tgz publishSigned')
         }
     }
 
@@ -72,7 +72,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate coverage test coverageOff coverageReport dist-tgz +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate coverage test coverageOff coverageReport dist-tgz publishSigned')
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
         }
@@ -87,7 +87,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate scalastyle test dist-tgz +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate scalastyle test dist-tgz publishSigned')
             publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
         }
     }
@@ -101,7 +101,7 @@ class SbtMicroserviceJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate scalastyle coverage test coverageOff coverageReport dist-tgz +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate scalastyle coverage test coverageOff coverageReport dist-tgz publishSigned')
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
             publishers.'hudson.plugins.checkstyle.CheckStylePublisher'.pluginName.text() == "[CHECKSTYLE]"
