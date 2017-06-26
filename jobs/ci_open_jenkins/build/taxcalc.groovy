@@ -10,6 +10,13 @@ new SbtMicroserviceJobBuilder('taxcalc').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('p800-payments').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TAXCALC-MONITOR')
         .withJobs('taxcalc').build(this)
+
+new BuildMonitorViewBuilder('OPP-MONITOR')
+        .withJobs('p800-payments').build(this)
