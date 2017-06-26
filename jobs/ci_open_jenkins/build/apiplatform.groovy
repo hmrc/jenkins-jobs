@@ -45,6 +45,10 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('api-subscription-fields').
+        withTests("test").
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
         build(this as DslFactory)
 
@@ -68,6 +72,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
+        'api-subscription-fields',
         'marriage-allowance-des-stub',
         'national-insurance-des-stub',
         'totp-generator',
