@@ -31,15 +31,13 @@ new SbtFrontendJobBuilder('agent-account-frontend').
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
         build(this as DslFactory)
         
-new SbtFrontendJobBuilder('agents-mtdfi-poc-frontend').
+new SbtFrontendJobBuilder('agent-fi-agent-frontend').
         build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agents-mtdfi-poc').
+new SbtMicroserviceJobBuilder('agent-fi-relationship').
         build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agents-mtdfi-relationship-stub').
+new SbtMicroserviceJobBuilder('agent-fi-access-control').
         build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agents-mtdfi-access-control').
-        build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agents-mtdfi-invitation').
+new SbtMicroserviceJobBuilder('agent-fi-invitation').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-fi-client-frontend').
         build(this as DslFactory)
