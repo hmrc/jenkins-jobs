@@ -33,13 +33,13 @@ new SbtMicroserviceJobBuilder('agent-client-authorisation').
         
 new SbtFrontendJobBuilder('agent-fi-agent-frontend').
         build(this as DslFactory)
+new SbtFrontendJobBuilder('agent-fi-client-frontend').
+        build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-fi-relationship').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-fi-access-control').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-fi-invitation').
-        build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agent-fi-client-frontend').
         build(this as DslFactory)
 
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
