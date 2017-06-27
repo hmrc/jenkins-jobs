@@ -18,7 +18,7 @@ new SbtFrontendJobBuilder('help-to-save-frontend').
         withTests("test").
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('help-to-save-stub').
+new SbtFrontendJobBuilder('help-to-save-stub').
         withScalaStyle().
         withSCoverage().
         withTests("test").
