@@ -9,5 +9,11 @@ new SbtMicroserviceJobBuilder('trust-registration-api').
         withSCoverage().
         build(this as DslFactory)
 
+
+new SbtMicroserviceJobBuilder('estate-registration-api').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TRUST-MONITOR')
-        .withJobs('trust-registration-api').build(this)
+        .withJobs('trust-registration-api', 'estate-registration-api').build(this)
