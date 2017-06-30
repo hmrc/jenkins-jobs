@@ -160,6 +160,7 @@ new SbtMicroserviceJobBuilder('indicators').withTests("test")
 new SbtMicroserviceJobBuilder('service-deployments').withTests("test")
         .build(this as DslFactory)
 
+
 new SbtMicroserviceJobBuilder('repository-jobs').withTests("test")
         .build(this as DslFactory)
 
@@ -172,7 +173,9 @@ new SbtLibraryJobBuilder('git-client').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('init-prototype').build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-http-verbs').build(this as DslFactory)
+new SbtLibraryJobBuilder('http-core').build(this as DslFactory)
+
+new SbtLibraryJobBuilder('http-verbs-play-25').build(this as DslFactory)
 
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
