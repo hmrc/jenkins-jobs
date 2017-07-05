@@ -54,4 +54,6 @@ new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
                   'play-config',
                   'play-url-binders',
                   'logback-json-logger',
-                  'epaye-api').build(this)
+                  'epaye-api',
+                  'epaye-api-stub')
+        .build(this)
