@@ -37,6 +37,11 @@ new SbtMicroserviceJobBuilder('epaye-api').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('epaye-api-stub').
+        withTests("test").
+        withScalaStyle().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('help-frontend',
                   'frontend-bootstrap',
