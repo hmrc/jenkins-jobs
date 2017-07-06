@@ -5,7 +5,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-final CronExpressionForOnceEveryDay = "H(0-59) H(3-5) * * *"
+final CronExpressionForOnceEveryDay = "H(0-59) H(5-7) * * *"
 
 new SbtLibraryJobBuilder('http-caching-client').
         withCronTrigger(CronExpressionForOnceEveryDay).
