@@ -37,11 +37,6 @@ new SbtMicroserviceJobBuilder('epaye-api').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('epaye-api-stub').
-        withTests("test").
-        withScalaStyle().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('help-frontend',
                   'frontend-bootstrap',
@@ -54,6 +49,5 @@ new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
                   'play-config',
                   'play-url-binders',
                   'logback-json-logger',
-                  'epaye-api',
-                  'epaye-api-stub')
+                  'epaye-api')
         .build(this)
