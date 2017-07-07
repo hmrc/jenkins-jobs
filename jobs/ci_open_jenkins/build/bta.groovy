@@ -7,7 +7,8 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtFrontendJobBuilder('help-frontend').
-                         build(this as DslFactory)
+        withXvfb().
+        build(this as DslFactory)
 
 new SbtLibraryJobBuilder('frontend-bootstrap').
         build(this as DslFactory)
