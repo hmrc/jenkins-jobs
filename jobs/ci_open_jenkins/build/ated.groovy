@@ -26,5 +26,10 @@ new SbtFrontendJobBuilder('ated-subscription-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('ated-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('ATED-MONITOR')
-        .withJobs('ated-subscription', 'ated-subscription-frontend', 'agent-client-mandate', 'agent-client-mandate-frontend').build(this)
+        .withJobs('ated-frontend', 'ated-subscription', 'ated-subscription-frontend', 'agent-client-mandate', 'agent-client-mandate-frontend').build(this)
