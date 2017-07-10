@@ -154,8 +154,6 @@ new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
         .withExtendedTimeout()
         .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('CGT-MONITOR')
-        .withJobs('capital-gains-calculator', 'cgt-calculator-non-resident-frontend', 'cgt-calculator-resident-shares-frontend', 'cgt-calculator-resident-properties-frontend').build(this)
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
