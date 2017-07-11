@@ -40,15 +40,10 @@ new SbtMicroserviceJobBuilder('epaye-api').
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('help-frontend',
-                  'frontend-bootstrap',
                   'microservice-bootstrap',
                   'play-graphite',
                   'play-json-encoder',
-                  'play-ui',
-                  'play-filters',
                   'play-partials',
-                  'play-config',
-                  'play-url-binders',
                   'logback-json-logger',
                   'epaye-api')
         .build(this)
