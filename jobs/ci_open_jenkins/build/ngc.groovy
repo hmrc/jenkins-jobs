@@ -55,6 +55,8 @@ new SbtMicroserviceJobBuilder('aws-sns-stub').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('async-message-broker').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('native-app-widget').build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
 		.withJobs('personal-income',
 		'personal-tax-summary',
@@ -78,6 +80,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'managing-vat-debt-frontend',
 		'sns-client',
 		'aws-sns-stub',
-                'async-message-broker').build(this)
+		'async-message-broker').build(this)
 
 
