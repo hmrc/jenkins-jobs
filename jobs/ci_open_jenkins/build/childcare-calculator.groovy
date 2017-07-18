@@ -5,7 +5,9 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-                         
+new SbtFrontendJobBuilder('childcare-calculator-frontend').
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('cc-frontend').
         withScalaStyle().
         withSCoverage().
@@ -30,5 +32,6 @@ new SbtMicroserviceJobBuilder('cc-email-capture').
         withTests("test").
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('CC-MONITOR')
-        .withJobs('cc-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').build(this)
+new BuildMonitorViewBuilder('CC-MONITOR').
+        withJobs('childcare-calculator-frontend', 'cc-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').
+        build(this)
