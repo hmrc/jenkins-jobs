@@ -5,7 +5,11 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('fhdds-frontend').
+new SbtFrontendJobBuilder('fhdds-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('fhdds-dfs-frontend').
         withTests("test").
         build(this as DslFactory)
 
@@ -14,4 +18,4 @@ new SbtMicroserviceJobBuilder('fhdds').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('FHDDS')
-        .withJobs('fhdds', 'fhdds-frontend').build(this)
+        .withJobs('fhdds', 'fhdds-frontend', 'fhdds-dfs-frontend').build(this)
