@@ -6,6 +6,7 @@ build
 .gradle
 target
 !**/ci_open_jenkins/build
+.bin
 
 .DS_Store
 **/*.DS_Store
