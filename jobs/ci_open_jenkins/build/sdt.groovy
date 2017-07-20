@@ -15,6 +15,9 @@ new SbtMicroserviceJobBuilder('frontend-template-provider').
 new SbtFrontendJobBuilder('taas-dummy-example').
         build(this as DslFactory)        
 
+new SbtFrontendJobBuilder('taas-example-frontend').
+        build(this as DslFactory)     
+
 new BuildMonitorViewBuilder('TAAS-MONITOR')
         .withJobs('local-template-renderer',
                   'frontend-template-provider',
