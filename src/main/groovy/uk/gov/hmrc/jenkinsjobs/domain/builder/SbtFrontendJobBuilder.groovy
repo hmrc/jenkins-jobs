@@ -19,6 +19,7 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
     private String nodeVersion
+    private String useNode = ""
     private String sbtTests = "test it:test"
     private List<String> beforeTest = new ArrayList<String>()
     private List<String> afterTest = new ArrayList<String>()
@@ -39,14 +40,12 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
 
     Job build(DslFactory dslFactory) {
         if (this.nodeVersion) {
-            jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""), useNodeVersion())).
-            withWrappers(timeoutWrapper(this.timeout)).
-            build(dslFactory)
-        } else {
-            jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
-            withWrappers(timeoutWrapper(this.timeout)).
-            build(dslFactory)
+            useNode = useNodeVersion()
         }
+
+        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""), useNode)).
+        withWrappers(timeoutWrapper(this.timeout)).
+        build(dslFactory)
     }
 
     SbtFrontendJobBuilder withNodeJs(String version = "0.12.7") {
