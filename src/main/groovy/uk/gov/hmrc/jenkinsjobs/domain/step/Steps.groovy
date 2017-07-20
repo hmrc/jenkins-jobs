@@ -17,7 +17,7 @@ class Steps {
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
         sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}+publishSigned"], '\${TMP}')
     }
-    
+
     static Step sbtCleanTestFullOptJsPublish(String beforeTest = '', String afterTest = '') {
         sbtStep(["\$SBT_OPTS -mem 3000 clean validate ${beforeTest}test ${afterTest}fullOptJS universal:packageZipTarball +publishSigned"], '\${TMP}')
     }
@@ -27,8 +27,8 @@ class Steps {
     }
 
     //used by frontend
-    static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest) {
-        sbtStep(["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
+    static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest, String nodeSetup = '') {
+        sbtStep(nodeSetup, ["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
     }
 
     static Step gradleCleanDistTgzPublish() {
@@ -55,7 +55,7 @@ class Steps {
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar
                   |fi
-                  |java \$JAVA_PROXY_OPTS -Dwsclient.timeout.connection=300 -Dwsclient.timeout.idle=300 -Dwsclient.timeout.request=300 -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE --scalaversion $scalaVersion  
+                  |java \$JAVA_PROXY_OPTS -Dwsclient.timeout.connection=300 -Dwsclient.timeout.idle=300 -Dwsclient.timeout.request=300 -jar ~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE --scalaversion $scalaVersion
                   """.stripMargin())
     }
 
@@ -82,7 +82,7 @@ class Steps {
                   |#fi
                   |
                   |
-                  |DIGITAL_SERVICE=$digitalServiceName 
+                  |DIGITAL_SERVICE=$digitalServiceName
                   |DIGITAL_SERVICE_NAME_COMMAND=""
                   |if [ -n "\$DIGITAL_SERVICE" ]; then
                   |  DIGITAL_SERVICE_NAME_COMMAND="-dsn $digitalServiceName";
@@ -90,7 +90,7 @@ class Steps {
                   |   echo "digital service name is empty. Therefor the manifest file will not be created";
                   |fi
                   |
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis \$DIGITAL_SERVICE_NAME_COMMAND 
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis \$DIGITAL_SERVICE_NAME_COMMAND
                   """.stripMargin())
     }
 

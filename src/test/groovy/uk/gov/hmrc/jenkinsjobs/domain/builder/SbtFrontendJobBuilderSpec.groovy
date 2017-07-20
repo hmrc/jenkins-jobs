@@ -32,6 +32,22 @@ class SbtFrontendJobBuilderSpec extends Specification {
         }
     }
 
+    void 'test nodejs output'() {
+        given:
+        final String nodeVersion = "4.8.4"
+        SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withNodeJs(nodeVersion)
+
+        when:
+        Job job = jobBuilder.build(jobParent())
+
+        then:
+        with(job.node) {
+            builders.'hudson.tasks.Shell'.command.text().startsWith("""set +x
+                                                                    |. \$NVM_DIR/nvm.sh
+                                                                    |nvm use ${nodeVersion}""".stripMargin())
+        }
+    }
+
     void 'test scoverage output'() {
         given:
         SbtFrontendJobBuilder jobBuilder = new SbtFrontendJobBuilder('test-job').withSCoverage()

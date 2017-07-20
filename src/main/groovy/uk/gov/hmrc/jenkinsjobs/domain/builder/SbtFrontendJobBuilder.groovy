@@ -18,6 +18,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.SCoverageReportsPu
 final class SbtFrontendJobBuilder implements Builder<Job> {
 
     private JobBuilder jobBuilder
+    private String nodeVersion
     private String sbtTests = "test it:test"
     private List<String> beforeTest = new ArrayList<String>()
     private List<String> afterTest = new ArrayList<String>()
@@ -35,13 +36,23 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
                                                defaultJUnitReportsPublisher(),
                                                bobbyArtifactsPublisher())
     }
-    
+
     Job build(DslFactory dslFactory) {
-        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
-        withWrappers(timeoutWrapper(this.timeout)).
-        build(dslFactory)
+        if (this.nodeVersion) {
+            jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""), useNodeVersion())).
+            withWrappers(timeoutWrapper(this.timeout)).
+            build(dslFactory)
+        } else {
+            jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""))).
+            withWrappers(timeoutWrapper(this.timeout)).
+            build(dslFactory)
+        }
     }
 
+    SbtFrontendJobBuilder withNodeJs(String version = "0.12.7") {
+        this.nodeVersion = version
+        this
+    }
 
     SbtFrontendJobBuilder withSCoverage() {
         beforeTest += "coverage"
@@ -81,5 +92,11 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
     SbtFrontendJobBuilder withExtendedTimeout() {
         this.timeout = 30
         this
+    }
+
+    private String useNodeVersion() {
+        """set +x
+            |. \$NVM_DIR/nvm.sh
+            |nvm use ${nodeVersion}""".stripMargin()
     }
 }
