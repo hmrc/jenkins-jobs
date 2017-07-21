@@ -6,6 +6,8 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtFrontendJobBuilder('childcare-calculator-frontend').
+        withScalaStyle().
+        withSCoverage().
         withTests("test").
         build(this as DslFactory)
 
