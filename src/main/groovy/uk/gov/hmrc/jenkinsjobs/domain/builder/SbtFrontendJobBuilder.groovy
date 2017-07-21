@@ -43,7 +43,10 @@ final class SbtFrontendJobBuilder implements Builder<Job> {
             useNode = useNodeVersion()
         }
 
-        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""), sbtTests, afterTest.collect {it + " "}.join(""), useNode)).
+        jobBuilder.withSteps(sbtCleanDistTgzPublish(beforeTest.collect {it + " "}.join(""),
+                                                    sbtTests,
+                                                    afterTest.collect {it + " "}.join(""),
+                                                    useNode)).
         withWrappers(timeoutWrapper(this.timeout)).
         build(dslFactory)
     }
