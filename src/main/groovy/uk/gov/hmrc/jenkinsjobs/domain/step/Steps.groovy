@@ -27,8 +27,8 @@ class Steps {
     }
 
     //used by frontend
-    static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest, String nodeSetup = '') {
-        sbtStep(nodeSetup, ["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
+    static Step sbtCleanDistTgzPublish(String beforeTest, String tests, String afterTest, String bashScript = '') {
+        sbtStep(bashScript, ["\$SBT_OPTS -mem 3000 clean validate $beforeTest$tests ${afterTest}dist-tgz +publishSigned"], '\${TMP}')
     }
 
     static Step gradleCleanDistTgzPublish() {
