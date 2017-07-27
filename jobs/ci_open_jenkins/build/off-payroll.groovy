@@ -13,7 +13,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVa
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAJavaRelease
 
-def frontends = ["off-payroll-frontend","pdf-generator-frontend"]
+def frontends = ["off-payroll-frontend","pdf-generator-frontend","off-payroll-analytics-frontend"]
 
 def services = ["pdf-generator-service","off-payroll-decision"]
 
@@ -53,8 +53,13 @@ new SbtFrontendJobBuilder("pdf-generator-frontend-develop","pdf-generator-fronte
         .withLogRotator(7, 1000)
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder("off-payroll-analytics-frontend-develop","off-payroll-analytics-frontend","develop")
+        .withTests("test")
+        .withLogRotator(7, 1000)
+        .build(this as DslFactory)
+
 
 
 new BuildMonitorViewBuilder('OFF-PAYROLL-OPEN-MONITOR').withJobs(*allServices, "off-payroll-frontend-develop",
-        "off-payroll-decision-develop", "pdf-generator-service-develop").build(this)
+        "off-payroll-decision-develop", "pdf-generator-service-develop", "off-payroll-analytics-frontend-develop").build(this)
 
