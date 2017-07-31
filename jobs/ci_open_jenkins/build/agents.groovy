@@ -11,6 +11,8 @@ new SbtMicroserviceJobBuilder('agent-access-control').
         withScalaStyle().
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-client-relationships').
+        withSCoverage().
+        withScalaStyle().
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-mapping').
         build(this as DslFactory)
