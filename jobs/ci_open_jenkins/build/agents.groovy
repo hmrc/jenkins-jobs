@@ -44,6 +44,9 @@ new SbtMicroserviceJobBuilder('agent-fi-access-control').
 new SbtMicroserviceJobBuilder('agent-fi-invitation').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('agent-epaye-registration').
+        build(this as DslFactory)
+
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
         withTests("test it:test acc:test").
         withXvfb().
