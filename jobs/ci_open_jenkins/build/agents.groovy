@@ -15,22 +15,27 @@ new SbtMicroserviceJobBuilder('agent-client-relationships').
         withScalaStyle().
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-mapping').
+        withSCoverage().
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-invitations').
+        withSCoverage().
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-subscription').
+        withSCoverage().
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-subscription-frontend').
         withSCoverage().
         withScalaStyle().
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-mapping-frontend').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('agent-account-frontend').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-client-authorisation').
+        withSCoverage().
         build(this as DslFactory)
         
 new SbtFrontendJobBuilder('agent-fi-agent-frontend').
@@ -45,9 +50,11 @@ new SbtMicroserviceJobBuilder('agent-fi-invitation').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('agent-epaye-registration').
+        withSCoverage().
         build(this as DslFactory)
 
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
+        withSCoverage().
         withTests("test it:test acc:test").
         withXvfb().
         build(this as DslFactory)
@@ -56,9 +63,11 @@ frontendJob.environmentVariables {
 }
 
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('agent-mtd-identifiers').
+        withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
