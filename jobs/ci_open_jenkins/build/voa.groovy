@@ -17,6 +17,9 @@ new SbtFrontendJobBuilder('voa-property-linking-frontend')
 new SbtFrontendJobBuilder('voa-property-linking')
        .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('voa-property-linking-hotfix', 'voa-property-linking', 'vpl-hotfix')
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('business-rates-authorisation')
         .build(this as DslFactory)
 
