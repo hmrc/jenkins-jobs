@@ -77,4 +77,4 @@ new SbtLibraryJobBuilder('agent-mtd-identifiers').
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend',
                   'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
-                  'agent-mtd-identifiers','agent-mapping','agent-mapping-frontend').build(this)
+                  'agent-mtd-identifiers','agent-mapping','agent-mapping-frontend', 'agent-services-account-frontend').build(this)
