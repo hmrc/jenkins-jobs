@@ -53,6 +53,7 @@ new SbtMicroserviceJobBuilder('agent-epaye-registration').
         withSCoverage().
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-epaye-registration-frontend').
+        withSCoverage().
         build(this as DslFactory)
 
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
