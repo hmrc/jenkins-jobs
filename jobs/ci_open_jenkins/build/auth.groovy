@@ -81,6 +81,9 @@ new SbtLibraryJobBuilder('play-authorisation').
 new SbtLibraryJobBuilder('play-auth').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('auth-client').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('play-authorisation-httpverbs-hotfix', 'play-authorisation', 'hotfix/httpverbs').
         build(this as DslFactory)
 
