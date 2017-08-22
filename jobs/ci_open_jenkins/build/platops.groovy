@@ -32,6 +32,9 @@ new SbtLibraryJobBuilder('sbt-bobby').
 new SbtLibraryJobBuilder('zap-automation').
         build(this)
 
+new SbtLibraryJobBuilder('accessibility-testing-library').
+        build(this)
+
 new GradleLibraryJobBuilder('jenkins-job-builders').
         build(this)
 
