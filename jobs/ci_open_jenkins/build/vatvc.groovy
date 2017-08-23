@@ -9,6 +9,12 @@ new SbtFrontendJobBuilder('manage-vat-subscription-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('view-vat-returns-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
-        'manage-vat-subscription-frontend'
+        'manage-vat-subscription-frontend',
+        'view-vat-returns-frontend'
 ).build(this)
