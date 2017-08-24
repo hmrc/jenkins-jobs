@@ -7,5 +7,5 @@ new SbtMicroserviceJobBuilder('ddcw_grads_02_backend').
         build(this as DslFactory)
 new SbtMicroserviceJobBuilder('ddcw_grads_01_frontend').
         build(this as DslFactory)
-new SbtMicroserviceJobBuilder('ddcw_grads_01_frontend').
+new SbtMicroserviceJobBuilder('ddcw_grads_02_frontend').
         build(this as DslFactory)
