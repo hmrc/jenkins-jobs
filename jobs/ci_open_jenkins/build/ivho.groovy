@@ -7,6 +7,14 @@ new SbtMicroserviceJobBuilder('individuals-api').
         withTests("test it:test component:test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('individuals-employments-api').
+        withTests("test it:test component:test").
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('individuals-income-api').
+        withTests("test it:test component:test").
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('individual-details-des-stub').
         withTests("test it:test component:test").
         build(this as DslFactory)
@@ -18,6 +26,8 @@ new SbtMicroserviceJobBuilder('individual-income-des-stub').
 new BuildMonitorViewBuilder('IVHO-MONITOR')
         .withJobs(
         'individuals-api',
+        'individuals-employments-api',
+        'individuals-income-api',
         'individual-details-des-stub',
         'individual-income-des-stub'
 ).build(this)
