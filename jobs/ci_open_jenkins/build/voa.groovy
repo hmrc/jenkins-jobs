@@ -12,10 +12,12 @@ new SbtFrontendJobBuilder('for-frontend')
         .build(this as DslFactory)
 
 new SbtFrontendJobBuilder('voa-property-linking-frontend')
-       .build(this as DslFactory)
+        .withSCoverage()
+        .build(this as DslFactory)
 
 new SbtFrontendJobBuilder('voa-property-linking')
-       .build(this as DslFactory)
+        .withSCoverage()
+        .build(this as DslFactory)
 
 new SbtFrontendJobBuilder('voa-property-linking-hotfix', 'voa-property-linking', 'vpl-hotfix')
         .build(this as DslFactory)
@@ -24,6 +26,7 @@ new SbtFrontendJobBuilder('voa-property-linking-frontend-hotfix', 'voa-property-
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('business-rates-authorisation')
+        .withSCoverage()
         .build(this as DslFactory)
 
 new SbtFrontendJobBuilder('voa-traffic-throttle')
