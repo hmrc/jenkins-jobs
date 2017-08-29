@@ -12,7 +12,7 @@ class JobsSpec extends Specification {
     @Unroll
     void 'test script #file.name'(File file) {
         when:
-        DslScriptLoader.runDslEngine file.text, new MemoryJobManagement()
+        new DslScriptLoader(new MemoryJobManagement()).runScript(file.text)
 
         then:
         noExceptionThrown()
