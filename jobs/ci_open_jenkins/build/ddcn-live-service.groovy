@@ -216,5 +216,3 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'cgt-calculator-resident-properties-frontend')
         .build(this)
 
-new BuildMonitorViewBuilder('AWRS-MONITOR')
-        .withJobs().build(this)
