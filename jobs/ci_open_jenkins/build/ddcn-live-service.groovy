@@ -13,6 +13,33 @@ def appLevyJob = new SbtMicroserviceJobBuilder('apprenticeship-levy')
         .build(this as DslFactory)
 appLevyJob
 
+new SbtMicroserviceJobBuilder('awrs-notification')
+        .withScalaStyle()
+        .withSCoverage()
+        .withTests("test")
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('awrs')
+        .withScalaStyle()
+        .withSCoverage()
+        .withTests("test")
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('awrs-lookup')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('awrs-lookup-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('awrs-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new SbtFrontendJobBuilder('childcare-schemes-interest-frontend')
         .withScalaStyle()
         .withSCoverage()
@@ -157,6 +184,11 @@ new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
+        'awrs-frontend',
+        'awrs',
+        'awrs-notification',
+        'awrs-lookup',
+        'awrs-lookup-frontend',
         'childcare-schemes-interest-frontend',
         'ers-checking-frontend',
         'ers-returns-frontend',
@@ -183,3 +215,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'cgt-calculator-resident-shares-frontend',
         'cgt-calculator-resident-properties-frontend')
         .build(this)
+
+new BuildMonitorViewBuilder('AWRS-MONITOR')
+        .withJobs().build(this)
