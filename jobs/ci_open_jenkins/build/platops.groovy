@@ -33,7 +33,8 @@ new SbtLibraryJobBuilder('zap-automation').
         build(this)
 
 new SbtLibraryJobBuilder('accessibility-testing-library').
-        build(this)
+        withSCoverage().
+        build(this as DslFactory)
 
 new GradleLibraryJobBuilder('jenkins-job-builders').
         build(this)
