@@ -13,6 +13,11 @@ new SbtFrontendJobBuilder('pertax-frontend').
 		withSCoverage().
 		build(this as DslFactory)
 
+new SbtFrontendJobBuilder('feedback-survey-frontend').
+		        withScalaStyle().
+		        withSCoverage().
+		        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('PERTAX-MONITOR')
-        .withJobs('pertax-frontend').build(this)
+        .withJobs('pertax-frontend', 'feedback-survey-frontend').build(this)
 
