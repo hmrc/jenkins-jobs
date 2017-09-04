@@ -33,9 +33,6 @@ new SbtLibraryJobBuilder('csp-client').
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('secure-message-renderer').
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('customer-advisors-frontend').
         build(this as DslFactory)
 
@@ -60,7 +57,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'work-item-repo',
                   'metrix',
                   'updated-print-suppressions',
-                  'secure-message-renderer',
                   'customer-advisors-frontend',
                   'preferences-admin-frontend',
                   'csp-client',
