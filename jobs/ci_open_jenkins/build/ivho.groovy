@@ -15,6 +15,10 @@ new SbtMicroserviceJobBuilder('individuals-income-api').
         withTests("test it:test component:test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('individuals-matching-api').
+        withTests("test it:test component:test").
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('individual-details-des-stub').
         withTests("test it:test component:test").
         build(this as DslFactory)
