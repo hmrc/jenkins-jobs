@@ -42,9 +42,6 @@ new SbtFrontendJobBuilder('preferences-admin-frontend').
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('message-renderer-template').
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('email-renderer-template').
         build(this as DslFactory)
 
@@ -61,6 +58,5 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'preferences-admin-frontend',
                   'csp-client',
                   'hmrc-email-renderer',
-                  'message-renderer-template',
                   'email-renderer-template')
         .build(this)
