@@ -7,7 +7,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtFrontendJobBuilder('tax-summaries-frontend').
-        withTests("test").
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
