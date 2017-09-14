@@ -14,6 +14,11 @@ new SbtFrontendJobBuilder('view-vat-returns-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('deregister-vat-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('vat-summary-frontend').
         withScalaStyle().
         withSCoverage().
@@ -22,5 +27,6 @@ new SbtFrontendJobBuilder('vat-summary-frontend').
 new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'manage-vat-subscription-frontend',
         'view-vat-returns-frontend',
+        'deregister-vat-frontend',
         'vat-summary-frontend'
 ).build(this)
