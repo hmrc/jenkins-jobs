@@ -11,5 +11,10 @@ new SbtFrontendJobBuilder('tax-summaries-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('tax-summaries').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('ATS-MONITOR')
-        .withJobs('tax-summaries-frontend').build(this)
+        .withJobs('tax-summaries-frontend','tax-summaries').build(this)
