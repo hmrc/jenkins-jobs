@@ -158,29 +158,6 @@ new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('capital-gains-calculator')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-non-resident-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-shares-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -209,10 +186,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pla-dynamic-stub',
         'tamc',
         'tamc-frontend',
-        'vat-flat-rate-calculator-frontend',
-        'capital-gains-calculator',
-        'cgt-calculator-non-resident-frontend',
-        'cgt-calculator-resident-shares-frontend',
-        'cgt-calculator-resident-properties-frontend')
+        'vat-flat-rate-calculator-frontend')
         .build(this)
 
