@@ -39,7 +39,12 @@ new SbtMicroserviceJobBuilder('business-registration-dynamic-stub').
 new SbtMicroserviceJobBuilder('incorporation-information').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)          
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('vat-registration-eligibility-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('vat-registration-frontend').
         withScalaStyle().
@@ -51,5 +56,26 @@ new SbtMicroserviceJobBuilder('vat-registration').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('paye-registration-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('paye-registration').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-        .withJobs('business-registration-frontend', 'business-registration', 'company-registration','company-registration-frontend', 'business-registration-notification', 'business-registration-dynamic-stub', 'incorporation-information', 'vat-registration-frontend', 'vat-registration').build(this)
+        .withJobs('business-registration-frontend',
+                  'business-registration',
+                  'company-registration',
+                  'company-registration-frontend',
+                  'business-registration-notification',
+                  'business-registration-dynamic-stub',
+                  'incorporation-information',
+                  'vat-registration-eligibility-frontend',
+                  'vat-registration-frontend',
+                  'vat-registration',
+                  'paye-registration-frontend',
+                  'paye-registration').build(this)
