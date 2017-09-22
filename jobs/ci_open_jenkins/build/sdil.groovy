@@ -5,7 +5,8 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-def frontends = ["soft-drinks-industry-levy-frontend"]
+def frontends = ["soft-drinks-industry-levy-frontend",
+                "soft-drinks-industry-levy-liability-tool-frontend"]
 
 def services = ["soft-drinks-industry-levy",
                 "soft-drinks-industry-levy-stub",
@@ -14,7 +15,7 @@ def services = ["soft-drinks-industry-levy",
 def allServices = services + frontends
 
 frontends.each {
-    new SbtFrontendJobBuilder(it).build(this as DslFactory)
+    new SbtFrontendJobBuilder(it).withTests("test").build(this as DslFactory)
 }
 
 services.each {
