@@ -121,25 +121,6 @@ new SbtFrontendJobBuilder('pbik-frontend')
         //.withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend-hotfix', 'pensions-lifetime-allowance-frontend',
-        'hotfix/pla-frontend')
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('pensions-lifetime-allowance')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('pla-dynamic-stub')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('tamc')
         .withScalaStyle()
         .withSCoverage()
@@ -181,9 +162,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'paac-frontend',
         'pbik',
         'pbik-frontend',
-        'pensions-lifetime-allowance',
-        'pensions-lifetime-allowance-frontend',
-        'pla-dynamic-stub',
         'tamc',
         'tamc-frontend',
         'vat-flat-rate-calculator-frontend')
