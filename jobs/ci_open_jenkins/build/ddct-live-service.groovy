@@ -29,10 +29,32 @@ new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
         .withExtendedTimeout()
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend-hotfix', 'pensions-lifetime-allowance-frontend',
+        'hotfix/pla-frontend')
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pensions-lifetime-allowance')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pla-dynamic-stub')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         .withJobs(
         'capital-gains-calculator',
         'cgt-calculator-non-resident-frontend',
         'cgt-calculator-resident-shares-frontend',
-        'cgt-calculator-resident-properties-frontend')
+        'cgt-calculator-resident-properties-frontend',
+        'pensions-lifetime-allowance',
+        'pensions-lifetime-allowance-frontend',
+        'pla-dynamic-stub')
         .build(this)
