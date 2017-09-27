@@ -63,6 +63,7 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
 		'customer-profile',
 		'mobile-messages',
 		'push-notification',
+		'push-notification-scheduler',	  
 		'push-registration',
 		'submission-tracker',
 		'native-apps-api-orchestration',
