@@ -31,5 +31,5 @@ new SbtMicroserviceJobBuilder('fset-email-renderer').
 
 
 new BuildMonitorViewBuilder('FSET-MONITOR').
-    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-parity-gateway', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend', 'fset-email-renderer').
+    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-launchpad-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend', 'fset-email-renderer').
     build(this)
