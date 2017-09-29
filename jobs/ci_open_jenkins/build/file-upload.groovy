@@ -18,7 +18,6 @@ new SbtFrontendJobBuilder('file-upload-frontend').
 
 new SbtFrontendJobBuilder('fuaas-api-mock-up-frontend').
         withSCoverage().
-        withScalaStyle().
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('clamav-client').
