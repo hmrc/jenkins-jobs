@@ -5,6 +5,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.SmokeTestsJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.BooleanParameter.booleanParameter
@@ -206,4 +207,14 @@ jobBuilder('create-a-service', 'init-service')
                                 |python scripts/bin/create.py \${REPOSITORY_NAME} \${TYPE} -exists \$withMongo
                                """.stripMargin()))
         .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created https://github.com/hmrc/(.*)'))
+        .build(this)
+
+
+
+new SmokeTestsJobBuilder('catalogue-acceptance-tests','catalogue-acceptance-tests', '-v -Denv=build -Dbrowser=chrome test')
+        .build(this)
+
+
+new BuildMonitorViewBuilder('Platops-Monitor')
+        .withJobs('catalogue-acceptance-tests')
         .build(this)
