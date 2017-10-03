@@ -164,11 +164,13 @@ new SbtMicroserviceJobBuilder('indicators').withTests("test")
 new SbtMicroserviceJobBuilder('service-deployments').withTests("test")
         .build(this as DslFactory)
 
-
 new SbtMicroserviceJobBuilder('repository-jobs').withTests("test")
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('service-dependencies').withTests("test")
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
         .build(this as DslFactory)
 
 new SbtLibraryJobBuilder('github-client').build(this as DslFactory)
@@ -184,7 +186,7 @@ new SbtLibraryJobBuilder('http-verbs-play-25').build(this as DslFactory)
 new SbtLibraryJobBuilder('bootstrap-play-25').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
-        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client').build(this)
+        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client', 'library-upgrade-progress-frontend').build(this)
 
 jobBuilder('create-a-service', 'init-service')                                            
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.28.0'))
