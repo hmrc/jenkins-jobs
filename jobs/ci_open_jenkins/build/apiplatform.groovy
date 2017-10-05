@@ -46,7 +46,8 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-subscription-fields').
-        withTests("test").
+        withTests("test it:test acceptance:test").
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
