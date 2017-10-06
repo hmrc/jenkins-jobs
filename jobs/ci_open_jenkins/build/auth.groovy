@@ -98,7 +98,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
             'crypto',
             'domain',
             'hmrctest',
-            'http-caching-client',
             'http-exceptions',
             'json-encryption',
             'mongo-caching',
