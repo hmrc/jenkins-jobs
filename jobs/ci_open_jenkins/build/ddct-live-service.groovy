@@ -48,6 +48,11 @@ new SbtMicroserviceJobBuilder('pla-dynamic-stub')
         .withSCoverage()
         .build(this as DslFactory)
 
+new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         .withJobs(
         'capital-gains-calculator',
@@ -56,5 +61,6 @@ new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         'cgt-calculator-resident-properties-frontend',
         'pensions-lifetime-allowance',
         'pensions-lifetime-allowance-frontend',
-        'pla-dynamic-stub')
+        'pla-dynamic-stub',
+        'vat-flat-rate-calculator-frontend')
         .build(this)
