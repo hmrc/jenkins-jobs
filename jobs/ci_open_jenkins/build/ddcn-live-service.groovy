@@ -134,11 +134,6 @@ new SbtMicroserviceJobBuilder('tamc-frontend')
 new SbtLibraryJobBuilder('tabular-data-validator')
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -163,7 +158,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pbik',
         'pbik-frontend',
         'tamc',
-        'tamc-frontend',
-        'vat-flat-rate-calculator-frontend')
+        'tamc-frontend')
         .build(this)
 
