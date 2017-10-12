@@ -67,12 +67,10 @@ new SbtMicroserviceJobBuilder('paye-registration').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('industry-code-lookup-frontend').
-        withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('industry-code-lookup').
-        withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
