@@ -16,6 +16,6 @@ new SbtFrontendJobBuilder('valuation-office-agency-contact-frontend').
 
 // TODO: Add acceptance test job
 
-new BuildMonitorViewBuilder('VOA_CONTACT')
+new BuildMonitorViewBuilder('VOAC-MONITOR')
         .withJobs('lightweight-contact-events',
         'valuation-office-agency-contact-frontend').build(this)
