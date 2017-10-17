@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtMicroserviceJobBuilder('lightweight-contact-events').
         withScalaStyle().
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('valuation-office-agency-contact-frontend').
