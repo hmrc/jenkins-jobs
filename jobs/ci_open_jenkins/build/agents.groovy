@@ -63,6 +63,10 @@ new SbtMicroserviceJobBuilder('agent-kyc').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('agent-assurance').
+        withSCoverage().
+        build(this as DslFactory)
+
 def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
         withSCoverage().
         withTests("test it:test acc:test").
