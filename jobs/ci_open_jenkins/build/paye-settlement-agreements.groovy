@@ -9,5 +9,5 @@ new SbtMicroserviceJobBuilder('paye-settlement-agreements').
         withSCoverage().
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('PAYEE-SETTLEMENT-AGREEMENTS-MONITOR')
+new BuildMonitorViewBuilder('PAYE-SETTLEMENT-AGREEMENTS-MONITOR')
         .withJobs('paye-settlement-agreements').build(this)
