@@ -5,14 +5,18 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-def frontends = ["soft-drinks-industry-levy-frontend",
-                "soft-drinks-industry-levy-liability-tool-frontend"]
+def frontends = ["soft-drinks-industry-levy-frontend"]
+def liabiltyFrontend = ["soft-drinks-industry-levy-liability-tool-frontend"]
+
+new SbtFrontendJobBuilder('soft-drinks-industry-levy-liability-tool-frontend')
+        .withSCoverage()
+        .build(this as DslFactory)
 
 def services = ["soft-drinks-industry-levy",
                 "soft-drinks-industry-levy-stub",
                 "soft-drinks-industry-levy-liability-calculator"]
 
-def allServices = services + frontends
+def allServices = services + frontends + liabilityFrontend
 
 frontends.each {
     new SbtFrontendJobBuilder(it).withTests("test").build(this as DslFactory)
