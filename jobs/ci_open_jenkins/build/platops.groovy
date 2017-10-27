@@ -10,7 +10,6 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.c
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.BooleanParameter.booleanParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.TextParameter.textParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
@@ -118,12 +117,10 @@ jobBuilder('create-a-webhook')
 
 
 jobBuilder('create-a-release').
-        withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '1.7.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '1.6.0')).
         withParameters(stringParameter('ARTEFACT_NAME', '', 'The artifact name e.g. cato-frontend'),
                 stringParameter('RELEASE_CANDIDATE_VERSION', '', 'The release candidate e.g. 1.3.0-1-g21312cc'),
-                choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR'),
-                textParameter('RELEASE_NOTES', '', 'Optional release notes addendum, should describe briefly a reason for change.')
-        ).
+                choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR')).
         withSteps(createARelease()).
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
         build(this)
