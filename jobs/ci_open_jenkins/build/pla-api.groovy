@@ -8,7 +8,7 @@ def services = ["pensions-lifetime-allowance-des-stub",
                "pensions-lifetime-allowance-api"]
 
 services.each{
-new SbtMicroserviceJobBuilder('pensions-lifetime-allowance-des-stub')
+new SbtMicroserviceJobBuilder(it)
         .withTests("test")
         .build(this as DslFactory)
 }
