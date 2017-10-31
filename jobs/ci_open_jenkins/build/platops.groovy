@@ -123,7 +123,7 @@ jobBuilder('create-a-release').
                 choiceParameter('RELEASE_TYPE', ['MINOR', 'MAJOR', 'HOTFIX'], 'The type of release e.g. MINOR'),
                 stringParameter('RELEASE_NOTES', '', 'Optional release notes addendum, should describe briefly a reason for change.')).
         withSteps(createARelease()).
-        withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)')).
+        withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Releaser successfully released (.*)','\\1 \$RELEASE_NOTES')).
         build(this)
 
 jobBuilder('create-a-2.12-release').
