@@ -23,7 +23,7 @@ class SbtLibraryJobBuilderSpec extends Specification {
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('PATH')
             buildWrappers.'EnvInjectBuildWrapper'.info.propertiesContent.text().contains('TMP')
             triggers.'com.cloudbees.jenkins.gitHubPushTrigger'.spec.text() == ''
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate test +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 8192 clean validate test +publishSigned')
             publishers.'hudson.tasks.junit.JUnitResultArchiver'.testResults.text() == 'target/*test-reports/*.xml'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportDir [0].text() == 'target/test-reports/html-report'
             publishers.'htmlpublisher.HtmlPublisher'.reportTargets.'htmlpublisher.HtmlPublisherTarget'.reportName [0].text() == 'HTML Report'
@@ -40,7 +40,7 @@ class SbtLibraryJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 3000 clean validate coverage test coverageOff coverageReport +publishSigned')
+            builders.'hudson.tasks.Shell'.command.text().contains('sbt $SBT_OPTS -mem 8192 clean validate coverage test coverageOff coverageReport +publishSigned')
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportDir.text() == "target/scala-2.11/scoverage-report"
             publishers.'org.jenkinsci.plugins.scoverage.ScoveragePublisher'.reportFile.text() == "scoverage.xml"
         }
