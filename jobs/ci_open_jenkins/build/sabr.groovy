@@ -13,6 +13,7 @@ new SbtMicroserviceJobBuilder('income-tax-subscription').
 new SbtFrontendJobBuilder('income-tax-subscription-frontend').
         withScalaStyle().
         withSCoverage().
+        withExtendedTimeout().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('income-tax-subscription-agent-frontend').
