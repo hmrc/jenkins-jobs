@@ -13,6 +13,10 @@ new SbtMicroserviceJobBuilder('fhdds').
         withTests("test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('fhdds-dfs-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('dfs-aemfd-fhdds').
         withTests("test").
         build(this as DslFactory)
