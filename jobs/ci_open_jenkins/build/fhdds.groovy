@@ -22,4 +22,4 @@ new SbtMicroserviceJobBuilder('dfs-aemfd-fhdds').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('FHDDS')
-        .withJobs('fhdds', 'fhdds-frontend').build(this)
+        .withJobs('fhdds', 'fhdds-frontend', 'fhdds-dfs-frontend').build(this)
