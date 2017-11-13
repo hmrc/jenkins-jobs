@@ -63,10 +63,6 @@ new SbtFrontendJobBuilder('agent-epaye-registration-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('agent-kyc').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('agent-assurance').
         withSCoverage().
         build(this as DslFactory)
@@ -90,5 +86,5 @@ new SbtLibraryJobBuilder('agent-mtd-identifiers').
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend',
-                  'agent-kenshoo-monitoring', 'agent-kyc', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
+                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
                   'agent-mtd-identifiers','agent-mapping','agent-mapping-frontend', 'agent-services-account-frontend').build(this)
