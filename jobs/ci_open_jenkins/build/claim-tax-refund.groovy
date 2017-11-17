@@ -4,10 +4,6 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new ListViewBuilder('CTR')
-        .withJobsRegex('claim-tax-refund.*')
-        .build(this as DslFactory)
-
 new BuildMonitorViewBuilder('CTR-Monitor')
         .withJobs(
         'claim-tax-refund-frontend',
