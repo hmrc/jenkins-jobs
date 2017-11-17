@@ -10,10 +10,8 @@ new BuildMonitorViewBuilder('CTR-Monitor')
         'claim-tax-refund-acceptance-tests')
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('claim-tax-refund-frontend', 'hmrc/claim-tax-refund-frontend').
-        withXvfb().
-        withDeployToDev().
-        withStaticAnalysisAndReport().
-        withDownstreamJobs('claim-tax-refund-acceptance-tests').
+new SbtFrontendJobBuilder('claim-tax-refund-frontend').
+        withScalaStyle().
+        withSCoverage().
         build(this as DslFactory)
         
