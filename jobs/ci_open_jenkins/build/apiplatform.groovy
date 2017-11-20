@@ -6,6 +6,9 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+new SbtMicroserviceJobBuilder('api-documentation').
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('api-example-scala-client').
         withTests("test").
         withXvfb().
@@ -64,6 +67,7 @@ new SbtLibraryJobBuilder('play-json-union-formatter').
 
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
+        'api-documentation',
         'api-example-scala-client',
         'api-gateway',
         'api-revocation-frontend',
