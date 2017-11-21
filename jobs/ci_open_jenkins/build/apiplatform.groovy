@@ -7,6 +7,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtMicroserviceJobBuilder('api-documentation').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-example-scala-client').
@@ -54,9 +55,11 @@ new SbtFrontendJobBuilder('api-subscription-fields').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('national-insurance-des-stub').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('totp-generator').
