@@ -104,4 +104,10 @@ class Steps {
                   |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events"
                   """.stripMargin())
     }
+
+    static Step dropMongoDatabase(String databaseName) {
+        shellStep("""\
+                  |mongo $databaseName --eval "db.dropDatabase()"
+                  """.stripMargin())
+    }
 }
