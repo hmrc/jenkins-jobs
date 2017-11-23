@@ -50,7 +50,7 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-subscription-fields').
-        withTests("test acceptance:test").
+        withTests("test it:test acceptance:test").
         withSCoverage().
         build(this as DslFactory)
 
