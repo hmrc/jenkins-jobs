@@ -39,6 +39,9 @@ new SbtFrontendJobBuilder('customer-advisors-frontend').
 new SbtFrontendJobBuilder('preferences-admin-frontend').
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('announcement-frontend').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
