@@ -61,5 +61,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'preferences-admin-frontend',
                   'csp-client',
                   'hmrc-email-renderer',
+                  'announcement-frontend',
                   'mtd-business-stub')
         .build(this)
