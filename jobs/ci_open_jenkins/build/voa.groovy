@@ -28,6 +28,3 @@ new SbtFrontendJobBuilder('voa-property-linking-frontend-hotfix', 'voa-property-
 new SbtMicroserviceJobBuilder('business-rates-authorisation')
         .withSCoverage()
         .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('voa-traffic-throttle')
-        .build(this as DslFactory)
