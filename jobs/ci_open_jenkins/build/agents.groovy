@@ -75,15 +75,6 @@ new SbtMicroserviceJobBuilder('dynamic-config').
         withSCoverage().
         build(this as DslFactory)
 
-def frontendJob = new SbtFrontendJobBuilder('agent-client-authorisation-frontend').
-        withSCoverage().
-        withTests("test it:test acc:test").
-        withXvfb().
-        build(this as DslFactory)
-frontendJob.environmentVariables {
-    env('no_proxy', 'localhost')
-}
-
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         withSCoverage().
         build(this as DslFactory)
@@ -93,6 +84,6 @@ new SbtLibraryJobBuilder('agent-mtd-identifiers').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
-        .withJobs('agent-access-control', 'agent-client-authorisation', 'agent-client-authorisation-frontend',
+        .withJobs('agent-access-control', 'agent-client-authorisation',
                   'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
                   'agent-mtd-identifiers','agent-mapping','agent-mapping-frontend', 'agent-services-account-frontend', 'agent-services-account').build(this)
