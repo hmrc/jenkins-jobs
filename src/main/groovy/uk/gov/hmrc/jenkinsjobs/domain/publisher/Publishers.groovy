@@ -56,4 +56,8 @@ final class Publishers {
                                                            """.stripMargin())
     }
 
+    static Publisher zapArtifactsPublisher() {
+        artifactsPublisher('**/ZapReport.html')
+    }
+
 }
