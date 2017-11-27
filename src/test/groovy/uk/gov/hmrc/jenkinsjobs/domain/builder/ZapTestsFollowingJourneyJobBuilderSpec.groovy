@@ -26,13 +26,13 @@ class ZapTestsFollowingJourneyJobBuilderSpec extends Specification {
         then:
         System.out.println(job.xml)
         with(job.node) {
-            builders.'hudson.tasks.Shell' [0].command.text().contains('sm --start test-product -f --wait 1200 --noprogress')
+            builders.'hudson.tasks.Shell' [0].command.text().contains('-mem 8192 run')
             builders.'hudson.plugins.copyartifact.CopyArtifact' [0].project.text().equals('upstream-job')
             builders.'hudson.plugins.copyartifact.CopyArtifact' [0].filter.text().equals('results/zap/**')
             builders.'hudson.tasks.Shell' [1].command.text().contains('BUILD_ID=dontKillMe zap -daemon -config api.disablekey=true -port 11000 -dir $WORKSPACE/results/zap -session zap-journey &')
             builders.'hudson.tasks.Shell' [2].command.text().contains('./test-script-name.sh')
             builders.'hudson.tasks.Shell' [3].command.text().contains('curl --silent http://localhost:11000/HTML/core/action/shutdown')
-            builders.'hudson.tasks.Shell' [4].command.text().contains('sm --stop test-product')
+            builders.'hudson.tasks.Shell' [4].command.text().contains('-mem 8192 stop')
         }
    }
 }

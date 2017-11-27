@@ -20,3 +20,10 @@ new SbtMicroserviceJobBuilder('vat-api')
 new BuildMonitorViewBuilder('MTD-MONITOR')
         .withJobs('self-assessment-api', 'vat-api').build(this)
 
+new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
+        GitHubScm('sef-assessment-api'),
+        sbtStep("-Dhttp.proxyHost=localhost -Dhttp.proxyPort=11000 $SBT_OPTS -mem 8192 clean \"func:test-only uk.gov.hmrc.selfassessmentapi.resources.SelfEmploymentsResourceSpec\" dist-tgz +publishSigned -Djava.io.tmpdir=${TMP}", "coverageReport", "dist-tgz publish"),
+        Step("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""),
+        sbtStep("stop", "coverageReport", "dist-tgz publish"),
+        'self-assessment-api')
+        .build(this).disabled()
