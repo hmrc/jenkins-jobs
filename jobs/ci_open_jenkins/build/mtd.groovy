@@ -22,7 +22,7 @@ new BuildMonitorViewBuilder('MTD-MONITOR')
         .withJobs('self-assessment-api', 'vat-api').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
-        'sef-assessment-api',
+        'self-assessment-api',
         shellStep("start"),
         shellStep("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""),
         shellStep("stop"),
