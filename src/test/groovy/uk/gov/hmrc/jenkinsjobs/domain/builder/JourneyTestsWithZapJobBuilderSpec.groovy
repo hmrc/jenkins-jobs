@@ -16,20 +16,18 @@ class JourneyTestsWithZapJobBuilderSpec extends Specification {
         JourneyTestsWithZapJobBuilder builder = new JourneyTestsWithZapJobBuilder(
                 'test-job',
                 'example/example-repo',
-                sbtStep(["-mem 8192 run"], '\${TMP}'),
-                shellStep('./test-script-name.sh'),
-                sbtStep(["-mem 8192 stop"], '\${TMP}'))
+                shellStep("start"),
+                shellStep("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""),
+                shellStep("stop"))
 
         when:
         Job job = builder.build(jobParent())
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell' [0].command.text().contains('sbt -mem 8192 run')
-            builders.'hudson.tasks.Shell' [1].command.text().contains('zap -daemon -config api.disablekey=true -port 11000 -dir $WORKSPACE/results/zap -newsession zap-journey &')
-            builders.'hudson.tasks.Shell' [2].command.text().contains('./test-script-name.sh')
-            builders.'hudson.tasks.Shell' [3].command.text().contains('curl --silent http://localhost:11000/HTML/core/action/shutdown')
-            builders.'hudson.tasks.Shell' [4].command.text().contains('sbt -mem 8192 stop')
+            builders.'hudson.tasks.Shell' [0].command.text().contains('start')
+            builders.'hudson.tasks.Shell' [1].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
+            builders.'hudson.tasks.Shell' [2].command.text().contains('stop')
             publishers.'hudson.tasks.ArtifactArchiver' [0].artifacts.text().equals('results/zap/**')
         }
     }

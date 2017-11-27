@@ -14,38 +14,21 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrig
 
 final class JourneyTestsWithZapJobBuilder extends AbstractJourneyTestsJobBuilder<JourneyTestsWithZapJobBuilder> {
 
-    JourneyTestsWithZapJobBuilder(String name, String scm, SbtStep startStep, Step commandStep, SbtStep stopStep) {
+    JourneyTestsWithZapJobBuilder(String name, String scm, Step startStep, Step commandStep, Step stopStep) {
         builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                 withTriggers(gitHubPushTrigger(), pollTrigger("H/5 * * * *")).
                 withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                withSteps(startStep, startZap(), commandStep, stopZap(), stopStep).
+                withSteps(startStep, commandStep, stopStep).
                 withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
     }
 
-    JourneyTestsWithZapJobBuilder(String name, String scm, SbtStep startStep, Step commandStep, SbtStep stopStep, Boolean withTriggers) {
+    JourneyTestsWithZapJobBuilder(String name, String scm, Step startStep, Step commandStep, Step stopStep, Boolean withTriggers) {
         if (withTriggers) { JourneyTestsJobBuilder(name, scm, startStep, commandStep, stopStep) } else {
             builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                     withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                    withSteps(startStep, startZap(), commandStep, stopZap(), stopStep).
+                    withSteps(startStep, commandStep, stopStep).
                     withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
         }
-    }
-
-    private static Step startZap() {
-        shellStep("""\
-                    |echo "Starting ZAP"
-                    |mkdir -p results
-                    |zap -daemon -config api.disablekey=true -port 11000 -dir \$WORKSPACE/results/zap -newsession zap-journey &
-                    |sleep 10
-                    """.stripMargin())
-    }
-
-    private static Step stopZap() {
-        shellStep("""\
-                  |echo "Killing Zap"
-                  |curl --silent http://localhost:11000/HTML/core/action/shutdown
-                  |sleep 10
-                  """.stripMargin())
     }
 
     private static Publisher archiveArtifacts() {
