@@ -134,6 +134,10 @@ new SbtMicroserviceJobBuilder('tamc-frontend')
 new SbtLibraryJobBuilder('tabular-data-validator')
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -158,6 +162,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pbik',
         'pbik-frontend',
         'tamc',
-        'tamc-frontend')
+        'tamc-frontend',
+        'marriage-allowance-des-stub')
         .build(this)
-
