@@ -52,6 +52,11 @@ new SbtFrontendJobBuilder('example-play-25-frontend').
 new SbtFrontendJobBuilder('example-play-25-microservice').
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('bank-account-reputation-store-service').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
                   'address-reputation-store',
@@ -62,4 +67,5 @@ new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
                   'maps',
                   'example-play-25-frontend',
                   'play-random-json-filter',
-                  'txm-events').build(this)
+                  'txm-events',
+                  'bank-account-reputation-store-service').build(this)
