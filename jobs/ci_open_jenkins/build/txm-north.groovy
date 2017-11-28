@@ -53,8 +53,6 @@ new SbtFrontendJobBuilder('example-play-25-microservice').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('bank-account-reputation-store-service').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
