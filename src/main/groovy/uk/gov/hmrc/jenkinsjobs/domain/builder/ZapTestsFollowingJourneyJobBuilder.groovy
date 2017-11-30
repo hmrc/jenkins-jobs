@@ -9,11 +9,11 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrig
 
 class ZapTestsFollowingJourneyJobBuilder extends AbstractZapTestsJobBuilder<ZapTestsFollowingJourneyJobBuilder> {
 
-    ZapTestsFollowingJourneyJobBuilder(String name, String scm, Step startStep, Step commandStep, Step stopStep, String upstreamJobName) {
+    ZapTestsFollowingJourneyJobBuilder(String name, String scm, Step commandStep, String upstreamJobName) {
         builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                 withTriggers(gitHubPushTrigger(), pollTrigger("H/5 * * * *")).
                 withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                withSteps(startStep, copyArtifacts(upstreamJobName), commandStep, stopStep).
+                withSteps(copyArtifacts(upstreamJobName), commandStep).
                 withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.zapArtifactsPublisher())
     }
 

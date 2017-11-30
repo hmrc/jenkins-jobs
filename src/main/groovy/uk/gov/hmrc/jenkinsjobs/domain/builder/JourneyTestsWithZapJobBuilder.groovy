@@ -14,19 +14,19 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrig
 
 final class JourneyTestsWithZapJobBuilder extends AbstractJourneyTestsJobBuilder<JourneyTestsWithZapJobBuilder> {
 
-    JourneyTestsWithZapJobBuilder(String name, String scm, Step startStep, Step commandStep, Step stopStep) {
+    JourneyTestsWithZapJobBuilder(String name, String scm, Step commandStep) {
         builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                 withTriggers(gitHubPushTrigger(), pollTrigger("H/5 * * * *")).
                 withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                withSteps(startStep, commandStep, stopStep).
+                withSteps(commandStep).
                 withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
     }
 
-    JourneyTestsWithZapJobBuilder(String name, String scm, Step startStep, Step commandStep, Step stopStep, Boolean withTriggers) {
-        if (withTriggers) { JourneyTestsJobBuilder(name, scm, startStep, commandStep, stopStep) } else {
+    JourneyTestsWithZapJobBuilder(String name, String scm, Step commandStep, Boolean withTriggers) {
+        if (withTriggers) { JourneyTestsJobBuilder(name, scm, commandStep) } else {
             builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                     withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                    withSteps(startStep, commandStep, stopStep).
+                    withSteps(commandStep).
                     withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
         }
     }
