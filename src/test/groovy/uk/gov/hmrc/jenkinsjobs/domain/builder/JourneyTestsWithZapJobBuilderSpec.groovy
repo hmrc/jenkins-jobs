@@ -16,18 +16,14 @@ class JourneyTestsWithZapJobBuilderSpec extends Specification {
         JourneyTestsWithZapJobBuilder builder = new JourneyTestsWithZapJobBuilder(
                 'test-job',
                 'example/example-repo',
-                shellStep("start"),
-                shellStep("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""),
-                shellStep("stop"))
+                shellStep("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""))
 
         when:
         Job job = builder.build(jobParent())
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell' [0].command.text().contains('start')
-            builders.'hudson.tasks.Shell' [1].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
-            builders.'hudson.tasks.Shell' [2].command.text().contains('stop')
+            builders.'hudson.tasks.Shell' [0].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
             publishers.'hudson.tasks.ArtifactArchiver' [0].artifacts.text().equals('results/zap/**')
         }
     }
