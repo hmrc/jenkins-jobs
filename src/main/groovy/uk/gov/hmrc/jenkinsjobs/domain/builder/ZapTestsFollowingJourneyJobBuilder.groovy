@@ -13,7 +13,7 @@ class ZapTestsFollowingJourneyJobBuilder extends AbstractZapTestsJobBuilder<ZapT
         builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                 withTriggers(gitHubPushTrigger(), pollTrigger("H/5 * * * *")).
                 withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                withSteps(copyArtifacts(upstreamJobName), commandStep).
+                withSteps(startZap(), copyArtifacts(upstreamJobName), commandStep, stopZap()).
                 withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.zapArtifactsPublisher())
     }
 
