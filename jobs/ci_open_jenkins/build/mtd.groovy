@@ -23,8 +23,8 @@ new BuildMonitorViewBuilder('MTD-MONITOR')
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',
-        shellStep("start"),
+        shellStep("sbt -Dhttp.proxyHost=localhost -Dhttp.proxyPort=11000 \$SBT_OPTS -mem 8192 clean \"func:test-only uk.gov.hmrc.selfassessmentapi.resources.SelfEmploymentsResourceSpec\" dist-tgz +publishSigned -Djava.io.tmpdir=\${TMP}"),
         shellStep("sbt \"func:test-only uk.gov.hmrc.ZapRunner\""),
-        shellStep("stop"),
+        shellStep(""),
         'self-assessment-api')
         .build(this).disabled()
