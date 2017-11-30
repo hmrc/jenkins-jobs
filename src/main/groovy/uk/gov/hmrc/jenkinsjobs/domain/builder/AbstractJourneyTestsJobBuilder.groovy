@@ -4,8 +4,11 @@ import javaposse.jobdsl.dsl.DslFactory
 import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
+import uk.gov.hmrc.jenkinsjobbuilders.domain.step.Step
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.JobsTriggerPublisher.jobsTriggerPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.BintrayArtifactTrigger.bintrayArtifactTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapper.timeoutWrapper
@@ -17,6 +20,21 @@ abstract class AbstractJourneyTestsJobBuilder<T extends AbstractJourneyTestsJobB
     private int timeout = 60
 
     protected JobBuilder builder
+
+    protected static Step startZap() {
+        shellStep("""\
+                    echo "Starting ZAP"
+                    zap -daemon -config api.disablekey=true -port 11000 &
+                    sleep 10
+                    """.stripMargin())
+    }
+
+    protected static Step stopZap() {
+        shellStep("""\
+                  echo "Killing Zap"
+                  curl --silent http://localhost:11000/HTML/core/action/shutdown
+                  """.stripMargin())
+    }
 
     T withDownstreamJobs(String downstreamJobs) {
         builder = builder.withPublishers(jobsTriggerPublisher(downstreamJobs))

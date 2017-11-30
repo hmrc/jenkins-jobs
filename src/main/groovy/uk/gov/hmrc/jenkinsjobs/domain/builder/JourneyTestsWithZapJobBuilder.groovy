@@ -18,7 +18,7 @@ final class JourneyTestsWithZapJobBuilder extends AbstractJourneyTestsJobBuilder
         builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                 withTriggers(gitHubPushTrigger(), pollTrigger("H/5 * * * *")).
                 withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                withSteps(commandStep).
+                withSteps(startZap(), commandStep, stopZap()).
                 withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
     }
 
@@ -26,7 +26,7 @@ final class JourneyTestsWithZapJobBuilder extends AbstractJourneyTestsJobBuilder
         if (withTriggers) { JourneyTestsJobBuilder(name, scm, commandStep) } else {
             builder = uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder(name, scm, 'master').
                     withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-                    withSteps(commandStep).
+                    withSteps(startZap(), commandStep, stopZap()).
                     withPublishers(uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultHtmlReportsPublisher(), uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.cleanXvfbPostBuildTaskPublisher(), archiveArtifacts())
         }
     }
