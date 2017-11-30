@@ -25,7 +25,9 @@ class ZapTestsFollowingJourneyJobBuilderSpec extends Specification {
         with(job.node) {
             builders.'hudson.plugins.copyartifact.CopyArtifact' [0].project.text().equals('upstream-job')
             builders.'hudson.plugins.copyartifact.CopyArtifact' [0].filter.text().equals('results/zap/**')
-            builders.'hudson.tasks.Shell' [0].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
+            builders.'hudson.tasks.Shell' [0].command.text().contains("zap -daemon -config api.disablekey=true -port 11000")
+            builders.'hudson.tasks.Shell' [1].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
+            builders.'hudson.tasks.Shell' [2].command.text().contains("curl --silent http://localhost:11000/HTML/core/action/shutdown")
         }
    }
 }

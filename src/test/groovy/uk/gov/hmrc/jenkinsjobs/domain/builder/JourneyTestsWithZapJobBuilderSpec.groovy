@@ -23,7 +23,9 @@ class JourneyTestsWithZapJobBuilderSpec extends Specification {
 
         then:
         with(job.node) {
-            builders.'hudson.tasks.Shell' [0].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
+            builders.'hudson.tasks.Shell' [0].command.text().contains("zap -daemon -config api.disablekey=true -port 11000")
+            builders.'hudson.tasks.Shell' [1].command.text().contains("sbt \"func:test-only uk.gov.hmrc.ZapRunner\"")
+            builders.'hudson.tasks.Shell' [2].command.text().contains("curl --silent http://localhost:11000/HTML/core/action/shutdown")
             publishers.'hudson.tasks.ArtifactArchiver' [0].artifacts.text().equals('results/zap/**')
         }
     }
