@@ -157,6 +157,9 @@ new SbtMicroserviceJobBuilder('teams-and-repositories').withTests("test")
 new SbtMicroserviceJobBuilder('catalogue-frontend').withTests("test")
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('leak-detection').withTests("test")
+        .build(this as DslFactory)
+
 new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('indicators').withTests("test")
