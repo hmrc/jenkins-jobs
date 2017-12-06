@@ -17,5 +17,5 @@ new SbtFrontendJobBuilder('income-tax-subscription-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SABR-MONITOR').withJobs(
-        'income-tax-subscription', 'income-tax-subscription-frontend', 'income-tax-subscription-agent-frontend'
+        'income-tax-subscription', 'income-tax-subscription-frontend'
 ).build(this)
