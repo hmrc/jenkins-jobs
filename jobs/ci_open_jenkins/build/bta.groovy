@@ -32,18 +32,11 @@ new SbtLibraryJobBuilder('logback-json-logger').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('epaye-api').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('help-frontend',
                   'microservice-bootstrap',
                   'play-graphite',
                   'play-json-encoder',
                   'play-partials',
-                  'logback-json-logger',
-                  'epaye-api')
+                  'logback-json-logger')
         .build(this)
