@@ -7,6 +7,8 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 def customsInventoryLinkingImports = 'customs-inventory-linking-imports'
 
 new SbtMicroserviceJobBuilder(customsInventoryLinkingImports).
+    withSCoverage().
+    withScalaStyle().
     build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
