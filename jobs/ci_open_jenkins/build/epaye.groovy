@@ -7,7 +7,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new SbtMicroserviceJobBuilder('epaye-api').
-        withDownstreamJobs('epaye-frontend-acceptance-tests').
         withTests("test").
         withScalaStyle().
         withSCoverage().
