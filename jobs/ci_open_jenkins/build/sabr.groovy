@@ -10,6 +10,11 @@ new SbtMicroserviceJobBuilder('income-tax-subscription').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('income-tax-subscription-store').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('income-tax-subscription-frontend').
         withScalaStyle().
         withSCoverage().
