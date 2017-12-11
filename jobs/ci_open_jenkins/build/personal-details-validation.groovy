@@ -7,5 +7,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtMicroserviceJobBuilder('personal-details-validation').
     build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('personal-details-validation-frontend').
+new SbtFrontendJobBuilder('personal-details-validation-frontend').
+        withXvfb().
         build(this as DslFactory)
