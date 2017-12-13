@@ -16,9 +16,6 @@ new SbtFrontendJobBuilder('fset-faststream-frontend').
 new SbtFrontendJobBuilder('fset-launchpad-gateway').
     build(this as DslFactory)
 
-new SbtFrontendJobBuilder('fset-parity-gateway').
-    build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('fset-fasttrack').
     withExtendedTimeout().
     build(this as DslFactory)
