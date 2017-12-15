@@ -10,6 +10,14 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-notification-queue').
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('api-notification-pull').
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('api-example-scala-client').
         withTests("test").
         withXvfb().
