@@ -10,14 +10,6 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-notification-queue').
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('api-notification-pull').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-example-scala-client').
         withTests("test").
         withXvfb().
@@ -62,6 +54,14 @@ new SbtFrontendJobBuilder('api-subscription-fields').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-notification-queue').
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('api-notification-pull').
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('national-insurance-des-stub').
         withSCoverage().
         build(this as DslFactory)
@@ -85,6 +85,8 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
         'api-subscription-fields',
+        'api-notification-pull',
+        'api-notification-queue',
         'national-insurance-des-stub',
         'totp-generator',
         'play-json-union-formatter'
