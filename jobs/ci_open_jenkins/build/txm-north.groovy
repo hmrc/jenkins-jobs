@@ -32,11 +32,6 @@ new SbtFrontendJobBuilder('kafka-amqp-sink').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('bank-account-reputation-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('aml-demo').
         withScalaStyle().
         withSCoverage().
@@ -61,7 +56,6 @@ new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
                   'address-reputation-ingester',
                   'address-lookup',
                   'address-lookup-frontend',
-                  'bank-account-reputation-frontend',
                   'maps',
                   'example-play-25-frontend',
                   'play-random-json-filter',
