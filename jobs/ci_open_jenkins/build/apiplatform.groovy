@@ -26,6 +26,7 @@ new SbtFrontendJobBuilder('api-revocation-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-gatekeeper-frontend').
+        withSCoverage().
         withTests("test acceptance:test").
         withXvfb().
         build(this as DslFactory)
@@ -39,13 +40,16 @@ new SbtMicroserviceJobBuilder('api-platform-test').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-platform-test-user').
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-platform-test-user-frontend').
+        withSCoverage().
         withXvfb().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-platform-test-login-frontend').
+        withSCoverage().
         withXvfb().
         build(this as DslFactory)
 
