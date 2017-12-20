@@ -21,6 +21,7 @@ new SbtFrontendJobBuilder('api-gateway').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
+        withSCoverage().
         withTests("test acceptance:test").
         withXvfb().
         build(this as DslFactory)
