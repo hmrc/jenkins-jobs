@@ -19,4 +19,4 @@ new SbtFrontendJobBuilder('fh-registration-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('FHDDS')
-        .withJobs('fhdds', 'fh-registration-frontend').build(this)
+        .withJobs('fh-registration', 'fh-registration-frontend').build(this)
