@@ -6,7 +6,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 
-new SbtMicroserviceJobBuilder('fhdds').
+new SbtMicroserviceJobBuilder('fh-registration').
         withTests("test").
         build(this as DslFactory)
 
