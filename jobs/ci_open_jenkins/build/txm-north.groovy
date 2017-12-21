@@ -41,12 +41,6 @@ new SbtFrontendJobBuilder('maps').
         withScalaStyle().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('example-play-25-frontend').
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('example-play-25-microservice').
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('bank-account-reputation-store-service').
         build(this as DslFactory)
 
@@ -57,7 +51,6 @@ new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
                   'address-lookup',
                   'address-lookup-frontend',
                   'maps',
-                  'example-play-25-frontend',
                   'play-random-json-filter',
                   'txm-events',
                   'bank-account-reputation-store-service').build(this)
