@@ -32,11 +32,6 @@ new SbtFrontendJobBuilder('kafka-amqp-sink').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('aml-demo').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('maps').
         withScalaStyle().
         build(this as DslFactory)
