@@ -32,10 +32,6 @@ new SbtFrontendJobBuilder('kafka-amqp-sink').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('maps').
-        withScalaStyle().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('bank-account-reputation-store-service').
         build(this as DslFactory)
 
@@ -45,7 +41,6 @@ new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
                   'address-reputation-ingester',
                   'address-lookup',
                   'address-lookup-frontend',
-                  'maps',
                   'play-random-json-filter',
                   'txm-events',
                   'bank-account-reputation-store-service').build(this)
