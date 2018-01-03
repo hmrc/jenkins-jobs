@@ -57,34 +57,35 @@ new SbtMicroserviceJobBuilder('async-message-broker').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('native-app-widget').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('mobile-help-to-save').build(this as DslFactory)
+new SbtMicroserviceJobBuilder('mobile-help-to-save')
+		.withSCoverage()
+		.build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
-		.withJobs('personal-income',
-		'personal-tax-summary',
-		'customer-profile',
-		'mobile-messages',
-		'push-notification',
-		'push-notification-scheduler',	  
-		'push-registration',
-		'submission-tracker',
-		'native-apps-api-orchestration',
-		'open-app-orchestrator',
-		'api-gateway-async-example',
-		'play-hmrc-api',
-		'play-async',
-		'microservice-async',
-		'play-hal',
-		'mobile-token-exchange',
-		'mobile-token-proxy',
-		'your-tax-calculator-frontend',
-		'paye-estimator',
-		'authenticate-one-time-password',
-		'managing-vat-debt-frontend',
-		'sns-client',
-		'aws-sns-stub',
-                'async-message-broker',
-                'native-app-widget',
-                'mobile-help-to-save').build(this)
-
-
+        .withJobs('personal-income',
+                  'personal-tax-summary',
+                  'customer-profile',
+                  'mobile-messages',
+                  'push-notification',
+                  'push-notification-scheduler',
+                  'push-registration',
+                  'submission-tracker',
+                  'native-apps-api-orchestration',
+                  'open-app-orchestrator',
+                  'api-gateway-async-example',
+                  'play-hmrc-api',
+                  'play-async',
+                  'microservice-async',
+                  'play-hal',
+                  'mobile-token-exchange',
+                  'mobile-token-proxy',
+                  'your-tax-calculator-frontend',
+                  'paye-estimator',
+                  'authenticate-one-time-password',
+                  'managing-vat-debt-frontend',
+                  'sns-client',
+                  'aws-sns-stub',
+                  'async-message-broker',
+                  'native-app-widget',
+                  'mobile-help-to-save')
+        .build(this)
