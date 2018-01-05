@@ -6,11 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtFrontendJobBuilder('business-registration-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('business-registration').
         withScalaStyle().
         withSCoverage().
@@ -77,8 +72,7 @@ new SbtMicroserviceJobBuilder('industry-classification-lookup').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-        .withJobs('business-registration-frontend',
-                  'business-registration',
+        .withJobs('business-registration',
                   'company-registration',
                   'company-registration-frontend',
                   'business-registration-notification',
