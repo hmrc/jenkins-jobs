@@ -44,9 +44,6 @@ new SbtFrontendJobBuilder('agent-invitations-frontend').
         withSCoverage().
         build(this as DslFactory)
         
-new SbtFrontendJobBuilder('agent-fi-client-frontend').
-        withSCoverage().
-        build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-fi-relationship').
         withSCoverage().
         build(this as DslFactory)
