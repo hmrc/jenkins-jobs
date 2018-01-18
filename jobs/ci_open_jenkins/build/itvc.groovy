@@ -13,7 +13,7 @@ new SbtFrontendJobBuilder('income-tax-view-change-frontend').
 new SbtFrontendJobBuilder('manage-income-tax-subscription-frontend').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory) 
+        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('income-tax-view-change').
         withScalaStyle().
@@ -29,5 +29,6 @@ new BuildMonitorViewBuilder('ITVC-MONITOR').withJobs(
         'income-tax-view-change-frontend',
         'manage-income-tax-subscription-frontend',
         'income-tax-view-change',
-        'income-tax-view-change-dynamic-stub'
+        'income-tax-view-change-dynamic-stub',
+        'financial-transactions'
 ).build(this)
