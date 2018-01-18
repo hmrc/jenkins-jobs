@@ -11,6 +11,12 @@ new SbtMicroserviceJobBuilder('contact-admin').
         withScalaStyle().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('upscan-initiate').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+
+
 
 new BuildMonitorViewBuilder('PLATSERVICES-MONITOR')
-        .withJobs('contact-admin').build(this)
+        .withJobs('contact-admin', 'upscan-initiate').build(this)
