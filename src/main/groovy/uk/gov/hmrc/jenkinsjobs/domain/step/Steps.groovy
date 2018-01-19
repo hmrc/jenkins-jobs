@@ -39,6 +39,17 @@ class Steps {
         sbtStep(['\$SBT_OPTS -mem 8192 clean +publishSigned'], '\${TMP}')
     }
 
+    static Step npmRelease(String nodeVersion) {
+        shellStep("""
+                  |set +x
+                  |. \$NVM_DIR/nvm.sh
+                  |nvm use $nodeVersion
+                  |
+                  |npm install
+                  |npm run release
+                  """.stripMargin())
+    }
+
     static Step createARelease() {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/releaser_2.11/\$RELEASER_VERSION/releaser_2.11-\$RELEASER_VERSION-assembly.jar" ]; then
