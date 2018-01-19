@@ -9,4 +9,9 @@ new SbtMicroserviceJobBuilder('financial-transactions')
         .withSCoverage()
 		    .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('FT-MONITOR').withJobs('financial-transactions').build(this)
+new SbtMicroserviceJobBuilder('financial-transactions-dynamic-stub').
+		withScalaStyle().
+		withSCoverage().
+		build(this as DslFactory)
+
+new BuildMonitorViewBuilder('FT-MONITOR').withJobs('financial-transactions','financial-transactions-dynamic-stub').build(this)
