@@ -58,6 +58,5 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'preferences-admin-frontend',
                   'csp-client',
                   'hmrc-email-renderer',
-                  'announcement-frontend'
-                 )
+                  'announcement-frontend')
         .build(this)
