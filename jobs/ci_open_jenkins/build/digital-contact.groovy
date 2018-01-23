@@ -45,9 +45,6 @@ new SbtFrontendJobBuilder('announcement-frontend').
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('mtd-business-stub').
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('DC-MONITOR')
         .withJobs('a-b-test',
                   'url-builder',
@@ -61,6 +58,6 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'preferences-admin-frontend',
                   'csp-client',
                   'hmrc-email-renderer',
-                  'announcement-frontend',
-                  'mtd-business-stub')
+                  'announcement-frontend'
+                 )
         .build(this)
