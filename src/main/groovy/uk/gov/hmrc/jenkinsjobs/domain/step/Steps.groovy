@@ -40,14 +40,17 @@ class Steps {
     }
 
     static Step npmRelease(String nodeVersion) {
-        shellStep("""
+        shellStep('''
                   |set +x
-                  |. \$NVM_DIR/nvm.sh
+                  |. $NVM_DIR/nvm.sh
                   |nvm use $nodeVersion
+                  |
+                  |git config url."https://".insteadOf "git://"
+                  |git fetch origin master:master
                   |
                   |npm install
                   |npm run release
-                  """.stripMargin())
+                  '''.stripMargin())
     }
 
     static Step createARelease() {
