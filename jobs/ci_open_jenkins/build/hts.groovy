@@ -30,6 +30,12 @@ new SbtMicroserviceJobBuilder('help-to-save-api').
         withTests("test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('help-to-save-proxy').
+        withScalaStyle().
+        withSCoverage().
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('HELP-TO-SAVE-MONITOR')
-        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub').build(this)
+        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy').build(this)
 
