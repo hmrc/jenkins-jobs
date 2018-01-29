@@ -105,14 +105,15 @@ jobBuilder('create-a-repository').
 
 
 jobBuilder('create-a-webhook')
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.7.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0'))
         .withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials'))
         .withParameters(stringParameter('API_BASE_URL', 'https://api.github.com', 'base url for git dev api'))
         .withParameters(stringParameter('ORG', 'hmrc', 'repository organization'))
         .withParameters(stringParameter('REPOSITORY_NAMES', '', 'comma separated list of repository names e.g. foo-frontend,foo-service'))
         .withParameters(stringParameter('WEBHOOK_URL', '', 'url for the notification'))
         .withParameters(stringParameter('EVENTS', 'issues,issue_comment,pull_request,pull_request_review_comment', 'comma separated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
-        .withSteps(createAWebhook('$CRED_FILE_PATH', '$API_BASE_URL', '$ORG', '$REPOSITORY_NAMES', '$WEBHOOK_URL', '$EVENTS'))
+        .withParameters(choiceParameter('CONTENT_TYPE', ['application/json', 'application/x-www-form-urlencoded'], 'The format of the body sent to the Webhook'))
+        .withSteps(createAWebhook('$CRED_FILE_PATH', '$API_BASE_URL', '$ORG', '$REPOSITORY_NAMES', '$WEBHOOK_URL', '$EVENTS', '$CONTENT_TYPE'))
         .build(this)
 
 
