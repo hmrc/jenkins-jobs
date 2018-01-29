@@ -10,5 +10,10 @@ new SbtFrontendJobBuilder('pensions-scheme-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pension-administrator-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('PODS-MONITOR')
         .withJobs('pensions-scheme-frontend').build(this)
