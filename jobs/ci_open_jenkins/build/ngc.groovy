@@ -89,5 +89,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'aws-sns-stub',
                   'async-message-broker',
                   'native-app-widget',
-                  'mobile-help-to-save')
+                  'mobile-help-to-save',
+                  'mobile-help-to-save-frontend')
         .build(this)
