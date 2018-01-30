@@ -61,6 +61,8 @@ new SbtMicroserviceJobBuilder('mobile-help-to-save')
 		.withSCoverage()
 		.build(this as DslFactory)
 
+new SbtFrontendJobBuilder('mobile-help-to-save-frontend').build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income',
                   'personal-tax-summary',
