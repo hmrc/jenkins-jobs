@@ -193,7 +193,7 @@ new SbtLibraryJobBuilder('bootstrap-play-25').build(this as DslFactory)
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client', 'library-upgrade-progress-frontend').build(this)
 
-jobBuilder('create-a-service', 'init-service')                                            
+jobBuilder('create-a-service', 'init-service')
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0'))
         .withLabel('master')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend.'))
@@ -213,4 +213,38 @@ jobBuilder('create-a-service', 'init-service')
                                 |python scripts/bin/create.py \${REPOSITORY_NAME} \${TYPE} -exists \$withMongo
                                """.stripMargin()))
         .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created https://github.com/hmrc/(.*)'))
+        .build(this)
+
+
+jobBuilder('create-a-prototype')
+        .withEnvironmentVariables(
+            stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0'),
+            stringEnvironmentVariable('INIT_PROTOTYPE_VERSION', '0.12.0'),
+            stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.13.0')
+        )
+        .withParameters(stringParameter('REPOSITORY_NAME', '', 'The prototype repository name i.e. [prototype-name]-prototype - use only lowercase letters, digits and dashes'),
+        stringParameter('TEAM_NAME', '', 'The exact name of the team as in: <a href="https://catalogue.tax.service.gov.uk/teams">catalogue</a>. This job also adds the Designers team to the created repository with write access'),
+        booleanParameter('PUSH_TEMPLATE_REPO', true, "Push a clone of the Gov.UK prototype kit into the repository?"),
+        stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)'))
+
+        .withWrappers(secretTextCredentials(
+            secretText('PROTOTYPES_SECRET_TEXT', 'prototypes-secret'),
+            secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'))
+        )
+        .withSteps(shellStep("""|
+                                |if [[ "\$REPOSITORY_NAME" != *-prototype ]]; then
+                                |  set +x
+                                |  echo "--------------------------------------------------------------------------------"
+                                |  echo "Error: Repository name must end with \"-prototype:\" \$REPOSITORY_NAME"
+                                |  echo "--------------------------------------------------------------------------------"
+                                |  exit -1
+                                |fi
+                                |
+                               """.stripMargin()),
+
+        createAPrivateRepository('$REPOSITORY_NAME', '$TEAM_NAME,Designers'),
+        createAWebhook('$REPOSITORY_NAME','https://trigger.www.prototypes.tax.service.gov.uk/live/trigger', 'push', '$PROTOTYPES_SECRET_TEXT', isInternal = false),
+        createAWebhook('$REPOSITORY_NAME', 'https://leak-detection.tax.service.gov.uk/validate', 'push', '$LDS_WEBHOOK_SECRET', false),
+        createAPrototype('$REPOSITORY_NAME', '$PUSH_TEMPLATE_REPO', isInternal = false))
+        .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created (.*)'))
         .build(this)
