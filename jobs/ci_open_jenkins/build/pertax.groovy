@@ -11,6 +11,7 @@ new SbtLibraryJobBuilder('accessibility-driver').
 new SbtFrontendJobBuilder('pertax-frontend').
 		withScalaStyle().
 		withSCoverage().
+		withNodeJs("4.8.4").
 		build(this as DslFactory)
 
 new SbtFrontendJobBuilder('feedback-survey-frontend').
