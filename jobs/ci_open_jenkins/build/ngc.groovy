@@ -58,10 +58,12 @@ new SbtMicroserviceJobBuilder('async-message-broker').build(this as DslFactory)
 new SbtMicroserviceJobBuilder('native-app-widget').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('mobile-help-to-save')
-		.withSCoverage()
-		.build(this as DslFactory)
+        .withSCoverage()
+        .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('mobile-help-to-save-frontend').build(this as DslFactory)
+new SbtFrontendJobBuilder('mobile-help-to-save-frontend')
+        .withSCoverage()
+        .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income',
