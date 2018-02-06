@@ -75,4 +75,9 @@ final class SbtMicroserviceJobBuilder implements Builder<Job> {
         this.timeout = 30
         this
     }
+
+    SbtMicroserviceJobBuilder withPackage() {
+        afterTest += "package"
+        this
+    }
 }
