@@ -20,9 +20,13 @@ private Job microservice(String serviceName) {
 
 microservice(customsInventoryLinkingImports)
 microservice(customsInventoryLinkingExports)
-microservice(customsDeclarations)
 microservice(customsNotification)
 microservice(customsApiCommon)
+new SbtMicroserviceJobBuilder(customsDeclarations).
+        withSCoverage().
+        withScalaStyle().
+        withPackage(). // it is a fix to enable zip task in DECs to work
+        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
