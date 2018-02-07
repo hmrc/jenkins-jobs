@@ -170,6 +170,16 @@ new SbtMicroserviceJobBuilder('ated').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('c2ni')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('c2ni-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -201,6 +211,8 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'agent-client-mandate-frontend',
         'ated-subscription-frontend',
         'ated-frontend',
-        'ated'
+        'ated',
+        'c2ni',
+        'c2ni-frontend'
         )
         .build(this)
