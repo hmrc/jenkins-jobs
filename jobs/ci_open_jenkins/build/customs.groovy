@@ -11,22 +11,27 @@ def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
 def customsApiCommon = 'customs-api-common'
 
-private Job microservice(String serviceName) {
+private Job microserviceWithPackage(String serviceName) {
     new SbtMicroserviceJobBuilder(serviceName).
         withSCoverage().
         withScalaStyle().
+            withPackage(). // it is a fix to enable zip task in DECs and ILE to work
         build(this as DslFactory)
 }
 
+private Job microservice(String serviceName) {
+    new SbtMicroserviceJobBuilder(serviceName).
+            withSCoverage().
+            withScalaStyle().
+            build(this as DslFactory)
+}
+
 microservice(customsInventoryLinkingImports)
-microservice(customsInventoryLinkingExports)
+microserviceWithPackage(customsInventoryLinkingExports)
 microservice(customsNotification)
 microservice(customsApiCommon)
-new SbtMicroserviceJobBuilder(customsDeclarations).
-        withSCoverage().
-        withScalaStyle().
-        withPackage(). // it is a fix to enable zip task in DECs to work
-        build(this as DslFactory)
+microserviceWithPackage(customsDeclarations)
+
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
