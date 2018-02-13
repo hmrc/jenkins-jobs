@@ -36,6 +36,13 @@ new SbtMicroserviceJobBuilder('help-to-save-proxy').
         withTests("test").
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('help-to-save-stride-frontend').
+        withExtendedTimeout().
+        withScalaStyle().
+        withSCoverage().
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('HELP-TO-SAVE-MONITOR')
-        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy').build(this)
+        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy', 'help-to-save-stride-frontend').build(this)
 
