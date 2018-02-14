@@ -109,14 +109,18 @@ class Steps {
                   """.stripMargin())
     }
 
-    static Step createAWebhook(String credFilePath, String apiBase, String repoOrg, String repositoryNames, String webhookUrl, String events, String contentType) {
+    static Step createAWebhook(String credFilePath, String apiBase, String repoOrg, String repositoryNames, String webhookUrl, String events, String contentType, String secret = "") {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar" ]; then
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar
                   |fi
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events" "-ct" "$contentType"
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events" "-ct" "$contentType" ${createSecretCliArg(secret)}
                   """.stripMargin())
+    }
+
+    private static String createSecretCliArg(String secret) {
+        secret ? """ "-ws" "${secret}" """ : ""
     }
 
     static Step dropMongoDatabase(String databaseName) {
