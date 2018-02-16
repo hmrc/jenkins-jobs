@@ -14,6 +14,10 @@ new SbtFrontendJobBuilder('corporation-tax-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('vat-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
