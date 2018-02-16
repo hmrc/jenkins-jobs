@@ -180,6 +180,16 @@ new SbtFrontendJobBuilder('c2ni-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('ei')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ei-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -213,6 +223,8 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ated-frontend',
         'ated',
         'c2ni',
-        'c2ni-frontend'
+        'c2ni-frontend',
+        'ei',
+        'ei-frontend'
         )
         .build(this)
