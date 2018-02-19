@@ -26,7 +26,7 @@ private Job microservice(String serviceName) {
             build(this as DslFactory)
 }
 
-microservice(customsInventoryLinkingImports)
+microserviceWithPackage(customsInventoryLinkingImports)
 microserviceWithPackage(customsInventoryLinkingExports)
 microservice(customsNotification)
 microservice(customsApiCommon)
