@@ -14,6 +14,10 @@ new SbtFrontendJobBuilder('corporation-tax-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('vat-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
@@ -43,6 +47,7 @@ new SbtLibraryJobBuilder('logback-json-logger').
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
                   'corporation-tax-frontend',
+                  'vat-frontend',
                   'help-frontend',
                   'microservice-bootstrap',
                   'play-partials',
