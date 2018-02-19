@@ -47,6 +47,7 @@ new SbtLibraryJobBuilder('logback-json-logger').
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
                   'corporation-tax-frontend',
+                  'vat-frontend',
                   'help-frontend',
                   'microservice-bootstrap',
                   'play-partials',
