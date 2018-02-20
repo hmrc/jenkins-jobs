@@ -117,7 +117,7 @@ jobBuilder('konrad-create-a-repository').
         withWrappers(
                 secretTextCredentials(
                     secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'),
-                    secretText('LDS_URL', 'leak-detection-service-webhook-url')
+                    secretText('LDS_URL', 'leak-detection-service-url')
                 )
         ).
         withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS', '$DIGITAL_SERVICE_NAME')).
