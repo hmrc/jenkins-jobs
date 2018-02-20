@@ -113,6 +113,7 @@ jobBuilder('konrad-create-a-repository').
         withParameters(choiceParameter('REPOSITORY_TYPE', ['Sbt', 'SbtPlugin'], 'The repository type e.g. SBT')).
         withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
         withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)')).
+        withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials')).
         withWrappers(secretTextCredentials(secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'))).
         withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS', '$DIGITAL_SERVICE_NAME')).
         withSteps(createAWebhook('$CRED_FILE_PATH', '$API_BASE_URL', 'hmrc', '$REPOSITORY_NAME', 'https://leak-detection.tax.service.gov.uk/validate', 'push', 'application/json', '$LDS_WEBHOOK_SECRET')).
