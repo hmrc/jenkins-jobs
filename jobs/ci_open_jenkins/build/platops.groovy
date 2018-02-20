@@ -116,7 +116,7 @@ jobBuilder('konrad-create-a-repository').
         withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials')).
         withWrappers(secretTextCredentials(secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'))).
         withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS', '$DIGITAL_SERVICE_NAME')).
-        withSteps(createAWebhook('$CRED_FILE_PATH', '$API_BASE_URL', 'hmrc', '$REPOSITORY_NAME', 'https://leak-detection.tax.service.gov.uk/validate', 'push', 'application/json', '$LDS_WEBHOOK_SECRET')).
+        withSteps(createAWebhook('$CRED_FILE_PATH', 'https://api.github.com', 'hmrc', '$REPOSITORY_NAME', 'https://leak-detection.tax.service.gov.uk/validate', 'push', 'application/json', '$LDS_WEBHOOK_SECRET')).
         withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
         build(this)
 
