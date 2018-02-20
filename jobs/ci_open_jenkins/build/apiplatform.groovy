@@ -37,6 +37,10 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('api-platform-test').
         build(this as DslFactory)
 
