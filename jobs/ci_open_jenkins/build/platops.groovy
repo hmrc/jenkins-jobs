@@ -96,24 +96,13 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
 
 jobBuilder('create-a-repository').
         withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0')).
-        withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend')).
-        withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the github team to which the repository will be added')).
-        withParameters(choiceParameter('REPOSITORY_TYPE', ['Sbt', 'SbtPlugin'], 'The repository type e.g. SBT')).
-        withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
-        withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)')).
-        withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', '$REPOSITORY_TYPE', '$BOOTSTRAP_TAG', '$ENABLE_TRAVIS', '$DIGITAL_SERVICE_NAME')).
-        withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Github repositories and Bintray packages successfully created (.*)')).
-        build(this)
-
-jobBuilder('konrad-create-a-repository').
-        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0')).
         withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials')).
         withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend')).
         withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the github team to which the repository will be added')).
         withParameters(choiceParameter('REPOSITORY_TYPE', ['Sbt', 'SbtPlugin'], 'The repository type e.g. SBT')).
         withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* repositories or the most recent internal tag version for *migrated* repositories')).
         withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)')).
-        withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials')).
         withWrappers(
                 secretTextCredentials(
                     secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'),
@@ -220,6 +209,8 @@ new BuildMonitorViewBuilder('PLATOPS-MONITOR')
 
 jobBuilder('create-a-service', 'init-service')                                            
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials'))
         .withLabel('master')
         .withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend.'))
         .withParameters(stringParameter('TEAM_NAME', '', 'The exact name of the team as in: catalogue'))
@@ -227,6 +218,12 @@ jobBuilder('create-a-service', 'init-service')
         .withParameters(stringParameter('BOOTSTRAP_TAG', '0.1.0', 'The bootstrap tag to kickstart release candidates. This should be 0.1.0 for *new* services or the most recent internal tag version for *migrated* services'))
         .withParameters(booleanParameter('WITH_MONGO', false, 'Selecting this options will include the mongo connector library and plugin as project dependencies.'))
         .withParameters(stringParameter('DIGITAL_SERVICE_NAME', "",'The digital service name that this repository belongs to (Optional)'))
+        .withWrappers(
+                secretTextCredentials(
+                        secretText('LDS_WEBHOOK_SECRET', 'leak-detection-service-webhook-secret'),
+                        secretText('LDS_URL', 'leak-detection-service-url')
+                )
+        )
         .withSteps(createARepository('$REPOSITORY_NAME', '$TEAM_NAME', 'Sbt', '0.1.0', '', '$DIGITAL_SERVICE_NAME'))
         .withSteps(shellStep("""|
                                 |withMongo=""
@@ -237,5 +234,6 @@ jobBuilder('create-a-service', 'init-service')
                                 |
                                 |python scripts/bin/create.py \${REPOSITORY_NAME} \${TYPE} -exists \$withMongo
                                """.stripMargin()))
+        .withSteps(createAWebhook('$CRED_FILE_PATH', 'https://api.github.com', 'hmrc', '$REPOSITORY_NAME', '$LDS_URL/validate', 'push', 'application/json', '$LDS_WEBHOOK_SECRET'))
         .withPublishers(buildDescriptionByRegexPublisher('\\[INFO\\] Successfully created https://github.com/hmrc/(.*)'))
         .build(this)
