@@ -18,7 +18,6 @@ new SbtMicroserviceJobBuilder('vat-api')
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('des-simulator')
-		.withTests("test func:test")
 		.withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:12345/des-simulator"))
 		.build(this as DslFactory)
 
