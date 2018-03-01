@@ -95,7 +95,7 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         build(this)
 
 jobBuilder('create-a-repository').
-        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.32.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.33.0')).
         withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0')).
         withEnvironmentVariables(stringEnvironmentVariable('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials')).
         withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend')).
