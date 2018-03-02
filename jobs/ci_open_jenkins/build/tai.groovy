@@ -12,7 +12,7 @@ new SbtMicroserviceJobBuilder('tai').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TAI-MONITOR')
-        .withJobs('tai', 'tai-frontend').build(this)
+        .withJobs('tai-frontend').build(this)
 
 new SbtFrontendJobBuilder('tai-frontend').
         build(this as DslFactory)
