@@ -10,6 +10,10 @@ def customsInventoryLinkingExports = 'customs-inventory-linking-exports'
 def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
 def customsApiCommon = 'customs-api-common'
+def customsHodsProxy = 'customs-hods-proxy'
+def customsRosmFrontend = 'customs-rosm-frontend'
+def customsManageSubscription = 'customs-manage-subscription'
+
 
 private Job microserviceWithPackage(String serviceName) {
     new SbtMicroserviceJobBuilder(serviceName).
@@ -31,6 +35,9 @@ microserviceWithPackage(customsInventoryLinkingExports)
 microservice(customsNotification)
 microservice(customsApiCommon)
 microserviceWithPackage(customsDeclarations)
+microservice(customsHodsProxy)
+microservice(customsRosmFrontend)
+microservice(customsManageSubscription)
 
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
@@ -39,5 +46,8 @@ new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
         customsInventoryLinkingExports,
         customsDeclarations,
         customsNotification,
-        customsApiCommon).
+        customsApiCommon,
+        customsHodsProxy,
+        customsRosmFrontend,
+        customsManageSubscription).
     build(this)
