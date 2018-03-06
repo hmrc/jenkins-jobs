@@ -46,7 +46,6 @@ class Steps {
                   |nvm use $nodeVersion
                   |
                   |git config url.\"https://\".insteadOf \"git://\"
-                  |git fetch origin master:master
                   |
                   |npm install
                   |npm run release
