@@ -21,6 +21,11 @@ new SbtMicroserviceJobBuilder('company-registration-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('company-registration-eligibility-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)        
+
 new SbtMicroserviceJobBuilder('business-registration-notification').
         withScalaStyle().
         withSCoverage().
