@@ -6,7 +6,8 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 def frontends = ["soft-drinks-industry-levy-frontend",
-                 "soft-drinks-industry-levy-liability-tool-frontend"]
+                 "soft-drinks-industry-levy-liability-tool-frontend",
+                 "soft-drinks-industry-levy-returns-frontend"]
 
 def services = ["soft-drinks-industry-levy",
                 "soft-drinks-industry-levy-stub",
