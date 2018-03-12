@@ -192,6 +192,9 @@ new SbtMicroserviceJobBuilder('service-dependencies').withTests("test")
 new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('platops-progress-frontend').withTests("test")
+        .build(this as DslFactory)
+
 new SbtLibraryJobBuilder('github-client').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('git-client').build(this as DslFactory)
