@@ -22,6 +22,7 @@ new SbtMicroserviceJobBuilder('pensions-scheme').
 
 new BuildMonitorViewBuilder('PODS-MONITOR')
         .withJobs('pensions-scheme-frontend',
-        'pensions-scheme').build(this)
+        'pensions-scheme',
+        'pension-administrator-frontend').build(this)
 
 
