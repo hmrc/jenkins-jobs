@@ -21,6 +21,8 @@ new SbtMicroserviceJobBuilder('pensions-scheme').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PODS-MONITOR')
-        .withJobs('pensions-scheme-frontend').build(this)
+        .withJobs('pensions-scheme-frontend',
+        'pensions-scheme',
+        'pension-administrator-frontend').build(this)
 
 
