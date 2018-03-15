@@ -47,8 +47,6 @@ new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(th
 
 new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as DslFactory)
 
-new SbtFrontendJobBuilder('managing-vat-debt-frontend').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('sns-client').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('aws-sns-stub').build(this as DslFactory)
@@ -86,7 +84,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'your-tax-calculator-frontend',
                   'paye-estimator',
                   'authenticate-one-time-password',
-                  'managing-vat-debt-frontend',
                   'sns-client',
                   'aws-sns-stub',
                   'async-message-broker',
