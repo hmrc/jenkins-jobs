@@ -10,10 +10,6 @@ new SbtMicroserviceJobBuilder('fh-registration').
         withTests("test").
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('dfs-aemfd-fhdds').
-        withTests("test").
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('fh-registration-frontend').
         withTests("test").
         build(this as DslFactory)
