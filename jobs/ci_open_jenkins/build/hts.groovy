@@ -44,5 +44,5 @@ new SbtFrontendJobBuilder('help-to-save-stride-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('HELP-TO-SAVE-MONITOR')
-        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy', 'help-to-save-stride-frontend').build(this)
+        .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy', 'help-to-save-stride-frontend', 'help-to-save-api').build(this)
 
