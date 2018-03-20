@@ -7,17 +7,21 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.NpmLibraryJobBuilder
 
-new NpmLibraryJobBuilder('assets-frontend').
-        build(this as DslFactory)
+new NpmLibraryJobBuilder('assets-frontend')
+        .build(this as DslFactory)
 
-new SbtLibraryJobBuilder('local-template-renderer').
-        build(this as DslFactory)
+new NpmLibraryJobBuilder('node-git-versioning')
+				.withNodeJsVersion('8.9.4')
+        .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('frontend-template-provider').
-        build(this as DslFactory)
+new SbtLibraryJobBuilder('local-template-renderer')
+        .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('taas-dummy-example').
-        build(this as DslFactory)
+new SbtMicroserviceJobBuilder('frontend-template-provider')
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('taas-dummy-example')
+        .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TAAS-MONITOR')
         .withJobs('local-template-renderer',
