@@ -52,12 +52,12 @@ class Steps {
                   |
                   |mkdir dist && cd dist
                   |
-                  |for version in $(find ../assets/public/* -type d -d 0); do
-                  |  npm pack $version
+                  |for version in \$(find ../assets/public/* -type d -d 0); do
+                  |  npm pack \$version
                   |done
                   |
-                  |for releaseCandidate in $(find *.tgz); do
-                  |  npm publish $version --registry https://api.bintray.com/npm/hmrc/npm-release-candidates
+                  |for releaseCandidate in \$(find *.tgz); do
+                  |  npm publish \$version --registry https://api.bintray.com/npm/hmrc/npm-release-candidates
                   |done
                   """.stripMargin())
     }
