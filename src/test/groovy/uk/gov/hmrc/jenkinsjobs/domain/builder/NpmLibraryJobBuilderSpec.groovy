@@ -29,6 +29,7 @@ class NpmLibraryJobBuilderSpec extends Specification {
                                                                     |nvm use 4.8.4""".stripMargin())
             builders.'hudson.tasks.Shell'.command.text().contains('npm install')
             builders.'hudson.tasks.Shell'.command.text().contains('npm run release')
+            builders.'hudson.tasks.Shell'.command.text().contains('npm publish --registry')
         }
     }
 
