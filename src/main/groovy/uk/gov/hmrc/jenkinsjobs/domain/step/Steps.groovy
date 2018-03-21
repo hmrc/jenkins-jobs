@@ -57,7 +57,7 @@ class Steps {
                   |done
                   |
                   |for releaseCandidate in \$(find *.tgz); do
-                  |  npm publish \$version --registry https://api.bintray.com/npm/hmrc/npm-release-candidates
+                  |  npm publish \$releaseCandidate --registry https://api.bintray.com/npm/hmrc/npm-release-candidates
                   |done
                   """.stripMargin())
     }
