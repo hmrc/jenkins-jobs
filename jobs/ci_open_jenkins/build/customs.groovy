@@ -5,6 +5,7 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
+def customsDitLicences = 'customs-dit-licences'
 def customsInventoryLinkingImports = 'customs-inventory-linking-imports'
 def customsInventoryLinkingExports = 'customs-inventory-linking-exports'
 def customsDeclarations = 'customs-declarations'
@@ -26,6 +27,7 @@ private Job microservice(String serviceName) {
             build(this as DslFactory)
 }
 
+microservice(customsDitLicences)
 microserviceWithPackage(customsInventoryLinkingImports)
 microserviceWithPackage(customsInventoryLinkingExports)
 microservice(customsNotification)
@@ -35,6 +37,7 @@ microserviceWithPackage(customsDeclarations)
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
+        customsDitLicences,
         customsInventoryLinkingImports,
         customsInventoryLinkingExports,
         customsDeclarations,
