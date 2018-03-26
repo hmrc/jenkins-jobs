@@ -40,12 +40,6 @@ new SbtFrontendJobBuilder('awrs-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('childcare-schemes-interest-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withTests("test")
-        .build(this as DslFactory)
-
 new SbtFrontendJobBuilder('ers-checking-frontend')
         .withScalaStyle()
         .withSCoverage()
@@ -198,7 +192,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'awrs-notification',
         'awrs-lookup',
         'awrs-lookup-frontend',
-        'childcare-schemes-interest-frontend',
         'ers-checking-frontend',
         'ers-returns-frontend',
         'ers-file-validator',
