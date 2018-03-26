@@ -190,6 +190,12 @@ new SbtFrontendJobBuilder('ei-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('epaye-api').
+        withTests("test").
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -225,6 +231,7 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'c2ni',
         'c2ni-frontend',
         'ei',
-        'ei-frontend'
+        'ei-frontend',
+        'epaye-api'
         )
         .build(this)
