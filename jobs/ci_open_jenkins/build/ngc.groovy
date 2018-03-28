@@ -25,8 +25,6 @@ new SbtMicroserviceJobBuilder('push-registration').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('native-apps-api-orchestration').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('open-app-orchestrator').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-gateway-async-example').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('your-tax-calculator-frontend').build(this as DslFactory)
@@ -73,7 +71,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'push-registration',
                   'submission-tracker',
                   'native-apps-api-orchestration',
-                  'open-app-orchestrator',
                   'api-gateway-async-example',
                   'play-hmrc-api',
                   'play-async',
