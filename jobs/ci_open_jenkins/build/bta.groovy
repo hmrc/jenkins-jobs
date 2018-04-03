@@ -53,6 +53,7 @@ new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
                   'corporation-tax-frontend',
                   'vat-frontend',
                   'help-frontend',
+		  'help-and-contact-frontend',
                   'microservice-bootstrap',
                   'play-partials',
                   'logback-json-logger')
