@@ -30,5 +30,5 @@ new SbtMicroserviceJobBuilder('cc-email-capture').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CC-MONITOR').
-        withJobs('childcare-calculator-frontend', 'cc-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').
+        withJobs('childcare-calculator-frontend', 'cc-calculator', 'cc-eligibility', 'cc-email-capture').
         build(this)
