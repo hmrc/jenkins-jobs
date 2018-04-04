@@ -40,5 +40,6 @@ new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'view-vat-returns-frontend',
         'deregister-vat-frontend',
         'vat-summary-frontend',
-        'vat-vc-api-stub'
+        'vat-vc-api-stub',
+        'vat-obligations'
 ).build(this)
