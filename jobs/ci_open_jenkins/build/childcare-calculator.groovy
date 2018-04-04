@@ -11,12 +11,6 @@ new SbtFrontendJobBuilder('childcare-calculator-frontend').
         withTests("test").
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('cc-frontend').
-        withScalaStyle().
-        withSCoverage().
-        withTests("test").
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('cc-calculator').
         withScalaStyle().
         withTests("test").
