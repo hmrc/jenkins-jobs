@@ -10,4 +10,4 @@ new SbtFrontendJobBuilder('bbsi-frontend', 'hmrc/bank-and-building-society-inter
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BBSI-MONITOR')
-        .withJobs('bbsi-frontend').build(this)
+        .withJobs('bbsi-frontend', 'tai').build(this)
