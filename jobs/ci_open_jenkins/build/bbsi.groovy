@@ -4,7 +4,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtFrontendJobBuilder('bbsi-frontend', 'hmrc/bank-and-building-society-interest-frontend', 'master').
+new SbtFrontendJobBuilder('bbsi-frontend', 'bank-and-building-society-interest-frontend', 'master').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
