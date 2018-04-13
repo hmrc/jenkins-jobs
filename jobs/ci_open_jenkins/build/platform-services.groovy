@@ -6,6 +6,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
+
 new SbtMicroserviceJobBuilder('contact-admin').
         withSCoverage().
         withScalaStyle().
@@ -27,5 +28,11 @@ new SbtMicroserviceJobBuilder('upscan-verify').
         build(this as DslFactory)
 
 
-new BuildMonitorViewBuilder('PLATSERVICES-MONITOR')
-        .withJobs('contact-admin', 'upscan-initiate', 'upscan-notify').build(this)
+new BuildMonitorViewBuilder('PLATFORM-SERVICES-MONITOR')
+        .withJobs(
+                  'contact-admin',
+                  'upscan-initiate',
+                  'upscan-notify',
+                  'upscan-verify'
+        )
+        .build(this)
