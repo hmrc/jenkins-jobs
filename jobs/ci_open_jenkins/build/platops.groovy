@@ -95,7 +95,7 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         build(this)
 
 jobBuilder('create-a-repository').
-        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.34.0')).
+        withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.35.0')).
         withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0')).
         withEnvironmentVariables(stringEnvironmentVariable('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials')).
         withParameters(stringParameter('REPOSITORY_NAME', '', 'The repository name e.g. foo-frontend')).
@@ -208,7 +208,7 @@ new BuildMonitorViewBuilder('PLATOPS-MONITOR')
         .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-auto-build', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'catalogue-frontend', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client', 'library-upgrade-progress-frontend').build(this)
 
 jobBuilder('create-a-service', 'init-service')                                            
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.34.0'))
+        .withEnvironmentVariables(stringEnvironmentVariable('INIT_REPO_VERSION', '0.35.0'))
         .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0'))
         .withEnvironmentVariables(stringEnvironmentVariable('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials'))
         .withLabel('master')
