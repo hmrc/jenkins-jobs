@@ -15,8 +15,3 @@ new SbtMicroserviceJobBuilder('nrs-retrieval')
         .withScalaStyle()
         .withSCoverage()
         .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('nrs-retrieval-stubs')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
