@@ -52,7 +52,7 @@ class Steps {
                   |
                   |mkdir dist && cd dist
                   |
-                  |for version in \$(find ../assets/public/* -type d -d 0); do
+                  |for version in \$(find ../assets/public/* -maxdepth 0 -type d); do
                   |  npm pack \$version
                   |done
                   |
