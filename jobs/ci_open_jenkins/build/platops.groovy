@@ -3,6 +3,7 @@ package ci_open_jenkins.build
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
+import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryReleaseJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
@@ -40,6 +41,9 @@ new SbtLibraryJobBuilder('accessibility-testing-library').
 
 new GradleLibraryJobBuilder('jenkins-job-builders').
         build(this)
+
+new GradleLibraryReleaseJobBuilder('jenkins-job-builders').
+    build(this)
 
 new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
