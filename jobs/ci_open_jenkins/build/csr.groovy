@@ -13,9 +13,6 @@ new SbtMicroserviceJobBuilder('fset-faststream').
 new SbtFrontendJobBuilder('fset-faststream-frontend').
     build(this as DslFactory)
 
-new SbtFrontendJobBuilder('fset-launchpad-gateway').
-    build(this as DslFactory)
-
 new SbtFrontendJobBuilder('fset-video-interview-gateway').
     build(this as DslFactory)
 
@@ -31,5 +28,5 @@ new SbtMicroserviceJobBuilder('fset-email-renderer').
 
 
 new BuildMonitorViewBuilder('FSET-MONITOR').
-    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-launchpad-gateway', 'fset-video-interview-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend', 'fset-email-renderer').
+    withJobs('fset-faststream', 'fset-faststream-frontend', 'fset-video-interview-gateway', 'fset-fasttrack', 'fset-fasttrack-frontend', 'fset-email-renderer').
     build(this)
