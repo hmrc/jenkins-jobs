@@ -10,6 +10,7 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPu
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.JUnitReportsPublisher.jUnitReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapper.timeoutWrapper
+import static uk.gov.hmrc.jenkinsjobs.domain.scm.HmrcGitHubComScm.hmrcGitHubComScm
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.gradleCleanTestPublish
 
 final class GradleLibraryReleaseJobBuilder implements Builder {
@@ -19,7 +20,9 @@ final class GradleLibraryReleaseJobBuilder implements Builder {
     private int timeout = 10
 
   GradleLibraryReleaseJobBuilder(String name, String repository = name) {
-        this.jobBuilder = JobBuilders.jobBuilder("${name}-release", repository, '${TAG}')
+        this.jobBuilder = JobBuilders.jobBuilder("${name}-release") //, repository, )
+            .withScm(hmrcGitHubComScm(repository, '${TAG}'))
+            .withLabel('single-executor')
             .withParameters(stringParameter("TAG", null, "The tag to build and release e.g. release/11.0.0"))
             .withSteps(gradleCleanTestPublish())
             .withPublishers(jUnitReportsPublisher("build/test-results/test/*.xml"),
