@@ -2,13 +2,11 @@ package ci_open_jenkins.build
 
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
-import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryJobBuilder
-import uk.gov.hmrc.jenkinsjobs.domain.builder.GradleLibraryReleaseJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.BooleanParameter.booleanParameter
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
@@ -16,11 +14,15 @@ import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
-import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.SecretTextCredentialsWrapper.secretTextCredentials
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.model.SecretText.secretText
+import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.cleanPublishSigned
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAReleaseWithScalaVersion
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
 
 new SbtLibraryJobBuilder('sbt-git-versioning').
         withoutJUnitReports().
@@ -38,12 +40,6 @@ new SbtLibraryJobBuilder('zap-automation').
 new SbtLibraryJobBuilder('accessibility-testing-library').
         withSCoverage().
         build(this as DslFactory)
-
-new GradleLibraryJobBuilder('jenkins-job-builders').
-        build(this)
-
-new GradleLibraryReleaseJobBuilder('jenkins-job-builders').
-    build(this)
 
 new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
