@@ -2,6 +2,8 @@ apply plugin: 'groovy'
 
 sourceSets {
     jobs {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
         groovy {
             srcDirs 'jobs'
         }
