@@ -15,7 +15,7 @@ class Steps {
     }
 
     static Step gradleCleanTestPublish() {
-        gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
+        gradleStep('$JAVA_PROXY_OPTS -P releaseVersion="${TAG}" clean test bintrayUpload --info')
     }
 
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {

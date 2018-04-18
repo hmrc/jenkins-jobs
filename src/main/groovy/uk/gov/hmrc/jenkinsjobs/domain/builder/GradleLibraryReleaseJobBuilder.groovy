@@ -20,7 +20,7 @@ final class GradleLibraryReleaseJobBuilder implements Builder {
     private int timeout = 10
 
   GradleLibraryReleaseJobBuilder(String name, String repository = name) {
-        this.jobBuilder = JobBuilders.jobBuilder("${name}-release") //, repository, )
+        this.jobBuilder = JobBuilders.jobBuilder("${name}-release")
             .withScm(hmrcGitHubComScm(repository, '${TAG}'))
             .withLabel('single-executor')
             .withParameters(stringParameter("TAG", null, "The tag to build and release e.g. release/11.0.0"))
