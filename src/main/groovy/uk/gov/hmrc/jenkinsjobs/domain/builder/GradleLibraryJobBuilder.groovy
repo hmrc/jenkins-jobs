@@ -5,9 +5,10 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.JUnitReportsPublisher.jUnitReportsPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapper.timeoutWrapper
-import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.gradleCleanTestPublish
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.gradleCleanTestBuild
 
 final class GradleLibraryJobBuilder implements Builder {
 
@@ -16,8 +17,10 @@ final class GradleLibraryJobBuilder implements Builder {
     private int timeout = 10
 
     GradleLibraryJobBuilder(String name, String repository = name) {
-        this.jobBuilder = jobBuilder(name, repository).
-                                     withSteps(gradleCleanTestPublish())
+        this.jobBuilder = JobBuilders.jobBuilder(name, repository)
+            .withSteps(gradleCleanTestBuild())
+            .withPublishers(jUnitReportsPublisher("build/test-results/test/*.xml"),
+                            htmlReportsPublisher(["build/reports/tests/test/" : "HTML Test report"]))
     }
 
     GradleLibraryJobBuilder withExtendedTimeout() {

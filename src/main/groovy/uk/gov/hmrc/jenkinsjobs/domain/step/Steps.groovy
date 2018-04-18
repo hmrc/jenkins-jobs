@@ -10,6 +10,10 @@ class Steps {
 
     private Steps() {}
 
+    static Step gradleCleanTestBuild() {
+        gradleStep('$JAVA_PROXY_OPTS clean test build --info')
+    }
+
     static Step gradleCleanTestPublish() {
         gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
     }
