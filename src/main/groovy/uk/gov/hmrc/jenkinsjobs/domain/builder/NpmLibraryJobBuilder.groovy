@@ -28,7 +28,12 @@ final class NpmLibraryJobBuilder implements Builder<Job> {
 
     Job build(DslFactory dslFactory) {
         jobBuilder.withSteps(npmRelease(nodeVersion)).
-                withWrappers(timeoutWrapper(this.timeout)).
+                withWrappers(
+                        timeoutWrapper(this.timeout),
+                        secretTextCredentials(
+                                secretText('BINTRAY_CREDENTIALS', 'npm-hmrc-bintray-creds')
+                        )
+                ).
                 build(dslFactory)
     }
 
