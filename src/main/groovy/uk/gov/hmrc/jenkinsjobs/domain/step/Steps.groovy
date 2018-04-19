@@ -56,12 +56,19 @@ class Steps {
                   |
                   |mkdir dist && cd dist
                   |
-                  |for version in \$(find ../assets/public/* -type d -d 0); do
+                  |for version in \$(find ../assets/public/* -maxdepth 0 -type d); do
                   |  npm pack \$version
                   |done
                   |
+                  |cat >$WORKSPACE/.npmrc <<EOL
+                  |registry=https://api.bintray.com/npm/hmrc/npm-release-candidates
+                  |_auth=$BINTRAY_CREDENTIALS
+                  |email=hmrc-build-and-deploy@digital.hmrc.gov.uk
+                  |always-auth=true
+                  |EOL
+                  |
                   |for releaseCandidate in \$(find *.tgz); do
-                  |  npm publish \$releaseCandidate --registry https://api.bintray.com/npm/hmrc/npm-release-candidates
+                  |  npm publish \$releaseCandidate
                   |done
                   """.stripMargin())
     }
