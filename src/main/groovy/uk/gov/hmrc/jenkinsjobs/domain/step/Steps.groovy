@@ -60,9 +60,9 @@ class Steps {
                   |  npm pack \$version
                   |done
                   |
-                  |cat >$WORKSPACE/.npmrc <<EOL
+                  |cat >\${WORKSPACE}/.npmrc <<EOL
                   |registry=https://api.bintray.com/npm/hmrc/npm-release-candidates
-                  |_auth=$BINTRAY_CREDENTIALS
+                  |_auth=\${BINTRAY_CREDENTIALS}
                   |email=hmrc-build-and-deploy@digital.hmrc.gov.uk
                   |always-auth=true
                   |EOL

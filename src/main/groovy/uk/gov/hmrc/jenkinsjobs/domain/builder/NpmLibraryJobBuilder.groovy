@@ -6,8 +6,9 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.Builder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.JobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.AbsoluteTimeoutWrapper.timeoutWrapper
-import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.SecretTextCredentialsWrapper.secretTextCredentials
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.model.SecretText.secretText
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.npmRelease
 
 final class NpmLibraryJobBuilder implements Builder<Job> {
