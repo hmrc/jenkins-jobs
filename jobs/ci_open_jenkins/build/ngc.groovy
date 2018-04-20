@@ -13,15 +13,9 @@ new SbtMicroserviceJobBuilder('personal-income').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('personal-tax-summary').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('push-notification-scheduler').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('mobile-messages').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('submission-tracker').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('push-notification').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('push-registration').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('native-apps-api-orchestration').build(this as DslFactory)
 
@@ -45,10 +39,6 @@ new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(th
 
 new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('sns-client').build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('aws-sns-stub').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('async-message-broker').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('native-app-widget').build(this as DslFactory)
@@ -66,9 +56,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'personal-tax-summary',
                   'customer-profile',
                   'mobile-messages',
-                  'push-notification',
-                  'push-notification-scheduler',
-                  'push-registration',
                   'submission-tracker',
                   'native-apps-api-orchestration',
                   'api-gateway-async-example',
@@ -81,8 +68,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'your-tax-calculator-frontend',
                   'paye-estimator',
                   'authenticate-one-time-password',
-                  'sns-client',
-                  'aws-sns-stub',
                   'async-message-broker',
                   'native-app-widget',
                   'mobile-help-to-save',
