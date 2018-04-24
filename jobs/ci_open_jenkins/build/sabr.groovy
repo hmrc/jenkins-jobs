@@ -27,7 +27,7 @@ new SbtFrontendJobBuilder('vat-subscription-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('research-recorder-tool-frontend').
+new SbtFrontendJobBuilder('research-recording-tool-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
