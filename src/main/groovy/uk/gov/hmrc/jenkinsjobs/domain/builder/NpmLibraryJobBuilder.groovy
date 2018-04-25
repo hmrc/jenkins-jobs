@@ -34,7 +34,8 @@ final class NpmLibraryJobBuilder implements Builder<Job> {
                 withWrappers(
                         timeoutWrapper(this.timeout),
                         secretTextCredentials(
-                                secretText('BINTRAY_CREDENTIALS', 'npm-hmrc-bintray-creds')
+                                secretText('BINTRAY_CREDENTIALS', 'npm-hmrc-bintray-creds'),
+                                secretText('NPM_CREDENTIALS', 'npm-hmrc-public-creds')
                         )
                 ).
                 build(dslFactory)
