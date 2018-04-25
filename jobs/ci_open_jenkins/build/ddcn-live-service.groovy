@@ -40,11 +40,6 @@ new SbtFrontendJobBuilder('awrs-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('childcare-schemes-interest-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withTests("test")
-        .build(this as DslFactory)
 
 new SbtFrontendJobBuilder('ers-checking-frontend')
         .withScalaStyle()
@@ -138,6 +133,64 @@ new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('ated-subscription').
+        withTests("test").
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('agent-client-mandate').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('agent-client-mandate-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ated-subscription-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ated-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('ated').
+        withTests("test").
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('c2ni')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('c2ni-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('ei')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtFrontendJobBuilder('ei-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('epaye-api').
+        withTests("test").
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -146,7 +199,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'awrs-notification',
         'awrs-lookup',
         'awrs-lookup-frontend',
-        'childcare-schemes-interest-frontend',
         'ers-checking-frontend',
         'ers-returns-frontend',
         'ers-file-validator',
@@ -163,5 +215,17 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pbik-frontend',
         'tamc',
         'tamc-frontend',
-        'marriage-allowance-des-stub')
+        'marriage-allowance-des-stub',
+        'ated-subscription',
+        'agent-client-mandate',
+        'agent-client-mandate-frontend',
+        'ated-subscription-frontend',
+        'ated-frontend',
+        'ated',
+        'c2ni',
+        'c2ni-frontend',
+        'ei',
+        'ei-frontend',
+        'epaye-api'
+        )
         .build(this)

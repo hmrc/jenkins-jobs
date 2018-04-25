@@ -10,8 +10,12 @@ class Steps {
 
     private Steps() {}
 
+    static Step gradleCleanTestBuild() {
+        gradleStep('$JAVA_PROXY_OPTS clean test build --info')
+    }
+
     static Step gradleCleanTestPublish() {
-        gradleStep('$JAVA_PROXY_OPTS clean test bintrayUpload --info')
+        gradleStep('$JAVA_PROXY_OPTS -P releaseVersion="${TAG}" clean test bintrayUpload --info')
     }
 
     static Step sbtCleanTestPublish(String beforeTest = '', String afterTest = '') {
@@ -37,6 +41,36 @@ class Steps {
 
     static Step cleanPublishSigned() {
         sbtStep(['\$SBT_OPTS -mem 8192 clean +publishSigned'], '\${TMP}')
+    }
+
+    static Step npmRelease(String nodeVersion) {
+        shellStep("""
+                  |set +x
+                  |. \$NVM_DIR/nvm.sh
+                  |nvm use $nodeVersion
+                  |
+                  |git config url.\"https://\".insteadOf \"git://\"
+                  |
+                  |npm install
+                  |npm run release
+                  |
+                  |mkdir dist && cd dist
+                  |
+                  |for version in \$(find ../assets/public/* -maxdepth 0 -type d); do
+                  |  npm pack \$version
+                  |done
+                  |
+                  |cat >\${WORKSPACE}/.npmrc <<EOL
+                  |registry=https://api.bintray.com/npm/hmrc/npm-release-candidates
+                  |_auth=\${BINTRAY_CREDENTIALS}
+                  |email=hmrc-build-and-deploy@digital.hmrc.gov.uk
+                  |always-auth=true
+                  |EOL
+                  |
+                  |for releaseCandidate in \$(find *.tgz); do
+                  |  npm publish \$releaseCandidate
+                  |done
+                  """.stripMargin())
     }
 
     static Step createARelease() {
@@ -95,14 +129,18 @@ class Steps {
                   """.stripMargin())
     }
 
-    static Step createAWebhook(String credFilePath, String apiBase, String repoOrg, String repositoryNames, String webhookUrl, String events) {
+    static Step createAWebhook(String credFilePath, String apiBase, String repoOrg, String repositoryNames, String webhookUrl, String events, String contentType, String secret = "") {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar" ]; then
                   |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION
                   |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar
                   |fi
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events"
+                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events" "-ct" "$contentType" ${createSecretCliArg(secret)}
                   """.stripMargin())
+    }
+
+    private static String createSecretCliArg(String secret) {
+        secret ? """ "-ws" "${secret}" """ : ""
     }
 
     static Step dropMongoDatabase(String databaseName) {

@@ -1,6 +1,6 @@
 # jenkins-config Contributor Guidelines
 
-Hello! Thank you for taking the time to contribute to [jenkins-config](https://github.tools.tax.service.gov.uk/HMRC/jenkins-config).
+Hello! Thank you for taking the time to contribute to this project.
 
 ## MDTP Guidelines
 

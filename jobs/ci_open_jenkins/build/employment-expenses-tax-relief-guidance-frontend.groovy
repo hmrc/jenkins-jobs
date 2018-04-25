@@ -4,10 +4,12 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtFrontendJobBuilder('bbsi-frontend', 'bank-and-building-society-interest-frontend', 'master').
+new SbtFrontendJobBuilder('employment-expenses-tax-relief-guidance-frontend').
         withScalaStyle().
         withSCoverage().
+        withTests("test").
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('BBSI-MONITOR')
-        .withJobs('bbsi-frontend', 'tai').build(this)
+new BuildMonitorViewBuilder('EETRG-MONITOR').
+        withJobs('employment-expenses-tax-relief-guidance-frontend').
+        build(this)

@@ -40,6 +40,10 @@ new SbtMicroserviceJobBuilder('agent-client-authorisation').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('agent-client-management-frontend').
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('agent-invitations-frontend').
         withSCoverage().
         build(this as DslFactory)
@@ -55,6 +59,10 @@ new SbtMicroserviceJobBuilder('agent-epaye-registration').
         withSCoverage().
         build(this as DslFactory)
 new SbtFrontendJobBuilder('agent-epaye-registration-frontend').
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('agent-assurance-frontend').
         withSCoverage().
         build(this as DslFactory)
 

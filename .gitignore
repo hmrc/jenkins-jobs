@@ -7,6 +7,7 @@ build
 target
 !**/ci_open_jenkins/build
 .bin
+out/
 
 .DS_Store
 **/*.DS_Store

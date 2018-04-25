@@ -6,11 +6,23 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+new SbtFrontendJobBuilder('add-taxes-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('corporation-tax-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('vat-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('add-taxes-frontend').
+new SbtFrontendJobBuilder('help-and-contact-frontend').
         withXvfb().
         build(this as DslFactory)
 
@@ -38,7 +50,10 @@ new SbtLibraryJobBuilder('logback-json-logger').
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
+                  'corporation-tax-frontend',
+                  'vat-frontend',
                   'help-frontend',
+		  'help-and-contact-frontend',
                   'microservice-bootstrap',
                   'play-partials',
                   'logback-json-logger')
