@@ -46,17 +46,21 @@ new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('DC-MONITOR')
-        .withJobs('a-b-test',
-                  'url-builder',
-                  'emailaddress',
-                  'play-scheduling',
-                  'batch-updater',
-                  'work-item-repo',
-                  'metrix',
+        .withJobs(
                   'updated-print-suppressions',
                   'customer-advisors-frontend',
                   'preferences-admin-frontend',
-                  'csp-client',
                   'hmrc-email-renderer',
                   'announcement-frontend')
+        .build(this)
+
+new BuildMonitorViewBuilder('DC-OTHER')
+        .withJobs('emailaddress',
+                  'url-builder',                 
+                  'play-scheduling',
+                  'batch-updater',
+                  'work-item-repo',
+                  'metrix',                  
+                  'csp-client'                  
+                  )
         .build(this)
