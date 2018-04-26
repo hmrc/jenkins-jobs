@@ -45,7 +45,7 @@ new SbtFrontendJobBuilder('announcement-frontend').
 new SbtMicroserviceJobBuilder('hmrc-email-renderer').
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('DC-MONITOR')
+new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
         .withJobs(
                   'updated-print-suppressions',
                   'customer-advisors-frontend',
@@ -54,7 +54,7 @@ new BuildMonitorViewBuilder('DC-MONITOR')
                   'announcement-frontend')
         .build(this)
 
-new BuildMonitorViewBuilder('DC-OTHER')
+new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
         .withJobs('emailaddress',
                   'url-builder',                 
                   'play-scheduling',
