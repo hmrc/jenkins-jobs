@@ -94,17 +94,6 @@ class Steps {
                   """.stripMargin())
     }
 
-    static Step createAJavaRelease() {
-        shellStep("""\
-                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION/java-releaser-poc_2.11-\$RELEASER_VERSION-assembly.jar" ]; then
-                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION
-                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION/java-releaser-poc_2.11-\$RELEASER_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION/java-releaser-poc_2.11-\$RELEASER_VERSION-assembly.jar
-                  |fi
-                  |java \$JAVA_PROXY_OPTS -Dwsclient.timeout.connection=300 -Dwsclient.timeout.idle=300 -Dwsclient.timeout.request=300 -jar ~/.m2/repository/uk/gov/hmrc/java-releaser-poc_2.11/\$RELEASER_VERSION/java-releaser-poc_2.11-\$RELEASER_VERSION-assembly.jar \$ARTEFACT_NAME \$RELEASE_CANDIDATE_VERSION \$RELEASE_TYPE
-                  """.stripMargin())
-    }
-
-
     static Step createARepository(String repositoryName, String teamName, String repositoryType, String bootStrapTag, String enableTravis, String digitalServiceName) {
         shellStep("""\
                   |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar" ]; then
