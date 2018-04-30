@@ -76,6 +76,10 @@ new SbtLibraryJobBuilder('sbt-auto-build').
         withoutJUnitReports().
         build(this)
 
+new SbtLibraryJobBuilder('sbt-artifactory').
+        withoutJUnitReports().
+        build(this)
+
 new SbtLibraryJobBuilder('sbt-git-stamp').
         withoutJUnitReports().
         build(this)
