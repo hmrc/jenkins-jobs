@@ -35,6 +35,11 @@ new SbtMicroserviceJobBuilder('vat-obligations').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('vat-returns').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('manage-vat-subscription-dynamic-stub').
         withScalaStyle().
         withSCoverage().
@@ -47,5 +52,6 @@ new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'vat-summary-frontend',
         'vat-vc-api-stub',
         'vat-obligations',
+        'vat-returns',
         'manage-vat-subscription-dynamic-stub'
 ).build(this)
