@@ -40,7 +40,6 @@ new SbtFrontendJobBuilder('awrs-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
-
 new SbtFrontendJobBuilder('ers-checking-frontend')
         .withScalaStyle()
         .withSCoverage()
