@@ -7,7 +7,23 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 
+new SbtLibraryJobBuilder('clamav-client').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('contact-admin').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('file-transfer-stub').
+    build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('file-upload').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('file-upload-frontend').
         withSCoverage().
         withScalaStyle().
         build(this as DslFactory)
@@ -28,9 +44,12 @@ new SbtMicroserviceJobBuilder('upscan-verify').
         build(this as DslFactory)
 
 
-new BuildMonitorViewBuilder('PLATFORM-SERVICES-MONITOR')
-        .withJobs(
+new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
+        .withJobs('clamav-client',
                   'contact-admin',
+                  'file-transfer-stub',
+                  'file-upload',
+                  'file-upload-frontend',
                   'upscan-initiate',
                   'upscan-notify',
                   'upscan-verify'
