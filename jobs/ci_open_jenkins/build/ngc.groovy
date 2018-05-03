@@ -11,6 +11,10 @@ new SbtMicroserviceJobBuilder('customer-profile').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('personal-income').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mobile-tax-credits-summary').build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('mobile-tax-credits-renewal').build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('personal-tax-summary').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('mobile-messages').build(this as DslFactory)
