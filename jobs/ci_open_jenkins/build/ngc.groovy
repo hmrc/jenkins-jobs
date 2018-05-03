@@ -57,6 +57,8 @@ new SbtFrontendJobBuilder('mobile-help-to-save-frontend')
 
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income',
+                  'mobile-tax-credits-summary',
+                  'mobile-tax-credits-renewal',
                   'personal-tax-summary',
                   'customer-profile',
                   'mobile-messages',
