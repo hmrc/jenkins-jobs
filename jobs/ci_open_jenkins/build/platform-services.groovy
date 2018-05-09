@@ -43,6 +43,10 @@ new SbtMicroserviceJobBuilder('upscan-verify').
         withScalaStyle().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('upscan-stub').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
         .withJobs('clamav-client',
@@ -52,6 +56,7 @@ new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
                   'file-upload-frontend',
                   'upscan-initiate',
                   'upscan-notify',
-                  'upscan-verify'
+                  'upscan-verify',
+                  'upscan-stub'
         )
         .build(this)
