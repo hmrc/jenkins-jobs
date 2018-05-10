@@ -36,11 +36,17 @@ new SbtMicroserviceJobBuilder('vat-subscription').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('vat-sign-up-frontend').
+        withScalaStyle().
+        withSCoverage().
+        withExtendedTimeout().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('vat-sign-up').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SABR-MONITOR').withJobs(
-        'income-tax-subscription', 'income-tax-subscription-frontend', 'income-tax-subscription-store', 'vat-subscription-frontend', 'vat-sign-up'
+        'income-tax-subscription', 'income-tax-subscription-frontend', 'income-tax-subscription-store','vat-sign-up-frontend', 'vat-sign-up'
 ).build(this)
