@@ -43,5 +43,5 @@ new SbtFrontendJobBuilder('vat-sign-up-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SABR-MONITOR').withJobs(
-        'income-tax-subscription', 'income-tax-subscription-frontend', 'income-tax-subscription-store', 'vat-subscription-frontend', 'vat-sign-up', 'vat-sign-up-frontend'
+        'income-tax-subscription', 'income-tax-subscription-frontend', 'income-tax-subscription-store','vat-sign-up-frontend', 'vat-sign-up'
 ).build(this)
