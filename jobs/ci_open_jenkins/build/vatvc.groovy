@@ -40,6 +40,11 @@ new SbtMicroserviceJobBuilder('vat-returns').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('vat-subscription').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('manage-vat-subscription-dynamic-stub').
         withScalaStyle().
         withSCoverage().
