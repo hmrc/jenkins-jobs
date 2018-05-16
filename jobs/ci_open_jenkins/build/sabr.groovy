@@ -21,12 +21,6 @@ new SbtFrontendJobBuilder('income-tax-subscription-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('vat-subscription-frontend').
-        withScalaStyle().
-        withSCoverage().
-        withExtendedTimeout().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('research-recording-tool-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
