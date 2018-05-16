@@ -48,6 +48,9 @@ new SbtLibraryJobBuilder('git-stamp').
 new SbtLibraryJobBuilder('init-repository').
         build(this)
 
+new SbtLibraryJobBuilder('service-integration-test').
+        withoutJUnitReports().
+        build(this as DslFactory)
 
 jobBuilder('init-service', 'init-service', 'master')
         .withTriggers(cronTrigger('H 00 * * *'), pollTrigger('H/6 * * * *'))
