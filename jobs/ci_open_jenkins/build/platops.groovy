@@ -173,6 +173,12 @@ jobBuilder('clean-slaves').
 new SbtMicroserviceJobBuilder('teams-and-repositories').withTests("test")
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('kw-test-frontend-service').withTests("test")
+        .build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('kw-test-backend-service').withTests("test")
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('catalogue-frontend').withTests("test")
         .build(this as DslFactory)
 
