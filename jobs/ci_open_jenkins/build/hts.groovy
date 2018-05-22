@@ -43,6 +43,12 @@ new SbtFrontendJobBuilder('help-to-save-stride-frontend').
         withTests("test").
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('help-to-save-test-admin-frontend').
+        withExtendedTimeout().
+        withSCoverage().
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('HELP-TO-SAVE-MONITOR')
         .withJobs('help-to-save','help-to-save-frontend', 'help-to-save-stub', 'help-to-save-proxy', 'help-to-save-stride-frontend', 'help-to-save-api').build(this)
 
