@@ -13,13 +13,17 @@ new SbtMicroserviceJobBuilder('self-assessment-api')
         .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/self-assessment-api"))
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('self-assessment-api-router')
+        .withTests("test it:test")
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('vat-api')
         .withTests("test func:test")
         .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/vat-api"))
         .build(this as DslFactory)
 
 new BuildMonitorViewBuilder('MTD-MONITOR')
-        .withJobs('self-assessment-api', 'vat-api').build(this)
+        .withJobs('self-assessment-api', 'self-assessment-api-router', 'vat-api').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',
