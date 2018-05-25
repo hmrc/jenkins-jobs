@@ -191,6 +191,31 @@ new SbtMicroserviceJobBuilder('epaye-api').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('off-payroll-frontend').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('pdf-generator-frontend').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('off-payroll-analytics-frontend').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('off-payroll-decision').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pdf-generator-service').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -226,6 +251,11 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'c2ni-frontend',
         'ei',
         'ei-frontend',
-        'epaye-api'
+        'epaye-api',
+        'off-payroll-frontend',
+        'pdf-generator-frontend',
+        'off-payroll-analytics-frontend',
+        'off-payroll-decision',
+        'pdf-generator-service'
         )
         .build(this)
