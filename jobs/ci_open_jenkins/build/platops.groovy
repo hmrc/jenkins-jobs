@@ -209,6 +209,8 @@ new SbtLibraryJobBuilder('http-core').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('http-verbs-play-25').build(this as DslFactory)
 
+new SbtLibraryJobBuilder('http-verbs-play-26').build(this as DslFactory)
+
 new SbtLibraryJobBuilder('bootstrap-play-25').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
