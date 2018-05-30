@@ -21,10 +21,3 @@ new SbtMicroserviceJobBuilder('request-corporation-tax-number').
         withSCoverage().
         build(this as DslFactory)
 
-new JourneyTestsJobBuilder('ctutr-acceptance-tests-dev', gitHubComScm('hmrc/request-corporation-tax-number-journey-tests'),
-        sbtStep("clean -Dbrowser=firefox -Denvironment=dev 'test-only uk.gov.hmrc.integration.cucumber.utils.Runner'"),
-        '', '')
-       
-        .withBintrayArtifactTrigger('H/10 * * * *', ['request-corporation-tax-number-frontend'])
-.build(this)
-
