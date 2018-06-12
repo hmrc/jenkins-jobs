@@ -45,4 +45,9 @@ final class NpmLibraryJobBuilder implements Builder<Job> {
         this.nodeVersion = version
         this
     }
+
+    NpmLibraryJobBuilder withExtendedTimeout() {
+        this.timeout = 30
+        this
+    }
 }
