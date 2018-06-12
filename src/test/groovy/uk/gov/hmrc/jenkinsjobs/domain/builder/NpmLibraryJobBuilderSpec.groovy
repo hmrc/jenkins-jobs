@@ -50,4 +50,17 @@ class NpmLibraryJobBuilderSpec extends Specification {
                                                                     |nvm use ${nodeVersion}""".stripMargin())
         }
     }
+
+    void 'test extended build timeout'() {
+        given:
+        NpmLibraryJobBuilder jobBuilder = new NpmLibraryJobBuilder('test-job')
+
+        when:
+        Job job = jobBuilder.withExtendedTimeout().build(jobParent())
+
+        then:
+        with(job.node) {
+            buildWrappers.'hudson.plugins.build__timeout.BuildTimeoutWrapper'.strategy.timeoutMinutes.text() == '30'
+        }
+    }
 }

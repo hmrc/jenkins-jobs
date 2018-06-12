@@ -8,6 +8,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.NpmLibraryJobBuilder
 
 new NpmLibraryJobBuilder('assets-frontend')
+        .withExtendedTimeout()
         .build(this as DslFactory)
 
 new NpmLibraryJobBuilder('node-git-versioning')
