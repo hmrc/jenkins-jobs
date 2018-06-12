@@ -10,5 +10,3 @@ new SbtMicroserviceJobBuilder('real-time-income-information').
 new SbtMicroserviceJobBuilder('retrieve-citizen-income-stub').
         withTests("test").
         build(this as DslFactory)
-
-
