@@ -18,7 +18,8 @@ new SbtMicroserviceJobBuilder('self-assessment-api-router')
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('mtd-tax-calculation')
-        .withTests("test it:test")
+        .withScalaStyle()
+        .withSCoverage()
         .build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('vat-api')
