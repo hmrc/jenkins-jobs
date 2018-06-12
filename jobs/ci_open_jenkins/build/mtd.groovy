@@ -22,6 +22,11 @@ new SbtMicroserviceJobBuilder('mtd-tax-calculation')
         .withSCoverage()
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mtd-identifier-lookup')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('vat-api')
         .withSCoverage()
         .withTests("test func:test")
@@ -32,7 +37,7 @@ new BuildMonitorViewBuilder('MTD-VAT-MONITOR')
         .withJobs('vat-api').build(this)
 
 new BuildMonitorViewBuilder('MTD-SA-MONITOR')
-        .withJobs('self-assessment-api-router, self-assessment-api', 'mtd-tax-calculation').build(this)
+        .withJobs('self-assessment-api-router, self-assessment-api', 'mtd-tax-calculation', 'mtd-identifier-lookup').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',
