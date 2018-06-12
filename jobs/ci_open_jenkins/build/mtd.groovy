@@ -17,14 +17,21 @@ new SbtMicroserviceJobBuilder('self-assessment-api-router')
         .withTests("test it:test")
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mtd-tax-calculation')
+        .withTests("test it:test")
+        .build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('vat-api')
         .withSCoverage()
         .withTests("test func:test")
         .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/vat-api"))
         .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('MTD-MONITOR')
-        .withJobs('self-assessment-api', 'self-assessment-api-router', 'vat-api').build(this)
+new BuildMonitorViewBuilder('MTD-VAT-MONITOR')
+        .withJobs('vat-api').build(this)
+
+new BuildMonitorViewBuilder('MTD-SA-MONITOR')
+        .withJobs('self-assessment-api-router, self-assessment-api', 'mtd-tax-calculation').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',
