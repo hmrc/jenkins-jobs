@@ -80,6 +80,10 @@ new SbtLibraryJobBuilder('totp-generator').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('http-metrics').
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-documentation',
@@ -97,5 +101,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-notification-queue',
         'national-insurance-des-stub',
         'totp-generator',
-        'play-json-union-formatter'
+        'play-json-union-formatter',
+        'http-metrics'
 ).build(this)
