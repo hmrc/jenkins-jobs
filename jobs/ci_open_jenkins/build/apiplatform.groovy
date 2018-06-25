@@ -10,6 +10,11 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('api-example-microservice').
+        withTests("test it:test component:test").
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('api-example-scala-client').
         withTests("test").
         withXvfb().
@@ -87,6 +92,7 @@ new SbtLibraryJobBuilder('http-metrics').
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-documentation',
+        'api-example-microservice',
         'api-example-scala-client',
         'api-gateway',
         'api-revocation-frontend',
