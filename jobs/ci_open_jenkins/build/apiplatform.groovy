@@ -10,19 +10,17 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-example-microservice').
+new SbtMicroserviceJobBuilder('api-example-microservice').
+        withSCoverage().
         withTests("test it:test component:test").
-        withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-example-scala-client').
+new SbtMicroserviceJobBuilder('api-example-scala-client').
         withTests("test").
-        withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-gateway').
+new SbtMicroserviceJobBuilder('api-gateway').
         withTests("test it:test").
-        withXvfb().
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('api-revocation-frontend').
@@ -62,7 +60,7 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-subscription-fields').
+new SbtMicroserviceJobBuilder('api-subscription-fields').
         withTests("test it:test acceptance:test").
         withSCoverage().
         build(this as DslFactory)
