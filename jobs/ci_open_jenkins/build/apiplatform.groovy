@@ -77,6 +77,11 @@ new SbtMicroserviceJobBuilder('national-insurance-des-stub').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('service-locator').
+        withSCoverage().
+        withTests("test it:test").
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
@@ -104,6 +109,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-notification-pull',
         'api-notification-queue',
         'national-insurance-des-stub',
+        'service-locator',
         'totp-generator',
         'play-json-union-formatter',
         'http-metrics'
