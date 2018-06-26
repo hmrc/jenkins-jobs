@@ -9,6 +9,9 @@ new SbtLibraryJobBuilder('http-verbs').
 new SbtLibraryJobBuilder('play-auditing').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('auditing').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('http-verbs-test').
 		withoutJUnitReports().
         build(this as DslFactory)
