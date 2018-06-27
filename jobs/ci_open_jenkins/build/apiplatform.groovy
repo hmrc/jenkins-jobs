@@ -18,7 +18,7 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
-jobBuilder('api-documentation-frontend').
+jobBuilder('api-documentation-frontend', 'api-documentation-frontend', 'master').
     withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
     withSteps(shellStep('${WORKSPACE}/jenkins-start-with-assets-frontend.sh')).
     withPublishers(
