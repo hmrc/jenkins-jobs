@@ -20,7 +20,7 @@ new SbtMicroserviceJobBuilder('api-documentation').
 
 jobBuilder('api-documentation-frontend').
     withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-    withSteps(shellStep('./jenkins-start-with-assets-frontend.sh')).
+    withSteps(shellStep('${WORKSPACE}/jenkins-start-with-assets-frontend.sh')).
     withPublishers(
             defaultJUnitReportsPublisher(),
             defaultBuildDescriptionPublisher(),
