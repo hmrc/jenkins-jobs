@@ -112,6 +112,10 @@ new SbtLibraryJobBuilder('totp-generator').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('raml-tools').
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('http-metrics').
         withSCoverage().
         build(this as DslFactory)
@@ -138,5 +142,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'service-locator',
         'totp-generator',
         'play-json-union-formatter',
+        'raml-tools',
         'http-metrics'
 ).build(this)
