@@ -6,9 +6,28 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.CucumberReportsPublisher.cucumberReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.XvfbBuildWrapper.xvfbBuildWrapper
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
+import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
+import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
+
+
 new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
+
+jobBuilder('api-documentation-frontend').
+    withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
+    withSteps(shellStep('./jenkins-start-with-assets-frontend.sh')).
+    withPublishers(
+            defaultJUnitReportsPublisher(),
+            defaultBuildDescriptionPublisher(),
+            bobbyArtifactsPublisher(),
+            htmlReportsPublisher(['target/acceptance-reports/cucumber': 'Acceptance Report']),
+            cleanXvfbPostBuildTaskPublisher()).
+    build(this)
 
 new SbtMicroserviceJobBuilder('api-example-microservice').
         withSCoverage().
@@ -100,6 +119,7 @@ new SbtLibraryJobBuilder('http-metrics').
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-documentation',
+        'api-documentation-frontend',
         'api-example-microservice',
         'api-example-scala-client',
         'api-gateway',
