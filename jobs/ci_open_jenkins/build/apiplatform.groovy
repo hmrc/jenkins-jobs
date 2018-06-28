@@ -14,6 +14,10 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 
 
+new SbtMicroserviceJobBuilder('api-definition').
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
@@ -130,6 +134,7 @@ new SbtLibraryJobBuilder('http-metrics').
 
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
+        'api-definition',
         'api-documentation',
         'api-documentation-frontend',
         'api-example-microservice',
