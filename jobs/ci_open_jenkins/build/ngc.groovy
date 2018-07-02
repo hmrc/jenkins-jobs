@@ -29,8 +29,6 @@ new SbtFrontendJobBuilder('your-tax-calculator-frontend').build(this as DslFacto
 
 new SbtFrontendJobBuilder('mobile-token-proxy').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('mobile-token-exchange').build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-hmrc-api').build(this)
 
 new SbtLibraryJobBuilder('play-hal').build(this)
@@ -69,7 +67,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'play-async',
                   'microservice-async',
                   'play-hal',
-                  'mobile-token-exchange',
                   'mobile-token-proxy',
                   'your-tax-calculator-frontend',
                   'paye-estimator',
