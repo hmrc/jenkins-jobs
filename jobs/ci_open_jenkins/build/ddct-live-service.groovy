@@ -78,7 +78,7 @@ new SbtMicroserviceJobBuilder('cc-email-capture').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('residence-nil-rate-band-calculator').
-        withTests('test cucumber').
+        withTests('test').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)
