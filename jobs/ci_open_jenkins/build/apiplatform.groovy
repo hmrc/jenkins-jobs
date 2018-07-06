@@ -54,6 +54,11 @@ new SbtMicroserviceJobBuilder('api-gateway').
         withTests("test it:test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-simulator').
+        withTests("test it:test").
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtFrontendJobBuilder('api-revocation-frontend').
         withSCoverage().
         withTests("test acceptance:test").
@@ -140,6 +145,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-example-microservice',
         'api-example-scala-client',
         'api-gateway',
+        'api-simulator',
         'api-revocation-frontend',
         'api-gatekeeper-frontend',
         'api-service-approval-frontend',
