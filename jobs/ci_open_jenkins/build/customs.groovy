@@ -10,6 +10,7 @@ def customsInventoryLinkingImports = 'customs-inventory-linking-imports'
 def customsInventoryLinkingExports = 'customs-inventory-linking-exports'
 def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
+def customsNotificationReceiverStub = 'customs-notifications-receiver-stub'
 def customsApiCommon = 'customs-api-common'
 
 private Job microserviceWithPackage(String serviceName) {
@@ -32,6 +33,7 @@ microserviceWithPackage(customsInventoryLinkingImports)
 microserviceWithPackage(customsInventoryLinkingExports)
 microservice(customsNotification)
 microservice(customsApiCommon)
+microservice(customsNotificationReceiverStub)
 microserviceWithPackage(customsDeclarations)
 
 
@@ -42,5 +44,6 @@ new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
         customsInventoryLinkingExports,
         customsDeclarations,
         customsNotification,
+        customsNotificationReceiverStub,
         customsApiCommon).
     build(this)
