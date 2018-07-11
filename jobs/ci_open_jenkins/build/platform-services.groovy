@@ -18,6 +18,11 @@ new SbtMicroserviceJobBuilder('contact-admin').
 new SbtMicroserviceJobBuilder('file-transfer-stub').
     build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mdg-stub').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('file-upload').
         withSCoverage().
         withScalaStyle().
