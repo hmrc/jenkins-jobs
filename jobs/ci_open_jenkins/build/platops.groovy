@@ -169,9 +169,6 @@ jobBuilder('clean-slaves').
 new SbtMicroserviceJobBuilder('teams-and-repositories').withTests("test")
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('leak-detection').withTests("test")
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('slack-notifications').withTests("test")
         .build(this as DslFactory)
 
