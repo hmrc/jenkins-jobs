@@ -81,6 +81,7 @@ new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
 
 new SbtMicroserviceJobBuilder('api-platform-test').
         withTests("test").
+        withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-platform-test-user').
@@ -143,6 +144,10 @@ new SbtLibraryJobBuilder('http-metrics').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('fraud-prevention').
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-definition',
@@ -169,5 +174,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'totp-generator',
         'play-json-union-formatter',
         'raml-tools',
-        'http-metrics'
+        'http-metrics',
+        'fraud-prevention'
 ).build(this)
