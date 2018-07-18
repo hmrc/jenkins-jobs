@@ -80,6 +80,7 @@ new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-platform-test').
+        withTests("test").
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-platform-test-user').
