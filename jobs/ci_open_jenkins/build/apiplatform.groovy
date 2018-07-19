@@ -108,6 +108,11 @@ new SbtMicroserviceJobBuilder('api-scope').
         withTests("test it:test").
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
+        withTests("test").
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('api-subscription-fields').
         withTests("test it:test acceptance:test").
         withSCoverage().
@@ -166,6 +171,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-login-frontend',
         'api-publisher',
         'api-scope',
+        'api-stop-autodeploy-test',
         'api-subscription-fields',
         'api-notification-pull',
         'api-notification-queue',
