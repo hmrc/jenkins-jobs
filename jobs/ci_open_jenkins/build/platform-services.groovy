@@ -58,6 +58,11 @@ new SbtMicroserviceJobBuilder('file-transmission').
         withScalaStyle().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('file-transmission-callback-listener').
+        withSCoverage().
+        withScalaStyle().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
         .withJobs('clamav-client',
                   'contact-admin',
@@ -68,6 +73,7 @@ new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
                   'upscan-notify',
                   'upscan-verify',
                   'upscan-stub',
-                  'file-transmission'
+                  'file-transmission',
+                  'file-transmission-callback-listener'
         )
         .build(this)
