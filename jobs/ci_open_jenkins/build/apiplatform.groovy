@@ -22,25 +22,6 @@ new SbtMicroserviceJobBuilder('api-documentation').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-documentation-frontend').
-        withSCoverage().
-        withTests("test acceptance:test").
-        withXvfb().
-        build(this as DslFactory)
-
-/*
-jobBuilder('api-documentation-frontend', 'api-documentation-frontend', 'master').
-    withConfigures(xvfbBuildWrapper(), cucumberReportsPublisher()).
-    withSteps(shellStep('${WORKSPACE}/jenkins-start-with-assets-frontend.sh')).
-    withPublishers(
-            defaultJUnitReportsPublisher(),
-            defaultBuildDescriptionPublisher(),
-            bobbyArtifactsPublisher(),
-            htmlReportsPublisher(['target/acceptance-reports/cucumber': 'Acceptance Report']),
-            cleanXvfbPostBuildTaskPublisher()).
-    build(this)
-*/
-
 new SbtMicroserviceJobBuilder('api-example-microservice').
         withSCoverage().
         withTests("test it:test component:test").
