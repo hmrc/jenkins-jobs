@@ -18,8 +18,10 @@ new SbtMicroserviceJobBuilder('api-definition').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-documentation').
+new SbtFrontendJobBuilder('api-documentation-frontend').
         withSCoverage().
+        withTests("test acceptance:test").
+        withXvfb().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-example-microservice').
