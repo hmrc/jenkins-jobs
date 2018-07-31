@@ -74,10 +74,10 @@ new SbtMicroserviceJobBuilder('paye-registration').
 //        withSCoverage().
 //        build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('industry-classification-lookup').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+//new SbtMicroserviceJobBuilder('industry-classification-lookup').
+//        withScalaStyle().
+//        withSCoverage().
+//        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs(
