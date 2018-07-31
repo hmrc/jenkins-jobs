@@ -11,12 +11,6 @@ new SbtMicroserviceJobBuilder('capital-gains-calculator')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('cgt-calculator-non-resident-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('cgt-calculator-resident-shares-frontend')
         .withScalaStyle()
         .withSCoverage()
