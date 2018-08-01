@@ -10,10 +10,10 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 //        withSCoverage().
 //        build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('company-registration-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+//new SbtMicroserviceJobBuilder('company-registration-frontend').
+//        withScalaStyle().
+//        withSCoverage().
+//        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('company-registration-eligibility-frontend').
         withScalaStyle().
@@ -68,8 +68,8 @@ new SbtMicroserviceJobBuilder('paye-registration').
 
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs(
-//                'company-registration',
-                  'company-registration-frontend',
+//                  'company-registration',
+//                  'company-registration-frontend',
                   'company-registration-eligibility-frontend',
                   'business-registration-notification',
 //                  'business-registration-dynamic-stub',
