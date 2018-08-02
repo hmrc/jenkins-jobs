@@ -77,5 +77,7 @@ new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'vat-returns',
         'manage-vat-subscription-dynamic-stub',
         'vat-obligations-dynamic-stub',
-        'vat-returns-dynamic-stub'
+        'vat-returns-dynamic-stub',
+        'financial-transactions',
+        'financial-transactions-dynamic-stub'
 ).build(this)

@@ -29,6 +29,5 @@ new BuildMonitorViewBuilder('ITVC-MONITOR').withJobs(
         'income-tax-view-change-frontend',
         'manage-income-tax-subscription-frontend',
         'income-tax-view-change',
-        'income-tax-view-change-dynamic-stub',
-        'financial-transactions'
+        'income-tax-view-change-dynamic-stub'
 ).build(this)
