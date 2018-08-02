@@ -27,6 +27,9 @@ new SbtLibraryJobBuilder('work-item-repo').
 new SbtLibraryJobBuilder('metrix').
         build(this)
 
+new SbtLibraryJobBuilder('metrix-26').
+        build(this)
+
 new SbtLibraryJobBuilder('csp-client').
         build(this)
 
