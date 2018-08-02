@@ -14,6 +14,9 @@ new SbtLibraryJobBuilder('reference-checker').
 new SbtLibraryJobBuilder('mongo-lock').
         build(this as DslFactory)
 
+new SbtLibraryJobBuilder('mongo-lock-26').
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('order-id-encoder').
         build(this as DslFactory)
 
