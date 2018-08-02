@@ -30,6 +30,9 @@ new SbtLibraryJobBuilder('metrix').
 new SbtLibraryJobBuilder('csp-client').
         build(this)
 
+new SbtMicroserviceJobBuilder('email-proxy').
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
@@ -51,7 +54,8 @@ new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
                   'customer-advisors-frontend',
                   'preferences-admin-frontend',
                   'hmrc-email-renderer',
-                  'announcement-frontend')
+                  'announcement-frontend',
+                  )
         .build(this)
 
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
@@ -61,6 +65,7 @@ new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
                   'batch-updater',
                   'work-item-repo',
                   'metrix',                  
-                  'csp-client'                  
+                  'csp-client',
+                  'email-proxy'
                   )
         .build(this)
