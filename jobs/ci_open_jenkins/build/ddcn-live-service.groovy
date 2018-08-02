@@ -259,3 +259,12 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pdf-generator-service'
         )
         .build(this)
+
+new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
+        .withJobs(
+        'gmp',
+        'gmp-bulk',
+        'gmp-frontend',
+        'ei',
+        'ei-frontend')
+        .build(this)
