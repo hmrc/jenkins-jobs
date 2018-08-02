@@ -264,7 +264,5 @@ new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
         .withJobs(
         'gmp',
         'gmp-bulk',
-        'gmp-frontend',
-        'ei',
-        'ei-frontend')
+        'gmp-frontend')
         .build(this)
