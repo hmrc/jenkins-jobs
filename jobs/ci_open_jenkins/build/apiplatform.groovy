@@ -109,6 +109,11 @@ new SbtMicroserviceJobBuilder('api-notification-pull').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('ciao-multisegment-api').
+        withTests("test").
+        withSCoverage().
+        build(this as DslFactory)
+
 new SbtMicroserviceJobBuilder('national-insurance-des-stub').
         withSCoverage().
         build(this as DslFactory)
@@ -158,6 +163,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-subscription-fields',
         'api-notification-pull',
         'api-notification-queue',
+        'ciao-multisegment-api',
         'national-insurance-des-stub',
         'service-locator',
         'totp-generator',
