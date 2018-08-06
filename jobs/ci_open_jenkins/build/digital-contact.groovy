@@ -24,6 +24,9 @@ new SbtLibraryJobBuilder('batch-updater').
 new SbtLibraryJobBuilder('work-item-repo').
         build(this)
 
+new SbtLibraryJobBuilder('work-item-repo-26').
+        build(this)
+
 new SbtLibraryJobBuilder('metrix').
         build(this)
 
