@@ -39,11 +39,8 @@ new SbtMicroserviceJobBuilder('vat-api')
         .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/vat-api"))
         .build(this as DslFactory)
 
-new BuildMonitorViewBuilder('MTD-VAT-MONITOR')
-        .withJobs('vat-api').build(this)
-
-new BuildMonitorViewBuilder('MTD-SA-MONITOR')
-        .withJobs('self-assessment-api-router, self-assessment-api', 'mtd-tax-calculation', 'mtd-property-api', 'mtd-identifier-lookup').build(this)
+new BuildMonitorViewBuilder('MTD-API-MONITOR')
+        .withJobs('vat-api', 'self-assessment-api-router', 'self-assessment-api', 'mtd-tax-calculation', 'mtd-property-api', 'mtd-identifier-lookup').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',
