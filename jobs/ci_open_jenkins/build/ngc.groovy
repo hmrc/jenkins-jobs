@@ -51,6 +51,10 @@ new SbtFrontendJobBuilder('mobile-help-to-save-frontend')
         .withSCoverage()
         .build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mobile-user-contact')
+        .withSCoverage()
+        .build(this as DslFactory)
+
 new BuildMonitorViewBuilder('NGC-MONITOR')
         .withJobs('personal-income',
                   'mobile-tax-credits-summary',
@@ -71,5 +75,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'authenticate-one-time-password',
                   'native-app-widget',
                   'mobile-help-to-save',
-                  'mobile-help-to-save-frontend')
+                  'mobile-help-to-save-frontend',
+                  'mobile-user-contact')
         .build(this)
