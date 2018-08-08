@@ -191,22 +191,7 @@ new SbtMicroserviceJobBuilder('epaye-api').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('off-payroll-frontend').
-        withTests("test").
-        withLogRotator(7, 1000).
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('pdf-generator-frontend').
-        withTests("test").
-        withLogRotator(7, 1000).
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-analytics-frontend').
-        withTests("test").
-        withLogRotator(7, 1000).
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('off-payroll-decision').
         withTests("test").
         withLogRotator(7, 1000).
         build(this as DslFactory)
@@ -252,10 +237,7 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ei',
         'ei-frontend',
         'epaye-api',
-        'off-payroll-frontend',
         'pdf-generator-frontend',
-        'off-payroll-analytics-frontend',
-        'off-payroll-decision',
         'pdf-generator-service'
         )
         .build(this)

@@ -82,6 +82,19 @@ new SbtFrontendJobBuilder('residence-nil-rate-band-calculator-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+
+new SbtFrontendJobBuilder('off-payroll-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
+new SbtFrontendJobBuilder('off-payroll-analytics-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('off-payroll-decision').
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         .withJobs(
         'capital-gains-calculator',
@@ -97,5 +110,8 @@ new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         'cc-eligibility',
         'cc-email-capture',
         'residence-nil-rate-band-calculator',
-        'residence-nil-rate-band-calculator-frontend')
+        'residence-nil-rate-band-calculator-frontend',
+        'off-payroll-frontend',
+        'off-payroll-analytics-frontend',
+        'off-payroll-decision')
         .build(this)
