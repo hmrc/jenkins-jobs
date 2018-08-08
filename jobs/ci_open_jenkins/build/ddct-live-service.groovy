@@ -95,6 +95,17 @@ new SbtMicroserviceJobBuilder('off-payroll-decision').
         withTests("test").
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pdf-generator-frontend').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pdf-generator-service').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+
 new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         .withJobs(
         'capital-gains-calculator',
@@ -113,5 +124,7 @@ new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         'residence-nil-rate-band-calculator-frontend',
         'off-payroll-frontend',
         'off-payroll-analytics-frontend',
-        'off-payroll-decision')
+        'off-payroll-decision',
+        'pdf-generator-frontend',
+        'pdf-generator-service')
         .build(this)
