@@ -6,14 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.CucumberReportsPublisher.cucumberReportsPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.configure.XvfbBuildWrapper.xvfbBuildWrapper
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.HtmlReportsPublisher.htmlReportsPublisher
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
-import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
-import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
-
-
 new SbtMicroserviceJobBuilder('api-definition').
         withTests("test").
         withSCoverage().
