@@ -111,6 +111,12 @@ new SbtMicroserviceJobBuilder('service-locator').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('third-party-developer-frontend').
+        withSCoverage().
+        withTests("test it:test component:test").
+        withXvfb().
+        build(this as DslFactory)
+
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
@@ -154,6 +160,7 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'ciao-multisegment-api',
         'national-insurance-des-stub',
         'service-locator',
+        'third-party-developer-frontend',
         'totp-generator',
         'play-json-union-formatter',
         'raml-tools',
