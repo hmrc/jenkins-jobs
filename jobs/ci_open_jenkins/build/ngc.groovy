@@ -25,6 +25,8 @@ new SbtMicroserviceJobBuilder('native-apps-api-orchestration').build(this as Dsl
 
 new SbtMicroserviceJobBuilder('api-gateway-async-example').build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('mobile-auth-stub').build(this as DslFactory)
+
 new SbtFrontendJobBuilder('your-tax-calculator-frontend').build(this as DslFactory)
 
 new SbtFrontendJobBuilder('mobile-token-proxy').build(this as DslFactory)
