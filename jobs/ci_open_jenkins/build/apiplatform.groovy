@@ -15,6 +15,7 @@ import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.*
 
 
 new SbtMicroserviceJobBuilder('api-definition').
+        withTests("test").
         withSCoverage().
         build(this as DslFactory)
 
@@ -34,11 +35,9 @@ new SbtMicroserviceJobBuilder('api-example-scala-client').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-gateway').
-        withTests("test it:test").
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-simulator').
-        withTests("test it:test").
         withSCoverage().
         build(this as DslFactory)
 
@@ -82,13 +81,11 @@ new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-publisher').
-        withTests("test it:test").
         withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-scope').
         withSCoverage().
-        withTests("test it:test").
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
@@ -120,7 +117,6 @@ new SbtMicroserviceJobBuilder('national-insurance-des-stub').
 
 new SbtMicroserviceJobBuilder('service-locator').
         withSCoverage().
-        withTests("test it:test").
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('totp-generator').
