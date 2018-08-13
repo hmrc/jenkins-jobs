@@ -165,16 +165,6 @@ new SbtMicroserviceJobBuilder('ated').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('c2ni')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('c2ni-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('ei')
         .withScalaStyle()
         .withSCoverage()
@@ -222,8 +212,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ated-subscription-frontend',
         'ated-frontend',
         'ated',
-        'c2ni',
-        'c2ni-frontend',
         'ei',
         'ei-frontend',
         'epaye-api'
