@@ -42,11 +42,6 @@ new SbtMicroserviceJobBuilder('pla-dynamic-stub')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('vat-flat-rate-calculator-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtFrontendJobBuilder('childcare-calculator-frontend').
         withScalaStyle().
         withSCoverage().
@@ -115,7 +110,6 @@ new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         'pensions-lifetime-allowance',
         'pensions-lifetime-allowance-frontend',
         'pla-dynamic-stub',
-        'vat-flat-rate-calculator-frontend',
         'childcare-calculator-frontend',
         'cc-calculator',
         'cc-eligibility',
