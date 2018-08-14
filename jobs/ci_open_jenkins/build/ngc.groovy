@@ -43,8 +43,6 @@ new SbtScalaJsLibraryJobBuilder('paye-estimator').withoutJUnitReports().build(th
 
 new SbtMicroserviceJobBuilder('authenticate-one-time-password').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('native-app-widget').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('mobile-help-to-save')
         .withSCoverage()
         .build(this as DslFactory)
@@ -75,7 +73,6 @@ new BuildMonitorViewBuilder('NGC-MONITOR')
                   'your-tax-calculator-frontend',
                   'paye-estimator',
                   'authenticate-one-time-password',
-                  'native-app-widget',
                   'mobile-help-to-save',
                   'mobile-help-to-save-frontend',
                   'mobile-user-contact')
