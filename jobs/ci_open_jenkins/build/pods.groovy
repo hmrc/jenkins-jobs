@@ -16,8 +16,6 @@ new SbtFrontendJobBuilder('pension-administrator-frontend').
         build(this as DslFactory)
 
 new SbtFrontendJobBuilder('manage-pensions-frontend').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('pensions-scheme').
