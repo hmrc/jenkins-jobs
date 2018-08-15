@@ -185,6 +185,22 @@ new SbtFrontendJobBuilder('off-payroll-decision').
         withTests("test").
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('tax-summaries-frontend').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('tax-summaries').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('tax-summaries-agent').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
@@ -220,6 +236,13 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ei-frontend',
         'epaye-api'
 )
+        .build(this)
+
+new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
+        .withJobs(
+        'tax-summaries-frontend',
+        'tax-summaries',
+        'tax-summaries-agent')
         .build(this)
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
