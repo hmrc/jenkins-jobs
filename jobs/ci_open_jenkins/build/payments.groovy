@@ -8,7 +8,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtLibraryJobBuilder('worldpay-report-generator').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder("CDS-Stubs").
+new SbtMicroserviceJobBuilder("cds-stub").
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('reference-checker').
