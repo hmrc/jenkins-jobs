@@ -165,16 +165,6 @@ new SbtMicroserviceJobBuilder('ated').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('ei')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ei-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('epaye-api').
         withTests("test").
         withScalaStyle().
