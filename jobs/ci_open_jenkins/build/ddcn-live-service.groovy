@@ -175,6 +175,10 @@ new SbtFrontendJobBuilder('off-payroll-decision').
         withTests("test").
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('off-payroll-frontend').
+        withTests("test").
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
