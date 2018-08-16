@@ -7,4 +7,4 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
 new SbtFrontendJobBuilder('customs-declare-exports-frontend').build(this as DslFactory)
 
-new BuildMonitorViewBuilder('CUSTOMS-DECLARATIONS-MONITOR').withJobs('customs-declare-exports-frontend').build(this)
+new BuildMonitorViewBuilder('CUSTOMS-DECLARATIONS-MONITOR').withJobs('customs-declare-exports-frontend','exports-acceptance-tests').build(this)
