@@ -9,9 +9,8 @@ new SbtFrontendJobBuilder('customs-declare-imports-frontend').
         build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('customs-declarations-stub').
-        withTests("test").
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('CDS-IMPORT-DECLARATIONS-MONITOR')
-        .withJobs('customs-declare-imports-frontend')
+        .withJobs('customs-declare-imports-frontend', 'customs-declarations-stub')
         .build(this)
