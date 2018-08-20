@@ -62,11 +62,6 @@ new SbtMicroserviceJobBuilder('api-platform-test-user').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-platform-test-user-frontend').
-        withSCoverage().
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withSCoverage().
         withXvfb().
@@ -149,7 +144,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-service-approval-frontend',
         'api-platform-test',
         'api-platform-test-user',
-        'api-platform-test-user-frontend',
         'api-platform-test-login-frontend',
         'api-publisher',
         'api-scope',
