@@ -1,4 +1,4 @@
-g package ci_open_jenkins.build
+package ci_open_jenkins.build
 
 import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
