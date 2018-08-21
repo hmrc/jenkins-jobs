@@ -161,13 +161,6 @@ jobBuilder('clean-slaves').
                                """.stripMargin())).
         build(this)
 
-
-new SbtMicroserviceJobBuilder('teams-and-repositories').withTests("test")
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('slack-notifications').withTests("test")
-        .build(this as DslFactory)
-
 new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('indicators').withTests("test")
