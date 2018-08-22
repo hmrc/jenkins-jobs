@@ -195,6 +195,16 @@ new SbtMicroserviceJobBuilder('tax-summaries-agent').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('pdf-generator-frontend').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
+new SbtMicroserviceJobBuilder('pdf-generator-service').
+        withTests("test").
+        withLogRotator(7, 1000).
+        build(this as DslFactory)
+
 
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
@@ -229,7 +239,9 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ated',
         'ei',
         'ei-frontend',
-        'epaye-api'
+        'epaye-api',
+        'pdf-generator-frontend',
+        'pdf-generator-service'
 )
         .build(this)
 
