@@ -169,9 +169,6 @@ new SbtMicroserviceJobBuilder('indicators').withTests("test")
 new SbtMicroserviceJobBuilder('repository-jobs').withTests("test")
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('service-dependencies').withTests("test")
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
         .build(this as DslFactory)
 
