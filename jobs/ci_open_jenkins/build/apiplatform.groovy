@@ -39,12 +39,6 @@ new SbtFrontendJobBuilder('api-revocation-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-gatekeeper-frontend').
-        withSCoverage().
-        withTests("test acceptance:test").
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-service-approval-frontend').
         withTests("test acceptance:test").
         withXvfb().
@@ -140,7 +134,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-gateway',
         'api-simulator',
         'api-revocation-frontend',
-        'api-gatekeeper-frontend',
         'api-service-approval-frontend',
         'api-platform-test',
         'api-platform-test-user',
