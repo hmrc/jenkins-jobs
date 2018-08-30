@@ -102,7 +102,7 @@ new SbtMicroserviceJobBuilder('service-locator').
 
 new SbtFrontendJobBuilder('third-party-developer-frontend').
         withSCoverage().
-        withTests("test it:test component:test").
+        withTests("test component:test").
         withXvfb().
         build(this as DslFactory)
 
