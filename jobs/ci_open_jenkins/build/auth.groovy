@@ -27,10 +27,6 @@ new SbtLibraryJobBuilder('reactivemongo-json').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reactivemongo-test').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-health').
         build(this as DslFactory)
 
