@@ -10,10 +10,6 @@ new SbtFrontendJobBuilder('view-vat-returns-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('deregister-vat-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('vat-summary-frontend').
         withScalaStyle().
@@ -45,16 +41,6 @@ new SbtMicroserviceJobBuilder('vat-returns').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-subscription').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('vat-subscription-dynamic-stub').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('vat-obligations-dynamic-stub').
         withScalaStyle().
         withSCoverage().
@@ -67,14 +53,12 @@ new SbtMicroserviceJobBuilder('vat-returns-dynamic-stub').
 
 new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'view-vat-returns-frontend',
-        'deregister-vat-frontend',
         'vat-summary-frontend',
         'vat-agent-client-lookup-frontend',
         'vat-correspondence-details-frontend',
         'vat-vc-api-stub',
         'vat-obligations',
         'vat-returns',
-        'vat-subscription-dynamic-stub',
         'vat-obligations-dynamic-stub',
         'vat-returns-dynamic-stub',
         'financial-transactions',
