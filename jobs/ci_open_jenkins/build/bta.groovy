@@ -44,17 +44,12 @@ new SbtLibraryJobBuilder('play-partials').
 new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('logback-json-logger').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
                   'corporation-tax-frontend',
                   'vat-frontend',
                   'help-frontend',
-		  'help-and-contact-frontend',
+		          'help-and-contact-frontend',
                   'microservice-bootstrap',
-                  'play-partials',
-                  'logback-json-logger')
+                  'play-partials')
         .build(this)
