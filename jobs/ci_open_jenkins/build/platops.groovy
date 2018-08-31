@@ -163,9 +163,6 @@ jobBuilder('clean-slaves').
 
 new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('indicators').withTests("test")
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('repository-jobs').withTests("test")
         .build(this as DslFactory)
 
