@@ -1,4 +1,4 @@
-# jenkins-config Contributor Guidelines
+# jenkins-jobs Contributor Guidelines
 
 Hello! Thank you for taking the time to contribute to this project.
 
@@ -6,7 +6,7 @@ Hello! Thank you for taking the time to contribute to this project.
 
 Before you go any further, please read the general [MDTP Contributor Guidelines](https://github.com/hmrc/mdtp-contributor-guidelines/blob/master/CONTRIBUTING.md). Please note in particular that the Requestor needs to have a conversation with the Owning Team **before** opening a Pull Request on this repository.
 
-## jenkins-config Guidelines
+## jenkins-jobs Guidelines
 
 This repository is shared by all service teams working on MDTP. The following rules apply to Pull Requests:
 
