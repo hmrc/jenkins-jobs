@@ -52,10 +52,6 @@ new SbtMicroserviceJobBuilder('api-platform-test').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-platform-test-user').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-platform-test-login-frontend').
         withSCoverage().
         withXvfb().
