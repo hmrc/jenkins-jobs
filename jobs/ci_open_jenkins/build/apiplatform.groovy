@@ -88,10 +88,6 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('national-insurance-des-stub').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('service-locator').
         withSCoverage().
         build(this as DslFactory)
