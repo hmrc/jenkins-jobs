@@ -12,6 +12,8 @@ def services = ["self-service-time-to-pay",
                     "time-to-pay-calculator",
                     "time-to-pay-eligibility",
                     "time-to-pay-taxpayer",
+                    "ia-frontend",
+                    "ia",
                     "sa-stub"]
 
 def allServices = frontends + services
