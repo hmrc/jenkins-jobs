@@ -11,11 +11,6 @@ new SbtMicroserviceJobBuilder('api-definition').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-example-microservice').
-        withSCoverage().
-        withTests("test it:test component:test").
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-example-scala-client').
         withTests("test").
         build(this as DslFactory)
