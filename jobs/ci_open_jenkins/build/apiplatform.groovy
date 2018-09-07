@@ -82,12 +82,6 @@ new SbtMicroserviceJobBuilder('service-locator').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('third-party-developer-frontend').
-        withSCoverage().
-        withTests("test component:test").
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
