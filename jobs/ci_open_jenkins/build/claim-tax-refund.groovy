@@ -13,5 +13,5 @@ new BuildMonitorViewBuilder('CTR-Monitor')
 new SbtFrontendJobBuilder('claim-tax-refund-frontend').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)
+        build(this as DslFactory).disabled()
         
