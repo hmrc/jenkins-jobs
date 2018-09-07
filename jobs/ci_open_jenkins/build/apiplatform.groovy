@@ -59,11 +59,6 @@ new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-subscription-fields').
-        withTests("test it:test acceptance:test").
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('ciao-multisegment-api').
         withTests("test").
         withSCoverage().
