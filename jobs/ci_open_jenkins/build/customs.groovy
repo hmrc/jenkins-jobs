@@ -12,6 +12,7 @@ def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
 def customsNotificationReceiverStub = 'customs-notifications-receiver-stub'
 def customsApiCommon = 'customs-api-common'
+def apiNotificationPull = 'api-notification-pull'
 
 private Job microserviceWithPackage(String serviceName) {
     new SbtMicroserviceJobBuilder(serviceName).
@@ -35,7 +36,7 @@ microservice(customsNotification)
 microservice(customsApiCommon)
 microservice(customsNotificationReceiverStub)
 microserviceWithPackage(customsDeclarations)
-
+microservice(apiNotificationPull)
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
@@ -45,5 +46,6 @@ new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
         customsDeclarations,
         customsNotification,
         customsNotificationReceiverStub,
-        customsApiCommon).
+        customsApiCommon,
+        apiNotificationPull).
     build(this)
