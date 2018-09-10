@@ -16,6 +16,11 @@ new SbtFrontendJobBuilder('trusts-frontend').
         withXvfb().
         build(this as DslFactory)
 
+new SbtMicroserviceJobBuilder('trusts').
+        withScalaStyle().
+        withSCoverage().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('TRUST-MONITOR')
-        .withJobs('trust-registration-api','trusts-frontend')
+        .withJobs('trust-registration-api','trusts-frontend', 'trusts')
         .build(this)
