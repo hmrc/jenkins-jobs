@@ -68,16 +68,6 @@ new SbtMicroserviceJobBuilder('national-insurance-record')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('paac')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('paac-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('pbik')
         .withScalaStyle()
         .withSCoverage()
@@ -202,8 +192,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'nisp-frontend',
         'state-pension',
         'national-insurance-record',
-        'paac',
-        'paac-frontend',
         'pbik',
         'pbik-frontend',
         'tamc',
