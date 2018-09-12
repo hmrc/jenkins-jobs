@@ -13,34 +13,6 @@ def appLevyJob = new SbtMicroserviceJobBuilder('apprenticeship-levy')
         .build(this as DslFactory)
 appLevyJob
 
-new SbtMicroserviceJobBuilder('awrs-notification')
-        .withScalaStyle()
-        .withSCoverage()
-        .withTests("test")
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('awrs')
-        .withScalaStyle()
-        .withSCoverage()
-        .withTests("test")
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('awrs-lookup')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('awrs-lookup-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('awrs-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-
 new SbtFrontendJobBuilder('ers-checking-frontend')
         .withScalaStyle()
         .withSCoverage()
@@ -220,11 +192,6 @@ new SbtFrontendJobBuilder('ras-frontend').
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
-        'awrs-frontend',
-        'awrs',
-        'awrs-notification',
-        'awrs-lookup',
-        'awrs-lookup-frontend',
         'ers-checking-frontend',
         'ers-returns-frontend',
         'ers-file-validator',
