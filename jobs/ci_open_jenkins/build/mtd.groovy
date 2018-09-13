@@ -38,12 +38,6 @@ new SbtMicroserviceJobBuilder('mtd-self-employment')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-api')
-        .withSCoverage()
-        .withTests("test func:test")
-        .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/vat-api"))
-        .build(this as DslFactory)
-
 new BuildMonitorViewBuilder('MTD-API-MONITOR')
         .withJobs('vat-api', 'self-assessment-api-router', 'self-assessment-api', 'mtd-tax-calculation',
                   'mtd-property-api', 'mtd-identifier-lookup', 'mtd-self-employment').build(this)
