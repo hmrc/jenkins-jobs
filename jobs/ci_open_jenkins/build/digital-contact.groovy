@@ -36,9 +36,6 @@ new SbtLibraryJobBuilder('metrix-26').
 new SbtLibraryJobBuilder('csp-client').
         build(this)
 
-new SbtMicroserviceJobBuilder('email-proxy').
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('updated-print-suppressions').
         build(this as DslFactory)
 
@@ -71,7 +68,6 @@ new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
                   'batch-updater',
                   'work-item-repo',
                   'metrix',                  
-                  'csp-client',
-                  'email-proxy'
+                  'csp-client'
                   )
         .build(this)
