@@ -24,10 +24,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAReleaseWithScalaV
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
 
-new SbtLibraryJobBuilder('sbt-git-versioning').
-        withoutJUnitReports().
-        build(this)
-
 new SbtLibraryJobBuilder('time').
         build(this)
 
