@@ -81,10 +81,6 @@ new SbtFrontendJobBuilder('off-payroll-frontend').
         withTests("test").
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('off-payroll-decision').
-        withTests("test").
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('off-payroll-analytics-frontend').
         withTests("test").
         build(this as DslFactory)
