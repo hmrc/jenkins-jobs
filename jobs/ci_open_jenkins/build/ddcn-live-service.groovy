@@ -127,21 +127,6 @@ new SbtMicroserviceJobBuilder('ated').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('epaye-api').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-decision').
-        withTests("test").
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-frontend').
-        withTests("test").
-        build(this as DslFactory)
-
-
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
         withSCoverage().
@@ -205,7 +190,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ated',
         'ei',
         'ei-frontend',
-        'epaye-api',
         'pdf-generator-frontend',
         'pdf-generator-service',
         'ras-api',
