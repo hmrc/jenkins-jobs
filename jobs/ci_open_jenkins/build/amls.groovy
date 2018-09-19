@@ -16,11 +16,6 @@ new SbtLibraryJobBuilder('play-whitelist-filter').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('amls').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('amls-notification').
         withScalaStyle().
         withSCoverage().
