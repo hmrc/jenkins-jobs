@@ -13,9 +13,3 @@ new SbtMicroserviceJobBuilder('tai').
         withSCoverage().
         withTests("test").
         build(this as DslFactory)
-
-new SbtFrontendJobBuilder('tai-frontend').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
