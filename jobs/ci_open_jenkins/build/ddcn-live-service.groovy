@@ -33,11 +33,6 @@ new SbtMicroserviceJobBuilder('ers-submissions')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('gmp-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtFrontendJobBuilder('gmp-frontend-hotfix', 'gmp-frontend', 'hotfix/GMP-####')
         .withScalaStyle()
         .withSCoverage()
@@ -173,7 +168,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ers-submissions',
         'gmp',
         'gmp-bulk',
-        'gmp-frontend',
         'nisp-frontend',
         'state-pension',
         'national-insurance-record',
