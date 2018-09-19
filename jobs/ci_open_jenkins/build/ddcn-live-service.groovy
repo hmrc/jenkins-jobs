@@ -141,22 +141,6 @@ new SbtFrontendJobBuilder('off-payroll-frontend').
         withTests("test").
         build(this as DslFactory)
 
-
-new SbtFrontendJobBuilder('tax-summaries-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('tax-summaries').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('tax-summaries-agent').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('pdf-generator-frontend').
         withTests("test").
         withLogRotator(7, 1000).
@@ -211,13 +195,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ras-api',
         'ras-frontend'
 )
-        .build(this)
-
-new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
-        .withJobs(
-        'tax-summaries-frontend',
-        'tax-summaries',
-        'tax-summaries-agent')
         .build(this)
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
