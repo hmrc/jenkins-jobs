@@ -24,9 +24,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAReleaseWithScalaV
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
 
-new SbtLibraryJobBuilder('time').
-        build(this)
-
 new SbtLibraryJobBuilder('sbt-bobby').
         build(this)
 
