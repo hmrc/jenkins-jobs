@@ -7,9 +7,3 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 new BuildMonitorViewBuilder('PASSENGERS-MONITOR')
         .withJobs('currency-conversion').build(this)
-
-new SbtMicroserviceJobBuilder('currency-conversion').
-        withScalaStyle().
-        withSCoverage().
-        withTests("test").
-        build(this as DslFactory)
