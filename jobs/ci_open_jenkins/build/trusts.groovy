@@ -5,10 +5,7 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('trust-registration-api').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+
 
 new SbtFrontendJobBuilder('trusts-frontend').
         withScalaStyle().
@@ -22,5 +19,5 @@ new SbtMicroserviceJobBuilder('trusts').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('TRUST-MONITOR')
-        .withJobs('trust-registration-api','trusts-frontend', 'trusts')
+        .withJobs('trusts-frontend', 'trusts')
         .build(this)
