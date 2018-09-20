@@ -38,11 +38,6 @@ new SbtFrontendJobBuilder('gmp-frontend-hotfix', 'gmp-frontend', 'hotfix/GMP-###
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('gmp')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('gmp-bulk')
         .withScalaStyle()
         .withSCoverage()
