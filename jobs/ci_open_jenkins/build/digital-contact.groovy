@@ -36,9 +36,6 @@ new SbtLibraryJobBuilder('metrix-26').
 new SbtLibraryJobBuilder('csp-client').
         build(this)
 
-new SbtMicroserviceJobBuilder('updated-print-suppressions').
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('customer-advisors-frontend').
         build(this as DslFactory)
 
@@ -51,7 +48,6 @@ new SbtFrontendJobBuilder('announcement-frontend').
 
 new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
         .withJobs(
-                  'updated-print-suppressions',
                   'customer-advisors-frontend',
                   'preferences-admin-frontend',
                   'announcement-frontend',
