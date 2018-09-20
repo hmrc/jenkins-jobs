@@ -33,11 +33,6 @@ new SbtMicroserviceJobBuilder('ers-submissions')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('gmp-frontend-hotfix', 'gmp-frontend', 'hotfix/GMP-####')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('gmp-bulk')
         .withScalaStyle()
         .withSCoverage()
@@ -161,7 +156,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ers-returns-frontend',
         'ers-file-validator',
         'ers-submissions',
-        'gmp',
         'gmp-bulk',
         'nisp-frontend',
         'state-pension',
@@ -195,9 +189,7 @@ new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
         .withJobs(
-        'gmp',
         'gmp-bulk',
-        'gmp-frontend',
         'ras-api',
         'ras-frontend')
         .build(this)
