@@ -54,9 +54,6 @@ jobBuilder('init-service', 'init-service', 'master')
                                """.stripMargin())).build(this)
 
 
-new SbtLibraryJobBuilder('init-webhook').build(this)
-
-
 new SbtLibraryJobBuilder('releaser').
         build(this)
 
