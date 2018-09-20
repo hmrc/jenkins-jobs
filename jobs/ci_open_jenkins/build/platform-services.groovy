@@ -10,10 +10,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 new SbtLibraryJobBuilder('clamav-client').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('contact-admin').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('file-transfer-stub').
     build(this as DslFactory)
@@ -65,7 +61,6 @@ new SbtMicroserviceJobBuilder('file-transmission-callback-listener').
 
 new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
         .withJobs('clamav-client',
-                  'contact-admin',
                   'file-transfer-stub',
                   'file-upload',
                   'file-upload-frontend',
