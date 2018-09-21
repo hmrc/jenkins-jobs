@@ -38,9 +38,6 @@ new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
         build(this)
 
-new SbtLibraryJobBuilder('init-repository').
-        build(this)
-
 new SbtLibraryJobBuilder('service-integration-test').
         withoutJUnitReports().
         build(this as DslFactory)
@@ -170,7 +167,7 @@ new SbtLibraryJobBuilder('http-verbs-play-25').build(this as DslFactory)
 new SbtLibraryJobBuilder('http-verbs-play-26').build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PLATOPS-MONITOR')
-        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'init-repository', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client', 'library-upgrade-progress-frontend')
+        .withJobs('sbt-git-versioning', 'time', 'sbt-bobby', 'jenkins-job-builders', 'git-stamp', 'releaser', 'govuk-template', 'sbt-bintray-publish', 'sbt-git-stamp', 'sbt-settings', 'sbt-distributables', 'teams-and-services', 'alert-config-builder', 'init-service', 'indicators', 'service-deployments', 'create-a-release', 'create-a-repository', 'create-a-webhook', 'github-client', 'library-upgrade-progress-frontend')
         .build(this)
 
 jobBuilder('create-a-service', 'init-service')                                            
