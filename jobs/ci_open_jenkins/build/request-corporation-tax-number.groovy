@@ -11,13 +11,15 @@ new BuildMonitorViewBuilder('CTUTR-Monitor')
         'request-corporation-tax-number')
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('request-corporation-tax-number-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+new SbtFrontendJobBuilder('request-corporation-tax-number-frontend')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+        .disabled()
 
-new SbtMicroserviceJobBuilder('request-corporation-tax-number').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
+new SbtMicroserviceJobBuilder('request-corporation-tax-number')
+        .withScalaStyle()
+        .withSCoverage()
+        .build(this as DslFactory)
+        .disabled()
 
