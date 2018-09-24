@@ -5,11 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('income-tax-subscription-store').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('research-recording-tool-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
