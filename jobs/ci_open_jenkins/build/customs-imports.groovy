@@ -22,7 +22,7 @@ jobBuilder("customs-declare-imports-frontend-accessibility-tests", "customs-decl
         shellStep("sm --start CDS_IMPORTS_ALL -f"),
         shellStep("nvm use 8.12.0"),
         shellStep("npm test")
-)
+).build(this as DslFactory)
 
 
 new BuildMonitorViewBuilder("CDS-IMPORT-DECLARATIONS-MONITOR")
