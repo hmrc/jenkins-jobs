@@ -5,23 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('capital-gains-calculator')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-shares-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
 new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend')
         .withScalaStyle()
         .withSCoverage()
