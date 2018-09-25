@@ -42,15 +42,11 @@ new SbtFrontendJobBuilder('customer-advisors-frontend').
 new SbtFrontendJobBuilder('preferences-admin-frontend').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('announcement-frontend').
-        build(this as DslFactory)
-
 
 new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
         .withJobs(
                   'customer-advisors-frontend',
-                  'preferences-admin-frontend',
-                  'announcement-frontend',
+                  'preferences-admin-frontend'
                   )
         .build(this)
 
