@@ -20,11 +20,6 @@ new SbtMicroserviceJobBuilder('vat-correspondence-details-frontend').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-vc-api-stub').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('vat-obligations').
         withScalaStyle().
         withSCoverage().
@@ -44,7 +39,6 @@ new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
         'vat-summary-frontend',
         'vat-agent-client-lookup-frontend',
         'vat-correspondence-details-frontend',
-        'vat-vc-api-stub',
         'vat-obligations',
         'vat-obligations-dynamic-stub',
         'vat-returns-dynamic-stub',
