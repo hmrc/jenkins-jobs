@@ -27,9 +27,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
 new SbtLibraryJobBuilder('sbt-bobby').
         build(this)
 
-new SbtLibraryJobBuilder('zap-automation').
-        build(this)
-
 new SbtLibraryJobBuilder('accessibility-testing-library').
         withSCoverage().
         build(this as DslFactory)
