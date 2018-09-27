@@ -5,12 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtFrontendJobBuilder('view-vat-returns-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-
 new SbtFrontendJobBuilder('vat-summary-frontend').
         withScalaStyle().
         withSCoverage().
@@ -52,7 +46,6 @@ new SbtMicroserviceJobBuilder('vat-returns-dynamic-stub').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('VATVC-MONITOR').withJobs(
-        'view-vat-returns-frontend',
         'vat-summary-frontend',
         'vat-agent-client-lookup-frontend',
         'vat-correspondence-details-frontend',
