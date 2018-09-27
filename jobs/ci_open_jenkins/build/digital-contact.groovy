@@ -36,8 +36,6 @@ new SbtLibraryJobBuilder('metrix-26').
 new SbtLibraryJobBuilder('csp-client').
         build(this)
 
-new SbtFrontendJobBuilder('customer-advisors-frontend').
-        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('preferences-admin-frontend').
         build(this as DslFactory)
@@ -45,7 +43,6 @@ new SbtFrontendJobBuilder('preferences-admin-frontend').
 
 new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
         .withJobs(
-                  'customer-advisors-frontend',
                   'preferences-admin-frontend'
                   )
         .build(this)
