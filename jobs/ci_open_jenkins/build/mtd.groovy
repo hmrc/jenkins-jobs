@@ -8,10 +8,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.ZapTestsFollowingJourneyJobBuilder
 
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
 
-new SbtMicroserviceJobBuilder('self-assessment-api-router')
-        .withTests("test it:test")
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('mtd-self-employment')
         .withScalaStyle()
         .withSCoverage()
