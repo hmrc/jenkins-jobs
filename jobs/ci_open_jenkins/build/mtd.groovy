@@ -1,17 +1,9 @@
 package ci_open_jenkins.build
 
-import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep as shellStep
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.ZapTestsFollowingJourneyJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
-
-new SbtMicroserviceJobBuilder('mtd-self-employment')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep as shellStep
 
 new BuildMonitorViewBuilder('MTD-API_CI-OPEN_MONITOR')
         .withJobs('self-assessment-api-router', 'self-assessment-api', 'mtd-self-employment').build(this)
