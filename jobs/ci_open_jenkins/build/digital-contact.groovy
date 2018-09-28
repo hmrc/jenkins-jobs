@@ -37,15 +37,6 @@ new SbtLibraryJobBuilder('csp-client').
         build(this)
 
 
-new SbtFrontendJobBuilder('preferences-admin-frontend').
-        build(this as DslFactory)
-
-
-new BuildMonitorViewBuilder('DC-PUBLIC-MONITOR')
-        .withJobs(
-                  'preferences-admin-frontend'
-                  )
-        .build(this)
 
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
         .withJobs('emailaddress',
