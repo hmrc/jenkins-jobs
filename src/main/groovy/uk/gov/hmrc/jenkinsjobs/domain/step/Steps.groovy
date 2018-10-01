@@ -94,44 +94,6 @@ class Steps {
                   """.stripMargin())
     }
 
-    static Step createARepository(String repositoryName, String teamName, String repositoryType, String bootStrapTag, String enableTravis, String digitalServiceName) {
-        shellStep("""\
-                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar" ]; then
-                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION
-                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar
-                  |fi
-                  |enable_travis=""
-                  |#if [ $enableTravis = true ]; then
-                  | #enable_travis="--enable-travis"
-                  |#fi
-                  |
-                  |
-                  |DIGITAL_SERVICE=$digitalServiceName
-                  |DIGITAL_SERVICE_NAME_COMMAND=""
-                  |if [ -n "\$DIGITAL_SERVICE" ]; then
-                  |  DIGITAL_SERVICE_NAME_COMMAND="-dsn $digitalServiceName";
-                  |else
-                  |   echo "digital service name is empty. Therefor the manifest file will not be created";
-                  |fi
-                  |
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-repository_2.11/\$INIT_REPO_VERSION/init-repository_2.11-\$INIT_REPO_VERSION-assembly.jar "$repositoryName" "$teamName" "$repositoryType" "$bootStrapTag" \$enable_travis \$DIGITAL_SERVICE_NAME_COMMAND
-                  """.stripMargin())
-    }
-
-    static Step createAWebhook(String credFilePath, String apiBase, String repoOrg, String repositoryNames, String webhookUrl, String events, String contentType, String secret = "") {
-        shellStep("""\
-                  |if [ ! -f "~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar" ]; then
-                  |  mkdir -p ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION
-                  |  curl -L -k -o ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar https://dl.bintray.com/hmrc/releases/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar
-                  |fi
-                  |java \$JAVA_PROXY_OPTS -jar ~/.m2/repository/uk/gov/hmrc/init-webhook_2.11/\$INIT_WEBHOOK_VERSION/init-webhook_2.11-\$INIT_WEBHOOK_VERSION-assembly.jar "-cf" "$credFilePath" "-h" "$apiBase" "-o" "$repoOrg" "-rn" "$repositoryNames" "-wu" "$webhookUrl" "-e" "$events" "-ct" "$contentType" ${createSecretCliArg(secret)}
-                  """.stripMargin())
-    }
-
-    private static String createSecretCliArg(String secret) {
-        secret ? """ "-ws" "${secret}" """ : ""
-    }
-
     static Step dropMongoDatabase(String databaseName) {
         shellStep("""\
                   |mongo $databaseName --eval "db.dropDatabase()"
