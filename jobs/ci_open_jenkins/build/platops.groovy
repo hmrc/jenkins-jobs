@@ -1,28 +1,19 @@
 package ci_open_jenkins.build
 
 import javaposse.jobdsl.dsl.DslFactory
-import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.BooleanParameter.booleanParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.ChoiceParameter.choiceParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.NodeParameter.nodeParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.parameters.StringParameter.stringParameter
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.publisher.BuildDescriptionPublisher.buildDescriptionByRegexPublisher
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.CronTrigger.cronTrigger
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.trigger.PollTrigger.pollTrigger
 import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.SecretTextCredentialsWrapper.secretTextCredentials
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.wrapper.model.SecretText.secretText
 import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.cleanPublishSigned
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARelease
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAReleaseWithScalaVersion
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createARepository
-import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.createAWebhook
+import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 
 new SbtLibraryJobBuilder('sbt-bobby').
         build(this)
@@ -67,19 +58,6 @@ jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         withPublishers(
                 defaultBuildDescriptionPublisher()).
         build(this)
-
-jobBuilder('create-a-webhook')
-        .withEnvironmentVariables(stringEnvironmentVariable('INIT_WEBHOOK_VERSION', '0.14.0'))
-        .withParameters(stringParameter('CRED_FILE_PATH', '/var/lib/jenkins/.github/.credentials', 'path of file containing git credentials'))
-        .withParameters(stringParameter('API_BASE_URL', 'https://api.github.com', 'base url for git dev api'))
-        .withParameters(stringParameter('ORG', 'hmrc', 'repository organization'))
-        .withParameters(stringParameter('REPOSITORY_NAMES', '', 'comma separated list of repository names e.g. foo-frontend,foo-service'))
-        .withParameters(stringParameter('WEBHOOK_URL', '', 'url for the notification'))
-        .withParameters(stringParameter('EVENTS', 'issues,issue_comment,pull_request,pull_request_review_comment', 'comma separated list of git events to be notified e.g issues,pull_request if not specified defaults will be used'))
-        .withParameters(choiceParameter('CONTENT_TYPE', ['application/json', 'application/x-www-form-urlencoded'], 'The format of the body sent to the Webhook'))
-        .withSteps(createAWebhook('$CRED_FILE_PATH', '$API_BASE_URL', '$ORG', '$REPOSITORY_NAMES', '$WEBHOOK_URL', '$EVENTS', '$CONTENT_TYPE'))
-        .build(this)
-
 
 jobBuilder('create-a-release').
         withEnvironmentVariables(stringEnvironmentVariable('RELEASER_VERSION', '1.7.0')).
