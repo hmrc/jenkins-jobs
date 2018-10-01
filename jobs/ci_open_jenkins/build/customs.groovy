@@ -9,7 +9,6 @@ def customsDitLicences = 'customs-dit-licences'
 def customsInventoryLinkingImports = 'customs-inventory-linking-imports'
 def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
-def customsNotificationReceiverStub = 'customs-notifications-receiver-stub'
 def customsApiCommon = 'customs-api-common'
 def apiNotificationPull = 'api-notification-pull'
 def apiNotificationQueue = 'api-notification-queue'
@@ -33,7 +32,6 @@ microservice(customsDitLicences)
 microserviceWithPackage(customsInventoryLinkingImports)
 microservice(customsNotification)
 microservice(customsApiCommon)
-microservice(customsNotificationReceiverStub)
 microserviceWithPackage(customsDeclarations)
 microservice(apiNotificationPull)
 microservice(apiNotificationQueue)
@@ -44,7 +42,6 @@ new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
         customsInventoryLinkingImports,
         customsDeclarations,
         customsNotification,
-        customsNotificationReceiverStub,
         customsApiCommon,
         apiNotificationPull,
         apiNotificationQueue).
