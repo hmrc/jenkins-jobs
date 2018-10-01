@@ -29,26 +29,6 @@ new SbtFrontendJobBuilder('file-upload-frontend').
         withScalaStyle().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('upscan-initiate').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('upscan-notify').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('upscan-verify').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('upscan-stub').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('file-transmission').
         withSCoverage().
         withScalaStyle().
@@ -64,10 +44,6 @@ new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
                   'file-transfer-stub',
                   'file-upload',
                   'file-upload-frontend',
-                  'upscan-initiate',
-                  'upscan-notify',
-                  'upscan-verify',
-                  'upscan-stub',
                   'file-transmission',
                   'file-transmission-callback-listener'
         )
