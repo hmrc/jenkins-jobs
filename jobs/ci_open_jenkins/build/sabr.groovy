@@ -5,19 +5,11 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('income-tax-subscription-store').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('research-recording-tool-frontend').
         withExtendedTimeout().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-sign-up').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('vat-sign-up-frontend').
         withScalaStyle().
@@ -26,5 +18,5 @@ new SbtFrontendJobBuilder('vat-sign-up-frontend').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SABR-MONITOR').withJobs(
-        'income-tax-subscription-store', 'vat-sign-up-frontend', 'vat-sign-up'
+        'vat-sign-up-frontend'
 ).build(this)
