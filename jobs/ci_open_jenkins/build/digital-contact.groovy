@@ -33,9 +33,6 @@ new SbtLibraryJobBuilder('metrix').
 new SbtLibraryJobBuilder('metrix-26').
         build(this)
 
-new SbtLibraryJobBuilder('csp-client').
-        build(this)
-
 
 
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
@@ -44,7 +41,6 @@ new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
                   'play-scheduling',
                   'batch-updater',
                   'work-item-repo',
-                  'metrix',                  
-                  'csp-client'
+                  'metrix'  
                   )
         .build(this)
