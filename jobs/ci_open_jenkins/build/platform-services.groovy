@@ -19,16 +19,6 @@ new SbtMicroserviceJobBuilder('mdg-stub').
         withScalaStyle().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('file-upload').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('file-upload-frontend').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('file-transmission').
         withSCoverage().
         withScalaStyle().
@@ -42,8 +32,6 @@ new SbtMicroserviceJobBuilder('file-transmission-callback-listener').
 new BuildMonitorViewBuilder('PLATFORM-SERVICES-OPEN-MONITOR')
         .withJobs('clamav-client',
                   'file-transfer-stub',
-                  'file-upload',
-                  'file-upload-frontend',
                   'file-transmission',
                   'file-transmission-callback-listener'
         )
