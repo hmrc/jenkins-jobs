@@ -27,20 +27,11 @@ new SbtLibraryJobBuilder('work-item-repo').
 new SbtLibraryJobBuilder('work-item-repo-26').
         build(this)
 
-new SbtLibraryJobBuilder('metrix').
-        build(this)
-
-new SbtLibraryJobBuilder('metrix-26').
-        build(this)
-
-
-
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
         .withJobs('emailaddress',
                   'url-builder',                 
                   'play-scheduling',
                   'batch-updater',
-                  'work-item-repo',
-                  'metrix'  
+                  'work-item-repo'
                   )
         .build(this)
