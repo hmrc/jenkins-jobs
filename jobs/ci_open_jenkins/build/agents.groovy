@@ -72,14 +72,6 @@ new SbtLibraryJobBuilder('agent-mtd-identifiers').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('agents-external-stubs').
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('agents-external-stubs-frontend').
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('AGENTS-MONITOR')
         .withJobs('agent-access-control', 'agent-client-authorisation',
                   'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',

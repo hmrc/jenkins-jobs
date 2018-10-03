@@ -1,40 +1,12 @@
 package ci_open_jenkins.build
 
-import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep as shellStep
-import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.ZapTestsFollowingJourneyJobBuilder
 
-import static uk.gov.hmrc.jenkinsjobbuilders.domain.variable.StringEnvironmentVariable.stringEnvironmentVariable
+import static uk.gov.hmrc.jenkinsjobbuilders.domain.step.ShellStep.shellStep as shellStep
 
-new SbtMicroserviceJobBuilder('self-assessment-api')
-        .withTests("test func:test")
-        .withEnvironmentVariable(stringEnvironmentVariable("MONGO_TEST_URI", "mongodb://localhost:27017/self-assessment-api"))
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('self-assessment-api-router')
-        .withTests("test it:test")
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('mtd-property-api')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('mtd-identifier-lookup')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('mtd-self-employment')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new BuildMonitorViewBuilder('MTD-API-MONITOR')
-        .withJobs('vat-api', 'self-assessment-api-router', 'self-assessment-api', 'mtd-tax-calculation',
-                  'mtd-property-api', 'mtd-identifier-lookup', 'mtd-self-employment').build(this)
+new BuildMonitorViewBuilder('MTD-API_CI-OPEN_MONITOR')
+        .withJobs('self-assessment-api-router', 'self-assessment-api', 'mtd-self-employment').build(this)
 
 new ZapTestsFollowingJourneyJobBuilder('checking-self-assessment-api-zap',
         'self-assessment-api',

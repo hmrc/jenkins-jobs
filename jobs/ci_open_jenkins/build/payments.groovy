@@ -14,18 +14,11 @@ new SbtMicroserviceJobBuilder("cds-stub").
 new SbtLibraryJobBuilder('reference-checker').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('mongo-lock').
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('mongo-lock-26').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('order-id-encoder').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
         .withJobs('worldpay-report-generator',
                   'reference-checker',
-                  'order-id-encoder',
-                  'mongo-lock'
+                  'order-id-encoder'
                 ).build(this)

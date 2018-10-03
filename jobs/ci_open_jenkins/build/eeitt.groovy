@@ -20,7 +20,7 @@ def javaLibraries = ["http-verbs-java",
 
 def frontends = ["eeitt-frontend", "eeitt-admin-frontend", "eeitt-business-console"]
 
-def services = ["eeitt"]
+def services = []
 
 def allServices = services + frontends
 

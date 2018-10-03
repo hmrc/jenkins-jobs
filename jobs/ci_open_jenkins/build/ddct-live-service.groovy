@@ -5,23 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 
-new SbtMicroserviceJobBuilder('capital-gains-calculator')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-shares-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cgt-calculator-resident-properties-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .withExtendedTimeout()
-        .build(this as DslFactory)
-
 new SbtFrontendJobBuilder('pensions-lifetime-allowance-frontend')
         .withScalaStyle()
         .withSCoverage()
@@ -41,30 +24,6 @@ new SbtMicroserviceJobBuilder('pla-dynamic-stub')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('childcare-calculator-frontend').
-        withScalaStyle().
-        withSCoverage().
-        withTests("test").
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cc-calculator').
-        withScalaStyle().
-        withTests("test").
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cc-eligibility').
-        withScalaStyle().
-        withSCoverage().
-        withTests("test").
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('cc-email-capture').
-        withScalaStyle().
-        withSCoverage().
-        withTests("test").
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('residence-nil-rate-band-calculator').
         withTests('test').
         withScalaStyle().
@@ -78,10 +37,6 @@ new SbtFrontendJobBuilder('residence-nil-rate-band-calculator-frontend').
 
 
 new SbtFrontendJobBuilder('off-payroll-frontend').
-        withTests("test").
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-decision').
         withTests("test").
         build(this as DslFactory)
 
@@ -102,10 +57,6 @@ new BuildMonitorViewBuilder('DDCT-LIVE-SERVICES-MONITOR')
         'pensions-lifetime-allowance',
         'pensions-lifetime-allowance-frontend',
         'pla-dynamic-stub',
-        'childcare-calculator-frontend',
-        'cc-calculator',
-        'cc-eligibility',
-        'cc-email-capture',
         'residence-nil-rate-band-calculator',
         'residence-nil-rate-band-calculator-frontend',
         'off-payroll-frontend',

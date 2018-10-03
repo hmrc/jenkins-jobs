@@ -33,21 +33,6 @@ new SbtMicroserviceJobBuilder('ers-submissions')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtFrontendJobBuilder('gmp-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('gmp-frontend-hotfix', 'gmp-frontend', 'hotfix/GMP-####')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('gmp')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('gmp-bulk')
         .withScalaStyle()
         .withSCoverage()
@@ -127,21 +112,6 @@ new SbtMicroserviceJobBuilder('ated').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('epaye-api').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-decision').
-        withTests("test").
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('off-payroll-frontend').
-        withTests("test").
-        build(this as DslFactory)
-
-
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
         withSCoverage().
@@ -186,9 +156,7 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ers-returns-frontend',
         'ers-file-validator',
         'ers-submissions',
-        'gmp',
         'gmp-bulk',
-        'gmp-frontend',
         'nisp-frontend',
         'state-pension',
         'national-insurance-record',
@@ -205,7 +173,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ated',
         'ei',
         'ei-frontend',
-        'epaye-api',
         'pdf-generator-frontend',
         'pdf-generator-service',
         'ras-api',
@@ -222,9 +189,7 @@ new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
         .withJobs(
-        'gmp',
         'gmp-bulk',
-        'gmp-frontend',
         'ras-api',
         'ras-frontend')
         .build(this)
