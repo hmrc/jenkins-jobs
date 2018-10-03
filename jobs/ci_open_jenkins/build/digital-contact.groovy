@@ -6,9 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtLibraryJobBuilder('a-b-test').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('url-builder').
         build(this as DslFactory)
         
