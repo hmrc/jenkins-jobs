@@ -9,8 +9,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtLibraryJobBuilder('url-builder').
         build(this as DslFactory)
         
-new SbtLibraryJobBuilder('emailaddress').
-        build(this as DslFactory)
 
 new SbtLibraryJobBuilder('play-scheduling').
         build(this)
@@ -30,7 +28,7 @@ new SbtLibraryJobBuilder('metrix-26').
 
 
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
-        .withJobs('emailaddress',
+        .withJobs(
                   'url-builder',                 
                   'play-scheduling',
                   'work-item-repo',
