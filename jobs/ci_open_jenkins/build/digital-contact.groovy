@@ -15,9 +15,6 @@ new SbtLibraryJobBuilder('emailaddress').
 new SbtLibraryJobBuilder('play-scheduling').
         build(this)
         
-new SbtLibraryJobBuilder('batch-updater').
-        build(this)
-
 new SbtLibraryJobBuilder('work-item-repo').
         build(this)
 
@@ -36,7 +33,6 @@ new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
         .withJobs('emailaddress',
                   'url-builder',                 
                   'play-scheduling',
-                  'batch-updater',
                   'work-item-repo',
                   'metrix'  
                   )
