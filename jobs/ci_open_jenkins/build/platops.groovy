@@ -18,10 +18,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 new SbtLibraryJobBuilder('sbt-bobby').
         build(this)
 
-new SbtLibraryJobBuilder('accessibility-testing-library').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
         build(this)
