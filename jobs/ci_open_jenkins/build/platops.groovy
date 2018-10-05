@@ -89,8 +89,6 @@ jobBuilder('clean-slaves').
                                """.stripMargin())).
         build(this)
 
-new SbtLibraryJobBuilder('alert-config-builder').build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
         .build(this as DslFactory)
 
