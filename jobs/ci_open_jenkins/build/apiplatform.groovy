@@ -32,10 +32,6 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
 new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-publisher').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-scope').
         withSCoverage().
         build(this as DslFactory)
