@@ -6,11 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtMicroserviceJobBuilder('api-definition').
-        withTests("test").
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-gateway').
         build(this as DslFactory)
 
