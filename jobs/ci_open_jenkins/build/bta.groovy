@@ -22,9 +22,6 @@ new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('frontend-bootstrap').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('microservice-bootstrap').
         build(this)
 
