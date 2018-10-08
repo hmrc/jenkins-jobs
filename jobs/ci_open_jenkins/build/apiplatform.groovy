@@ -9,12 +9,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 new SbtMicroserviceJobBuilder('api-gateway').
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('api-revocation-frontend').
-        withSCoverage().
-        withTests("test acceptance:test").
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('api-service-approval-frontend').
         withTests("test acceptance:test").
         withXvfb().
