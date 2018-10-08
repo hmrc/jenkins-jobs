@@ -22,10 +22,6 @@ new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
         build(this)
 
-new SbtLibraryJobBuilder('service-integration-test').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('releaser').
         build(this)
 
