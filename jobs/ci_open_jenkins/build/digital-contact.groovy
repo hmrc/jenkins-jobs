@@ -6,9 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
         
 
-new SbtLibraryJobBuilder('play-scheduling').
-        build(this)
-        
 
 new SbtLibraryJobBuilder('work-item-repo-26').
         build(this)
@@ -24,7 +21,6 @@ new SbtLibraryJobBuilder('batch-updater').
 
 new BuildMonitorViewBuilder('DC-PUBLIC-OTHER')
         .withJobs(
-                  'play-scheduling',
                   'batch-updater'
                   )
         .build(this)
