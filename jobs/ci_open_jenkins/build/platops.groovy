@@ -22,9 +22,6 @@ new SbtLibraryJobBuilder('git-stamp').
         withoutJUnitReports().
         build(this)
 
-new SbtLibraryJobBuilder('releaser').
-        build(this)
-
 new SbtLibraryJobBuilder('govuk-template').
         withoutJUnitReports().
         build(this)
