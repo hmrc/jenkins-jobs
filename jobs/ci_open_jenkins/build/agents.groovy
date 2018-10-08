@@ -10,10 +10,6 @@ new SbtMicroserviceJobBuilder('agent-access-control').
         withSCoverage().
         withScalaStyle().
         build(this as DslFactory)
-new SbtMicroserviceJobBuilder('agent-client-relationships').
-        withSCoverage().
-        withScalaStyle().
-        build(this as DslFactory)
 new SbtMicroserviceJobBuilder('agent-mapping').
         withSCoverage().
         build(this as DslFactory)
@@ -39,11 +35,6 @@ new SbtMicroserviceJobBuilder('agent-services-account').
 new SbtFrontendJobBuilder('agent-invitations-frontend').
         withSCoverage().
         build(this as DslFactory)
-        
-new SbtMicroserviceJobBuilder('agent-fi-relationship').
-        withSCoverage().
-        build(this as DslFactory)
-
 
 new SbtMicroserviceJobBuilder('agent-epaye-registration').
         withSCoverage().
@@ -63,8 +54,3 @@ new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
 new SbtLibraryJobBuilder('agent-mtd-identifiers').
         withSCoverage().
         build(this as DslFactory)
-
-new BuildMonitorViewBuilder('AGENTS-MONITOR')
-        .withJobs('agent-access-control', 'agent-client-authorisation',
-                  'agent-kenshoo-monitoring', 'agent-client-relationships', 'agent-subscription', 'agent-subscription-frontend',
-                  'agent-mtd-identifiers','agent-mapping','agent-mapping-frontend', 'agent-services-account-frontend', 'agent-services-account').build(this)
