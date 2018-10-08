@@ -15,14 +15,14 @@ new SbtFrontendJobBuilder('fset-faststream-frontend').
 
 new SbtFrontendJobBuilder('fset-video-interview-gateway').
     build(this as DslFactory)
-
+/*
 new SbtMicroserviceJobBuilder('fset-fasttrack').
     withExtendedTimeout().
     build(this as DslFactory)
 
 new SbtFrontendJobBuilder('fset-fasttrack-frontend').
     build(this as DslFactory)
-
+*/
 new SbtMicroserviceJobBuilder('fset-email-renderer').
     build(this as DslFactory)
 
