@@ -37,10 +37,6 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('service-locator').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('totp-generator').
         build(this as DslFactory)
 
