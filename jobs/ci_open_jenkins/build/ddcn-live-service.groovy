@@ -60,38 +60,6 @@ new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('ated-subscription').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('agent-client-mandate').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('agent-client-mandate-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ated-subscription-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ated-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('ated').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
         withSCoverage().
@@ -141,12 +109,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'tamc',
         'tamc-frontend',
         'marriage-allowance-des-stub',
-        'ated-subscription',
-        'agent-client-mandate',
-        'agent-client-mandate-frontend',
-        'ated-subscription-frontend',
-        'ated-frontend',
-        'ated',
         'ei',
         'ei-frontend',
         'pdf-generator-frontend',
