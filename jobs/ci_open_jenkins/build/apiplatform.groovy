@@ -28,9 +28,6 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('totp-generator').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
