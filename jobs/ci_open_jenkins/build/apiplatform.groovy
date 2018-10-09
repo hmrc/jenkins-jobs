@@ -57,7 +57,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-login-frontend',
         'api-publisher',
-        'api-scope',
         'api-stop-autodeploy-test',
         'api-subscription-fields',
         'ciao-multisegment-api',
