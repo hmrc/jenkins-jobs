@@ -14,10 +14,6 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
 new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-scope').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
         withTests("test").
         withSCoverage().
@@ -58,7 +54,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-login-frontend',
         'api-publisher',
-        'api-scope',
         'api-stop-autodeploy-test',
         'api-subscription-fields',
         'ciao-multisegment-api',
