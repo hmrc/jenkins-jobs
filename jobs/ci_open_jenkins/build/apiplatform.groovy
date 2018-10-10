@@ -14,10 +14,6 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
 new SbtFrontendJobBuilder('api-sandbox-holding-page-frontend').
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-scope').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
         withTests("test").
         withSCoverage().
@@ -31,15 +27,7 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('raml-tools').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('http-metrics').
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('fraud-prevention').
         withSCoverage().
         build(this as DslFactory)
 
@@ -58,7 +46,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test-user',
         'api-platform-test-login-frontend',
         'api-publisher',
-        'api-scope',
         'api-stop-autodeploy-test',
         'api-subscription-fields',
         'ciao-multisegment-api',
@@ -67,7 +54,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'third-party-developer-frontend',
         'totp-generator',
         'play-json-union-formatter',
-        'raml-tools',
         'http-metrics',
         'fraud-prevention'
 ).build(this)
