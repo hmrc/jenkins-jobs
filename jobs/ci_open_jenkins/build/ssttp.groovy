@@ -6,7 +6,6 @@ def services = [
         "self-service-time-to-pay-frontend",
         "ia-frontend",
         "self-service-time-to-pay",
-        "self-service-time-to-pay-des-stub-scala",
         "time-to-pay-arrangement",
         "time-to-pay-calculator",
         "time-to-pay-eligibility",
