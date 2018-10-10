@@ -35,10 +35,6 @@ new SbtLibraryJobBuilder('http-metrics').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('fraud-prevention').
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-definition',
