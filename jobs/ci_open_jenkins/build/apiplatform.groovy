@@ -27,10 +27,6 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('raml-tools').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('http-metrics').
         withSCoverage().
         build(this as DslFactory)
@@ -58,7 +54,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'third-party-developer-frontend',
         'totp-generator',
         'play-json-union-formatter',
-        'raml-tools',
         'http-metrics',
         'fraud-prevention'
 ).build(this)
