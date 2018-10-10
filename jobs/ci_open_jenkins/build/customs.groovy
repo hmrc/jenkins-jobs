@@ -6,6 +6,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
 def customsDitLicences = 'customs-dit-licences'
+def customsInventoryLinkingImports = 'customs-inventory-linking-imports'
 def customsDeclarations = 'customs-declarations'
 def customsNotification = "customs-notification"
 def customsApiCommon = 'customs-api-common'
@@ -28,6 +29,7 @@ private Job microservice(String serviceName) {
 }
 
 microservice(customsDitLicences)
+microserviceWithPackage(customsInventoryLinkingImports)
 microservice(customsNotification)
 microservice(customsApiCommon)
 microserviceWithPackage(customsDeclarations)
@@ -37,6 +39,7 @@ microservice(apiNotificationQueue)
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
         customsDitLicences,
+        customsInventoryLinkingImports,
         customsDeclarations,
         customsNotification,
         customsApiCommon,
