@@ -7,7 +7,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
 def customsDitLicences = 'customs-dit-licences'
 def customsDeclarations = 'customs-declarations'
-def customsNotification = "customs-notification"
 def apiNotificationPull = 'api-notification-pull'
 def apiNotificationQueue = 'api-notification-queue'
 
@@ -27,7 +26,6 @@ private Job microservice(String serviceName) {
 }
 
 microservice(customsDitLicences)
-microservice(customsNotification)
 microserviceWithPackage(customsDeclarations)
 microservice(apiNotificationPull)
 microservice(apiNotificationQueue)
@@ -36,7 +34,6 @@ new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
         customsDitLicences,
         customsDeclarations,
-        customsNotification,
         apiNotificationPull,
         apiNotificationQueue).
     build(this)
