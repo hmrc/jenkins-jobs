@@ -12,10 +12,10 @@ new SbtMicroserviceJobBuilder('fset-faststream').
 
 new SbtFrontendJobBuilder('fset-faststream-frontend').
     build(this as DslFactory)
-
+/*
 new SbtFrontendJobBuilder('fset-video-interview-gateway').
     build(this as DslFactory)
-/*
+
 new SbtMicroserviceJobBuilder('fset-fasttrack').
     withExtendedTimeout().
     build(this as DslFactory)
