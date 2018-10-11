@@ -7,7 +7,6 @@ def services = [
         "ia-frontend",
         "self-service-time-to-pay",
         "time-to-pay-arrangement",
-        "time-to-pay-eligibility",
         "time-to-pay-taxpayer",
         "ia",
         "sa-stub"]
