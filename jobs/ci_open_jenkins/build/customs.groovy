@@ -5,7 +5,6 @@ import javaposse.jobdsl.dsl.Job
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
-def customsDitLicences = 'customs-dit-licences'
 def customsDeclarations = 'customs-declarations'
 def apiNotificationPull = 'api-notification-pull'
 
@@ -24,13 +23,11 @@ private Job microservice(String serviceName) {
             build(this as DslFactory)
 }
 
-microservice(customsDitLicences)
 microserviceWithPackage(customsDeclarations)
 microservice(apiNotificationPull)
 
 new BuildMonitorViewBuilder('CUSTOMS-MONITOR').
     withJobs(
-        customsDitLicences,
         customsDeclarations,
         apiNotificationPull).
     build(this)
