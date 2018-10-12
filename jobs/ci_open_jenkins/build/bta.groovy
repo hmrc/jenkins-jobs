@@ -10,10 +10,6 @@ new SbtFrontendJobBuilder('add-taxes-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('corporation-tax-frontend').
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
@@ -35,6 +31,5 @@ new SbtLibraryJobBuilder('play-url-binders').
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
-                  'corporation-tax-frontend',
                   'help-frontend')
         .build(this)
