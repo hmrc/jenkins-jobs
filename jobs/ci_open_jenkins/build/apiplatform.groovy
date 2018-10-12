@@ -11,9 +11,6 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-json-union-formatter').
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-documentation',
@@ -21,14 +18,11 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-example-microservice',
         'api-example-scala-client',
         'api-gateway',
-        'api-simulator',
         'api-revocation-frontend',
         'api-service-approval-frontend',
-        'api-platform-test',
         'api-platform-test-user',
         'api-platform-test-login-frontend',
         'api-subscription-fields',
         'national-insurance-des-stub',
         'third-party-developer-frontend',
-        'play-json-union-formatter',
 ).build(this)
