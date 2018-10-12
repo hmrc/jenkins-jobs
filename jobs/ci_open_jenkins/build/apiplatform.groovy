@@ -24,10 +24,6 @@ new SbtMicroserviceJobBuilder('ciao-multisegment-api').
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-metrics').
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-definition',
