@@ -11,17 +11,11 @@ new SbtFrontendJobBuilder('api-service-approval-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('api-stop-autodeploy-test').
-        withTests("test").
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-json-union-formatter').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
-        'api-definition',
         'api-documentation',
         'api-documentation-frontend',
         'api-example-microservice',
@@ -33,7 +27,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-platform-test',
         'api-platform-test-user',
         'api-platform-test-login-frontend',
-        'api-stop-autodeploy-test',
         'api-subscription-fields',
         'national-insurance-des-stub',
         'third-party-developer-frontend',
