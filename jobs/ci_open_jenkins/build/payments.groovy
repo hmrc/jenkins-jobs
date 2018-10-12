@@ -18,7 +18,7 @@ new SbtMicroserviceJobBuilder("cds-stub").
 //        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
-        .withJobs('worldpay-report-generator',
-                  'reference-checker'
+        .withJobs('worldpay-report-generator'
+                 // 'reference-checker'
                  // 'order-id-encoder'
                 ).build(this)
