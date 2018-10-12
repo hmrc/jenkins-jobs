@@ -6,13 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 
-new SbtMicroserviceJobBuilder('agent-epaye-registration').
-        withSCoverage().
-        build(this as DslFactory)
-new SbtFrontendJobBuilder('agent-epaye-registration-frontend').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         withSCoverage().
         build(this as DslFactory)
