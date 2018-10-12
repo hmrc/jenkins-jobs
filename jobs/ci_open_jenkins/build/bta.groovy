@@ -36,7 +36,5 @@ new SbtLibraryJobBuilder('play-url-binders').
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
         .withJobs('add-taxes-frontend',
                   'corporation-tax-frontend',
-                  'help-frontend',
-                  'microservice-bootstrap',
-                  'play-partials')
+                  'help-frontend')
         .build(this)
