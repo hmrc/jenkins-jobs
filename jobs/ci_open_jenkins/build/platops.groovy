@@ -88,8 +88,6 @@ new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("te
 new SbtMicroserviceJobBuilder('sample-reactivemongo').withTests("test")
         .build(this as DslFactory)
 
-new SbtLibraryJobBuilder('git-client').build(this as DslFactory)
-
 new SbtLibraryJobBuilder('init-prototype').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('http-verbs-play-25').build(this as DslFactory)
