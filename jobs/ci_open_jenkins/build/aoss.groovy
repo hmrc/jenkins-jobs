@@ -5,5 +5,3 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 new SbtLibraryJobBuilder('bulk-entity-streaming').
         build(this)
 
-new SbtLibraryJobBuilder('reactive-circuit-breaker').
-        build(this)

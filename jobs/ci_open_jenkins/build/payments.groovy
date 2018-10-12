@@ -11,14 +11,14 @@ new SbtLibraryJobBuilder('worldpay-report-generator').
 new SbtMicroserviceJobBuilder("cds-stub").
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('reference-checker').
-        build(this as DslFactory)
+//new SbtLibraryJobBuilder('reference-checker').
+//        build(this as DslFactory)
 
-new SbtLibraryJobBuilder('order-id-encoder').
-        build(this as DslFactory)
+//new SbtLibraryJobBuilder('order-id-encoder').
+//        build(this as DslFactory)
 
 new BuildMonitorViewBuilder('PAYMENTS-MONITOR')
-        .withJobs('worldpay-report-generator',
-                  'reference-checker',
-                  'order-id-encoder'
+        .withJobs('worldpay-report-generator'
+                 // 'reference-checker'
+                 // 'order-id-encoder'
                 ).build(this)

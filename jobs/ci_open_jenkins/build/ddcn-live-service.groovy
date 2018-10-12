@@ -13,26 +13,6 @@ def appLevyJob = new SbtMicroserviceJobBuilder('apprenticeship-levy')
         .build(this as DslFactory)
 appLevyJob
 
-new SbtFrontendJobBuilder('ers-checking-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ers-returns-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('ers-file-validator')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('ers-submissions')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('gmp-bulk')
         .withScalaStyle()
         .withSCoverage()
@@ -80,38 +60,6 @@ new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('ated-subscription').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('agent-client-mandate').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('agent-client-mandate-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ated-subscription-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ated-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('ated').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
         withSCoverage().
@@ -152,10 +100,6 @@ new SbtFrontendJobBuilder('ras-frontend').
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'apprenticeship-levy',
-        'ers-checking-frontend',
-        'ers-returns-frontend',
-        'ers-file-validator',
-        'ers-submissions',
         'gmp-bulk',
         'nisp-frontend',
         'state-pension',
@@ -165,12 +109,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'tamc',
         'tamc-frontend',
         'marriage-allowance-des-stub',
-        'ated-subscription',
-        'agent-client-mandate',
-        'agent-client-mandate-frontend',
-        'ated-subscription-frontend',
-        'ated-frontend',
-        'ated',
         'ei',
         'ei-frontend',
         'pdf-generator-frontend',
