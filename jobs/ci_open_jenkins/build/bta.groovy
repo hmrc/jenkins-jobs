@@ -6,10 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtFrontendJobBuilder('add-taxes-frontend').
-        withXvfb().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
@@ -30,6 +26,5 @@ new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
-        .withJobs('add-taxes-frontend',
-                  'help-frontend')
+        .withJobs('help-frontend')
         .build(this)
