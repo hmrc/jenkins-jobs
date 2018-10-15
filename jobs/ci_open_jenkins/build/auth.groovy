@@ -46,10 +46,6 @@ new SbtLibraryJobBuilder('play-filters').
 new SbtLibraryJobBuilder('domain').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('hmrctest').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('http-exceptions').
         withoutJUnitReports().
         build(this as DslFactory)
