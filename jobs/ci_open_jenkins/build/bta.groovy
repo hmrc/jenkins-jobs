@@ -10,9 +10,6 @@ new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('microservice-bootstrap').
-        build(this)
-
 new SbtLibraryJobBuilder('play-ui').
         build(this as DslFactory)
 
