@@ -10,6 +10,3 @@ new SbtLibraryJobBuilder('agent-kenshoo-monitoring').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('agent-mtd-identifiers').
-        withSCoverage().
-        build(this as DslFactory)
