@@ -5,25 +5,11 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-//new SbtMicroserviceJobBuilder('company-registration').
-//        withScalaStyle().
-//        withSCoverage().
-//        build(this as DslFactory)
-
-//new SbtMicroserviceJobBuilder('company-registration-frontend').
-//        withScalaStyle().
-//        withSCoverage().
-//        build(this as DslFactory)     
-
 new SbtMicroserviceJobBuilder('business-registration-notification').
         withScalaStyle().
         withSCoverage().
         build(this as DslFactory)   
 
-//new SbtMicroserviceJobBuilder('business-registration-dynamic-stub').
-//        withScalaStyle().
-//        withSCoverage().
-//        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('incorporation-information').
         withScalaStyle().
@@ -48,24 +34,12 @@ new SbtMicroserviceJobBuilder('vat-registration').
 new SbtFrontendJobBuilder('paye-registration-eligibility-frontend').
         withScalaStyle().
         withSCoverage().
-        build(this as DslFactory)      
-
-new SbtMicroserviceJobBuilder('paye-registration').
-        withScalaStyle().
-        withSCoverage().
         build(this as DslFactory)
 
-
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-        .withJobs(
-//                  'company-registration',
-//                  'company-registration-frontend',
-                  'business-registration-notification',
-//                  'business-registration-dynamic-stub',
+        .withJobs('business-registration-notification',
                   'incorporation-information',
                   'vat-registration-eligibility-frontend',
                   'vat-registration-frontend',
                   'vat-registration',
-                  'paye-registration-eligibility-frontend',
-                  'paye-registration'
-).build(this)
+                  'paye-registration-eligibility-frontend').build(this)
