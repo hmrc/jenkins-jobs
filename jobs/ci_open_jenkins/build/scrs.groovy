@@ -45,11 +45,6 @@ new SbtMicroserviceJobBuilder('vat-registration').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('paye-registration-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('paye-registration-eligibility-frontend').
         withScalaStyle().
         withSCoverage().
@@ -71,7 +66,6 @@ new BuildMonitorViewBuilder('SCRS-MONITOR')
                   'vat-registration-eligibility-frontend',
                   'vat-registration-frontend',
                   'vat-registration',
-                  'paye-registration-frontend',
                   'paye-registration-eligibility-frontend',
                   'paye-registration'
 ).build(this)
