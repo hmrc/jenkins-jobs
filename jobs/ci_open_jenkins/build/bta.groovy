@@ -22,6 +22,3 @@ new SbtLibraryJobBuilder('play-partials').
 new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
-new BuildMonitorViewBuilder('BTA-OPEN-DEV-MONITOR')
-        .withJobs('help-frontend')
-        .build(this)
