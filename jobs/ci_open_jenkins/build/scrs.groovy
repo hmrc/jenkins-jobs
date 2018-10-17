@@ -16,11 +16,6 @@ new SbtMicroserviceJobBuilder('incorporation-information').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-registration-eligibility-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('vat-registration-frontend').
         withScalaStyle().
         withSCoverage().
@@ -39,7 +34,6 @@ new SbtFrontendJobBuilder('paye-registration-eligibility-frontend').
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs('business-registration-notification',
                   'incorporation-information',
-                  'vat-registration-eligibility-frontend',
                   'vat-registration-frontend',
                   'vat-registration',
                   'paye-registration-eligibility-frontend').build(this)
