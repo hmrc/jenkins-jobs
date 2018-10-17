@@ -30,5 +30,4 @@ new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs('business-registration-notification',
                   'incorporation-information',
                   'vat-registration-frontend',
-                  'vat-registration',
-                  'paye-registration-eligibility-frontend').build(this)
+                  'vat-registration').build(this)
