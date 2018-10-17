@@ -24,5 +24,4 @@ new SbtMicroserviceJobBuilder('vat-registration').
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs('business-registration-notification',
                   'incorporation-information',
-                  'vat-registration-frontend',
                   'vat-registration').build(this)
