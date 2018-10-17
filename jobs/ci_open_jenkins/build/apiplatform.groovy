@@ -6,11 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtFrontendJobBuilder('api-service-approval-frontend').
-        withTests("test acceptance:test").
-        withXvfb().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('API-MONITOR')
         .withJobs(
         'api-documentation',
@@ -19,7 +14,6 @@ new BuildMonitorViewBuilder('API-MONITOR')
         'api-example-scala-client',
         'api-gateway',
         'api-revocation-frontend',
-        'api-service-approval-frontend',
         'api-platform-test-user',
         'api-platform-test-login-frontend',
         'api-subscription-fields',
