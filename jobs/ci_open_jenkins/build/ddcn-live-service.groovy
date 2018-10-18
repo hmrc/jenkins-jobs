@@ -6,13 +6,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
-def appLevyJob = new SbtMicroserviceJobBuilder('apprenticeship-levy')
-        .withTests('test it:test')
-        .withSCoverage()
-        .withScalaStyle()
-        .build(this as DslFactory)
-appLevyJob
-
 new SbtMicroserviceJobBuilder('gmp-bulk')
         .withScalaStyle()
         .withSCoverage()
@@ -99,7 +92,6 @@ new SbtFrontendJobBuilder('ras-frontend').
 
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
-        'apprenticeship-levy',
         'gmp-bulk',
         'nisp-frontend',
         'state-pension',
