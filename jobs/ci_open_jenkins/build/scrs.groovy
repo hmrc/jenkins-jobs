@@ -4,12 +4,7 @@ import javaposse.jobdsl.dsl.DslFactory
 import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtFrontendJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
-
-new SbtMicroserviceJobBuilder('business-registration-notification').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)   
-
+ 
 
 new SbtMicroserviceJobBuilder('incorporation-information').
         withScalaStyle().
@@ -17,5 +12,4 @@ new SbtMicroserviceJobBuilder('incorporation-information').
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('SCRS-MONITOR')
-        .withJobs('business-registration-notification',
-                  'incorporation-information').build(this)
+        .withJobs('incorporation-information').build(this)
