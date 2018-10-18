@@ -16,12 +16,6 @@ new SbtMicroserviceJobBuilder('incorporation-information').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-registration').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs('business-registration-notification',
-                  'incorporation-information',
-                  'vat-registration').build(this)
+                  'incorporation-information').build(this)
