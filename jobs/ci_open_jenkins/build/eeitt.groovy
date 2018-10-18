@@ -18,7 +18,7 @@ def javaLibraries = ["http-verbs-java",
                      "frontend-bootstrap-java",
                      "microservice-bootstrap-java"]
 
-def frontends = ["eeitt-frontend", "eeitt-admin-frontend", "eeitt-business-console"]
+def frontends = ["eeitt-admin-frontend", "eeitt-business-console"]
 
 def services = []
 
