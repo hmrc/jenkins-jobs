@@ -16,11 +16,6 @@ new SbtMicroserviceJobBuilder('incorporation-information').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('vat-registration-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('vat-registration').
         withScalaStyle().
         withSCoverage().
@@ -29,5 +24,4 @@ new SbtMicroserviceJobBuilder('vat-registration').
 new BuildMonitorViewBuilder('SCRS-MONITOR')
         .withJobs('business-registration-notification',
                   'incorporation-information',
-                  'vat-registration-frontend',
                   'vat-registration').build(this)
