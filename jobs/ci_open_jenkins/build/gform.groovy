@@ -18,9 +18,9 @@ def javaLibraries = ["http-verbs-java",
                      "frontend-bootstrap-java",
                      "microservice-bootstrap-java"]
 
-def frontends = ["gform-frontend"]
+def frontends = []
 
-def services = ["gform"]
+def services = []
 
 def allServices = services + frontends
 
