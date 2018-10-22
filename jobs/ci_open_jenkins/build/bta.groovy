@@ -10,9 +10,6 @@ new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-ui').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-ui-23', 'play-ui', 'play-23').
         build(this as DslFactory)
 
