@@ -6,6 +6,3 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 new SbtLibraryJobBuilder('play-conditional-form-mapping').
         build(this as DslFactory)
-
-new SbtFrontendJobBuilder('for-frontend')
-        .build(this as DslFactory)
