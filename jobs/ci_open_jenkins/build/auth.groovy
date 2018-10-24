@@ -5,9 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtLibraryJobBuilder('http-caching-client').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('json-encryption').
         build(this as DslFactory)
 
