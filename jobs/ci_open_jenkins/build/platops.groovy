@@ -25,10 +25,6 @@ new SbtLibraryJobBuilder('service-integration-test').
 new SbtLibraryJobBuilder('releaser').
         build(this)
 
-new SbtLibraryJobBuilder('govuk-template').
-        withoutJUnitReports().
-        build(this)
-
 new SbtLibraryJobBuilder('sbt-bintray-publish').
         withoutJUnitReports().
         build(this)
