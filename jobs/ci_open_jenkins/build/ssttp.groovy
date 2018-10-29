@@ -4,7 +4,7 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
 def services = [
        // "self-service-time-to-pay",
-        "time-to-pay-arrangement",
+//        "time-to-pay-arrangement",
         "sa-stub"]
 
 def allServices = services
