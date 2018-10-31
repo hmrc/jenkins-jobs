@@ -13,9 +13,6 @@ new SbtFrontendJobBuilder('help-frontend').
 new SbtLibraryJobBuilder('play-ui-23', 'play-ui', 'play-23').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-partials').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-url-binders').
         build(this as DslFactory)
 
