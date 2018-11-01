@@ -48,10 +48,6 @@ new SbtMicroserviceJobBuilder('openid-connect-userinfo')
         .withTests("test it:test")
         .build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-graphite').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-authorised-frontend').
         build(this as DslFactory)
 
