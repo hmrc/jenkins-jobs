@@ -90,6 +90,10 @@ new SbtFrontendJobBuilder('ras-frontend').
         withSCoverage().
         build(this as DslFactory)
 
+new SbtFrontendJobBuilder('help-frontend').
+        withXvfb().
+        build(this as DslFactory)
+
 new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         .withJobs(
         'gmp-bulk',
@@ -106,7 +110,8 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'pdf-generator-frontend',
         'pdf-generator-service',
         'ras-api',
-        'ras-frontend'
+        'ras-frontend',
+        'help-frontend'
 )
         .build(this)
 
