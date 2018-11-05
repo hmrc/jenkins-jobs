@@ -23,14 +23,6 @@ new SbtLibraryJobBuilder('sbt-artifactory').
         withoutJUnitReports().
         build(this)
 
-new SbtLibraryJobBuilder('sbt-settings').
-        withoutJUnitReports().
-        build(this)
-
-new SbtLibraryJobBuilder('sbt-distributables').
-        withoutJUnitReports().
-        build(this)
-
 jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         withSteps(cleanPublishSigned()).
         withPublishers(
