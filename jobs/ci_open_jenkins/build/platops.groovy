@@ -19,10 +19,6 @@ new SbtLibraryJobBuilder('service-integration-test').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('sbt-artifactory').
-        withoutJUnitReports().
-        build(this)
-
 jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         withSteps(cleanPublishSigned()).
         withPublishers(
