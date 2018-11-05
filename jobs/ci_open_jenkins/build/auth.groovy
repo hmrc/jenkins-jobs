@@ -21,9 +21,6 @@ new SbtLibraryJobBuilder('reactivemongo-json').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('Play-Reactivemongo').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-breadcrumb').
         build(this as DslFactory)
 
