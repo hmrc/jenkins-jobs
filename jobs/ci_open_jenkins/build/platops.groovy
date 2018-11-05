@@ -15,19 +15,9 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 
-new SbtLibraryJobBuilder('sbt-bobby').
-        build(this)
-
 new SbtLibraryJobBuilder('service-integration-test').
         withoutJUnitReports().
         build(this as DslFactory)
-
-new SbtLibraryJobBuilder('releaser').
-        build(this)
-
-new SbtLibraryJobBuilder('sbt-bintray-publish').
-        withoutJUnitReports().
-        build(this)
 
 new SbtLibraryJobBuilder('sbt-artifactory').
         withoutJUnitReports().
