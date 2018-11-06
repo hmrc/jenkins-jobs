@@ -15,10 +15,6 @@ import static uk.gov.hmrc.jenkinsjobs.domain.builder.JobBuilders.jobBuilder
 import static uk.gov.hmrc.jenkinsjobs.domain.publisher.Publishers.defaultBuildDescriptionPublisher
 import static uk.gov.hmrc.jenkinsjobs.domain.step.Steps.*
 
-new SbtLibraryJobBuilder('service-integration-test').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 jobBuilder("ReactiveMongo-HMRC-Fork", "ReactiveMongo").
         withSteps(cleanPublishSigned()).
         withPublishers(
@@ -60,7 +56,4 @@ jobBuilder('clean-slaves').
         build(this)
 
 new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('sample-reactivemongo').withTests("test")
         .build(this as DslFactory)
