@@ -10,13 +10,7 @@ new SbtMicroserviceJobBuilder('lightweight-contact-events').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtFrontendJobBuilder('valuation-office-agency-contact-frontend').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 // TODO: Add acceptance test job
 
 new BuildMonitorViewBuilder('VOAC-MONITOR')
-        .withJobs('lightweight-contact-events',
-        'valuation-office-agency-contact-frontend').build(this)
+        .withJobs('lightweight-contact-events').build(this)
