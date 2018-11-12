@@ -36,16 +36,6 @@ new SbtFrontendJobBuilder('pbik-frontend')
 //.withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('tamc')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtMicroserviceJobBuilder('tamc-frontend')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
 new SbtLibraryJobBuilder('tabular-data-validator')
         .build(this as DslFactory)
 
@@ -102,8 +92,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'national-insurance-record',
         'pbik',
         'pbik-frontend',
-        'tamc',
-        'tamc-frontend',
         'marriage-allowance-des-stub',
         'ei',
         'ei-frontend',
