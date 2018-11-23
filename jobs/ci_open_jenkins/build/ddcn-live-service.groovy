@@ -68,18 +68,6 @@ new SbtMicroserviceJobBuilder('pdf-generator-service').
         withLogRotator(7, 1000).
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('ras-api').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
-new SbtFrontendJobBuilder('ras-frontend').
-        withTests("test").
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('help-frontend').
         withXvfb().
         build(this as DslFactory)
@@ -97,8 +85,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'ei-frontend',
         'pdf-generator-frontend',
         'pdf-generator-service',
-        'ras-api',
-        'ras-frontend',
         'help-frontend'
 )
         .build(this)
@@ -113,6 +99,4 @@ new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
         .withJobs(
         'gmp-bulk',
-        'ras-api',
-        'ras-frontend')
         .build(this)
