@@ -20,9 +20,6 @@ new SbtLibraryJobBuilder('passcode-verification').
 new SbtLibraryJobBuilder('play-breadcrumb').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('play-config').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-filters').
         build(this as DslFactory)
 
