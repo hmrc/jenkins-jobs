@@ -98,5 +98,5 @@ new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
         .withJobs(
-        'gmp-bulk',
+        'gmp-bulk')
         .build(this)
