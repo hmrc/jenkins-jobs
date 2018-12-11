@@ -55,5 +55,3 @@ jobBuilder('clean-slaves').
                                """.stripMargin())).
         build(this)
 
-new SbtMicroserviceJobBuilder('library-upgrade-progress-frontend').withTests("test")
-        .build(this as DslFactory)
