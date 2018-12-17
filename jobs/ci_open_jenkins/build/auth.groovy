@@ -30,10 +30,6 @@ new SbtLibraryJobBuilder('http-exceptions').
         withoutJUnitReports().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('openid-connect-userinfo')
-        .withTests("test it:test")
-        .build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-authorised-frontend').
         build(this as DslFactory)
 
@@ -60,7 +56,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
             'http-exceptions',
             'json-encryption',
             'mongo-caching',
-            'openid-connect-userinfo',
             'play-auth',
             'play-authorisation',
             'play-authorised-frontend',
