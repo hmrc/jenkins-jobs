@@ -23,9 +23,6 @@ new SbtLibraryJobBuilder('play-breadcrumb').
 new SbtLibraryJobBuilder('play-filters').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('domain').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('http-exceptions').
         withoutJUnitReports().
         build(this as DslFactory)
