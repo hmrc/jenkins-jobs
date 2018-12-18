@@ -49,7 +49,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
             'passcode-verification',
-            'domain',
             'http-exceptions',
             'json-encryption',
             'mongo-caching',
