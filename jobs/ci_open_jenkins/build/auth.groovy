@@ -5,9 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtLibraryJobBuilder('json-encryption').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('secure').
         build(this as DslFactory)
 
@@ -45,7 +42,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
             'passcode-verification',
-            'json-encryption',
             'mongo-caching',
             'play-auth',
             'play-authorisation',
