@@ -23,10 +23,6 @@ new SbtLibraryJobBuilder('play-breadcrumb').
 new SbtLibraryJobBuilder('play-filters').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('http-exceptions').
-        withoutJUnitReports().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-authorised-frontend').
         build(this as DslFactory)
 
@@ -49,7 +45,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
             'passcode-verification',
-            'http-exceptions',
             'json-encryption',
             'mongo-caching',
             'play-auth',
