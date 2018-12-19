@@ -45,7 +45,6 @@ new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
             'passcode-verification',
-            'http-exceptions',
             'json-encryption',
             'mongo-caching',
             'play-auth',
