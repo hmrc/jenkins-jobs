@@ -39,9 +39,6 @@ new SbtFrontendJobBuilder('pbik-frontend')
 new SbtLibraryJobBuilder('tabular-data-validator')
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('marriage-allowance-des-stub').
-        withSCoverage().
-        build(this as DslFactory)
 
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
@@ -80,7 +77,6 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'national-insurance-record',
         'pbik',
         'pbik-frontend',
-        'marriage-allowance-des-stub',
         'ei',
         'ei-frontend',
         'pdf-generator-frontend',
