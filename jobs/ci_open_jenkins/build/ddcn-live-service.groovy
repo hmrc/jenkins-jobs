@@ -26,19 +26,8 @@ new SbtMicroserviceJobBuilder('national-insurance-record')
         .withSCoverage()
         .build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('pbik')
-        .withScalaStyle()
-        .withSCoverage()
-        .build(this as DslFactory)
-
-new SbtFrontendJobBuilder('pbik-frontend')
-        .withScalaStyle()
-//.withSCoverage()
-        .build(this as DslFactory)
-
 new SbtLibraryJobBuilder('tabular-data-validator')
         .build(this as DslFactory)
-
 
 new SbtFrontendJobBuilder('tax-summaries-frontend').
         withScalaStyle().
@@ -75,14 +64,11 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
         'nisp-frontend',
         'state-pension',
         'national-insurance-record',
-        'pbik',
-        'pbik-frontend',
         'ei',
         'ei-frontend',
         'pdf-generator-frontend',
         'pdf-generator-service',
-        'help-frontend'
-)
+        'help-frontend')
         .build(this)
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
