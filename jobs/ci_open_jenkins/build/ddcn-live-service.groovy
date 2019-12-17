@@ -39,11 +39,6 @@ new SbtMicroserviceJobBuilder('tax-summaries').
         withSCoverage().
         build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('tax-summaries-agent').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtFrontendJobBuilder('pdf-generator-frontend').
         withTests("test").
         withLogRotator(7, 1000).
@@ -74,8 +69,7 @@ new BuildMonitorViewBuilder('LIVE-SERVICES-MONITOR')
 new BuildMonitorViewBuilder('DDCNLS-TEAM-1-ALL-OPEN')
         .withJobs(
         'tax-summaries-frontend',
-        'tax-summaries',
-        'tax-summaries-agent')
+        'tax-summaries')
         .build(this)
 
 new BuildMonitorViewBuilder('DDCNLS-TEAM-4-ALL-OPEN')
