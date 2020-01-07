@@ -5,10 +5,6 @@ import uk.gov.hmrc.jenkinsjobbuilders.domain.builder.BuildMonitorViewBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtMicroserviceJobBuilder
 
-new SbtMicroserviceJobBuilder('phone-number').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
 
 new SbtMicroserviceJobBuilder('wire-mock-stub').
         withTests("it:test").
