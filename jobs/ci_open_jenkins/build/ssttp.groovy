@@ -12,7 +12,7 @@ def allServices = services
 services.each {
     new SbtMicroserviceJobBuilder(it)
             .withScalaStyle()
-            .withSCoverage()
+            .withSCoverage('2.11')
             .withTests("test it:test")
             .build(this as DslFactory)
 }
