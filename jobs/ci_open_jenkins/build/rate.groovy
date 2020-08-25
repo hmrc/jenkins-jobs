@@ -7,7 +7,6 @@ import uk.gov.hmrc.jenkinsjobs.domain.builder.SbtLibraryJobBuilder
 
 new SbtLibraryJobBuilder('akka-xml-parser').
                  withSCoverage().
-        build(this as DslFactory).
         build(this as DslFactory)
 
 new SbtLibraryJobBuilder('xml-parser').
