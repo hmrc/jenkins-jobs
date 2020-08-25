@@ -9,17 +9,9 @@ new SbtLibraryJobBuilder('akka-xml-parser').
                  withSCoverage().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('xml-parser').
-                 withSCoverage().
-        build(this as DslFactory)
-
-new SbtLibraryJobBuilder('https-stream').
-                 withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('service-contract-cache').
         withSCoverage().
         build(this as DslFactory)
 
 new BuildMonitorViewBuilder('RATE-MONITOR')
-        .withJobs('akka-xml-parser', 'xml-parser', 'https-stream', 'service-contract-cache').build(this)
+        .withJobs('akka-xml-parser', 'xml-parser', 'service-contract-cache').build(this)
