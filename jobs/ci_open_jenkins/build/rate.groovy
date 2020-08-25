@@ -9,10 +9,6 @@ new SbtLibraryJobBuilder('akka-xml-parser').
                  withSCoverage().
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('xml-parser').
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('service-contract-cache').
         withSCoverage().
         build(this as DslFactory)
