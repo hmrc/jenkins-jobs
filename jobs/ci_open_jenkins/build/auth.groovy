@@ -14,9 +14,6 @@ new SbtLibraryJobBuilder('secure').
 new SbtLibraryJobBuilder('crypto').
         build(this as DslFactory)
 
-new SbtLibraryJobBuilder('passcode-verification').
-        build(this as DslFactory)
-
 new SbtLibraryJobBuilder('play-breadcrumb').
         build(this as DslFactory)
 
@@ -41,7 +38,6 @@ new SbtLibraryJobBuilder('tax-year').
 new BuildMonitorViewBuilder('AUTH-MONITOR')
         .withJobs(
             'crypto',
-            'passcode-verification',
             'json-encryption',
             'mongo-caching',
             'play-auth',
