@@ -14,11 +14,6 @@ new SbtLibraryJobBuilder('play-random-json-filter').build(this as DslFactory)
 
 new SbtLibraryJobBuilder('txm-events').build(this as DslFactory)
 
-new SbtMicroserviceJobBuilder('address-reputation-ingester').
-        withScalaStyle().
-        withSCoverage().
-        build(this as DslFactory)
-
 new SbtMicroserviceJobBuilder('address-lookup').
         withScalaStyle().
         withSCoverage().
@@ -38,7 +33,6 @@ new SbtFrontendJobBuilder('kafka-amqp-sink').
 new BuildMonitorViewBuilder('TXM-NORTH-MONITOR')
         .withJobs('logging',
                   'address-reputation-store',
-                  'address-reputation-ingester',
                   'address-lookup',
                   'address-lookup-frontend',
                   'address-lookup-frontend-stub',
